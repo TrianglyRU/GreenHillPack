@@ -25,6 +25,26 @@ function StageSetup()
 		}
 		break;
 		
+		// Test Stage
+		case Stage_GHZ1:
+		{
+			ZoneName			= "GREEN HILL";
+			ZoneID				= 0;
+			ActID				= 0;
+			FinalActID			= 2;
+			CardEnabled			= true;
+			WaterEnabled        = false;
+			WaterLevel			= 0;
+			StageMusic			= TestZone;
+			LeftBoundary		= 0;
+			TopBoundary			= 0;
+			RightBoundary		= room_width;
+			BottomBoundary		= 992;
+			AnimatedGraphics	= noone;
+			AnimalSet			= [spr_obj_animal_flicky, spr_obj_animal_ricky];
+		}
+		break;
+		
 		// Default
 		default:
 		{

@@ -18,10 +18,10 @@ function GameSetup()
 	Game.S3WaterPhysics		= false;
 	Game.SKCrouch			= false;
 	Game.SKRollDeceleration	= false;
-	Game.S2FloorCollision	= true;
-	Game.SKWallCollision	= true;	
-	Game.SKItemBoxBehaviour = true;
-	Game.CDStageTimer	    = true;
+	Game.S2FloorCollision	= false;
+	Game.SKWallCollision	= false;	
+	Game.SKItemBoxBehaviour = false;
+	Game.CDStageTimer	    = false;
 	
 	// Orbinaut improvements
 	Game.CustomSlopeCollision = true;
