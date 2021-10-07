@@ -8,14 +8,14 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 0,
-  "bbox_right": 1279,
-  "bbox_top": 1,
-  "bbox_bottom": 2815,
+  "bbox_right": 3839,
+  "bbox_top": 0,
+  "bbox_bottom": 103,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 1280,
-  "height": 2816,
+  "width": 3840,
+  "height": 104,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"313a3b0b-ad75-43aa-b4e7-e6b5a0a94f6c","path":"sprites/tex_ghz_tileset/tex_ghz_tileset.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"313a3b0b-ad75-43aa-b4e7-e6b5a0a94f6c","path":"sprites/tex_ghz_tileset/tex_ghz_tileset.yy",},"LayerId":{"name":"d84f0ebd-8645-4367-971d-ed125c96f136","path":"sprites/tex_ghz_tileset/tex_ghz_tileset.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"tex_ghz_tileset","path":"sprites/tex_ghz_tileset/tex_ghz_tileset.yy",},"resourceVersion":"1.0","name":"313a3b0b-ad75-43aa-b4e7-e6b5a0a94f6c","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"4f2ef258-c873-46ef-95a0-fcc5fb978a05","path":"sprites/tex_ghz_bg05/tex_ghz_bg05.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"4f2ef258-c873-46ef-95a0-fcc5fb978a05","path":"sprites/tex_ghz_bg05/tex_ghz_bg05.yy",},"LayerId":{"name":"94a42b0f-b9b2-4285-984a-96b8777303d9","path":"sprites/tex_ghz_bg05/tex_ghz_bg05.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"tex_ghz_bg05","path":"sprites/tex_ghz_bg05/tex_ghz_bg05.yy",},"resourceVersion":"1.0","name":"4f2ef258-c873-46ef-95a0-fcc5fb978a05","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"tex_ghz_tileset","path":"sprites/tex_ghz_tileset/tex_ghz_tileset.yy",},
+    "spriteId": {"name":"tex_ghz_bg05","path":"sprites/tex_ghz_bg05/tex_ghz_bg05.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"abea59d6-dd19-419a-b9fe-816f577b2441","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"313a3b0b-ad75-43aa-b4e7-e6b5a0a94f6c","path":"sprites/tex_ghz_tileset/tex_ghz_tileset.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"d19779dc-4947-47aa-8486-3209745b3d27","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"4f2ef258-c873-46ef-95a0-fcc5fb978a05","path":"sprites/tex_ghz_bg05/tex_ghz_bg05.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -58,14 +58,14 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"tex_ghz_tileset","path":"sprites/tex_ghz_tileset/tex_ghz_tileset.yy",},
+    "parent": {"name":"tex_ghz_bg05","path":"sprites/tex_ghz_bg05/tex_ghz_bg05.yy",},
     "resourceVersion": "1.3",
-    "name": "tex_ghz_tileset",
+    "name": "tex_ghz_bg05",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"d84f0ebd-8645-4367-971d-ed125c96f136","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"94a42b0f-b9b2-4285-984a-96b8777303d9","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
@@ -73,7 +73,7 @@
     "path": "folders/Rooms/Stages/Green Hill Zone/Textures.yy",
   },
   "resourceVersion": "1.0",
-  "name": "tex_ghz_tileset",
+  "name": "tex_ghz_bg05",
   "tags": [],
   "resourceType": "GMSprite",
 }

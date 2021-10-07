@@ -39,8 +39,8 @@ function StageSetup()
 			LeftBoundary		= 0;
 			TopBoundary			= 0;
 			RightBoundary		= room_width;
-			BottomBoundary		= 992;
-			AnimatedGraphics	= noone;
+			BottomBoundary		= 992 + (Game.Height == 240) * 8;
+			AnimatedGraphics	= [tex_ghz_anitile0, 16, tex_ghz_anitile1, 1];
 			AnimalSet			= [spr_obj_animal_flicky, spr_obj_animal_ricky];
 		}
 		break;

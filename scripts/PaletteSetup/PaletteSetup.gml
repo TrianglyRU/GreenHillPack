@@ -7,6 +7,14 @@ function PaletteSetup()
 		{
 			palette_load(PaletteDry, pal_default_dry);
 			palette_load(PaletteWet, pal_default_wet);
+		} 
+		break;
+		
+		// Load GHZ palette
+		case Stage_GHZ1:
+		{
+			palette_load(PaletteDry, pal_ghz_dry);
+			palette_load(PaletteWet, noone);
 		}
 		break;
 		

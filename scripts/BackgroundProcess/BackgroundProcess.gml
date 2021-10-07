@@ -6,6 +6,17 @@ function BackgroundProcess()
 	// Use parallax shader
 	shader_set(ShaderParallax);
 	
+	if keyboard_check_pressed(ord("P"))
+	{
+		BGValues[5][6] += 0.01;
+		show_debug_message(BGValues[5][6]);
+	}
+	else if keyboard_check_pressed(ord("O"))
+	{
+		BGValues[5][6] -= 0.01;
+		show_debug_message(BGValues[5][6]);
+	}
+	
 	// Get camera position
 	var ViewX = Camera.ViewX;
 	var ViewY = Camera.ViewY;
