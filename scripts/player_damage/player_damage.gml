@@ -106,12 +106,13 @@ function player_damage(isFlame,isThunder,instantKill)
 			}
 			
 			// Clear ring counter
-			Player.Rings        = 0;
+			Player.Rings = 0;
 		}
-			
-		// Lose barrier
 		else
 		{
+			// Lose barrier
+			Player.BarrierType = false;
+			
 			// Play sound
 			if object_index == SpikesVertical or object_index == SpikesHorizontal
 			{
@@ -120,7 +121,7 @@ function player_damage(isFlame,isThunder,instantKill)
 			else
 			{
 				audio_sfx_play(sfxHurt, false);
-			}
+			}	
 		}
 		
 		// Set speeds
