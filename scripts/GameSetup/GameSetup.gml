@@ -41,7 +41,7 @@ function GameSetup()
 	Game.WindowSize	      = 4;
 	
 	// Audio settings
-	Game.MusicVolume = 0;
+	Game.MusicVolume = 0.5;
 	Game.SoundVolume = 0.5;
 	
 	// Control settings (keyboard)

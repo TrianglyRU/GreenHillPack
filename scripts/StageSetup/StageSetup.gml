@@ -35,7 +35,7 @@ function StageSetup()
 			CardEnabled			= true;
 			WaterEnabled        = false;
 			WaterLevel			= 0;
-			StageMusic			= TestZone;
+			StageMusic			= GreenHill;
 			LeftBoundary		= 0;
 			TopBoundary			= 0;
 			RightBoundary		= room_width;

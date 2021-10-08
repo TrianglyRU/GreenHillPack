@@ -30,6 +30,12 @@ function tile_check_nearest(leftdata,rightdata,objectAngle)
 			{
 				ResultAngle = 360;
 			}
+			
+			// GHZRevisited: reset distance if higher than 2
+			if ResultDistance > 2
+			{
+				ResultDistance = 32;
+			}
 		}
 	}
 	
