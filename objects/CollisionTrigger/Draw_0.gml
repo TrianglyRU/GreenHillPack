@@ -2,4 +2,5 @@
 // You can write your code in this editor
 	
 	// Call object script
-	ObjCollisionTriggerDraw();
+	// ObjCollisionTriggerDraw(); <- Uncomment this if you want to display the trigger in DevMode
+									

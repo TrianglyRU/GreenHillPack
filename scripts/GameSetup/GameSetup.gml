@@ -24,7 +24,6 @@ function GameSetup()
 	Game.CDStageTimer	    = false;
 	
 	// Orbinaut improvements
-	Game.CustomSlopeCollision = true;
 	Game.SmoothRotation	      = true;
 	Game.RichPresenceSupport  = true;
 	Game.PreciseRingBehaviour = false;
@@ -36,8 +35,8 @@ function GameSetup()
 	
 	// Video settings
 	Game.WindowFullscreen = false;
-	Game.Width            = 426;
-	Game.Height			  = 240;
+	Game.Width            = 400;
+	Game.Height			  = 224;
 	Game.WindowSize	      = 4;
 	
 	// Audio settings

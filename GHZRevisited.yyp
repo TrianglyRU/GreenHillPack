@@ -181,6 +181,7 @@
     {"id":{"name":"ObjAnimalMain","path":"scripts/ObjAnimalMain/ObjAnimalMain.yy",},"order":2,},
     {"id":{"name":"palette_check_duration","path":"scripts/palette_check_duration/palette_check_duration.yy",},"order":36,},
     {"id":{"name":"ObjSuperStarMain","path":"scripts/ObjSuperStarMain/ObjSuperStarMain.yy",},"order":3,},
+    {"id":{"name":"spr_obj_collapsingledge_ghz","path":"sprites/spr_obj_collapsingledge_ghz/spr_obj_collapsingledge_ghz.yy",},"order":2,},
     {"id":{"name":"ObjAnimalStartup","path":"scripts/ObjAnimalStartup/ObjAnimalStartup.yy",},"order":3,},
     {"id":{"name":"sfxSignPost","path":"sounds/sfxSignPost/sfxSignPost.yy",},"order":44,},
     {"id":{"name":"spr_obj_buzzbomber_shot","path":"sprites/spr_obj_buzzbomber_shot/spr_obj_buzzbomber_shot.yy",},"order":3,},
