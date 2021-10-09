@@ -90,5 +90,5 @@ function ObjCrabmeatMain()
 	}
 
 	// Act as badnik
-	object_act_enemy(EnemyBadnik)ж
+	object_act_enemy(EnemyBadnik);
 }
