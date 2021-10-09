@@ -55,6 +55,7 @@
     {"id":{"name":"GameControllersLoad","path":"scripts/GameControllersLoad/GameControllersLoad.yy",},"order":14,},
     {"id":{"name":"Palette","path":"objects/Palette/Palette.yy",},"order":0,},
     {"id":{"name":"ObjOrbinautOrbMain","path":"scripts/ObjOrbinautOrbMain/ObjOrbinautOrbMain.yy",},"order":3,},
+    {"id":{"name":"spr_obj_platform_ghz","path":"sprites/spr_obj_platform_ghz/spr_obj_platform_ghz.yy",},"order":2,},
     {"id":{"name":"ObjBubbleControllerStartup","path":"scripts/ObjBubbleControllerStartup/ObjBubbleControllerStartup.yy",},"order":2,},
     {"id":{"name":"Player","path":"objects/Player/Player.yy",},"order":0,},
     {"id":{"name":"ObjSpringRampStartup","path":"scripts/ObjSpringRampStartup/ObjSpringRampStartup.yy",},"order":2,},
