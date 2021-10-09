@@ -11,7 +11,7 @@ function ObjSpringVerticalStartup()
 	}
 	
 	// Set object solidbox
-	object_set_solidbox(16, 8, false);
+	object_set_solidbox(14, 8, false);
 	
 	// Set object depth
 	object_set_depth(Player, false);

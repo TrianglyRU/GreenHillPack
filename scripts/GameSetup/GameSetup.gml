@@ -1,7 +1,7 @@
 function GameSetup()
 {
 	// Game settings
-	Game.WindowTitle = "Orbinaut Framework (Dev.)";
+	Game.WindowTitle = "Green Hill Revisited";
 	Game.DevMode     = true;
 	Game.ShowSplash  = false;
 	Game.ForceLoad	 = false;	// If set to false the game will load into DevMenu, else into the room you choose
@@ -35,7 +35,7 @@ function GameSetup()
 	
 	// Video settings
 	Game.WindowFullscreen = false;
-	Game.Width            = 320;
+	Game.Width            = 400;
 	Game.Height			  = 224;
 	Game.WindowSize	      = 4;
 	

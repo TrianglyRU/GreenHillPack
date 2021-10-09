@@ -17,8 +17,8 @@
   "width": 3840,
   "height": 40,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "tgGHZ",
+    "path": "texturegroups/tgGHZ",
   },
   "swatchColours": null,
   "gridX": 0,

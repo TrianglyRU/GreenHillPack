@@ -1,7 +1,7 @@
 function ObjRingMain()
 {
 	// Play animation
-	animation_play_sync(sprite_index, 8);
+	animation_play_sync(sprite_index, 4);
 	
 	switch State
 	{
