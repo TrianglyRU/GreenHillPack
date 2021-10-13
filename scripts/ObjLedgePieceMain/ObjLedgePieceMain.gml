@@ -1,9 +1,9 @@
 function ObjLedgePieceMain()
 {
-	// Fall
 	if !(--Timer)
 	{
-		Ysp += 0.21875;
+		// Fall
+		Ysp  += 0.21875;
 		PosY += Ysp;
 		
 		// Update position

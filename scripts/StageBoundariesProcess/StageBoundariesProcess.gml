@@ -70,7 +70,7 @@ function StageBoundariesProcess()
 	if BottomBoundary < TargetBottomBoundary
 	{
 		BottomBoundary += 2;
-		DeathBoundary   = TargetBottomBoundary;
+		DeathBoundary = TargetBottomBoundary;
 	}
 	else if BottomBoundary > TargetBottomBoundary
 	{

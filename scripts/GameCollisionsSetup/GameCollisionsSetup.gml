@@ -2,9 +2,9 @@ function GameCollisionsSetup()
 {
 	switch room
 	{
-		// GHZ
-		case Stage_GHZ1:
-			tile_data_set("GHZ", 247, "CollisionLayerA", "CollisionLayerB");
+		// Test Stage
+		case Stage_TZ:
+			tile_data_set("TZ", 67, "CollisionLayerA", "CollisionLayerB");
 		break;
 		
 		// Default

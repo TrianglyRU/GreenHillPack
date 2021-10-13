@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spt_controller",
-    "path": "sprites/spt_controller/spt_controller.yy",
+    "name": "spr_controller",
+    "path": "sprites/spr_controller/spr_controller.yy",
   },
   "solid": false,
   "visible": true,
@@ -26,6 +26,7 @@
     {"isDnD":false,"eventNum":5,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":4,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":1,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],

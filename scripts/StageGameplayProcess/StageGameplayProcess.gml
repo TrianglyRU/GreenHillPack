@@ -21,11 +21,18 @@ function StageGameplayProcess()
 	
 	// Process animated graphics
 	if AnimatedGraphics != noone
-	{
-		for (var i = 0; i < array_length(AnimatedGraphics); i += 2)
+	{	
+		var Length = array_length(AnimatedGraphics);
+		for (var i = 0; i < Length; i += 2)
 		{
-			var AnimSpeed = !fade_check(FadeActive) and !Stage.IsPaused ? 1 / AnimatedGraphics[i + 1] : 0;
-			
+			if fade_check(FadeActive) and !Stage.IsPaused
+			{
+				var AnimSpeed = 1 / AnimatedGraphics[i + 1];
+			}
+			else
+			{
+				var AnimSpeed = 0;
+			}
 			sprite_set_speed(AnimatedGraphics[i], AnimSpeed, spritespeed_framespergameframe);
 		}
 	}
@@ -37,9 +44,13 @@ function StageGameplayProcess()
 		Camera.Enabled = false;
 		TimeEnabled    = false;
 		
-		// Check if player has fallen below camera boundary
-		if floor(Player.PosY) >= Camera.ViewY + Game.Height + 32
+		// Check if player has fallen below bottom boundary
+		if floor(Player.PosY) >= Stage.BottomBoundary + 32
 		{	
+			/* Since Sonic 3, the game checks if player has fallen below
+			Camera.ViewY + Game.Height + 32 instead. That's a quick change so we
+			didn't make a flag for it */
+			
 			if !EventTimer
 			{
 				// Subtract a life

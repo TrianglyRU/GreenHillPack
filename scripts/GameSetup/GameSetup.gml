@@ -1,7 +1,7 @@
 function GameSetup()
 {
 	// Game settings
-	Game.WindowTitle = "Green Hill Revisited";
+	Game.WindowTitle = "Orbinaut Framework (Dev.)";
 	Game.DevMode     = true;
 	Game.ShowSplash  = false;
 	Game.ForceLoad	 = false;	// If set to false the game will load into DevMenu, else into the room you choose
@@ -18,13 +18,13 @@ function GameSetup()
 	Game.S3WaterPhysics		= false;
 	Game.SKCrouch			= false;
 	Game.SKRollDeceleration	= false;
-	Game.S2FloorCollision	= false;
-	Game.SKWallCollision	= false;	
-	Game.SKItemBoxBehaviour = false;
-	Game.CDStageTimer	    = false;
+	Game.S2FloorCollision	= true;
+	Game.SKWallCollision	= true;	
+	Game.SKItemBoxBehaviour = true;
+	Game.CDStageTimer	    = true;
 	
 	// Orbinaut improvements
-	Game.SmoothRotation	      = false;
+	Game.SmoothRotation	      = true;
 	Game.RichPresenceSupport  = true;
 	Game.PreciseRingBehaviour = false;
 	Game.NoRollSpeedLimit	  = false;
@@ -35,12 +35,12 @@ function GameSetup()
 	
 	// Video settings
 	Game.WindowFullscreen = false;
-	Game.Width            = 400;
-	Game.Height			  = 224;
-	Game.WindowSize	      = 4;
+	Game.Width            = 424;
+	Game.Height			  = 240;
+	Game.WindowSize	      = 3;
 	
 	// Audio settings
-	Game.MusicVolume = 0.5;
+	Game.MusicVolume = 0;
 	Game.SoundVolume = 0.5;
 	
 	// Control settings (keyboard)
@@ -48,7 +48,7 @@ function GameSetup()
 	
 	// Initialise other variables
 	Game.Character		 = 0;
-	Game.AnimationTime	 = 0;
+	Game.GlobalTime		 = 0;
 	Game.ActiveSave      = 0;
 	Game.SaveData		 = 0;
 	Game.SaveState       = 0;
