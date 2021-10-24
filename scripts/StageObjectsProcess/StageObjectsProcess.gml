@@ -26,7 +26,7 @@ function StageObjectsProcess()
 					// Destroy object
 					case TypeDelete:
 					{
-						if x < LeftBound or x > RightBound or y > Stage.BottomBoundary
+						if x < LeftBound or x > RightBound or y > Stage.BottomBoundary or y < Stage.TopBoundary
 						{
 							if IsParent
 							{
@@ -92,5 +92,5 @@ function StageObjectsProcess()
 	}
 	
 	// Activate objects (object's that were unloaded this frame WON'T activate)
-	instance_activate_range();
+	instance_activate_range(Camera.ViewX);
 }

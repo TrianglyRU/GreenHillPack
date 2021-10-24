@@ -1,19 +1,12 @@
-// @function animation_play_sync(ind,speed)
-function animation_play_sync(ind,speed)
-{	
-	// Exit if object is off-screen
-	if !object_is_onscreen(id)
-	{
-		exit;
-	}
-	
+/// @function animation_play_sync(spriteid,duration)
+function animation_play_sync(spriteid,duration)
+{
 	// Update sprite
-	if sprite_index != ind
+	if sprite_index != spriteid
 	{
-		sprite_index = ind;
-		image_index  = 0;
+		sprite_index = spriteid;	
 	}
 	
 	// Play animation
-	image_index = Game.GlobalTime div speed mod image_number;
+	image_index = Game.GlobalTime div duration mod image_number;
 }

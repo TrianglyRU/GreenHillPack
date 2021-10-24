@@ -4,12 +4,11 @@ function object_act_solid(sides,top,bottom,resetActions)
 	/* The following is long and replicates originals method of colliding with object,
 	however it was tweaked in several places to make collision much more consistent */
 	
-	// Clear touch and push flags
+	// Clear touch flags
 	Obj_SolidTouchU	= false;
 	Obj_SolidTouchD	= false;
 	Obj_SolidTouchL	= false;
 	Obj_SolidTouchR	= false;
-	Obj_SolidPush	= false;
 	
 	// Exit if collisions are disabled
 	if !Player.AllowCollision
@@ -78,7 +77,7 @@ function object_act_solid(sides,top,bottom,resetActions)
 		Player.PosX += floor(x - xprevious);
 		Player.PosY  = ObjectY - Obj_SolidY - Player.RadiusY + SlopeOffset - 1;
 			
-		// Tell the object we're touching its top side
+		// Tell the object player touches its top side
 		Obj_SolidTouchU = true;
 		
 		// Check if player is outside the object
@@ -139,7 +138,7 @@ function object_act_solid(sides,top,bottom,resetActions)
 						Player.Ysp   = 0;
 					}
 				
-					// Tell the object we're touching its bottom
+					// Tell the object player touches its bottom side
 					Obj_SolidTouchD = true;
 				}
 			}
@@ -183,7 +182,7 @@ function object_act_solid(sides,top,bottom,resetActions)
 							PlayerResetOnFloor();
 						}
 					
-						// Tell the object we're touching its top side
+						// Tell the object player touches its top side
 						Obj_SolidTouchU = true;
 					}
 				}
@@ -193,36 +192,30 @@ function object_act_solid(sides,top,bottom,resetActions)
 		// Collide horizontally
 		else if sides and abs(YDistance) > 4
 		{		
-			// Tell the object we're touching its side, and set push animation
-			if PlayerX < ObjectX
-			{
-				if Player.Xsp > 0 and Player.Facing == FlipRight
-				{
-					Player.Pushing = !Player.Spinning;
-				}
-				Obj_SolidTouchL = true;
-			}
-			else
-			{
-				if Player.Xsp < 0 and Player.Facing == FlipLeft
-				{
-					Player.Pushing = !Player.Spinning;
-				}
-				Obj_SolidTouchR = true;
-			}
-			
-			// Reset speeds and push outside
 			if XDistance != 0 and sign(XDistance) == sign(Player.Xsp)
 			{
-				Player.Inertia = 0;
-				Player.Xsp	   = 0;
-				
 				// Tell the object it is being pushed
+				if PlayerX < ObjectX
+				{
+					Obj_SolidTouchL = true;
+				}
+				else
+				{
+					Obj_SolidTouchR = true;
+				}
+				
+				// Make player push the object
 				if Player.Grounded
 				{
-					Obj_SolidPush = true;
+					Player.Pushing = true;
 				}
+				
+				// Reset speeds
+				Player.Inertia = 0;
+				Player.Xsp	   = 0;
 			}
+			
+			// Clip player outside
 			Player.PosX -= XDistance;
 		}
 	}

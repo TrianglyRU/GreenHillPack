@@ -56,9 +56,6 @@ function InterfacePauseProcess()
 						Game.StarPostData    = [];
 						Game.SpecialRingList = [];
 					}
-					
-					// Clear special ring data
-					Game.SpecialRingData = [];
 				}
 			}
 			
@@ -72,7 +69,7 @@ function InterfacePauseProcess()
 					Camera.Enabled = true;
 					
 					// Activate objects
-					instance_activate_range();
+					instance_activate_range(Camera.ViewX);
 					
 					// Resume audio
 					audio_resume_all();

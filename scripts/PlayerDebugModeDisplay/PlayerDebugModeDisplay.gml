@@ -44,17 +44,8 @@ function PlayerDebugModeDisplay()
 				case SpringRedDiagonal:      
 					sprite_index = spr_obj_spring_red_d;
 				break;
-				case SpringRamp:
-					sprite_index = spr_obj_springramp;
-				break;
 				case StarPost:				 
 					sprite_index = spr_obj_starpost;		  
-				break;
-				case AirBubbler:				 
-					sprite_index = spr_obj_airbubbler;		  
-				break;
-				case PushableBlock:				 
-					sprite_index = spr_obj_pushableblock;		  
 				break;
 				case FloatingPlatform:		 
 					sprite_index = spr_obj_platform_template;   
@@ -68,7 +59,7 @@ function PlayerDebugModeDisplay()
 				case Animal:				 
 					sprite_index = spr_obj_animal_flicky;   
 				break;	
-				case SignPost:				 
+				case ClearPlate:				 
 					sprite_index = spr_obj_signpost_start_sonic;   
 				break;
 				case EggPrison:				 

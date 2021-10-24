@@ -12,7 +12,7 @@ function tile_check_collision_h(x,y,toPositive,ignoreTop,tilelayer)
 		y--;
 	}
 
-	// Return blank values if outside of the room
+	// Return blank values if sensor is outside of the room
 	if x <= 0 or y <= 0 or x >= room_width or y >= room_height 
 	{
 		return [32, 360];
@@ -22,7 +22,7 @@ function tile_check_collision_h(x,y,toPositive,ignoreTop,tilelayer)
 	var SearchDirection = toPositive ? 1 : -1;
 	
 	// Get tilelayer ID
-	var Layer = layer_tilemap_get_id(Game.TileLayers[tilelayer]);
+	var Layer = Game.TileLayers[tilelayer];
 	
 	// Get first tile
 	var FirstTile      = tilemap_get(Layer, x div 16, y div 16);
@@ -93,11 +93,11 @@ function tile_check_collision_h(x,y,toPositive,ignoreTop,tilelayer)
 	// Calculate distance to edge of the result tile
 	if toPositive
 	{
-		var TileDistance = (x + SearchShift * SearchDirection) div 16 * 16 + (16 - ResultWidth - 1) - x;
+		var TileDistance = ((x + SearchShift * SearchDirection) & -16) + (16 - ResultWidth - 1) - x;
 	}
 	else
 	{
-		var TileDistance = x - ((x + SearchShift * SearchDirection) div 16 * 16 + ResultWidth);
+		var TileDistance = x - (((x + SearchShift * SearchDirection) & -16) + ResultWidth);
 	}
 	
 	// Get tile angle

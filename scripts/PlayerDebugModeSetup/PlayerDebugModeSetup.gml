@@ -20,15 +20,12 @@ function PlayerDebugModeSetup()
 		SpringRedVertical,
 		SpringRedHorizontal,
 		SpringRedDiagonal,
-		SpringRamp,
 		StarPost,
-		AirBubbler,
-		PushableBlock,
 		FloatingPlatform,
 		SwingingPlatform,	
 		Bridge,
 		Animal,
-		SignPost,
+		ClearPlate,
 		EggPrison,
 		
 		// Placeholder object, that will grant (or revoke) emeralds

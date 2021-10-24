@@ -1,10 +1,13 @@
 /// @function animation_set(spriteid,frame)
 function animation_set(spriteid,frame)
-{
-	// Update sprite and set frame index
-	if sprite_index != spriteid
+{	
+	// Update animation
+	if sprite_index != spriteid or !variable_instance_exists(id, "image_duration")
 	{
-		sprite_index = spriteid;
+		image_timer     = 0;
+		image_loopframe = frame;
+		sprite_index    = spriteid;
 	}
-	image_index = frame;
+	image_index	    = frame;
+	image_duration  = 0;	
 }

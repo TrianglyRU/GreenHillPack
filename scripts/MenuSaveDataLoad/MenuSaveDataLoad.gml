@@ -34,8 +34,11 @@ function MenuSaveDataLoad()
 			// Define zone
 			switch Game.SaveData[i][1]
 			{
+				case 0:
+					DataZone = "GHZ";
+				break;
 				default:
-					DataZone = "TSZ";
+					DataZone = "UNK";
 				break;
 			}
 			

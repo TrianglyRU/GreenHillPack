@@ -1,46 +1,39 @@
-/// @function animation_play(ind,speed,goto) 
-function animation_play(ind,speed,goto) 
-{	
-	// Create new instance variables
-	variable_create_new("image_duration",  abs(speed) + 1);
-	variable_create_new("image_lastindex", 0);
-	
-	// Exit if object is off-screen
-	if !object_is_onscreen(id)
+/// @function animation_play(spriteid,duration,startframe,loopframe)
+function animation_play(spriteid,duration,startframe,loopframe)
+{
+	// Update animation
+	if sprite_index != spriteid or !variable_instance_exists(id, "image_duration")
 	{
-		exit;
-	}
-	
-	// Update sprite
-	if sprite_index != ind
-	{
-		sprite_index    = ind; 	
-		image_index     = 0;
-		image_lastindex = 0;
-		image_duration  = abs(speed) + 1;
+		if !is_array(duration)
+		{
+			image_timer    = abs(duration);
+			image_duration = duration;
+		}
+		else
+		{
+			image_timer    = abs(duration[startframe]);
+			image_duration = duration[startframe];
+		}
+		image_loopframe = loopframe;
+		image_index		= startframe;
+		sprite_index    = spriteid;
 	}
 	
 	// Update duration
-	if image_lastindex != image_index
+	else 
 	{
-		image_duration  = abs(speed);
-		image_lastindex = image_index;
-	}
-
-	// Handle subimage change
-	if speed != 0 and !fade_check(FadeActive)
-	{
-		if !(--image_duration)
-		{	
-			// Switch to the next subimage
-			if speed > 0
+		if !is_array(duration) and image_duration != duration
+		{
+			if image_timer == 0
 			{
-				image_index = image_index < image_number - 1 ? image_index + 1 : goto;
+				image_timer = abs(duration);
 			}
-			else
-			{
-				image_index = image_index > 0 ? image_index - 1 : image_number - goto - 1;
-			}
+			image_duration = duration;
+		}
+		else if is_array(duration) and image_duration != duration[image_index]
+		{
+			image_timer    = abs(duration[image_index]);
+			image_duration = duration[image_index];
 		}
 	}
 }

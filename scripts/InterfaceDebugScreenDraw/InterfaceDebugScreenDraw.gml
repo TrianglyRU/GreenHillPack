@@ -1,7 +1,7 @@
 function InterfaceDebugScreenDraw()
 {	
-	// Exit if not in devmode
-	if !Game.DevMode
+	// Exit if not in devmode or player doesn't exist
+	if !Game.DevMode or !instance_exists(Player)
 	{
 		exit;
 	}
@@ -13,7 +13,7 @@ function InterfaceDebugScreenDraw()
 	}
 	
 	// Set font
-	draw_set_font(Game.Font[font_default]);
+	draw_set_font(game_font(font_default));
 	
 	// Display available hotkeys and game fps
 	if DebugHelp

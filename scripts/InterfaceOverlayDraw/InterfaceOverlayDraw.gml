@@ -17,8 +17,8 @@ function InterfaceOverlayDraw()
 	var StageTime = Stage.Time;
 	if  StageTime < 35999
 	{
-		var Minutes	= StageTime div 3600;
-		var Seconds	= (StageTime - Minutes * 3600) div 60;
+		var Minutes	     = StageTime div 3600;
+		var Seconds	     = (StageTime - Minutes * 3600) div 60;
 		var MilliSeconds = floor(StageTime mod 60 / 3 * 5);
 	} 
 	else 
@@ -29,12 +29,26 @@ function InterfaceOverlayDraw()
 	}
 		
 	// Draw SCORE, TIME and RINGS graphics
-	draw_sprite(gui_hud_score, 0,											 ScreenX + 35, ScreenY + 14);
-	draw_sprite(gui_hud_time,  StageTime > 32400 ? animate_sprite(2, 8) : 0, ScreenX + 31, ScreenY + 30);
-	draw_sprite(gui_hud_rings, Player.Rings == 0 ? animate_sprite(2, 8) : 0, ScreenX + 35, ScreenY + 46);
+	if StageTime > 32400
+	{
+		draw_animated_sprite(gui_hud_time, 8, Game.GlobalTime, ScreenX + 31, ScreenY + 30);
+	}
+	else
+	{
+		draw_sprite(gui_hud_time, 0, ScreenX + 31, ScreenY + 30);
+	}
+	if !Player.Rings
+	{
+		draw_animated_sprite(gui_hud_rings, 8, Game.GlobalTime, ScreenX + 35, ScreenY + 46);
+	}
+	else
+	{
+		draw_sprite(gui_hud_rings, 0, ScreenX + 35, ScreenY + 46);
+	}
+	draw_sprite(gui_hud_score, 0, ScreenX + 35, ScreenY + 14);
 	
 	// Draw SCORE counter
-	draw_set_font(Game.Font[font_counter]);
+	draw_set_font(game_font(font_counter));
 	draw_text(ScreenX + 115, ScreenY + 14,  Player.Score);
 	
 	// Draw TIME counter
@@ -51,6 +65,6 @@ function InterfaceOverlayDraw()
 	// Draw LIVES counter
 	draw_sprite(gui_hud_lives, Game.Character, ScreenX + 40, ScreenY + Game.Height - 16);
 	
-	draw_set_font(Game.Font[font_counter_small]);
+	draw_set_font(game_font(font_counter_small));
 	draw_text(ScreenX + 68, ScreenY + Game.Height - 12, Player.Lives);
 }

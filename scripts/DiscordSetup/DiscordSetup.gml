@@ -6,8 +6,8 @@ function DiscordSetup()
 	// Set details
 	switch room 
 	{
-		case Stage_TZ:
-			DetailsString = "TEST STAGE";
+		case Stage_GHZ1:
+			DetailsString = "GREEN HILL 1";
 		break;
 		default:
 			DetailsString = "";

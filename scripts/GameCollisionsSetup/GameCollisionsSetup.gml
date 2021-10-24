@@ -2,14 +2,14 @@ function GameCollisionsSetup()
 {
 	switch room
 	{
-		// Test Stage
-		case Stage_TZ:
-			tile_data_set("TZ", 67, "CollisionLayerA", "CollisionLayerB");
+		// Green Hill
+		case Stage_GHZ1:
+			tile_data_set("", 247, "CollisionLayerA", "CollisionLayerB");
 		break;
 		
-		// Default
+		// Do not load any tiledata by default
 		default:
-			tile_data_set("", 146, "CollisionLayerA", "CollisionLayerB");
+			tile_data_set(noone, "", "", "");
 		break;
 	}
 }

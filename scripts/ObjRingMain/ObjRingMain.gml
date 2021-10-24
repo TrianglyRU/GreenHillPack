@@ -1,6 +1,6 @@
 function ObjRingMain()
 {
-	// Play animation
+	// Play animation (sync for all rings)
 	animation_play_sync(sprite_index, 8);
 	
 	switch State

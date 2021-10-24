@@ -13,4 +13,7 @@ function ObjContinueIconStartup()
 			sprite_index = spr_obj_conticon_knuckles;
 		break;
 	}
+	
+	// Set animation
+	animation_play(sprite_index, 16, 0, 0);
 }

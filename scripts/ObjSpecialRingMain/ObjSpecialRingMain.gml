@@ -6,7 +6,7 @@ function ObjSpecialRingMain()
 		{
 			// Delete this ring if it was used before
 			var Length = array_length(Game.SpecialRingList);
-			if Length
+			if  Length
 			{
 				for (var i = 0; i < Length; i++)
 				{
@@ -26,9 +26,6 @@ function ObjSpecialRingMain()
 		break;
 		case 1:
 		{
-			// Play animation
-			animation_play(spr_obj_specialring, 8, 0);
-			
 			// Check for overlap
 			if object_check_overlap(Hitbox)
 			{	
@@ -92,14 +89,16 @@ function ObjSpecialRingMain()
 		{	
 			// Perform fade after 32 frames
 			if (++Timer) == 32
-			{
-				audio_play_sound(sfxSpecialWarp, 0, false);
+			{				
 				fade_perform(FadeTo, ColourWhite, 1);
-			}
-			// Teleport player to special stage
-			if fade_check(FadeMax)
-			{
-				room_goto(Screen_SStage);
+				
+				// Play sound and increment state
+				audio_play_sound(sfxSpecialWarp, 0, false);
+				State++;
+				
+				// Stop music instantly
+				audio_bgm_stop(PriorityLow,  0);
+				audio_bgm_stop(PriorityHigh, 0);
 			}
 		}
 		break;

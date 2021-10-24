@@ -5,9 +5,6 @@ function ObjItemBoxMain()
 		// Not destroyed
 		case 0:
 		{
-			// Play animation
-			animation_play(spr_obj_itembox, 4, 0);
-			
 			// Handle item card flick
 			if !(--Timer)
 			{
@@ -111,7 +108,7 @@ function ObjItemBoxMain()
 		// Destroyed
 		case 1:
 		{	
-			// Update sprite
+			// Update animation
 			if (++Timer) == 12
 			{
 				animation_set(spr_obj_itembox_destroyed, 0);
@@ -180,10 +177,6 @@ function ObjItemBoxMain()
 					{
 						instance_create(Player.PosX, Player.PosY, Barrier);
 					}
-					with Barrier
-					{
-						animation_set(spr_obj_barrier_normal, 0);
-					}
 					
 					// Play sound
 					audio_sfx_play(sfxBarrier, false);
@@ -198,10 +191,6 @@ function ObjItemBoxMain()
 					if !instance_exists(Barrier)
 					{
 						instance_create(Player.PosX, Player.PosY, Barrier);
-					}
-					with Barrier
-					{
-						animation_set(spr_obj_barrier_flame, 0);
 					}
 					
 					// Play sound
@@ -218,10 +207,6 @@ function ObjItemBoxMain()
 					{
 						instance_create(Player.PosX, Player.PosY, Barrier);
 					}
-					with Barrier
-					{
-						animation_set(spr_obj_barrier_thunder, 0);
-					}
 					
 					// Play sound
 					audio_sfx_play(sfxThunderBarrier, false);
@@ -236,10 +221,6 @@ function ObjItemBoxMain()
 					if !instance_exists(Barrier)
 					{
 						instance_create(Player.PosX, Player.PosY, Barrier);
-					}
-					with Barrier
-					{
-						animation_set(spr_obj_barrier_water, 0);
 					}
 					
 					// Play sound

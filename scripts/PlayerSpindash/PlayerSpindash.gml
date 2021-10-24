@@ -31,11 +31,11 @@ function PlayerSpindash()
 		// Increase force
 		if Input.ABCPress
 		{
-			SpindashRev = min(SpindashRev + 2, 8);	
-			image_index = 0;
-			
-			// Play sound
+			SpindashRev = min(SpindashRev + 2, 8);
 			audio_sfx_play(sfxCharge, false);
+			
+			// Reset animation
+			animation_reset(0);
 		}
 	}
 	

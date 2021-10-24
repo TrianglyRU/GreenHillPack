@@ -25,7 +25,7 @@ function StageGameplayProcess()
 		var Length = array_length(AnimatedGraphics);
 		for (var i = 0; i < Length; i += 2)
 		{
-			if fade_check(FadeActive) and !Stage.IsPaused
+			if !fade_check(FadeActive) and !Stage.IsPaused
 			{
 				var AnimSpeed = 1 / AnimatedGraphics[i + 1];
 			}
@@ -81,9 +81,6 @@ function StageGameplayProcess()
 			
 			if fade_check(FadeMax)
 			{	
-				// Clear special ring data
-				Game.SpecialRingData = [];
-				
 				// If we have lives, restart the stage
 				if Player.Lives != 0
 				{
