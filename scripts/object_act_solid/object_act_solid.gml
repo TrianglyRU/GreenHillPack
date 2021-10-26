@@ -144,7 +144,7 @@ function object_act_solid(sides,top,bottom,resetActions)
 			}
 			
 			// Collide above
-			else if top and YDistance >= 0 and YDistance < 16
+			else if top and YDistance >= 4 and YDistance < 16 //>= 0
 			{
 				if PlayerY < ObjectY
 				{

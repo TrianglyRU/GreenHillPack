@@ -17,9 +17,7 @@ function ObjClearPlateMain()
 			{
 				// Play sound and stop music
 				audio_sfx_play(sfxSignPost, false);
-				audio_bgm_stop(PriorityLow,  1);
-				audio_bgm_stop(PriorityHigh, 1);
-				
+
 				// Set stage flags
 				Stage.TimeEnabled = false;
 				Stage.IsFinished  = 1;
@@ -27,6 +25,7 @@ function ObjClearPlateMain()
 				// Make player exit super form
 				if Player.SuperState
 				{
+					audio_bgm_play(PriorityLow, Stage.StageMusic, other, other);
 					Player.SuperState = false;
 				}
 				

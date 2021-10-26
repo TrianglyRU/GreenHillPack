@@ -17,14 +17,14 @@ function GameSetup()
 	Game.S3SlopePhysics		= false;
 	Game.S3WaterPhysics		= false;
 	Game.SKCrouch			= false;
-	Game.SKRollDeceleration	= false;
-	Game.S2FloorCollision	= true;
-	Game.SKWallCollision	= true;	
+	Game.SKRollDeceleration	= true;
+	Game.S2FloorCollision	= false;
+	Game.SKWallCollision	= false;	
 	Game.SKItemBoxBehaviour = false;
 	Game.CDStageTimer	    = false;
 	
 	// Orbinaut improvements
-	Game.SmoothRotation	      = true;
+	Game.SmoothRotation	      = false;
 	Game.RichPresenceSupport  = false;
 	Game.PreciseRingBehaviour = false;
 	Game.NoRollSpeedLimit	  = false;
@@ -35,12 +35,12 @@ function GameSetup()
 	
 	// Video settings
 	Game.WindowFullscreen = false;
-	Game.Width            = 320;
+	Game.Width            = 400;
 	Game.Height			  = 224;
 	Game.WindowSize	      = 3;
 	
 	// Audio settings
-	Game.MusicVolume = 0;
+	Game.MusicVolume = 0.5;
 	Game.SoundVolume = 0.5;
 	
 	// Control settings (keyboard)

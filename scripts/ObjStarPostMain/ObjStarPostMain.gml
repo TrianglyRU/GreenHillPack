@@ -13,6 +13,9 @@ function ObjStarPostMain()
 					State = 2;
 					Angle = 900;
 					
+					// Set frame
+					image_index = 2;
+					
 					// Exit
 					break;
 				}

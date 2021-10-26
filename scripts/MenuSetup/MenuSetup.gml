@@ -38,16 +38,8 @@ function MenuSetup()
 	// Stage Select
 	menu_add_header(4,    "SELECT A STAGE");
 	menu_add_option(4, 0, "GREEN HILL 1");
-	menu_add_option(4, 1,  "- -");
-	menu_add_option(4, 2,  "- -");
-	menu_add_option(4, 3,  "- -");
-	menu_add_option(4, 4,  "- -");
-	menu_add_option(4, 5,  "- -");
-	menu_add_option(4, 6,  "- -");
-	menu_add_option(4, 7,  "- -");
-	menu_add_option(4, 8,  "- -");
-	menu_add_option(4, 9,  "- -");
-	menu_add_option(4, 10, "- -");
+	menu_add_option(4, 1, "GREEN HILL 2");
+	menu_add_option(4, 2, "GREEN HILL 3");
 	
 	// Options
 	menu_add_header(5,    "GAME OPTIONS");

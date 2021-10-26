@@ -4,6 +4,7 @@ function GameCollisionsSetup()
 	{
 		// Green Hill
 		case Stage_GHZ1:
+		case Stage_GHZ2:
 			tile_data_set("", 247, "CollisionLayerA", "CollisionLayerB");
 		break;
 		

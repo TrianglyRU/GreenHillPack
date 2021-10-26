@@ -19,25 +19,25 @@ function StageBoundariesProcess()
 			{
 				LeftBoundary = Camera.ViewX
 			}
-			LeftBoundary++;
+			LeftBoundary += 2;
 		}
 	}
 	else if LeftBoundary > TargetLeftBoundary
 	{
-		LeftBoundary--;
+		LeftBoundary -= 2;
 	}
 	
 	// Update right boundary
 	if RightBoundary < TargetRightBoundary
 	{
-		RightBoundary++;
+		RightBoundary += 2;
 	}
 	else if RightBoundary > TargetRightBoundary
 	{
 		if Camera.ViewX + Game.Width >= TargetRightBoundary
 		{
-			RightBoundary = Camera.ViewX + Game.Width;
-			RightBoundary--;
+			RightBoundary  = Camera.ViewX + Game.Width;
+			RightBoundary -= 2;
 		}
 		else if Camera.ViewX + Game.Width <= TargetRightBoundary
 		{

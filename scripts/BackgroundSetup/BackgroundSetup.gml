@@ -4,6 +4,7 @@ function BackgroundSetup()
 	{	
 		// GHZ
 		case Stage_GHZ1:
+		case Stage_GHZ2:
 		{
 			// Add layers
 			background_layer_add(0, tex_ghz_bg00);

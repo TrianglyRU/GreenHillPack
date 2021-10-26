@@ -51,7 +51,7 @@ function MenuOptionsProcess()
 					{
 						switch Game.Stage
 						{
-							default:
+							case 0:
 								room_goto(Stage_GHZ1);
 							break;
 						}
@@ -132,6 +132,12 @@ function MenuOptionsProcess()
 				{
 					case 0:
 						room_goto(Stage_GHZ1);
+					break;
+					case 1:
+						room_goto(Stage_GHZ2);
+					break;
+					case 2:
+						room_goto(Stage_GHZ2);
 					break;
 					default: break;
 				}

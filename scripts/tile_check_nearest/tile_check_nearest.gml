@@ -24,17 +24,14 @@ function tile_check_nearest(leftdata,rightdata,objectAngle)
 		{
 			/* Originals also check for a bit flag set for tiles with angle
 			0xFF, but we already handle it right when we get tile data */
-			   
-			ResultAngle = round(objectAngle / 90) mod 4 * 90;
-			if !ResultAngle
-			{
-				ResultAngle = 360;
-			}
 			
-			// GHZRevisited: reset distance if higher than 2
-			if ResultDistance > 2
+			if ResultDistance >= 0 and ResultDistance < 2
 			{
-				ResultDistance = 32;
+				ResultAngle = round(objectAngle / 90) mod 4 * 90;
+				if !ResultAngle
+				{
+					ResultAngle = 360;
+				}
 			}
 		}
 	}
