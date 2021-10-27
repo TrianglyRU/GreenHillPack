@@ -144,11 +144,11 @@ function object_act_solid(sides,top,bottom,resetActions)
 			}
 			
 			// Collide above
-			else if top and YDistance >= 4 and YDistance < 16 //>= 0
+			else if top and YDistance >= 0 and YDistance < 16
 			{
 				if PlayerY < ObjectY
 				{
-					if Player.Ysp >= 0
+					if Player.Ysp >= 0 and !Player.Grounded
 					{
 						// Exit if outside the object
 						var LandRadius = sides ? ObjectWidth : Obj_SolidX + 1;
