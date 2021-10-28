@@ -18,27 +18,27 @@ function ObjClearPlateStartup()
 	{
 		case CharSonic:
 		{
-			SpriteData[0] = spr_obj_signpost_start_sonic;
-			SpriteData[1] = spr_obj_signpost_end_sonic;
+			SpriteData[0] = spr_obj_clearplate_start_sonic;
+			SpriteData[1] = spr_obj_clearplate_end_sonic;
 		}
 		break;
 		case CharTails:
 		{
-			SpriteData[0] = spr_obj_signpost_start_tails;
-			SpriteData[1] = spr_obj_signpost_end_tails;
+			SpriteData[0] = spr_obj_clearplate_start_tails;
+			SpriteData[1] = spr_obj_clearplate_end_tails;
 		}
 		break;
 		case CharKnuckles:
 		{
-			SpriteData[0] = spr_obj_signpost_start_knuckles;
-			SpriteData[1] = spr_obj_signpost_end_knuckles;
+			SpriteData[0] = spr_obj_clearplate_start_knuckles;
+			SpriteData[1] = spr_obj_clearplate_end_knuckles;
 		}
 		break;
 	}
 	sprite_index = SpriteData[0];
 	
 	// Set object triggerbox
-	object_set_triggerbox(0, 32, -512, 512);
+	object_set_triggerbox(0, 32, -y, room_height);
 		
 	// Set object depth
 	object_set_depth(Player, false);

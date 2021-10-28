@@ -24,10 +24,10 @@ function GameSetup()
 	Game.CDStageTimer	    = false;
 	
 	// Orbinaut improvements
-	Game.SmoothRotation	      = false;
+	Game.SmoothRotation	      = true;
 	Game.RichPresenceSupport  = false;
 	Game.PreciseRingBehaviour = false;
-	Game.NoRollSpeedLimit	  = false;
+	Game.NoRollSpeedLimit	  = true;
 	Game.FlightCancel	      = true;
 	
 	/* Video, audio and control settings below are overwritten by 
@@ -40,7 +40,7 @@ function GameSetup()
 	Game.WindowSize	      = 3;
 	
 	// Audio settings
-	Game.MusicVolume = 0.5;
+	Game.MusicVolume = 0;
 	Game.SoundVolume = 0.5;
 	
 	// Control settings (keyboard)

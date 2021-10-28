@@ -70,7 +70,7 @@ function ObjCrabmeatMain()
 						with NewObject
 						{
 							Xsp          = i;
-							Ysp		   = -4;
+							Ysp		     = -4;
 							sprite_index = spr_obj_projectile_crabmeat;
 					  
 							// Set object depth
