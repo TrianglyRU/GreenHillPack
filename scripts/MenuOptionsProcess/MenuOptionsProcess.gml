@@ -137,7 +137,7 @@ function MenuOptionsProcess()
 						room_goto(Stage_GHZ2);
 					break;
 					case 2:
-						room_goto(Stage_GHZ2);
+						room_goto(Stage_GHZ3);
 					break;
 					default: break;
 				}

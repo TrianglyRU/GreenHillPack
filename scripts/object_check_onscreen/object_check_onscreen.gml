@@ -1,6 +1,12 @@
 /// @function object_is_onscreen(obj)
 function object_is_onscreen(obj)
 {
+	// Return true if object does not exist
+	if !instance_exists(obj)
+	{
+		return true;
+	}
+	
 	// Get radiuses
 	var Width  = sprite_get_width(obj.sprite_index)  div 2;
 	var Height = sprite_get_height(obj.sprite_index) div 2; 

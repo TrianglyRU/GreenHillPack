@@ -21,7 +21,6 @@ function ObjFloatingPlatformStartup()
 	// Set other variables
 	OriginX = x;
 	OriginY	= y;
-	Angle	= 0;
 	
 	// Set sprite
 	sprite_index = Sprite;

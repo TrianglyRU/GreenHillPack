@@ -1,8 +1,8 @@
 /// @function object_check_overlap(collisionType)
 function object_check_overlap(collisionType)
 {	
-	// Exit if collision are disabled
-	if !Player.AllowCollision
+	// Exit if hitbox collision is disabled
+	if collisionType == Hitbox and !Player.AllowCollision
 	{
 		return false;
 	}
@@ -35,7 +35,7 @@ function object_check_overlap(collisionType)
 		var ObjectBottom = floor(y + Obj_HitY - 1);
 		
 		// Get player's hitbox
-		if Player.Animation == AnimCrouch
+		if Game.Character != CharTails and Player.Animation == AnimCrouch and Player.image_index == Player.image_number - 1
 		{
 			var PlayerTop    = floor(Player.PosY - 4);
 			var PlayerLeft   = floor(Player.PosX - 8);

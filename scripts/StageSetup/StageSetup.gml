@@ -43,6 +43,27 @@ function StageSetup()
 			BottomBoundary		= 992;
 			AnimatedGraphics	= [tex_ghz_anitile0, 21, tex_ghz_anitile1, 10];
 			AnimalSet			= [spr_obj_animal_flicky, spr_obj_animal_pocky];
+			NextStage		    = Stage_GHZ3;
+		}
+		break;
+		
+		// GHZ3
+		case Stage_GHZ3:
+		{
+			ZoneName			= "GREEN HILL";
+			ZoneID				= 0;
+			ActID				= 2;
+			FinalActID			= 2;
+			CardEnabled			= true;
+			WaterEnabled        = false;
+			WaterLevel			= 0;
+			StageMusic			= GreenHill;
+			LeftBoundary		= 0;
+			TopBoundary			= 0;
+			RightBoundary		= room_width;
+			BottomBoundary		= 992;
+			AnimatedGraphics	= [tex_ghz_anitile0, 21, tex_ghz_anitile1, 10];
+			AnimalSet			= [spr_obj_animal_flicky, spr_obj_animal_pocky];
 			NextStage		    = Screen_DevMenu;
 		}
 		break;

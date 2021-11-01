@@ -19,25 +19,25 @@ function StageBoundariesProcess()
 			{
 				LeftBoundary = Camera.ViewX
 			}
-			LeftBoundary += 2;
+			LeftBoundary = min(LeftBoundary + 2, TargetLeftBoundary);
 		}
 	}
 	else if LeftBoundary > TargetLeftBoundary
 	{
-		LeftBoundary -= 2;
+		LeftBoundary = max(TargetLeftBoundary, LeftBoundary - 2);
 	}
 	
 	// Update right boundary
 	if RightBoundary < TargetRightBoundary
 	{
-		RightBoundary += 2;
+		RightBoundary = min(RightBoundary + 2, TargetRightBoundary)
 	}
 	else if RightBoundary > TargetRightBoundary
 	{
 		if Camera.ViewX + Game.Width >= TargetRightBoundary
 		{
-			RightBoundary  = Camera.ViewX + Game.Width;
-			RightBoundary -= 2;
+			RightBoundary = Camera.ViewX + Game.Width;
+			RightBoundary = max(TargetRightBoundary, RightBoundary - 2);
 		}
 		else if Camera.ViewX + Game.Width <= TargetRightBoundary
 		{
@@ -58,26 +58,29 @@ function StageBoundariesProcess()
 			{
 				TopBoundary = Camera.ViewY;
 			}
-			TopBoundary += 2;
+			TopBoundary = min(TopBoundary + 2, TargetTopBoundary);
 		}
 	}
 	else if TopBoundary > TargetTopBoundary
 	{
-		TopBoundary -= 2;
+		TopBoundary = max(TargetTopBoundary, TargetTopBoundary - 2);
 	}
 	
 	// Update bottom boundary
 	if BottomBoundary < TargetBottomBoundary
 	{
-		BottomBoundary += 2;
-		DeathBoundary = TargetBottomBoundary;
+		// Scroll faster in GHZ3
+		var Speed = room == Stage_GHZ3 ? 16 : 2;
+		
+		BottomBoundary = min(BottomBoundary + Speed, TargetBottomBoundary);
+		DeathBoundary  = TargetBottomBoundary;
 	}
 	else if BottomBoundary > TargetBottomBoundary
 	{
 		if Camera.ViewY + Game.Height >= TargetBottomBoundary
 		{
-			BottomBoundary  = Camera.ViewY + Game.Height
-			BottomBoundary -= 2;
+			BottomBoundary = Camera.ViewY + Game.Height
+			BottomBoundary = max(TargetBottomBoundary, BottomBoundary - 2);
 		}
 		else if Camera.ViewY + Game.Height <= TargetBottomBoundary
 		{

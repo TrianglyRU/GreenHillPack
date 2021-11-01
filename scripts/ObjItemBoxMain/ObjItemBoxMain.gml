@@ -164,7 +164,7 @@ function ObjItemBoxMain()
 					Player.InvincibleBonus = 1200;
 						
 					// Play music
-					audio_bgm_play(PriorityLow, Invincibility, 0, 0);
+					audio_bgm_play(PriorityLow, Invincibility, other, other);
 				}
 				break;
 				case "Barrier":

@@ -68,7 +68,7 @@ function InputHotkeysProcess()
 	if keyboard_check_pressed(vk_f7)
 	{
 		Player.InvincibleBonus = 1200;
-		audio_bgm_play(PriorityLow, Invincibility, 0, 0);
+		audio_bgm_play(PriorityLow, Invincibility, other, other);
 	}
 	
 	// Give or update barrier (F8)

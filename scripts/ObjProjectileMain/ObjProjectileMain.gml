@@ -12,7 +12,7 @@ function ObjProjectileMain()
 	if Xsp != 0 and Ysp != 0 and object_check_overlap(Hitbox)
 	{
 		// Check if object should bounce off player
-		if Player.BarrierType > BarrierNormal
+		if Player.BarrierType > BarrierNormal 
 		{
 			// Get angle
 			var X	  = floor(Player.PosX) - x;
