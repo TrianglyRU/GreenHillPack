@@ -2,6 +2,14 @@ function PaletteSetup()
 {	
 	switch room 
 	{	
+		// Load SEGA palette
+		case Screen_SEGA:
+		{
+			palette_load(PaletteDry, pal_sega);
+			palette_load(PaletteWet, noone);
+		}
+		break;
+		
 		// Load GHZ palette
 		case Stage_GHZ1:
 		case Stage_GHZ2:

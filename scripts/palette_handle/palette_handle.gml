@@ -13,7 +13,7 @@ function palette_handle(paletteType,id,range,last,goto,duration)
 		Palette.Sequence[paletteType,index] = SequenceID;
 		Palette.Duration[paletteType,index] = duration;
 	}
-	else if duration > 1
+	else if duration > 0
 	{
 		// If fade is active or stage is paused, do not update
 		if !fade_check(FadeActive) and !variable_check(Stage, "IsPaused")

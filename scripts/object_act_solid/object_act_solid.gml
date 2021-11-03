@@ -88,6 +88,9 @@ function object_act_solid(sides,top,bottom,resetActions)
 		if  XComparison <= 0 or XComparison >= FallRadius * 2 - 1
 		{
 			Player.OnObject = false;
+			
+			// Restart animation...?
+			animation_reset(0);
 		}
 	}
 			
@@ -149,7 +152,7 @@ function object_act_solid(sides,top,bottom,resetActions)
 			{
 				if PlayerY < ObjectY
 				{
-					if Player.Ysp >= 0 and !Player.Grounded
+					if Player.Ysp >= 0 and !Player.OnObject
 					{
 						// Exit if outside the object
 						var LandRadius = sides ? ObjectWidth : Obj_SolidX + 1;

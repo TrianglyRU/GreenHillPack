@@ -4,7 +4,7 @@ function ObjRollTriggerMain()
 	if object_check_overlap(Triggerbox)
 	{
 		// Set player flags
-		if Player.Grounded
+		if Player.Grounded and !Player.OnObject
 		{
 			// Set object flag
 			if !State and abs(Player.Inertia) < 4
