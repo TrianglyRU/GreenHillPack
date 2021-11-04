@@ -10,23 +10,19 @@ function PlayerDebugModeSetup()
 	DebugList = 
 	[
 		Ring,
-		SpecialRing,
 		ItemBox,
+		Crabmeat,
+		Buzzbomber,
+		Chopper,
 		SpikesVertical,
-		SpikesHorizontal,
-		SpringYellowVertical,
-		SpringYellowHorizontal,
-		SpringYellowDiagonal,
-		SpringRedVertical,
-		SpringRedHorizontal,
-		SpringRedDiagonal,
-		StarPost,
 		FloatingPlatform,
-		SwingingPlatform,	
-		Bridge,
-		Animal,
-		ClearPlate,
-		EggPrison,
+		Dwayne,
+		Motobug,
+		SpringRedVertical,
+		Newtron,
+		SolidWall,
+		StarPost,
+		SpecialRing,	
 		
 		// Placeholder object, that will grant (or revoke) emeralds
 		Player

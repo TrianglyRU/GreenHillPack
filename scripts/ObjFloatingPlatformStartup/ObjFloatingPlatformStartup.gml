@@ -23,7 +23,7 @@ function ObjFloatingPlatformStartup()
 	OriginY	= y;
 	
 	// Set sprite
-	sprite_index = Sprite;
+	sprite_index = spr_obj_platform_ghz;
 	
 	// Set object solidbox
 	object_set_solidbox(XRadius, YRadius, false);

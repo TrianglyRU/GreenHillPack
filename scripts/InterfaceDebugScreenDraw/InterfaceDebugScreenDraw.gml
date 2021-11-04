@@ -211,7 +211,11 @@ function InterfaceDebugScreenDraw()
 				+ "\n   HIGH VOLUME: "     + string(audio_sound_get_gain(Audio.HighTrack[0]))
 				+ "\n   HIGH POSITION: "   + string(audio_sound_get_track_position(Audio.HighTrack[0]))
 				+ "\n   HIGH LENGTH: "     + HighLength
-				+ "\n   HIGH LOOP: "       + HighLoop,
+				+ "\n   HIGH LOOP: "       + HighLoop
+				+ "\n"
+				+ "\n              * STAGE *"
+				+ "\n"
+				+ "\n   OBJECTS LOADED: "  + string(instance_count - 9),
 				
 		8, 256, 0.28, 0.28, 0);
 	}
