@@ -4,3 +4,4 @@
 	// Initialisation Scripts
 	PaletteStartup();
 	PaletteSetup();
+	RoomEnd = false;
