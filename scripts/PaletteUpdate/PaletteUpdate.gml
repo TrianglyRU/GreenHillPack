@@ -2,11 +2,10 @@ function PaletteUpdate()
 {	
 	// Set application surface as targer surface
 	surface_set_target(application_surface);
-	//draw_clear_alpha(c_white, 0);
+	draw_clear_alpha(c_white, 0);
 	
 	// Low surface render
-	/*
-	if surface_exists(SurfaceLow) 
+	if surface_exists(Game.RenderedSurface1) 
 	{
 		// Use screen shader
 		shader_set(ShaderPalette);
@@ -49,17 +48,16 @@ function PaletteUpdate()
 		}
 		
 		// Render low surface
-		draw_surface(SurfaceLow, 0, 0);
+		draw_surface(Game.RenderedSurface1, 0, 0);
 		
 		// Reset shader
 		shader_reset();
 	}
-	*/
 	
 	// Render high surface
-	if surface_exists(SurfaceHigh)
+	if surface_exists(Game.RenderedSurface2)
 	{
-		draw_surface(SurfaceHigh, 0, 0);
+		draw_surface(Game.RenderedSurface2, 0, 0);
 	}
 	
 	// Reset target surface

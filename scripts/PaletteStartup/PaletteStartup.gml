@@ -1,9 +1,9 @@
 function PaletteStartup()
 {	
 	// Set blank values
-	ColourSet   = [];
-	Duration    = [];
-	Sequence    = [];
+	ColourSet = [];
+	Duration  = [];
+	Sequence  = [];
 	
 	// Initialise palette animation storage
 	for (var i = 0; i < PaletteLimit; i++)
@@ -17,16 +17,12 @@ function PaletteStartup()
 		IndexWet[i] = 1;
 	}
 	
-	// Set empty surfaces
-	SurfaceLow  = noone;
-	SurfaceHigh = noone;
-	
 	// Setup fade
 	FadeMode   = 1;
 	FadeStep   = 756;
 	FadeColour = 0;
 	FadePower  = 0;
 	
-	// Reset surface
+	// Disable surface draw
 	application_surface_draw_enable(false);
 }

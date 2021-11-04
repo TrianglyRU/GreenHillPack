@@ -6,13 +6,13 @@ function application_set_size(width,height)
 	surface_resize(application_surface, width, height);
 
 	// Resize palette surfaces
-	if surface_exists(Palette.SurfaceLow)
+	if surface_exists(Game.RenderedSurface1)
 	{
-		surface_resize(Palette.SurfaceLow, width, height);
+		surface_resize(Game.RenderedSurface1, width, height);
 	}
-	if surface_exists(Palette.SurfaceHigh)
+	if surface_exists(Game.RenderedSurface2)
 	{
-		surface_resize(Palette.SurfaceHigh, width, height);
+		surface_resize(Game.RenderedSurface2, width, height);
 	}
 	
 	// Update room size

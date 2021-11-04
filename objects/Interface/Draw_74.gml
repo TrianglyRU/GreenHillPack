@@ -2,12 +2,12 @@
 // You can write your code in this editor
 	
 	// Visualization Scripts
-	//InterfaceRendererLowProcess();
+	InterfaceRendererLowProcess();
 	InterfaceOverlayDraw();
 	InterfaceResultsDraw();
 	InterfaceGameOverDraw();
 	InterfacePauseDraw();
-	//InterfaceRendererUpdate();
+	InterfaceRendererUpdate();
 	InterfaceRendererHighProcess();
 	InterfaceCardDraw();
 	InterfaceRendererUpdate();

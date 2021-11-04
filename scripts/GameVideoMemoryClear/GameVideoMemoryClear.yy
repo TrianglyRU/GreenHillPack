@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Palette",
-    "path": "folders/Game Code/Palette.yy",
+    "name": "Game",
+    "path": "folders/Game Code/Game.yy",
   },
   "resourceVersion": "1.0",
-  "name": "PaletteSurfaceReset",
+  "name": "GameVideoMemoryClear",
   "tags": [],
   "resourceType": "GMScript",
 }
