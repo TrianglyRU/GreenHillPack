@@ -44,4 +44,13 @@ function InputKeyboardProcess()
 		Up   = false;
 		Down = false;
 	}
+	
+	if keyboard_check_pressed(ord("P"))
+	{
+		Stage.OscillateAngle += 0.005;
+	}
+	else if keyboard_check_pressed(ord("O"))
+	{
+		Stage.OscillateAngle -= 0.005;
+	}
 }

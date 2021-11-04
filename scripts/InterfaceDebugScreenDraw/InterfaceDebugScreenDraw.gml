@@ -215,7 +215,8 @@ function InterfaceDebugScreenDraw()
 				+ "\n"
 				+ "\n              * STAGE *"
 				+ "\n"
-				+ "\n   OBJECTS LOADED: "  + string(instance_count - 9),
+				+ "\n   OBJECTS LOADED: "  + string(instance_count - 9)
+				+ "\n   OSC. ANGLE: "      + string(Stage.OscillateAngle),
 				
 		8, 256, 0.28, 0.28, 0);
 	}

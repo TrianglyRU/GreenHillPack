@@ -4,7 +4,7 @@ function ObjColomnPlatformMain()
 	var PosY = OriginY;
 	
 	// Update oscillate angle
-	var Angle = (1.425 * Stage.Time) mod 360;
+	var Angle = (Stage.OscillateAngle * Stage.Time) mod 360;
 	
 	// Move platform
 	PosY += dsin(Angle) * 32;

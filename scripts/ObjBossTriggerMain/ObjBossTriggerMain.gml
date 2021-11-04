@@ -20,6 +20,9 @@ function ObjBossTriggerMain()
 			// Spawn boss
 			switch room
 			{
+				case Stage_GHZ3:
+					instance_create(x + 96 + 40, y - 210, GHZBoss);
+				break;
 				default: break;
 			}
 			Stage.IsBossfight = true;
@@ -38,7 +41,7 @@ function ObjBossTriggerMain()
 			}
 			
 			// Set new left boundary
-			Stage.TargetLeftBoundary = x - max(Game.Width  / 2, ArenaWidth  / 2);
+			Stage.TargetLeftBoundary = x - max(Game.Width / 2, ArenaWidth / 2);
 			
 			// Play boss music
 			if !audio_bgm_is_playing(PriorityLow)
