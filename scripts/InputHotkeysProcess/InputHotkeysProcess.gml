@@ -21,7 +21,6 @@ function InputHotkeysProcess()
 		
 		audio_stop_all();
 		room_restart();
-		//RoomEnd = true;
 	}
 	
 	// Stage checkpoint restart (F2)
