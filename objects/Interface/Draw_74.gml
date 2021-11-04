@@ -8,6 +8,6 @@
 	InterfaceGameOverDraw();
 	InterfacePauseDraw();
 	//InterfaceRendererUpdate();
-	//InterfaceRendererHighProcess();
+	InterfaceRendererHighProcess();
 	InterfaceCardDraw();
-	//InterfaceRendererUpdate();
+	InterfaceRendererUpdate();

@@ -2,9 +2,10 @@ function PaletteUpdate()
 {	
 	// Set application surface as targer surface
 	surface_set_target(application_surface);
-	draw_clear_alpha(c_white, 0);
+	//draw_clear_alpha(c_white, 0);
 	
 	// Low surface render
+	/*
 	if surface_exists(SurfaceLow) 
 	{
 		// Use screen shader
@@ -53,6 +54,7 @@ function PaletteUpdate()
 		// Reset shader
 		shader_reset();
 	}
+	*/
 	
 	// Render high surface
 	if surface_exists(SurfaceHigh)
