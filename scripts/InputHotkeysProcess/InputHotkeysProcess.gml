@@ -21,7 +21,7 @@ function InputHotkeysProcess()
 		
 		audio_stop_all();
 		room_restart();
-		RoomEnd = true;
+		//RoomEnd = true;
 	}
 	
 	// Stage checkpoint restart (F2)
@@ -31,14 +31,12 @@ function InputHotkeysProcess()
 		
 		audio_stop_all();
 		room_restart();
-		RoomEnd = true;
 	}
 	
 	// Game restart (F3)
 	if keyboard_check_pressed(vk_f3) 
 	{
 		game_restart();
-		RoomEnd = true;
 	}
 
 	// Low FPS mode (F4)

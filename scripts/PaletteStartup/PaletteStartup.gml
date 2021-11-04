@@ -4,8 +4,6 @@ function PaletteStartup()
 	ColourSet   = [];
 	Duration    = [];
 	Sequence    = [];
-	SurfaceLow  = noone;
-	SurfaceHigh = noone;
 	
 	// Initialise palette animation storage
 	for (var i = 0; i < PaletteLimit; i++)
@@ -18,6 +16,11 @@ function PaletteStartup()
 		IndexDry[i] = 1;
 		IndexWet[i] = 1;
 	}
+	
+	// Setup surfaces
+	SurfaceLow  = noone;
+	SurfaceHigh = noone;
+	DoReset		= false;
 	
 	// Setup fade
 	FadeMode   = 1;

@@ -1,5 +1,5 @@
-/// @description Insert description here
+/// @description Surface Reset
 // You can write your code in this editor
 	
 	// Surface Reset Script
-	if RoomEnd PaletteSurfaceReset();
+	PaletteSurfaceReset();
