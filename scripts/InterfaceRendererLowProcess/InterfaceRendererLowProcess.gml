@@ -1,5 +1,5 @@
 function InterfaceRendererLowProcess()
 {
 	// Set target surface
-	surface_set_target(Game.RenderedSurface1);
+	surface_set_target(Palette.SurfaceLow);
 }

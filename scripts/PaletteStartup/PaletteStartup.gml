@@ -1,9 +1,11 @@
 function PaletteStartup()
 {	
 	// Set blank values
-	ColourSet = [];
-	Duration  = [];
-	Sequence  = [];
+	ColourSet   = [];
+	Duration    = [];
+	Sequence    = [];
+	SurfaceLow  = noone;
+	SurfaceHigh = noone;
 	
 	// Initialise palette animation storage
 	for (var i = 0; i < PaletteLimit; i++)

@@ -3,6 +3,3 @@
 	
 	// Component Initialisation Script
 	GameControllersLoad();
-	
-	Game.RenderedSurface1 = noone;
-	Game.RenderedSurface2 = noone;
