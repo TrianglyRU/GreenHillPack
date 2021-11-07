@@ -4,7 +4,7 @@ function GameSetup()
 	Game.WindowTitle = "Green Hill Revisited (Dev.)";
 	Game.DevMode     = true;
 	Game.ShowSplash  = false;
-	Game.ForceLoad	 = Stage_GHZ1;	// If set to false the game will load into DevMenu, else into the room you choose
+	Game.ForceLoad	 = Stage_GHZ3;	// If set to false the game will load into DevMenu, else into the room you choose
 	
 	// Originals differences
 	Game.SpindashEnabled    = true;

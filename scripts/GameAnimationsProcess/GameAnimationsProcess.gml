@@ -2,9 +2,6 @@ function GameAnimationsProcess()
 {
 	with all
 	{
-		// Ignore in-built animation speed for all instances
-		sprite_set_speed(sprite_index, 0, spritespeed_framespergameframe);
-		
 		// Check if animation should be played for this object
 		if variable_instance_exists(id, "image_duration") and !variable_check(Stage, "IsPaused")
 		{

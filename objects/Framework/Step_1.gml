@@ -4,5 +4,5 @@
 	// Global Time Script
 	GameTimeProcess();
 	
-	// Instances Visualization Script
+	// Instances Animation Script
 	GameAnimationsProcess();
