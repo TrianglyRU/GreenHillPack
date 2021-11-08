@@ -64,6 +64,53 @@ function object_check_overlap(collisionType)
 		return true;
 	}
 	
+	
+	else if collisionType == Solidbox
+	{
+		// Exit if this object solidbox wasn't initialized
+		if !variable_instance_exists(id, "Obj_SolidStatus")
+		{
+			return false;
+		}
+		
+		// Exit if object can't be overlapped
+		if !Obj_SolidX or !Obj_SolidY
+		{
+			return false;
+		}
+		
+		// Exit if object is off-screen
+		if !object_is_onscreen(id)
+		{
+			exit;
+		}
+		
+		// Get object's size
+		var ObjectTop    = floor(y - Obj_SolidY - 0);
+		var ObjectLeft   = floor(x - Obj_SolidX - 0);
+		var ObjectRight  = floor(x + Obj_SolidX - 1);
+		var ObjectBottom = floor(y + Obj_SolidY - 1);
+		
+		// Get player's solidbox
+		var PlayerTop    = floor(Player.PosY - Player.RadiusY);
+		var PlayerLeft   = floor(Player.PosX - Player.RadiusX);
+		var PlayerRight  = floor(Player.PosX + Player.RadiusX);
+		var PlayerBottom = floor(Player.PosY + Player.RadiusY);
+		
+		// Check for overlap
+		if PlayerRight < ObjectLeft or PlayerLeft > ObjectRight
+		{
+			return false;
+		}
+		else if PlayerBottom < ObjectTop or PlayerTop > ObjectBottom
+		{
+			return false;
+		}
+		
+		// If player overlaps object on both axis, they collided with it
+		return true;
+	}
+	
 	// Check for triggerbox overlap
 	else if collisionType == Triggerbox
 	{

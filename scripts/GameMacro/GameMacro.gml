@@ -97,4 +97,5 @@ function GameMacro()
 	#macro SideBottom 3
 	#macro Hitbox	  0
 	#macro Triggerbox 1
+	#macro Solidbox	  2
 }
