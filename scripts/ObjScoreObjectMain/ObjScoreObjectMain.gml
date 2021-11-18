@@ -70,8 +70,8 @@ function ObjScoreObjectMain()
 	}
 	
 	// Move object
-	Ysp  += 0.09375;
 	PosY += Ysp;
+	Ysp  += 0.09375;
 	
 	// Update position
 	y = floor(PosY);

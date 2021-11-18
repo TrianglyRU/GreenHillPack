@@ -8,6 +8,7 @@ function ObjGHZBossStartup()
 	ChainOffset		  = 0;
 	State			  = 0;
 	StateTimer		  = 0;
+	ExplosionTimer	  = 0;
 	InvincibilityTime = 0;
 	
 	// Set other variables

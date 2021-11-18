@@ -45,7 +45,11 @@ function PlayerGroundFloorCollision()
 				if  FloorDistance > Distance
 				{
 					// Restart animation...?
-					animation_reset(0);
+					if Animation == AnimMove
+					{
+						// Restart animation...?
+						animation_reset(0);
+					}
 					
 					Pushing  = false;
 					Grounded = false;
@@ -79,7 +83,11 @@ function PlayerGroundFloorCollision()
 				if  FloorDistance > Distance
 				{
 					// Restart animation...?
-					animation_reset(0);
+					if Animation == AnimMove
+					{
+						// Restart animation...?
+						animation_reset(0);
+					}
 					
 					Pushing  = false;
 					Grounded = false;
@@ -113,7 +121,11 @@ function PlayerGroundFloorCollision()
 				if  FloorDistance > Distance
 				{
 					// Restart animation...?
-					animation_reset(0);
+					if Animation == AnimMove
+					{
+						// Restart animation...?
+						animation_reset(0);
+					}
 					
 					Pushing  = false;
 					Grounded = false;
@@ -147,7 +159,11 @@ function PlayerGroundFloorCollision()
 				if  FloorDistance > Distance
 				{
 					// Restart animation...?
-					animation_reset(0);
+					if Animation == AnimMove
+					{
+						// Restart animation...?
+						animation_reset(0);
+					}
 					
 					Pushing  = false;
 					Grounded = false;

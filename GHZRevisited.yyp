@@ -554,6 +554,7 @@
     {"id":{"name":"spr_obj_bubble_number3","path":"sprites/spr_obj_bubble_number3/spr_obj_bubble_number3.yy",},"order":36,},
     {"id":{"name":"spr_obj_dustexplosion","path":"sprites/spr_obj_dustexplosion/spr_obj_dustexplosion.yy",},"order":46,},
     {"id":{"name":"instance_create_children","path":"scripts/instance_create_children/instance_create_children.yy",},"order":44,},
+    {"id":{"name":"ObjInvincibilityStarDraw","path":"scripts/ObjInvincibilityStarDraw/ObjInvincibilityStarDraw.yy",},"order":130,},
     {"id":{"name":"SpikesLong","path":"objects/SpikesLong/SpikesLong.yy",},"order":35,},
     {"id":{"name":"spr_obj_dustpuff","path":"sprites/spr_obj_dustpuff/spr_obj_dustpuff.yy",},"order":43,},
     {"id":{"name":"GHZTilesetA","path":"tilesets/GHZTilesetA/GHZTilesetA.yy",},"order":2,},

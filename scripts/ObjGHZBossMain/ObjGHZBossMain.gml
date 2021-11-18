@@ -133,6 +133,20 @@ function ObjGHZBossMain()
 		Angle++;
 	}
 	
+	// Spawn explosions
+	else if State == 7
+	{
+		if !(--ExplosionTimer)
+		{
+			instance_create(x + irandom_range(-32, 32), y + irandom_range(-32, 32), FireExplosion);		
+			ExplosionTimer = irandom_range(0, 16);
+		}
+		if (StateTimer + 1) mod 8 == 0
+		{
+			audio_sfx_play(sfxExplosion, false);
+		}
+	}
+	
 	// Make Eggman drop on State 8
 	else if State == 8
 	{
@@ -180,11 +194,12 @@ function ObjGHZBossMain()
 	{
 		if !(--HP)
 		{
-			StateTimer = 180;
-			State	   = 7;
-			Xsp		   = 0;
-			Ysp		   = 0;
-			OffsetY	   = 0;
+			StateTimer	   = 180;
+			State		   = 7;
+			Xsp		       = 0;
+			Ysp			   = 0;
+			OffsetY		   = 0;
+			ExplosionTimer = irandom_range(2, 34);
 			
 			// Force stop damage sound
 			audio_sfx_stop(sfxBossHit);

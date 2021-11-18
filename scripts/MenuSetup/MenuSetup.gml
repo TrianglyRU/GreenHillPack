@@ -1,7 +1,7 @@
 function MenuSetup()
 {
 	// Main Menu
-	menu_add_header(0,    "ORBINAUT FRAMEWORK" + "\n\nDEV MENU");
+	menu_add_header(0,    "GHZ REVISITED" + "\n\nDEV MENU");
 	menu_add_option(0, 0, "GAME START");
 	menu_add_option(0, 1, "STAGE SELECT");
 	menu_add_option(0, 2, "OPTIONS");

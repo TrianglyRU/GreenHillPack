@@ -50,7 +50,8 @@ function InterfacePauseProcess()
 					// Exit
 					else if PauseValue[1] == 2
 					{
-						room_goto(Screen_SEGA);
+						room_goto(Screen_DevMenu);
+						//room_goto(Screen_SEGA);
 						
 						// Reset all saved data during the stage		
 						Game.StarPostData    = [];

@@ -1,17 +1,11 @@
 function InputHotkeysProcess()
 {	
-	// Exit if input device is gamepad
-	if Type != "Keyboard"
+	// Exit if not in dev mode or input device is gamepad
+	if !Game.DevMode or Type != "Keyboard"
 	{
 		exit;
 	}
-	
-	// Exit if not in dev mode
-	if !Game.DevMode
-	{
-		exit;
-	}
-		
+
 	// Stage fresh load (F1)
 	if keyboard_check_pressed(vk_f1) 
 	{
