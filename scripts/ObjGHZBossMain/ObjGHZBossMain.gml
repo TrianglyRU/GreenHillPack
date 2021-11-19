@@ -179,14 +179,14 @@ function ObjGHZBossMain()
 	// Move object
 	if State > 1 and State != 7
 	{
-		OffsetY = (OffsetY + 2) mod 360;
+		OffsetY = (OffsetY + 2.8125) mod 360;
 	}
 	PosX += Xsp;
-	PosY += Ysp + dsin(OffsetY) / 8.14;
+	PosY += Ysp;
 	
 	// Update position
 	x = floor(PosX);
-	y = floor(PosY);
+	y = floor(PosY + dsin(OffsetY) * -4);
 	
 	// Decrease invincibility timer and flash palette
 	if InvincibilityTime
