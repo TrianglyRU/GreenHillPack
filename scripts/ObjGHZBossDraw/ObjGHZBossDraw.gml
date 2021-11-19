@@ -1,23 +1,42 @@
 function ObjGHZBossDraw()
 {
-	if State >= 3 and State < 7
+	if State < 7
 	{
 		// Draw rocker
-		draw_animated_sprite(spr_boss_rocker, 8, StateTimer, x, y + 8 + ChainOffset);
+		if State == 3 and StateTimer < 110 or State > 3
+		{
+			draw_animated_sprite(spr_boss_rocker, 8, StateTimer, x, y + 8 + ChainOffset);
+		}
 		
-		// Calculate oscillate data
-		var DistanceA = dsin((Stage.OscillateAngle * -Angle) mod 360);
-		var DistanceX = dcos(90 + DistanceA * 90) * 16;
-		var DistanceY = dsin(90 + DistanceA * 90) * 16;
+		// Draw static chains
+		if State == 3
+		{
+			for (var i = 0; i < 4; i++)
+			{
+				if StateTimer < 100 - 16 * i
+				{
+					draw_sprite(spr_obj_swingchain_ghz, 0, x, y + 48 + 16 * i);
+				}
+			}
+		}
 		
-		// Draw chains
-	    for (var i = 1; i < 5; i++)
-	    {
-	        var X = floor(x +				    DistanceX * i);
-	        var Y = floor(y + 8 + ChainOffset + DistanceY * i);
+		// Draw moving chains
+		else if State > 3
+		{
+			// Calculate oscillate data
+			var DistanceA = dsin((Stage.OscillateAngle * -Angle) mod 360);
+			var DistanceX = dcos(90 + DistanceA * 90) * 16;
+			var DistanceY = dsin(90 + DistanceA * 90) * 16;
+		
+			// Draw now
+		    for (var i = 1; i < 5; i++)
+		    {
+		        var X = floor(x +				    DistanceX * i);
+		        var Y = floor(y + 8 + ChainOffset + DistanceY * i);
 			
-	        draw_sprite(spr_obj_swingchain_ghz, 0, X, Y);
-	    }
+		        draw_sprite(spr_obj_swingchain_ghz, 0, X, Y);
+		    }
+		}
 	}
 	
 	// Draw ball

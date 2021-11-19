@@ -1,5 +1,8 @@
 function ObjGHZBallStartup()
 {
+	// Set variable
+	PathDistance = 0;
+	
 	// Set object hitbox
 	object_set_hitbox(20, 20);
 	
