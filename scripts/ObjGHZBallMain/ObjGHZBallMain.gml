@@ -10,7 +10,7 @@ function ObjGHZBallMain()
 	y = floor(GHZBoss.y + DistanceY + 32); 
 	
 	// Damage player
-	if object_check_overlap(Hitbox)
+	if GHZBoss.HP and object_check_overlap(Hitbox)
 	{
 		player_damage(false, false, false);
 	}

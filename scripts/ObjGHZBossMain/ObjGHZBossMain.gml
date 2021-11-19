@@ -133,17 +133,29 @@ function ObjGHZBossMain()
 		Angle++;
 	}
 	
-	// Spawn explosions
+	// Spawn explosions on Eggmobile and Ball
 	else if State == 7
 	{
 		if !(--ExplosionTimer)
 		{
-			instance_create(x + irandom_range(-32, 32), y + irandom_range(-32, 32), FireExplosion);		
+			if instance_exists(GHZBossBall)
+			{
+				instance_create(GHZBossBall.x + irandom_range(-32, 32), GHZBossBall.y + irandom_range(-32, 32), FireExplosion);
+			}
+			instance_create(x + irandom_range(-32, 32), y + irandom_range(-32, 32), FireExplosion);
+			
+			// Reset timer
 			ExplosionTimer = irandom_range(0, 16);
 		}
 		if (StateTimer + 1) mod 8 == 0
 		{
 			audio_sfx_play(sfxExplosion, false);
+		}
+		
+		// Destroy ball after 96 frames
+		if StateTimer == 84
+		{
+			instance_destroy(GHZBossBall);
 		}
 	}
 	
@@ -165,7 +177,7 @@ function ObjGHZBossMain()
 	}
 	
 	// Move object
-	if State > 1 and State < 7 or State == 8
+	if State > 1 and State != 7
 	{
 		OffsetY = (OffsetY + 2) mod 360;
 	}
@@ -207,8 +219,19 @@ function ObjGHZBossMain()
 			// Stop animation
 			animation_set(sprite_index, 0);
 			
-			// Destroy ball (TODO);
-			instance_destroy(GHZBossBall);
+			// Spawn explosions on chain
+			var DistanceA = dsin((Stage.OscillateAngle * -Angle) mod 360);
+			var DistanceX = dcos(90 + DistanceA * 90) * 16;
+			var DistanceY = dsin(90 + DistanceA * 90) * 16;
+			
+			for (var i = 1; i < 5; i++)
+		    {
+		        var X = floor(x +				    DistanceX * i);
+		        var Y = floor(y + 8 + ChainOffset + DistanceY * i);
+			
+		        instance_create(X, Y, FireExplosion);
+		    }
+			instance_create(x, y + 8 + ChainOffset, FireExplosion);
 		}
 		else
 		{
