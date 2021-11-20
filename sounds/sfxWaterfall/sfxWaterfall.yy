@@ -13,8 +13,8 @@
   "soundFile": "sfxWaterfall.ogg",
   "duration": 0.345601,
   "parent": {
-    "name": "GHZRevisited",
-    "path": "GHZRevisited.yyp",
+    "name": "SFX",
+    "path": "folders/Audio/SFX.yy",
   },
   "resourceVersion": "1.0",
   "name": "sfxWaterfall",

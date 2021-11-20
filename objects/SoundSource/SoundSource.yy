@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "Sprite273",
-    "path": "sprites/Sprite273/Sprite273.yy",
+    "name": "spr_obj_soundsource",
+    "path": "sprites/spr_obj_soundsource/spr_obj_soundsource.yy",
   },
   "solid": false,
   "visible": true,
@@ -23,13 +23,12 @@
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":73,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "GHZRevisited",
-    "path": "GHZRevisited.yyp",
+    "name": "Stage Objects",
+    "path": "folders/Game Objects/Stage Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "SoundSource",
