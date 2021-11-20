@@ -1,7 +1,7 @@
-function ObjDwayneStartup()
+function ObjSpikeBridgeStartup()
 {
-	// Set object solidbox
-	object_set_solidbox(16, 15, false);
+	// Set object hitbox
+	object_set_hitbox(4, 16);
 	
 	// Set object depth
 	object_set_depth(Player, false);

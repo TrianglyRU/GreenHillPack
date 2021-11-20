@@ -7,6 +7,7 @@ function object_set_depth(target,renderdepth)
 		switch object_index
 		{
 			case SolidWall:
+			case FloatingPlatform:
 				var Tolerance = 60;
 			break;
 			default:
