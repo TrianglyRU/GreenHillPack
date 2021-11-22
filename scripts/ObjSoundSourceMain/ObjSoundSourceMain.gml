@@ -1,5 +1,11 @@
 function ObjSoundSourceMain()
 {
+	// Exit if fade is active
+	if fade_check(FadeActive)
+	{
+		exit;
+	}
+	
 	// Exit if this source is not the closest one
 	if id != instance_nearest(floor(Player.PosX), floor(Player.PosY), SoundSource)
 	{
