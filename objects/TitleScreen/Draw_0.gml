@@ -1,12 +1,16 @@
 /// @description Insert description here
 // You can write your code in this editor
 	
-	// Draw game logo
-	draw_sprite(tex_title_logo, 0, Camera.ViewX + Game.Width / 2, Game.Height / 2);
+	// Draw back part of the logo
+	draw_sprite(tex_title_logo1, 0, Camera.ViewX + Game.Width / 2, Game.Height / 2 - 31);
 	
 	// Set position for Sonic
 	var SonicX = Camera.ViewX + Game.Width / 2 + 4;
 	var SonicY = Game.Height / 2 - 36;
+	
+	// Get Sonic size
+	var SonicW = sprite_get_width(tex_title_sonic0);
+	var SonicH = sprite_get_height(tex_title_sonic0);
 	
 	// Draw Sonic
 	switch State
@@ -18,7 +22,7 @@
 			{
 				SonicShift = max(0, SonicShift - 8);	
 			}
-			draw_sprite(tex_title_sonic0, 0, SonicX, SonicY + SonicShift);
+			draw_sprite_part(tex_title_sonic0, 0, 0, 0, SonicW, SonicH - SonicShift, SonicX - SonicW / 2, SonicY + SonicShift - SonicH / 2);
 		}
 		break;
 		case 1:
@@ -50,3 +54,6 @@
 		}
 		break;
 	}
+	
+	// Draw front part of the logo
+	draw_sprite(tex_title_logo2, 0, Camera.ViewX + Game.Width / 2, Game.Height / 2 + 35);

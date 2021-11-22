@@ -67,7 +67,7 @@ function StageSetup()
 			BottomBoundary		= 992;
 			AnimatedGraphics	= [tex_ghz_anitile0, 21, tex_ghz_anitile1, 10];
 			AnimalSet			= [spr_obj_animal_flicky, spr_obj_animal_pocky];
-			NextStage		    = Screen_DevMenu;
+			NextStage		    = Screen_SEGA;
 		}
 		break;
 		

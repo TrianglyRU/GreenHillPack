@@ -10,12 +10,12 @@
   "bbox_left": 0,
   "bbox_right": 255,
   "bbox_top": 0,
-  "bbox_bottom": 143,
+  "bbox_bottom": 81,
   "HTile": false,
   "VTile": false,
   "For3D": false,
   "width": 256,
-  "height": 144,
+  "height": 82,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"cb3d0b29-deb0-4500-93b7-b696ecc3a0da","path":"sprites/tex_title_logo/tex_title_logo.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"cb3d0b29-deb0-4500-93b7-b696ecc3a0da","path":"sprites/tex_title_logo/tex_title_logo.yy",},"LayerId":{"name":"87f04d95-7538-4957-a764-a7be2ee745d6","path":"sprites/tex_title_logo/tex_title_logo.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"tex_title_logo","path":"sprites/tex_title_logo/tex_title_logo.yy",},"resourceVersion":"1.0","name":"cb3d0b29-deb0-4500-93b7-b696ecc3a0da","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"4a095eca-41e6-4752-98e0-266ab5432c98","path":"sprites/tex_title_logo1/tex_title_logo1.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"4a095eca-41e6-4752-98e0-266ab5432c98","path":"sprites/tex_title_logo1/tex_title_logo1.yy",},"LayerId":{"name":"8b9dbe15-ee1a-4959-851f-f0bbba1eb272","path":"sprites/tex_title_logo1/tex_title_logo1.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"tex_title_logo1","path":"sprites/tex_title_logo1/tex_title_logo1.yy",},"resourceVersion":"1.0","name":"4a095eca-41e6-4752-98e0-266ab5432c98","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"tex_title_logo","path":"sprites/tex_title_logo/tex_title_logo.yy",},
+    "spriteId": {"name":"tex_title_logo1","path":"sprites/tex_title_logo1/tex_title_logo1.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"40fd3f9c-e0e5-49ae-b0f2-86fe81b21aa1","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"cb3d0b29-deb0-4500-93b7-b696ecc3a0da","path":"sprites/tex_title_logo/tex_title_logo.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"021bfbb2-9e71-4a0d-acff-b8d2131e3600","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"4a095eca-41e6-4752-98e0-266ab5432c98","path":"sprites/tex_title_logo1/tex_title_logo1.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -55,17 +55,17 @@
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
     "xorigin": 128,
-    "yorigin": 72,
+    "yorigin": 41,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"tex_title_logo","path":"sprites/tex_title_logo/tex_title_logo.yy",},
+    "parent": {"name":"tex_title_logo1","path":"sprites/tex_title_logo1/tex_title_logo1.yy",},
     "resourceVersion": "1.3",
-    "name": "tex_title_logo",
+    "name": "tex_title_logo1",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"87f04d95-7538-4957-a764-a7be2ee745d6","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"8b9dbe15-ee1a-4959-851f-f0bbba1eb272","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
@@ -73,7 +73,7 @@
     "path": "folders/Rooms/Screens/Title Screen/Textures.yy",
   },
   "resourceVersion": "1.0",
-  "name": "tex_title_logo",
+  "name": "tex_title_logo1",
   "tags": [],
   "resourceType": "GMSprite",
 }
