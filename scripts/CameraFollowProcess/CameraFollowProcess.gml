@@ -1,7 +1,7 @@
 function CameraFollowProcess() 
 {	
 	// Exit if camera is disabled or no target set
-	if !Enabled or !instance_exists(Target)
+	if !Enabled or Target == noone
 	{
 		exit;
 	}

@@ -10,6 +10,14 @@ function PaletteSetup()
 		}
 		break;
 		
+		// Load title palette
+		case Screen_Title:
+		{
+			palette_load(PaletteDry, pal_title);
+			palette_load(PaletteWet, noone);
+		}
+		break;
+		
 		// Load GHZ palette
 		case Stage_GHZ1:
 		case Stage_GHZ2:

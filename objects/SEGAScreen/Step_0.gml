@@ -63,8 +63,9 @@
 			}
 			else if fade_check(FadeMax)
 			{
-				room_goto(Screen_DevMenu);
+				//room_goto(Screen_DevMenu);
 				//room_goto(Stage_GHZ1);
+				room_goto(Screen_Title);
 			}
 		}
 		break;
