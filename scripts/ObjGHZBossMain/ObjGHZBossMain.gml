@@ -220,6 +220,7 @@ function ObjGHZBossMain()
 	{
 		if !(--HP)
 		{
+			Player.Score  += 1000;
 			StateTimer	   = 180;
 			State		   = 7;
 			Xsp		       = 0;

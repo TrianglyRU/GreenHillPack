@@ -15,11 +15,6 @@ function ObjNewtronGreenMain()
 					// Increment state
 					State++;
 				}
-				else
-				{
-					// Always face player
-					image_xscale = floor(Player.PosX) < x ? 1 : -1;
-				}
 			}
 		}
 		break;
@@ -27,6 +22,9 @@ function ObjNewtronGreenMain()
 		// Shoot
 		case 1:
 		{
+			// Always face player
+			image_xscale = floor(Player.PosX) < x ? 1 : -1;
+			
 			if image_index == 2
 			{
 				var  ThisObject = id;

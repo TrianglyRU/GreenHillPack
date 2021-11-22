@@ -16,7 +16,7 @@ function ObjClearPlateMain()
 			if object_check_overlap(Triggerbox)
 			{
 				// Play sound and stop music
-				audio_sfx_play(sfxSignPost, false);
+				audio_sfx_play(sfxClearPlate, false);
 
 				// Set stage flags
 				Stage.TimeEnabled = false;

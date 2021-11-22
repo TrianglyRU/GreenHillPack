@@ -9,10 +9,10 @@ function ObjProjectileMain()
 	x = floor(PosX);
 	y = floor(PosY);
 	
-	if Xsp != 0 and Ysp != 0 and object_check_overlap(Hitbox)
+	if object_check_overlap(Hitbox)
 	{
 		// Check if object should bounce off player
-		if Player.BarrierType > BarrierNormal 
+		if Player.BarrierType > BarrierNormal and !State
 		{
 			// Get angle
 			var X	  = floor(Player.PosX) - x;
@@ -20,9 +20,10 @@ function ObjProjectileMain()
 			var Angle = darctan2(Y, X);
 			
 			// Reflect projectile
-			Xsp = dcos(Angle) * -8;
-			Ysp = dsin(Angle) * -8;
-			Grv = 0;
+			Xsp    = dcos(Angle) * -8;
+			Ysp    = dsin(Angle) * -8;
+			Grv    = 0;
+			State += 1;
 		}
 		
 		// Else damage player

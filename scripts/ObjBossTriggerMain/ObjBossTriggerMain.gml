@@ -8,8 +8,8 @@ function ObjBossTriggerMain()
 	{
 		if object_check_overlap(Triggerbox)
 		{
-			// Stop music and play boss theme
-			audio_bgm_stop(PriorityLow, 1);
+			// Play boss music
+			audio_bgm_play(PriorityLow, Boss, other, other);
 			
 			// Set new top boundary
 			if ArenaHeight != -1
@@ -41,13 +41,7 @@ function ObjBossTriggerMain()
 			}
 			
 			// Set new left boundary
-			Stage.TargetLeftBoundary = x - max(Game.Width / 2, ArenaWidth / 2);
-			
-			// Play boss music
-			if !audio_bgm_is_playing(PriorityLow)
-			{
-				audio_bgm_play(PriorityLow, Boss, other, other); 
-			}		
+			Stage.TargetLeftBoundary = x - max(Game.Width / 2, ArenaWidth / 2);	
 		}
 		else
 		{
@@ -55,7 +49,6 @@ function ObjBossTriggerMain()
 			Stage.TargetRightBoundary = room_width;
 			
 			// Give 1000 points and cancel bossfight state
-			Player.Score     += 1000;
 			Stage.IsBossfight = false;
 			
 			// Play stage music
