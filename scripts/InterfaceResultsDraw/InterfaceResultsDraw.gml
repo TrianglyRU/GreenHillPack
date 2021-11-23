@@ -130,10 +130,7 @@ function InterfaceResultsDraw()
 				{
 					audio_sfx_play(sfxScoreCount, true);
 				}
-			
-				// Get 50000 score target
-				var LifeReward = max(ceil(Player.Score / 50000) * 50000, 50000);
-			
+				
 				// Skip bonuses math
 				if Input.StartPress
 				{
@@ -155,14 +152,7 @@ function InterfaceResultsDraw()
 						Player.Score += 100;
 					}
 				}
-			
-				// Grant extra life for exceeding 50000 points
-				if Player.Score >= LifeReward
-				{
-					Player.Lives++;
-					audio_bgm_play(PriorityHigh, ExtraLife, 0, 0);
-				}
-			
+				
 				// Score tally
 				if ResultsValue[10] == 0 and ResultsValue[9] == 0
 				{

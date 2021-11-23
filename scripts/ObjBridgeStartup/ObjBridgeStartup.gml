@@ -23,7 +23,7 @@ function ObjBridgeStartup()
 	}
 	
 	// Set object solidbox
-	object_set_solidbox(BridgeLength / 2 * 16, 8, false);
+	object_set_solidbox(BridgeLength / 2 * 16, 7, false);
 	
 	// Set object depth
 	object_set_depth(Player, true);

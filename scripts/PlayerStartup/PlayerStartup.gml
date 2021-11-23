@@ -53,12 +53,12 @@ function PlayerStartup()
 	VisualAngle			= 0;
 	Animation			= 0;
 	Rings				= 0;
-	LivesRewards	    = 0;
 	DebugMode           = 0;
 	DebugItem			= 0;
 	DebugSpeed			= 0;
 	
 	// Set default values
+	Grv			   = 0.21875;
 	AirTimer	   = 1800;
 	AllowCollision = true;
 	AllowMovement  = true;
@@ -66,8 +66,7 @@ function PlayerStartup()
 	PeeloutRev     = -1;
 	SpindashRev    = -1;
 	DropdashRev    = -1;
-	DropdashFlag   = -1;
-	Grv			   = 0.21875;
+	DropdashFlag   = -1;	
 	
 	// Set default sprite
 	switch Game.Character
@@ -108,8 +107,9 @@ function PlayerStartup()
 	RadiusW = 10;				// Wall radius. It is 10 for everyone by default
 	
 	// Load score and lives
-	Score = Game.Score;
-	Lives = Game.Lives;
+	Score		 = Game.Score;
+	Lives		 = Game.Lives;
+	LivesRewards = [(Rings & -100) + 100, (Score & -50000) + 50000];
 	
 	// Initialise recorded position datalist
 	RecordedPosX = ds_list_create();
@@ -156,7 +156,4 @@ function PlayerStartup()
 		// Clear array
 		Game.BonusStageData = [];
 	}
-	
-	// Update life reward counter if we have rings
-	LivesRewards = Rings div 100;
 }

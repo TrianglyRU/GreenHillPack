@@ -1,7 +1,7 @@
 function CameraFollowProcess() 
 {	
 	// Exit if camera is disabled or no target set
-	if !Enabled or Target == noone
+	if !Enabled or !instance_exists(Target)
 	{
 		exit;
 	}
@@ -9,8 +9,16 @@ function CameraFollowProcess()
 	// Get target's position relative to camera
 	if Target == Player
 	{
+		if Player.Spinning
+		{
+			var Offset = (Player.DefaultRadiusY - Player.RadiusY);
+		}
+		else
+		{
+			var Offset = 0;
+		}
 		TargetX = floor(Player.PosX) - PosX;
-		TargetY = floor(Player.PosY) - PosY;
+		TargetY = floor(Player.PosY) - PosY - Offset;
 	}
 	else
 	{
@@ -37,23 +45,23 @@ function CameraFollowProcess()
 	{	
 		if abs(Player.Inertia) >= 8
 		{
-			MaxShiftY = 16;
+			var Limit = MaxShiftY;
 		}
 		else
 		{
-			MaxShiftY = 6;
+			var Limit = 6;
 		}
-		ShiftY = clamp(TargetY - (Game.Height / 2 - 16), -MaxShiftY, MaxShiftY);
+		ShiftY = clamp(TargetY - (Game.Height / 2 - 16), -Limit, Limit);
 	} 
 	else 
 	{
 		if TargetY <= Game.Height / 2 - 48 
 		{ 
-			ShiftY = clamp(TargetY - (Game.Height / 2 - 48), -16, 0);  
+			ShiftY = clamp(TargetY - (Game.Height / 2 - 48), -MaxShiftY, 0);  
 		} 
 		else if TargetY >= Game.Height / 2 + 16 
 		{ 
-			ShiftY = clamp(TargetY - (Game.Height / 2 + 16), 0, 16);  
+			ShiftY = clamp(TargetY - (Game.Height / 2 + 16), 0, MaxShiftY);  
 		}
 		else
 		{

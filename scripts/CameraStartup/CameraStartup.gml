@@ -18,39 +18,38 @@ function CameraStartup()
 	ShiftY	       = 0;
 	ScrollDelay    = 0;
 	OverviewDelay  = 0;
-	SpinOffset     = 0;
 	ExtendedOffset = 0;
 	OverviewOffset = 0;
 	ShakeTime      = 0;
 	ShakeX	       = 0;
 	ShakeY	       = 0;
 	
-	// Set player as a default target
-	if instance_exists(Player)
+	switch room
 	{
-		Target = Player;
-	}
-	else
-	{
-		Target = noone;
-	}
+		default:
+		{
+			// Set player as a default target
+			Target = Player;
 			
-	// Set position on Star Post if its data exists
-	if array_length(Game.StarPostData)
-	{
-		PosX = Game.StarPostData[0] - Game.Width  / 2;
-		PosY = Game.StarPostData[1] - Game.Height / 2 + 16;
-	}
+			// Set position on Star Post if its data exists
+			if array_length(Game.StarPostData)
+			{
+				PosX = Game.StarPostData[0] - Game.Width  / 2;
+				PosY = Game.StarPostData[1] - Game.Height / 2 + 16;
+			}
 	
-	// Set position on Special Ring if its data exists
-	if array_length(Game.SpecialRingData)
-	{
-		PosX = Game.SpecialRingData[0] - Game.Width  / 2;
-		PosY = Game.SpecialRingData[1] - Game.Height / 2 + 16;
-	}
+			// Set position on Special Ring if its data exists
+			if array_length(Game.SpecialRingData)
+			{
+				PosX = Game.SpecialRingData[0] - Game.Width  / 2;
+				PosY = Game.SpecialRingData[1] - Game.Height / 2 + 16;
+			}
 	
-	/* If none of positions above exist, the camera will spawn
-	on checkpoint. It is handled from its side! */
+			/* If none of positions above exist, the camera will spawn
+			on checkpoint. It is handled from its side! */
+		}
+		break;
+	}
 	
 	// Enable room viewport 0 and make it visible
 	view_enabled[0] = true;

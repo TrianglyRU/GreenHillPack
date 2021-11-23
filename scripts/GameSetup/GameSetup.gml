@@ -2,9 +2,9 @@ function GameSetup()
 {
 	// Game settings
 	Game.WindowTitle = "Green Hill Revisited (Beta)";
-	Game.DevMode     = false;
-	Game.ShowSplash  = true;
-	Game.ForceLoad	 = Screen_SEGA;	// If set to false the game will load into DevMenu, else into the room you choose
+	Game.DevMode     = true;
+	Game.ShowSplash  = false;
+	Game.ForceLoad	 = Screen_Title;	// If set to false the game will load into DevMenu, else into the room you choose
 	
 	// Originals differences
 	Game.SpindashEnabled    = true;

@@ -655,7 +655,6 @@
     {"id":{"name":"gui_results_score","path":"sprites/gui_results_score/gui_results_score.yy",},"order":14,},
     {"id":{"name":"gui_results_through","path":"sprites/gui_results_through/gui_results_through.yy",},"order":15,},
     {"id":{"name":"gui_results_timebonus","path":"sprites/gui_results_timebonus/gui_results_timebonus.yy",},"order":16,},
-    {"id":{"name":"spr_sonic_actend","path":"sprites/spr_sonic_actend/spr_sonic_actend.yy",},"order":19,},
     {"id":{"name":"spr_obj_platform_ghz","path":"sprites/spr_obj_platform_ghz/spr_obj_platform_ghz.yy",},"order":93,},
     {"id":{"name":"ObjCountdownBubbleMain","path":"scripts/ObjCountdownBubbleMain/ObjCountdownBubbleMain.yy",},"order":23,},
     {"id":{"name":"spr_sonic_balance_flip","path":"sprites/spr_sonic_balance_flip/spr_sonic_balance_flip.yy",},"order":20,},
@@ -715,7 +714,6 @@
     {"id":{"name":"spr_obj_platform_ghzlong","path":"sprites/spr_obj_platform_ghzlong/spr_obj_platform_ghzlong.yy",},"order":104,},
     {"id":{"name":"audio_sfx_is_playing","path":"scripts/audio_sfx_is_playing/audio_sfx_is_playing.yy",},"order":38,},
     {"id":{"name":"spr_obj_airbubbler","path":"sprites/spr_obj_airbubbler/spr_obj_airbubbler.yy",},"order":16,},
-    {"id":{"name":"spr_tails_actend","path":"sprites/spr_tails_actend/spr_tails_actend.yy",},"order":42,},
     {"id":{"name":"ObjSolidWallStartup","path":"scripts/ObjSolidWallStartup/ObjSolidWallStartup.yy",},"order":114,},
     {"id":{"name":"GameCollisionsSetup","path":"scripts/GameCollisionsSetup/GameCollisionsSetup.yy",},"order":18,},
     {"id":{"name":"spr_tails_balance","path":"sprites/spr_tails_balance/spr_tails_balance.yy",},"order":43,},
@@ -773,7 +771,6 @@
     {"id":{"name":"spr_obj_conticon_tails","path":"sprites/spr_obj_conticon_tails/spr_obj_conticon_tails.yy",},"order":8,},
     {"id":{"name":"StartupScreen","path":"objects/StartupScreen/StartupScreen.yy",},"order":0,},
     {"id":{"name":"ContinueCharacter","path":"objects/ContinueCharacter/ContinueCharacter.yy",},"order":3,},
-    {"id":{"name":"spr_knuckles_actend","path":"sprites/spr_knuckles_actend/spr_knuckles_actend.yy",},"order":79,},
     {"id":{"name":"gui_framework_splash","path":"sprites/gui_framework_splash/gui_framework_splash.yy",},"order":21,},
   ],
   "Options": [

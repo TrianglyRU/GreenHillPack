@@ -89,7 +89,7 @@ function PlayerAnimate()
 						{
 							var Sprite = spr_sonic_spin_fast;
 						}
-						animation_play(Sprite, round(max(1, 4 - abs(Inertia))), 0, 0);
+						animation_play(Sprite, round(max(1, 5 - abs(Inertia))), 0, 0);
 					}
 					break;
 					case AnimSpindash:
@@ -139,9 +139,6 @@ function PlayerAnimate()
 							animation_set(spr_sonic_spring, 0);
 						}
 					}
-					break;
-					case AnimActEnd:
-						animation_play(spr_sonic_actend, 12, 0, 0);
 					break;
 					case AnimAirSpin:
 						animation_play(spr_sonic_airspin, 3, 0, 0);
@@ -213,7 +210,7 @@ function PlayerAnimate()
 						{
 							var Sprite = spr_sonic_spin_fast;
 						}
-						animation_play(Sprite, round(max(1, 4 - abs(Inertia))), 0, 0);
+						animation_play(Sprite, round(max(1, 5 - abs(Inertia))), 0, 0);
 					}
 					break;
 					case AnimSpindash:
@@ -360,9 +357,6 @@ function PlayerAnimate()
 				case AnimPush:
 					animation_play(spr_tails_push, round(max(1, 8 - abs(Inertia)) * 4), 0, 0);
 				break;
-				case AnimActEnd:
-					animation_play(spr_tails_actend, 16, 0, 1);
-				break;
 				case AnimBalance:
 					animation_play(spr_tails_balance, 20, 0, 0);
 				break;
@@ -419,7 +413,7 @@ function PlayerAnimate()
 				}
 				break;
 				case AnimSpin:
-					animation_play(spr_knuckles_roll, round(max(1, 4 - abs(Inertia))), 0, 0);
+					animation_play(spr_knuckles_roll, round(max(1, 5 - abs(Inertia))), 0, 0);
 				break;
 				case AnimSpindash:
 					animation_play(spr_knuckles_spindash, 1, 0, 0); 
@@ -518,9 +512,6 @@ function PlayerAnimate()
 				break;
 				case AnimTransform:
 					animation_play(spr_knuckles_transform, [6, 3, 3], 0, 1);
-				break;
-				case AnimActEnd:
-					animation_play(spr_knuckles_actend, [6, 18, 6, 6], 0, 3);
 				break;
 				case AnimAirSpin:
 					animation_play(spr_knuckles_airspin, 3, 0, 0);

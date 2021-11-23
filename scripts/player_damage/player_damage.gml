@@ -48,24 +48,6 @@ function player_damage(isFlame,isThunder,instantKill)
 		Player.Ysp	   = -7;
 		Player.Xsp	   = 0;
 		Player.Inertia = 0;
-		
-		// Play hurt sound
-		switch object_index
-		{
-			case SpikesVertical:
-			case SpikesHorizontal:
-			case SpikeSingle:
-			case SpikesLong:
-			{
-				audio_sfx_play(sfxHurtSpike, false);
-			}
-			break;
-			default:
-			{
-				audio_sfx_play(sfxHurt, false);
-			}
-			break;
-		}
 	}
 		
 	// Check if player has rings or barrier
@@ -83,17 +65,6 @@ function player_damage(isFlame,isThunder,instantKill)
 			if Player.Rings > 0
 			{
 				audio_sfx_play(sfxRingLoss, false)
-			}
-			else
-			{
-				if object_index == SpikesVertical or object_index == SpikesHorizontal
-				{
-					audio_sfx_play(sfxHurtSpike, false)
-				}
-				else
-				{
-					audio_sfx_play(sfxHurt, false);
-				}
 			}
 			
 			// Set default values we will use to spread rings
@@ -126,22 +97,13 @@ function player_damage(isFlame,isThunder,instantKill)
 			}
 			
 			// Clear ring counter
-			Player.Rings		= 0;
-			Player.LivesRewards = 0;
+			Player.Rings		   = 0;
+			Player.LivesRewards[0] = 100;
 		}
 			
 		// Lose barrier
 		else
 		{
-			// Play sound
-			if object_index == SpikesVertical or object_index == SpikesHorizontal
-			{
-				audio_sfx_play(sfxHurtSpike, false)
-			}
-			else
-			{
-				audio_sfx_play(sfxHurt, false);
-			}
 			Player.BarrierType = false;
 		}
 		
@@ -179,4 +141,25 @@ function player_damage(isFlame,isThunder,instantKill)
 	Player.SpindashRev  = -1;
 	Player.DropdashRev  = -1;
 	Player.DropdashFlag = -1;
+	
+	// Play hurt sound
+	if !audio_is_playing(sfxRingLoss)
+	{
+		switch object_index
+		{
+			case SpikesVertical:
+			case SpikesHorizontal:
+			case SpikeSingle:
+			case SpikesLong:
+			{
+				audio_sfx_play(sfxHurtSpike, false);
+			}
+			break;
+			default:
+			{
+				audio_sfx_play(sfxHurt, false);
+			}
+			break;
+		}
+	}
 }

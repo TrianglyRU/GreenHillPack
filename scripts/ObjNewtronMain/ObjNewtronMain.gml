@@ -7,7 +7,7 @@ function ObjNewtronMain()
 		{
 			if !visible
 			{
-				if abs(floor(Player.PosX - PosX)) <= 128
+				if abs(floor(Player.PosX - PosX)) < 128
 				{
 					animation_play(sprite_index, 20, 0, 4);
 					visible = true;
@@ -18,17 +18,19 @@ function ObjNewtronMain()
 				// Increment state
 				State++;
 			}
-			
-			// Always face player
-			image_xscale = floor(Player.PosX) < PosX ? 1 : -1;
+			else
+			{
+				// Always face player
+				image_xscale = floor(Player.PosX) < PosX ? 1 : -1;
+			}
 		}
 		break;
 		
 		// Fall
 		case 1:
 		{
-			Ysp  += 0.21875;
 			PosY += Ysp;
+			Ysp  += 0.21875;
 			
 			var Distance = tile_check_collision_v(PosX, PosY + 16, true, false, LayerA)[0];
 			if  Distance < 0
@@ -49,7 +51,7 @@ function ObjNewtronMain()
 		case 2:
 		{
 			var Distance = tile_check_collision_v(PosX, PosY + 16, true, false, LayerA)[0];
-			if  Distance >= -8 and Distance <= 12
+			if  Distance >= -8 and Distance < 12
 			{
 				PosY += Distance;
 			}
