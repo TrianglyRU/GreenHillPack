@@ -36,7 +36,13 @@ function player_damage(isFlame,isThunder,instantKill)
 		Player.AllowCollision      = false;
 		Player.Animation	       = AnimDeath;
 		Player.BarrierType		   = false;
-				
+		
+		// Force-disable Tails' tail visibility in case the code somehow messes up with it
+		if Game.Character == CharTails
+		{
+			TailsObject.visible = false;
+		}
+		
 		// Perform movement
 		Player.Grv     = 0.21875;
 		Player.Ysp	   = -7;
@@ -44,13 +50,21 @@ function player_damage(isFlame,isThunder,instantKill)
 		Player.Inertia = 0;
 		
 		// Play hurt sound
-		if object_index == SpikesVertical or object_index == SpikesHorizontal
+		switch object_index
 		{
-			audio_sfx_play(sfxHurtSpike, false);
-		}
-		else
-		{
-			audio_sfx_play(sfxHurt, false);
+			case SpikesVertical:
+			case SpikesHorizontal:
+			case SpikeSingle:
+			case SpikesLong:
+			{
+				audio_sfx_play(sfxHurtSpike, false);
+			}
+			break;
+			default:
+			{
+				audio_sfx_play(sfxHurt, false);
+			}
+			break;
 		}
 	}
 		

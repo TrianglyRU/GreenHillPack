@@ -22,21 +22,18 @@ function ObjNewtronGreenMain()
 		// Shoot
 		case 1:
 		{
-			// Always face player
-			image_xscale = floor(Player.PosX) < x ? 1 : -1;
-			
 			if image_index == 2
 			{
-				var  ThisObject = id;
+				var  ThisObject = [id, image_xscale];
 				var  NewObject  = instance_create(x - 20 * image_xscale, y - 8, Projectile);
 				with NewObject
 				{
 					Grv			 = 0;
-					Xsp          = 2 * -image_xscale;
+					Xsp          = -2 * ThisObject[1];
 					sprite_index = spr_obj_projectile_buzzbomber;
 					
 					// Set object depth
-					object_set_depth(ThisObject, true);
+					object_set_depth(ThisObject[0], true);
 				}
 				
 				// Increment state
@@ -60,5 +57,11 @@ function ObjNewtronGreenMain()
 	if image_index and image_index < 4
 	{
 		object_act_enemy(EnemyBadnik);
+	}
+	
+	// Always face player
+	if image_index < 2
+	{
+		image_xscale = floor(Player.PosX) < x ? 1 : -1;
 	}
 }

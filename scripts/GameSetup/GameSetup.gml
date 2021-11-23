@@ -17,7 +17,7 @@ function GameSetup()
 	Game.S3SlopePhysics		= false;
 	Game.S3WaterPhysics		= false;
 	Game.SKCrouch			= false;
-	Game.SKRollDeceleration	= true;
+	Game.SKRollDeceleration	= false;
 	Game.S2FloorCollision	= false;
 	Game.SKWallCollision	= false;	
 	Game.SKItemBoxBehaviour = false;
@@ -27,7 +27,7 @@ function GameSetup()
 	Game.SmoothRotation	      = false;
 	Game.RichPresenceSupport  = false;
 	Game.PreciseRingBehaviour = false;
-	Game.NoRollSpeedLimit	  = true;
+	Game.NoRollSpeedLimit	  = false;
 	Game.FlightCancel	      = false;
 	
 	/* Video, audio and control settings below are overwritten by 
@@ -37,7 +37,7 @@ function GameSetup()
 	Game.WindowFullscreen = false;
 	Game.Width            = 400;
 	Game.Height			  = 224;
-	Game.WindowSize	      = 3;
+	Game.WindowSize	      = 4;
 	
 	// Audio settings
 	Game.MusicVolume = 0.5;

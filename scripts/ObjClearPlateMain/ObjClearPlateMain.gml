@@ -15,9 +15,9 @@ function ObjClearPlateMain()
 		{
 			if object_check_overlap(Triggerbox)
 			{
-				// Play sound and stop music
+				// Play sound 
 				audio_sfx_play(sfxClearPlate, false);
-
+				
 				// Set stage flags
 				Stage.TimeEnabled = false;
 				Stage.IsFinished  = 1;
@@ -66,42 +66,47 @@ function ObjClearPlateMain()
 		}
 		break;
 		case 2:
-		{
-			if Stage.IsFinished != 2
+		{			
+			// Replicate S1 behaviour
+			if Stage.IsFinished < 2
 			{
-				if Player.Grounded
+				// Check if the player passed by the right boundary
+				if floor(Player.PosX + Player.Xsp) > Stage.RightBoundary - 24
 				{
-					// Play results music
+					// Increment stage state
+					Stage.IsFinished = 2;
+					
+					// Play bgm
 					audio_bgm_play(PriorityLow, ActClear, 0, 0);
-				
-					// Update flags
-					Input.IgnoreInput  = true;
-					Stage.IsFinished   = 2;	
-					Player.Xsp		   = 0;
-					Player.Ysp		   = 0;
-					Player.Inertia     = 0;
-					Player.SpindashRev = -1;
-					Player.PeeloutRev  = -1;
+				}
+			
+				// Take away control from the player
+				else if Player.Grounded and !Input.IgnoreInput
+				{
+					Input.IgnoreInput = true;
 				}
 			}
-		
-			// Set player animation
-			else
+			
+			// Force player movement
+			if Input.IgnoreInput
 			{
-				Player.Animation = AnimActEnd;
+				Input.Right = true;
 			}
 		}
 	}
 	
 	// Update stage boundaries
-	if floor(Player.PosX) > (x - Game.Width * 1.5 + 64) + Game.Width / 2
+	if !Stage.IsBossfight
 	{
-		Stage.TargetLeftBoundary  = x - Game.Width * 1.5 + 64;
-		Stage.TargetRightBoundary = x + Game.Width / 2;
-		
-		if State
+		if floor(Player.PosX) > (x - Game.Width * 1.5 + 64) + Game.Width / 2
 		{
-			Stage.TargetLeftBoundary = x - (Game.Width / 2);
+			Stage.TargetLeftBoundary  = x - Game.Width * 1.5 + 64;
+			Stage.TargetRightBoundary = x + Game.Width / 2;
+		
+			if State
+			{
+				Stage.TargetLeftBoundary = x - (Game.Width / 2);
+			}
 		}
-	}	
+	}
 }

@@ -2,11 +2,11 @@
 // You can write your code in this editor
 	
 	// Draw back part of the logo
-	draw_sprite(tex_title_logo1, 0, Camera.ViewX + Game.Width / 2, Game.Height / 2 - 31);
+	draw_sprite(tex_title_logo1, 0, Camera.ViewX + Game.Width / 2, Game.Height / 2 - 37);
 	
 	// Set position for Sonic
 	var SonicX = Camera.ViewX + Game.Width / 2 + 4;
-	var SonicY = Game.Height / 2 - 36;
+	var SonicY = Game.Height / 2 - 42;
 	
 	// Get Sonic size
 	var SonicW = sprite_get_width(tex_title_sonic0);
@@ -18,7 +18,7 @@
 		// Appear
 		case 0:
 		{
-			if StateTimer > 27
+			if StateTimer > 27 and !fade_check(FadeActive)
 			{
 				SonicShift = max(0, SonicShift - 8);	
 			}
@@ -56,4 +56,7 @@
 	}
 	
 	// Draw front part of the logo
-	draw_sprite(tex_title_logo2, 0, Camera.ViewX + Game.Width / 2, Game.Height / 2 + 35);
+	draw_sprite(tex_title_logo2, 0, Camera.ViewX + Game.Width / 2, Game.Height / 2 + 29);
+	
+	// Draw copyright
+	draw_sprite(tex_title_copyright, 0, Camera.ViewX + Game.Width - 96, Game.Height - 24);

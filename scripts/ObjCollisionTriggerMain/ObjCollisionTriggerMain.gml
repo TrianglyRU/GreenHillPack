@@ -9,11 +9,23 @@ function ObjCollisionTriggerMain()
 	// Exit if no overlap occured
 	if !object_check_overlap(Triggerbox) or Player.DebugMode
 	{
+		if State
+		{
+			if floor(Player.PosX) > x
+			{
+				Player.Layer = LayerA;
+			}
+			else
+			{
+				Player.Layer = LayerB;
+			}
+			State = 0;
+		}
 		exit;
 	}
 	
 	// Check player's movement direction
-	var    Direction = Player.Xsp <= 0 ? LeftDirection : RightDirection;
+	var    Direction = Player.Xsp > 0 ? RightDirection : LeftDirection;
 	switch Direction
 	{
 		case "To LayerA":
@@ -31,5 +43,9 @@ function ObjCollisionTriggerMain()
 	}
 	
 	// Change layer
+	if !State
+	{
+		State++;
+	}
 	Player.Layer = TargetLayer;
 }

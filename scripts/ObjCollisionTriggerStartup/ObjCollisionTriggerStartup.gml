@@ -2,6 +2,7 @@ function ObjCollisionTriggerStartup()
 {
 	// Create variable
 	TargetLayer = 0;
+	State		= 0;
 	
 	/* Variable Definitions	
 	1. GroundOnly,     default = false		
