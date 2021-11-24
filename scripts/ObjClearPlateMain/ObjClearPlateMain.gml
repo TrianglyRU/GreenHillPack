@@ -79,9 +79,9 @@ function ObjClearPlateMain()
 					// Play bgm
 					audio_bgm_play(PriorityLow, ActClear, 0, 0);
 				}
-			
+				
 				// Take away control from the player
-				else if Player.Grounded and !Input.IgnoreInput
+				if Player.Grounded and !Input.IgnoreInput
 				{
 					Input.IgnoreInput = true;
 				}
