@@ -195,19 +195,6 @@ function InterfaceDebugScreenDraw()
 				+ "\n   OVERVIEW SHIFT: " + string(Camera.OverviewOffset)
 				+ "\n   CD SHIFT: "       + string(Camera.ExtendedOffset)
 				+ "\n"
-				+ "\n              * AUDIO *"
-				+ "\n"
-				+ "\n   LOW TRACK: "       + LowPlaying
-				+ "\n   LOW EVENT: "       + LowEvent
-				+ "\n   LOW EVENT TIME: "  + string(Audio.LowTrack[2])
-				+ "\n   LOW VOLUME: "      + string(audio_sound_get_gain(Audio.LowTrack[1]))
-				+ "\n   LOW POSITION: "    + string(audio_sound_get_track_position(Audio.LowTrack[1]))
-				+ "\n   HIGH TRACK: "      + HighPlaying
-				+ "\n   HIGH EVENT: "      + HighEvent
-				+ "\n   HIGH EVENT TIME: " + string(Audio.HighTrack[2])
-				+ "\n   HIGH VOLUME: "     + string(audio_sound_get_gain(Audio.HighTrack[1]))
-				+ "\n   HIGH POSITION: "   + string(audio_sound_get_track_position(Audio.HighTrack[1]))
-				+ "\n"
 				+ "\n              * STAGE *"
 				+ "\n"
 				+ "\n   T BOUND: "  + string(Stage.TopBoundary) + " TARGET: " + string(Stage.TargetTopBoundary)

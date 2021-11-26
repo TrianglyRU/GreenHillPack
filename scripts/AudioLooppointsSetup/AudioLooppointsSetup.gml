@@ -8,5 +8,5 @@ function AudioLooppointsSetup()
 	audio_bgm_setloop(Boss,			     3.25,  28.84);
 	audio_bgm_setloop(SpecialStageTheme, 11.66, 50.2);
 	audio_bgm_setloop(BonusStageTheme,   3.67,  32.65);
-	audio_bgm_setloop(Invincibility,     0.68,  25.98);
+	audio_bgm_setloop(Invincibility,     10.1,  21.09);
 }
