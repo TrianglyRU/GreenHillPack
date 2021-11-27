@@ -37,7 +37,7 @@ function GameSetup()
 	Game.WindowFullscreen = false;
 	Game.Width            = 400;
 	Game.Height			  = 224;
-	Game.WindowSize	      = 2;
+	Game.WindowSize	      = 3;
 	
 	// Audio settings
 	Game.MusicVolume = 0.5;

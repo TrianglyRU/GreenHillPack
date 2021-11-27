@@ -693,6 +693,15 @@
         {"properties":[
             {"propertyId":{"name":"Type","path":"objects/BreakableWall/BreakableWall.yy",},"objectId":{"name":"BreakableWall","path":"objects/BreakableWall/BreakableWall.yy",},"value":"\"Default\"","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
           ],"isDnd":false,"objectId":{"name":"BreakableWall","path":"objects/BreakableWall/BreakableWall.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":720.0,"y":672.0,"resourceVersion":"1.0","name":"inst_4E05EA74","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"HiddenPoints","path":"objects/HiddenPoints/HiddenPoints.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":7992.0,"y":888.0,"resourceVersion":"1.0","name":"inst_42DF4C00","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[
+            {"propertyId":{"name":"Type","path":"objects/HiddenPoints/HiddenPoints.yy",},"objectId":{"name":"HiddenPoints","path":"objects/HiddenPoints/HiddenPoints.yy",},"value":"\"1000\"","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+          ],"isDnd":false,"objectId":{"name":"HiddenPoints","path":"objects/HiddenPoints/HiddenPoints.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":8148.0,"y":888.0,"resourceVersion":"1.0","name":"inst_8F5904A","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[
+            {"propertyId":{"name":"Type","path":"objects/HiddenPoints/HiddenPoints.yy",},"objectId":{"name":"HiddenPoints","path":"objects/HiddenPoints/HiddenPoints.yy",},"value":"\"10000\"","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+          ],"isDnd":false,"objectId":{"name":"HiddenPoints","path":"objects/HiddenPoints/HiddenPoints.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":8032.0,"y":856.0,"resourceVersion":"1.0","name":"inst_613AA231","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"HiddenPoints","path":"objects/HiddenPoints/HiddenPoints.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":8032.0,"y":888.0,"resourceVersion":"1.0","name":"inst_4DF87435","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"HiddenPoints","path":"objects/HiddenPoints/HiddenPoints.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":8072.0,"y":888.0,"resourceVersion":"1.0","name":"inst_7661EC9D","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":500,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":4,"gridY":4,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Objects","tags":[],"resourceType":"GMRInstanceLayer",},
     {"tilesetId":{"name":"GHZTilesetA","path":"tilesets/GHZTilesetA/GHZTilesetA.yy",},"x":0,"y":0,"tiles":{"SerialiseWidth":33,"SerialiseHeight":6,"TileSerialiseData":[
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -1044,6 +1053,11 @@
     {"name":"inst_625F7A6D","path":"rooms/Stage_GHZ2/Stage_GHZ2.yy",},
     {"name":"inst_4ADA4A0D","path":"rooms/Stage_GHZ2/Stage_GHZ2.yy",},
     {"name":"inst_1EB53548","path":"rooms/Stage_GHZ2/Stage_GHZ2.yy",},
+    {"name":"inst_42DF4C00","path":"rooms/Stage_GHZ2/Stage_GHZ2.yy",},
+    {"name":"inst_8F5904A","path":"rooms/Stage_GHZ2/Stage_GHZ2.yy",},
+    {"name":"inst_613AA231","path":"rooms/Stage_GHZ2/Stage_GHZ2.yy",},
+    {"name":"inst_4DF87435","path":"rooms/Stage_GHZ2/Stage_GHZ2.yy",},
+    {"name":"inst_7661EC9D","path":"rooms/Stage_GHZ2/Stage_GHZ2.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

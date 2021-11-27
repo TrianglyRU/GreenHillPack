@@ -12,6 +12,11 @@
 		if fade_check(FadeMax)
 		{
 			room_goto(Stage_GHZ1);
+			
+			// Clear data
+			Game.Score     = 0;
+			Game.Continues = 2;
+			Game.Lives	   = 3;
 		}
 		
 		// Exit the code
