@@ -4,7 +4,7 @@ function BonusStageProcess()
 	{
 		case 0:
 		{
-			if !fade_check(FadeActive)
+			if !fade_check(StateActive)
 			{
 				// Give 10 rings
 				if Input.APress
@@ -16,7 +16,7 @@ function BonusStageProcess()
 					if Game.BonusStageData[0] >= RingState * 100
 					{
 						Game.Lives++;
-						audio_bgm_play(PriorityHigh, ExtraLife, 0, 0);
+						audio_bgm_play(ChannelSecondary, ExtraLife);
 						
 						// Increase amount of required rings
 						RingState++;
@@ -48,12 +48,12 @@ function BonusStageProcess()
 				// Leave
 				else if Input.StartPress
 				{
-					fade_perform(FadeTo, ColourBlack, 1);
+					fade_perform(ModeInto, BlendBlack, 1);
 					State++;
 					
 					// Stop music
-					audio_bgm_stop(PriorityLow,  0.5);
-					audio_bgm_stop(PriorityHigh, 0.5);
+					audio_bgm_stop(ChannelPrimary,  0.5);
+					audio_bgm_stop(ChannelSecondary, 0.5);
 				}
 			}
 		}
@@ -61,7 +61,7 @@ function BonusStageProcess()
 		case 1:
 		{
 			// Return back to stage
-			if fade_check(FadeMax)
+			if fade_check(StateMax)
 			{
 				room_goto(Game.StageRoom);
 			}

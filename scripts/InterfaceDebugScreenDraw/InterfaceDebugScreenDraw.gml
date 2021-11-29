@@ -1,117 +1,79 @@
 function InterfaceDebugScreenDraw()
 {	
-	// Exit if not in devmode or player doesn't exist
-	if !Game.DevMode or !instance_exists(Player)
+	// Display FPS if enabled
+	if DebugFPS
 	{
-		exit;
-	}
-	
-	// Toggle hotkeys on-screen guide
-	if keyboard_check_pressed(ord("Y"))
-	{
-		DebugHelp = !DebugHelp;
-	}
-	
-	// Set font
-	draw_set_font(game_font(font_default));
-	
-	// Display available hotkeys and game fps
-	if DebugHelp
-	{
-		draw_set_halign(fa_center);
-		draw_text_transformed(Game.Width / 2 - 44, Game.Height - 4, "POSITIONS: Q  SOLIDS: W  HITBOXES:E  TRIGGERS: R  VARIABLES: T  THIS HELP: Y", 0.5, 0.5, 0);
-		
+		// Set font
 		draw_set_halign(fa_left);
-		draw_text_transformed(Game.Width - 44, Game.Height - 4, "FPS: " + string(floor(fps_real)), 0.5, 0.5, 0);
+		draw_set_font(game_font(font_default));
+		
+		// Show FPS
+		if !DebugVariables
+		{
+			draw_text_transformed(8, Game.Height - 4, "FPS: " + string(floor(fps_real)), 0.5, 0.5, 0);
+		}
+		else
+		{
+			// We can't really tell actual FPS if variables debug is enabled. It reduces FPS amount by around 80%
+			draw_text_transformed(8, Game.Height - 4, "APPROXIMATE FPS: " + string(floor(fps_real * 1.8)), 0.5, 0.5, 0);
+		}
 	}
 	
-	// Toggle variables debug
-	if keyboard_check_pressed(ord("T"))
-	{
-		DebugVariables = !DebugVariables;
-	}
-	
-	// Define information to display
-	#region Display Info
-	{
-		/* AUDIO */
-		
-		if Audio.LowTrack[0]
-		{
-			var LowPlaying = audio_get_name(Audio.LowTrack[0]);
-			var LowLength  = string(audio_sound_length(Audio.LowTrack[0]));
-		}
-		else
-		{
-			var LowPlaying = "NOT PLAYING";
-			var LowLength  = "NO DATA";
-		}
-		if Audio.HighTrack[0]
-		{
-			var HighPlaying = audio_get_name(Audio.HighTrack[0]);
-			var HighLength  = string(audio_sound_length(Audio.HighTrack[0]));
-		}
-		else
-		{
-			var HighPlaying = "NOT PLAYING";
-			var HighLength  = "NO DATA";
-		}
-		
-		switch Audio.LowTrack[2]
-		{
-			case EventIdle:
-				var LowEvent = "IDLE";
-			break;
-			case EventMute:
-				var LowEvent = "MUTE";
-			break;
-			case EventStop:
-				var LowEvent = "STOP";
-			break;
-			case EventUnmute:
-				var LowEvent = "UNMUTE";
-			break;
-		}
-		switch Audio.HighTrack[2]
-		{
-			case EventIdle:
-				var HighEvent = "IDLE";
-			break;
-			case EventMute:
-				var HighEvent = "MUTE";
-			break;
-			case EventStop:
-				var HighEvent = "STOP";
-			break;
-			case EventUnmute:
-				var HighEvent = "UNMUTE";
-			break;
-		}
-		
-		if Audio.LowTrack[1][1]
-		{
-			var LowLoop = "LOOP TO " + string(Audio.LowTrack[1][0]);
-		}
-		else
-		{
-			var LowLoop = "NO";
-		}
-		if Audio.HighTrack[1][1]
-		{
-			var HighLoop = "LOOP TO " + string(Audio.HighTrack[1][0]);
-		}
-		else
-		{
-			var HighLoop = "NO";
-		}
-		
-		/* */
-	}
-	#endregion
-	
-	// Display variables
+	// Display variable info if enabled
 	if DebugVariables
 	{
+		// Define information to display
+		#region Display Info
+		{
+			if Audio.PrimaryTrack[1]
+			{
+				var LowPlaying = audio_get_name(Audio.PrimaryTrack[1]);
+			}
+			else
+			{
+				var LowPlaying = "NOT PLAYING";
+			}
+			if Audio.SecondaryTrack[1]
+			{
+				var HighPlaying = audio_get_name(Audio.SecondaryTrack[1]);
+			}
+			else
+			{
+				var HighPlaying = "NOT PLAYING";
+			}		
+			switch Audio.PrimaryTrack[0]
+			{
+				case EventIdle:
+					var LowEvent = "IDLE";
+				break;
+				case EventMute:
+					var LowEvent = "MUTE";
+				break;
+				case EventStop:
+					var LowEvent = "STOP";
+				break;
+				case EventUnmute:
+					var LowEvent = "UNMUTE";
+				break;
+			}
+			switch Audio.SecondaryTrack[0]
+			{
+				case EventIdle:
+					var HighEvent = "IDLE";
+				break;
+				case EventMute:
+					var HighEvent = "MUTE";
+				break;
+				case EventStop:
+					var HighEvent = "STOP";
+				break;
+				case EventUnmute:
+					var HighEvent = "UNMUTE";
+				break;
+			}
+		}
+		#endregion
+		
 		// Draw rectangle
 		draw_set_alpha(0.65);
 		draw_rectangle_colour(Game.Width - 90, 4, Game.Width - 4, Game.Height - 8, c_black, c_black, c_black, c_black, false)
@@ -119,12 +81,13 @@ function InterfaceDebugScreenDraw()
 		// Set font
 		draw_set_alpha(1);
 		draw_set_halign(fa_left);
+		draw_set_font(game_font(font_default));
 	
-		// Display debug screen
+		// Show variables
 		draw_text_ext_transformed(Game.Width - 86, 8,
 		
 					"         ORBINAUT  FRAMEWORK"
-				+ "\n          GHZ REVISITED VER."
+				+ "\n           STANDALONE VER."
 				+ "\n"
 				+ "\n"
 				+ "\n          * PLAYER MOTION *"
@@ -161,6 +124,7 @@ function InterfaceDebugScreenDraw()
 				+ "\n   FLIGHT VALUE: "		 + string(Player.FlightValue)
 				+ "\n   SPINDASH: "			 + string(round(Player.SpindashRev))
 				+ "\n   PEELOUT: "			 + string(Player.PeeloutRev)
+				+ "\n   DBL SPIN ATTACK: "	 + string(Player.DoubleSpinAttack)
 				+ "\n   DROPDASH: "			 + string(Player.DropdashRev)
 				+ "\n   DROPDASH FLAG: "	 + string(Player.DropdashFlag)
 				+ "\n   BARRIER: "		     + string(Player.BarrierType)
@@ -179,7 +143,6 @@ function InterfaceDebugScreenDraw()
 				+ "\n"
 				+ "\n   ANIMATION ID: "  + string(Player.Animation)
 				+ "\n   SPRITE: "		 + string(sprite_get_name(Player.sprite_index))
-				+ "\n   NEXT FRAME IN: " + string(Player.image_timer)
 				+ "\n   CURRENT FRAME: " + string(Player.image_index + 1)
 				+ "\n   FRAMES TOTAL: "  + string(Player.image_number)
 				+ "\n   VISUAL ANGLE: "  + string(Player.VisualAngle)
@@ -195,12 +158,25 @@ function InterfaceDebugScreenDraw()
 				+ "\n   OVERVIEW SHIFT: " + string(Camera.OverviewOffset)
 				+ "\n   CD SHIFT: "       + string(Camera.ExtendedOffset)
 				+ "\n"
+				+ "\n              * AUDIO *"
+				+ "\n"
+				+ "\n   PRIMARY TRACK: "       + LowPlaying
+				+ "\n   PRIMARY EVENT: "       + LowEvent
+				+ "\n   PRIMARY EVENT TIME: "  + string(Audio.PrimaryTrack[2])
+				+ "\n   PRIMARY VOLUME: "      + string(audio_sound_get_gain(Audio.PrimaryTrack[1]))
+				+ "\n   PRIMARY POSITION: "    + string(audio_sound_get_track_position(Audio.PrimaryTrack[1]))
+				+ "\n   SECONDARY TRACK: "      + HighPlaying
+				+ "\n   SECONDARY EVENT: "      + HighEvent
+				+ "\n   SECONDARY EVENT TIME: " + string(Audio.SecondaryTrack[2])
+				+ "\n   SECONDARY VOLUME: "     + string(audio_sound_get_gain(Audio.SecondaryTrack[1]))
+				+ "\n   SECONDARY POSITION: "   + string(audio_sound_get_track_position(Audio.SecondaryTrack[1]))
+				+ "\n"
 				+ "\n              * STAGE *"
 				+ "\n"
-				+ "\n   T BOUND: "  + string(Stage.TopBoundary) + " TARGET: " + string(Stage.TargetTopBoundary)
-				+ "\n   B BOUND: " + string(Stage.BottomBoundary) + " TARGET: " + string(Stage.TargetBottomBoundary)
-				+ "\n   L BOUND: "  + string(Stage.LeftBoundary) + " TARGET: " + string(Stage.TargetLeftBoundary)
-				+ "\n   R BOUND: " + string(Stage.RightBoundary) + " TARGET: " + string(Stage.TargetRightBoundary)
+				+ "\n   T BOUND: "		   + string(Stage.TopBoundary)    + " TARGET: " + string(Stage.TargetTopBoundary)
+				+ "\n   B BOUND: "		   + string(Stage.BottomBoundary) + " TARGET: " + string(Stage.TargetBottomBoundary)
+				+ "\n   L BOUND: "		   + string(Stage.LeftBoundary)   + " TARGET: " + string(Stage.TargetLeftBoundary)
+				+ "\n   R BOUND: "		   + string(Stage.RightBoundary)  + " TARGET: " + string(Stage.TargetRightBoundary)
 				+ "\n   OBJECTS LOADED: "  + string(instance_count - 9),
 				
 		8, 256, 0.28, 0.28, 0);

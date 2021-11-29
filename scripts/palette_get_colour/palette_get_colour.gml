@@ -1,16 +1,19 @@
 /// @function palette_get_colour(paletteType,id)
 function palette_get_colour(paletteType, id)
 {
-	// Get actual index
-	var Index = max(0, id - 1);
+	// Return first colour if no pallete set
+	if Palette.ColourSet[paletteType] == false
+	{
+		return 0;
+	}
 	
 	// Return colour
-	if paletteType == PaletteDry
+	if paletteType == TypePrimary
 	{
-		return Palette.IndexDry[Index];
+		return Palette.IndexType1[id];
 	}
-	else if paletteType == PaletteWet
+	else if paletteType == TypeSecondary
 	{
-		return Palette.IndexWet[Index];
+		return Palette.IndexType2[id];
 	}
 }

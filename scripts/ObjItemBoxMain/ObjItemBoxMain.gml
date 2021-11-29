@@ -14,7 +14,7 @@ function ObjItemBoxMain()
 			// Check if player is able to destroy it
 			if Game.SKItemBoxBehaviour
 			{
-				if Player.Ysp < 0
+				if Player.Ysp < 0 and !Player.DoubleSpinAttack
 				{
 					var Check = floor(Player.PosY + 16) >= y;
 				}
@@ -25,12 +25,12 @@ function ObjItemBoxMain()
 			}
 			else
 			{
-				var Check = Player.Ysp >= 0;
+				var Check = Player.Ysp >= 0 or Player.DoubleSpinAttack;
 			}
 			if Check and (Player.Spinning or Player.GlideState > GlideFall) and Player.OnObject != id
 			{
 				// Destroy on overlap
-				if object_check_overlap(Hitbox)
+				if object_check_overlap(Hitbox2)
 				{
 					// Inverse player's speed
 					if !Player.Grounded
@@ -60,7 +60,7 @@ function ObjItemBoxMain()
 				// Make itembox fall down
 				if !IsFalling and floor(Player.PosY) >= floor(y + 16)
 				{
-					if object_check_overlap(Hitbox)
+					if object_check_overlap(Hitbox2)
 					{
 						IsFalling  = true;
 						Ysp        = -1.5;
@@ -138,7 +138,7 @@ function ObjItemBoxMain()
 					// Play music
 					if !Player.SuperState
 					{
-						audio_bgm_play(PriorityLow, HighSpeed, 0, 0);
+						audio_bgm_play(ChannelPrimary, HighSpeed);
 					}
 				}
 				break;
@@ -154,7 +154,7 @@ function ObjItemBoxMain()
 					Player.InvincibleBonus = 1200;
 						
 					// Play music
-					audio_bgm_play(PriorityLow, Invincibility, other, other);
+					audio_bgm_play(ChannelPrimary, Invincibility);
 				}
 				break;
 				case "Barrier":
@@ -223,20 +223,20 @@ function ObjItemBoxMain()
 						{
 							if Player.InvincibleBonus
 							{
-								audio_bgm_play(PriorityLow, Invincibility, 0, 0);
+								audio_bgm_play(ChannelPrimary, Invincibility);
 							}
 							else if Player.HighspeedBonus
 							{
-								audio_bgm_play(PriorityLow, HighSpeed, 0, 0);
+								audio_bgm_play(ChannelPrimary, HighSpeed);
 							}
 							else
 							{
-								audio_bgm_play(PriorityLow, Stage.StageMusic, 0, 0);
+								audio_bgm_play(ChannelPrimary, Stage.StageMusic);
 							}
 						}
 						else
 						{
-							audio_bgm_play(PriorityLow, SuperTheme, 0, 0);
+							audio_bgm_play(ChannelPrimary, SuperTheme);
 						}
 					}
 			
@@ -250,7 +250,7 @@ function ObjItemBoxMain()
 					Player.Lives++;
 						
 					// Play jingle
-					audio_bgm_play(PriorityHigh, ExtraLife, 0, 0);
+					audio_bgm_play(ChannelSecondary, ExtraLife);
 				}
 				break;
 				case "Eggman":

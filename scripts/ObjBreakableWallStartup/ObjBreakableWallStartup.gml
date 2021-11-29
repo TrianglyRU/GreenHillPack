@@ -7,11 +7,15 @@ function ObjBreakableWallStartup()
 	// Setup object
 	switch room
 	{
+		case Stage_GHZ1:
+		case Stage_GHZ2:
+		case Stage_GHZ3:
+			var SpriteData = spr_obj_breakablewall_ghz;
+		break;
 		default:
-			SpriteData = spr_obj_breakablewall_piece;
+			var SpriteData = spr_tempobject;
 		break;
 	}
-	var ThisData = SpriteData;
 	
 	// Create pieces
 	for (var i = 0; i < 2; i++)
@@ -36,7 +40,7 @@ function ObjBreakableWallStartup()
 			var  Object = instance_create(x - 8 + i * 16, y - 24 + j * 16, BreakableWallPiece);
 			with Object
 			{
-				Object.sprite_index = ThisData;
+				Object.sprite_index = SpriteData;
 				Object.image_index  = Index;
 			}
 			PieceID[i, j] = Object;

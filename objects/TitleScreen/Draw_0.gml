@@ -18,7 +18,7 @@
 		// Appear
 		case 0:
 		{
-			if StateTimer > 27 and !fade_check(FadeActive)
+			if StateTimer > 27 and !fade_check(StateActive)
 			{
 				SonicShift = max(0, SonicShift - 8);	
 			}

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_collision_trigger",
-    "path": "sprites/spr_obj_collision_trigger/spr_obj_collision_trigger.yy",
+    "name": "spr_trigger2",
+    "path": "sprites/spr_trigger2/spr_trigger2.yy",
   },
   "solid": false,
   "visible": true,
@@ -23,19 +23,18 @@
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [
     {"varType":3,"value":"False","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"GroundOnly","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":6,"value":"\"None\"","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
         "\"None\"",
-        "\"To LayerA\"",
-        "\"To LayerB\"",
+        "LayerA",
+        "LayerB",
       ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"LeftDirection","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":6,"value":"\"None\"","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
         "\"None\"",
-        "\"To LayerA\"",
-        "\"To LayerB\"",
+        "LayerA",
+        "LayerB",
       ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"RightDirection","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],

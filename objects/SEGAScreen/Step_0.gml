@@ -6,10 +6,10 @@
 		// Shift SEGA palette
 		case 0:
 		{	
-			var Colour = palette_get_colour(PaletteDry, 0);
+			var Colour = palette_get_colour(TypePrimary, 0);
 			if  Colour < 54
 			{
-				palette_handle(PaletteDry, 0, 47, 54, 54, 1);
+				palette_handle(TypePrimary, 0, 47, 54, 54, 1);
 			}
 			else
 			{
@@ -37,9 +37,9 @@
 		{
 			if (++StateTimer) == 160
 			{
-				fade_perform(FadeTo, ColourBlack, 1);
+				fade_perform(ModeInto, BlendBlack, 1);
 			}
-			else if fade_check(FadeMax)
+			else if fade_check(StateMax)
 			{
 				// Increment state
 				State	  += 1;
@@ -49,7 +49,7 @@
 				layer_background_blend(layer_background_get_id("Background"), c_black);
 				
 				// Fade from
-				fade_perform(FadeFrom, ColourBlack, 1);
+				fade_perform(ModeFrom, BlendBlack, 1);
 			}
 		}
 		break;
@@ -59,9 +59,9 @@
 		{
 			if (++StateTimer) == 80
 			{
-				fade_perform(FadeTo, ColourBlack, 1);
+				fade_perform(ModeInto, BlendBlack, 1);
 			}
-			else if fade_check(FadeMax)
+			else if fade_check(StateMax)
 			{
 				//room_goto(Screen_DevMenu);
 				//room_goto(Stage_GHZ1);

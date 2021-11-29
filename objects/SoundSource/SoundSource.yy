@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_soundsource",
-    "path": "sprites/spr_obj_soundsource/spr_obj_soundsource.yy",
+    "name": "spr_tempobject",
+    "path": "sprites/spr_tempobject/spr_tempobject.yy",
   },
   "solid": false,
   "visible": true,

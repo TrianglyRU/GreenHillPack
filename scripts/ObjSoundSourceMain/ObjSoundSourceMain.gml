@@ -1,7 +1,7 @@
 function ObjSoundSourceMain()
 {
 	// Exit if fade is active
-	if fade_check(FadeActive)
+	if fade_check(StateActive)
 	{
 		exit;
 	}

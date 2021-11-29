@@ -3,9 +3,21 @@ function ObjBridgeStartup()
 	/* Variable Definitions	
 	1. BridgeLength,  default = 12
 	2. GeneratePosts, default = true
-	3. BridgeSprite,  default = spr_obj_bridge_log_template
-	4. PostSprite,    default = spr_obj_bridge_post_template
 	*/
+	
+	// Setup object
+	switch room
+	{
+		case Stage_GHZ1:
+		case Stage_GHZ2:
+		case Stage_GHZ3:
+			SpriteData = [spr_obj_bridge_log_ghz, spr_obj_bridge_post_ghz];
+		break;
+		default:
+			SpriteData = [spr_tempobject, spr_tempobject];
+					  /* [log,		      post] */
+		break;
+	}
 	
 	// Set blank values
 	RecoveryAngle    = 0;
@@ -24,9 +36,6 @@ function ObjBridgeStartup()
 	
 	// Set object solidbox
 	object_set_solidbox(BridgeLength / 2 * 16, 7, false);
-	
-	// Set object depth
-	object_set_depth(Player, true);
 	
 	// Set object unload type
 	object_set_unload(TypePause);

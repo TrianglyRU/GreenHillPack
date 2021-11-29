@@ -5,16 +5,16 @@ function PaletteSetup()
 		// Load SEGA palette
 		case Screen_SEGA:
 		{
-			palette_load(PaletteDry, pal_sega);
-			palette_load(PaletteWet, noone);
+			palette_load(TypePrimary,   pal_sega);
+			palette_load(TypeSecondary, noone);
 		}
 		break;
 		
 		// Load title palette
 		case Screen_Title:
 		{
-			palette_load(PaletteDry, pal_title);
-			palette_load(PaletteWet, noone);
+			palette_load(TypePrimary,   pal_title);
+			palette_load(TypeSecondary, noone);
 		}
 		break;
 		
@@ -23,16 +23,16 @@ function PaletteSetup()
 		case Stage_GHZ2:
 		case Stage_GHZ3:
 		{
-			palette_load(PaletteDry, pal_ghz_dry);
-			palette_load(PaletteWet, noone);
+			palette_load(TypePrimary,   pal_ghz_dry);
+			palette_load(TypeSecondary, noone);
 		}
 		break;
 		
 		// Do not load any palettes by default
 		default:
 		{
-			palette_load(PaletteDry, noone);
-			palette_load(PaletteWet, noone);
+			palette_load(TypePrimary,   noone);
+			palette_load(TypeSecondary, noone);
 		}
 		break;
 	}

@@ -1,19 +1,23 @@
 function AudioStartup()
 {
-	// Stop all audio
-	audio_stop_all();
+	/* Array Pointers
+	0 - Event
+	1 - Track ID
+	2 - Event Time
+	3 - Loop Data
+	*/
 	
-	// Set non-priority track data
-	LowTrack[2]    = EventIdle;
-	LowTrack[0]    = noone;
-	LowTrack[3]    = 0;
-	LowTrack[1][0] = 0;
-	LowTrack[1][1] = 0;
+	// Set primary track data
+	PrimaryTrack[0] = EventIdle;
+	PrimaryTrack[1] = noone;
+	PrimaryTrack[2] = 0;
+	PrimaryTrack[3] = [];
 	
-	// Set priority track data
-	HighTrack[2]    = EventIdle;
-	HighTrack[0]    = noone;
-	HighTrack[3]    = 0;
-	HighTrack[1][0] = 0;
-	HighTrack[1][1] = 0;
+	// Set secondary track data
+	SecondaryTrack[0] = EventIdle;
+	SecondaryTrack[1] = noone;
+	SecondaryTrack[2] = 0;
+	
+	// Create TrackLoop data structure
+	TrackLoop = ds_map_create();
 }

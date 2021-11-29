@@ -6,4 +6,4 @@
 	SonicShift = 88;
 	LoadFlag   = false;
 	
-	fade_perform(FadeFrom, ColourBlack, 1);
+	fade_perform(ModeFrom, BlendBlack, 1);

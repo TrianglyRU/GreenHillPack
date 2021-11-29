@@ -181,7 +181,7 @@ function InterfaceResultsDraw()
 		{
 			if (++ResultsValue[0]) == 180
 			{
-				fade_perform(FadeTo, ColourBlack, 1);
+				fade_perform(ModeInto, BlendBlack, 1);
 			}
 		}
 	
@@ -202,7 +202,7 @@ function InterfaceResultsDraw()
 			}
 			else if (++ResultsValue[0]) == 260
 			{
-				fade_perform(FadeTo, ColourBlack, 1);
+				fade_perform(ModeInto, BlendBlack, 1);
 			}
 		}
 	}

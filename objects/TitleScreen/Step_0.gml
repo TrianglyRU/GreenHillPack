@@ -2,14 +2,14 @@
 // You can write your code in this editor
 	
 	// Exit if fade is active
-	if !LoadFlag and fade_check(FadeActive)
+	if !LoadFlag and fade_check(StateActive)
 	{
 		exit;
 	}
 	else if LoadFlag
 	{
 		// Load into GHZ
-		if fade_check(FadeMax)
+		if fade_check(StateMax)
 		{
 			room_goto(Stage_GHZ1);
 			
@@ -53,14 +53,14 @@
 	if Input.StartPress
 	{
 		LoadFlag = true;
-		fade_perform(FadeTo, ColourBlack, 1);
+		fade_perform(ModeInto, BlendBlack, 1);
 		
 		// Stop BGM
-		audio_bgm_stop(PriorityLow, 0.5);
+		audio_bgm_stop(ChannelPrimary, 0.5);
 	}
 	
 	// Update palette
-	palette_handle(PaletteDry, 0, 4, 4, 1, 6);
+	palette_handle(TypePrimary, 0, 4, 4, 1, 6);
 	
 	// State machine
 	switch State
@@ -70,7 +70,7 @@
 			// Play Title Theme
 			if StateTimer == 0
 			{
-				audio_bgm_play(PriorityLow, TitleTheme, 0, 0);
+				audio_bgm_play(ChannelPrimary, TitleTheme);
 			}
 			if (++StateTimer) == 42
 			{

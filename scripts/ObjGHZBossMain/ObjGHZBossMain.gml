@@ -207,11 +207,11 @@ function ObjGHZBossMain()
 	{
 		if (--InvincibilityTime) mod 2 == 0
 		{
-			palette_set_colour(PaletteDry, 16, 1, 1);
+			palette_set_colour(TypePrimary, 16, 1, 1);
 		}
 		else
 		{
-			palette_set_colour(PaletteDry, 16, 1, 2);
+			palette_set_colour(TypePrimary, 16, 1, 2);
 		}
 	}
 	
@@ -252,7 +252,7 @@ function ObjGHZBossMain()
 			InvincibilityTime = 31;
 			
 			// Set palette
-			palette_set_colour(PaletteDry, 16, 1, 2);
+			palette_set_colour(TypePrimary, 16, 1, 2);
 		}
 	}
 }

@@ -90,15 +90,15 @@ function ObjSpecialRingMain()
 			// Perform fade after 32 frames
 			if (++Timer) == 32
 			{				
-				fade_perform(FadeTo, ColourWhite, 1);
+				fade_perform(ModeInto, BlendWhite, 1);
 				
 				// Play sound and increment state
 				audio_play_sound(sfxSpecialWarp, 0, false);
 				State++;
 				
 				// Stop music instantly
-				audio_bgm_stop(PriorityLow,  0);
-				audio_bgm_stop(PriorityHigh, 0);
+				audio_bgm_stop(ChannelPrimary,  0);
+				audio_bgm_stop(ChannelSecondary, 0);
 			}
 		}
 		break;

@@ -55,7 +55,7 @@ function PlayerWaterEvents()
 				}
 				else if AirTimer == 720
 				{			
-					audio_bgm_play(PriorityLow, Drowning, 0, 0);
+					audio_bgm_play(ChannelPrimary, Drowning);
 				}
 				AirTimer--
 			}
@@ -109,7 +109,7 @@ function PlayerWaterEvents()
 		{	
 			if BarrierType == BarrierThunder
 			{
-				fade_perform(FadeFrom, ColourFlash, 8);
+				fade_perform(ModeFrom, BlendFlash, 8);
 			}
 			BarrierType = false;			
 		}
@@ -130,20 +130,20 @@ function PlayerWaterEvents()
 				{
 					if HighspeedBonus
 					{
-						audio_bgm_play(PriorityLow, HighSpeed, 0, 0);
+						audio_bgm_play(ChannelPrimary, HighSpeed);
 					}
 					else if InvincibleBonus
 					{
-						audio_bgm_play(PriorityLow, Invincibility, 0, 0);
+						audio_bgm_play(ChannelPrimary, Invincibility);
 					}
 					else
 					{
-						audio_bgm_play(PriorityLow, Stage.StageMusic, other, other);
+						audio_bgm_play(ChannelPrimary, Stage.StageMusic);
 					}
 				}
 				else
 				{
-					audio_bgm_play(PriorityLow, SuperTheme, other, other);
+					audio_bgm_play(ChannelPrimary, SuperTheme);
 				}
 			}
 			

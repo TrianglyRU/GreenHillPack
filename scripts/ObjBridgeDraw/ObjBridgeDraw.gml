@@ -1,12 +1,5 @@
 function ObjBridgeDraw()
 {
-	// Draw posts
-	if GeneratePosts
-	{
-		draw_sprite(PostSprite,     0, x - BridgeLength / 2 * 16 - 18, NativeY - 15);
-		draw_sprite_ext(PostSprite, 0, x + BridgeLength / 2 * 16 + 18, NativeY - 15, -1, 1, 0, c_white, 1);
-	}
-	
 	// Draw logs
 	for (var i = 0; i < BridgeLength; i++)
     {   
@@ -30,6 +23,9 @@ function ObjBridgeDraw()
 		var LogY = floor(NativeY + (ActiveDepression * dsin(floor(90 * (1 - Tension)))) * dsin(RecoveryAngle));
 		
 		// Draw log
-		draw_sprite(BridgeSprite, 0, LogX, LogY);
+		draw_sprite(SpriteData[0], 0, LogX, LogY);
     }
+	
+	// Update object depth
+	object_set_depth(Player, 1);
 }

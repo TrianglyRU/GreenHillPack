@@ -9,7 +9,7 @@ function ObjBossTriggerMain()
 		if object_check_overlap(Triggerbox)
 		{
 			// Play boss music
-			audio_bgm_play(PriorityLow, Boss, other, other);
+			audio_bgm_play(ChannelPrimary, Boss);
 			
 			// Set new top boundary
 			if ArenaHeight != -1
@@ -52,7 +52,7 @@ function ObjBossTriggerMain()
 			Stage.IsBossfight = false;
 			
 			// Play stage music
-			audio_bgm_play(PriorityLow, Stage.StageMusic, other, other);
+			audio_bgm_play(ChannelPrimary, Stage.StageMusic);
 			
 			// Destroy object
 			instance_destroy();

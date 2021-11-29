@@ -11,14 +11,14 @@ function ObjProjectileMain()
 	
 	if object_check_overlap(Hitbox)
 	{
-		// Check if object should be reflected
+		// Check if projectile should be reflected
 		if Player.BarrierType > BarrierNormal
 		{
 			if !State
 			{
 				// Get angle
-				var X	  = floor(Player.PosX) - x;
-				var Y	  = floor(Player.PosY) - y;
+				var X	  = floor(Player.PosX - x);
+				var Y	  = floor(Player.PosY - y);
 				var Angle = darctan2(Y, X);
 			
 				// Reflect projectile
@@ -30,7 +30,7 @@ function ObjProjectileMain()
 		}
 		
 		// Else damage player
-		else
+		else if !Player.DoubleSpinAttack
 		{
 			player_damage(false, false, false);
 		}

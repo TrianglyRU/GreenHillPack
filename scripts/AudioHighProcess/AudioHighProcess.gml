@@ -1,30 +1,37 @@
 function AudioHighProcess()
 {
-	// Exit if no priority track playing
-	if !HighTrack[0]
+	// Exit if no secondary track is playing
+	if !SecondaryTrack[1]
 	{
 		exit;
 	}
 	
-	// Get priority track data
-	var Track     = HighTrack[0];
-	var Event     = HighTrack[2];
-	var EventTime = HighTrack[3];
+	/* Array Pointers
+	0 - Event
+	1 - Track ID
+	2 - Event Time
+	3 - Loop Data
+	*/
 	
-	// Automaticly mute and unmute non-priority track
+	// Get secondary track data
+	var Event     = SecondaryTrack[0];
+	var Track     = SecondaryTrack[1];
+	var EventTime = SecondaryTrack[2];
+	
+	// Automatically mute and unmute primary track
 	if Track and Event != EventMute and Event != EventStop
 	{
-		audio_bgm_mute(PriorityLow, 0);
+		audio_bgm_mute(ChannelPrimary, 0);
 	}
-	else if LowTrack[2] == EventMute
+	else if PrimaryTrack[0] == EventMute
 	{
-		audio_bgm_unmute(PriorityLow, 1);
+		audio_bgm_unmute(ChannelPrimary, 1);
 	}
 	
 	// Stop track once it finished playing
 	if audio_sound_get_track_position(Track) >= audio_sound_length(Track)
 	{
-		audio_bgm_stop(PriorityHigh, 0);
+		audio_bgm_stop(ChannelSecondary, 0);
 	}
 	
 	switch Event
@@ -35,8 +42,8 @@ function AudioHighProcess()
 			// Reset event
 			if audio_sound_get_gain(Track) == 1
 			{
-				HighTrack[2] = EventIdle;
-				HighTrack[3] = 0;
+				SecondaryTrack[0] = EventIdle;
+				SecondaryTrack[2] = 0;
 			}
 			
 			// Increase track volume
@@ -63,11 +70,9 @@ function AudioHighProcess()
 			// Stop and reset track
 			if audio_sound_get_gain(Track) == 0
 			{		
-				HighTrack[2]    = EventIdle;
-				HighTrack[0]    = noone;
-				HighTrack[3]    = 0;
-				HighTrack[1][0] = 0;
-				HighTrack[1][1] = 0;
+				SecondaryTrack[0] = EventIdle;
+				SecondaryTrack[1] = noone;
+				SecondaryTrack[2] = 0;
 				
 				audio_stop_sound(Track);
 				audio_sound_gain(Track, Game.MusicVolume, 0);

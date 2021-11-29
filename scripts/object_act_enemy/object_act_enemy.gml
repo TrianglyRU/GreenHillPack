@@ -2,7 +2,7 @@
 function object_act_enemy(enemyType)
 {
 	// Return nothing if no collision is happening yet
-	if !object_check_overlap(Hitbox)
+	if !object_check_overlap(Hitbox2)
 	{
 		return false;
 	}

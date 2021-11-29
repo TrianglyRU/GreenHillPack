@@ -1,19 +1,28 @@
 /// @function palette_set_colour(paletteType,id,range,colourid)
 function palette_set_colour(paletteType,id,range,colourid)
 {
-	// Get colour
-	var LastColour = id - 1 + range;
-	
-	// Update colour
-	for (var i = id - 1; i < LastColour; i++)
+	// Exit if no pallete set
+	if Palette.ColourSet[paletteType] == false
 	{
-		if paletteType == PaletteDry
+		exit;
+	}
+	
+	// Update colour(-s)
+	for (var i = id; i < id + range; i++)
+	{
+		if paletteType == TypePrimary
 		{
-			Palette.IndexDry[i] = colourid;
+			Palette.IndexType1[i] = colourid;
 		}
-		else if paletteType == PaletteWet
+		else if paletteType == TypeSecondary
 		{
-			Palette.IndexWet[i] = colourid;
+			Palette.IndexType2[i] = colourid;
+		}
+		
+		// Reset swaptime
+		if Palette.Duration[paletteType,id] != noone
+		{
+			Palette.SwapTime[paletteType,id] = Palette.Duration[paletteType,id];
 		}
 	}
 }

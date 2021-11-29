@@ -1,9 +1,10 @@
 function PaletteStartup()
 {	
 	// Set blank values
-	ColourSet   = [];
-	Duration    = [];
-	Sequence    = [];
+	ColourSet = [];
+	Duration  = [];
+	SwapTime  = [];
+	Sequence  = [];
 	
 	// Initialise palette animation storage
 	for (var i = 0; i < PaletteLimit; i++)
@@ -12,22 +13,23 @@ function PaletteStartup()
 		{
 			Duration[i, j] = noone;
 			Sequence[i, j] = noone;
+			SwapTime[i, j] = noone;
 		}	
-		IndexDry[i] = 1;
-		IndexWet[i] = 1;
+		IndexType1[i] = 1;
+		IndexType2[i] = 1;
 	}
 	
 	// Setup surfaces
 	SurfaceLow  = noone;
 	SurfaceHigh = noone;
 	DoReset		= false;
-	
+
 	// Setup fade
 	FadeMode   = 1;
 	FadeStep   = 756;
-	FadeColour = 0;
-	FadePower  = 0;
+	FadeBlend  = 0;
+	FadeSpeed  = 0;
 	
-	// Disable surface draw
+	// Enable surface draw
 	application_surface_draw_enable(false);
 }

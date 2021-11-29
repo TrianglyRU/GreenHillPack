@@ -1,51 +1,49 @@
 /// @function palette_handle(paletteType,id,range,last,goto,duration)
 function palette_handle(paletteType,id,range,last,goto,duration)
 {
-	// Get colour index
-	var index = max(0, id - 1);
+	// Exit if no pallete set, if playable stage is paused or fade is active
+	if Palette.ColourSet[paletteType] == false or variable_check(Stage, "IsPaused") or fade_check(StateActive)
+	{
+		exit;
+	}
 	
-	// Get unique ID
+	// Get unique ID for this palette sequence
 	var SequenceID = string(last) + "_" + string(goto);
 	
-	// Initialise or update palette shift
-	if Palette.Sequence[paletteType,index] != SequenceID
+	// Initialise palette sequence
+	if Palette.Sequence[paletteType][id] != SequenceID
 	{
-		Palette.Sequence[paletteType,index] = SequenceID;
-		Palette.Duration[paletteType,index] = duration;
+		Palette.Sequence[paletteType][id] = SequenceID;
+		Palette.Duration[paletteType][id] = duration;
+		Palette.SwapTime[paletteType][id] = duration;
 	}
-	else if duration > 0
+	
+	// Update sequence
+	else if duration
 	{
-		// If fade is active or stage is paused, do not update
-		if !fade_check(FadeActive) and !variable_check(Stage, "IsPaused")
+		if !(--Palette.SwapTime[paletteType,id])
 		{
-			// Decrease the value of animation timer
-			if (--Palette.Duration[paletteType,index]) < 1
+			// Update colour(-s)
+			for (var i = id; i < id + range; i++)
 			{
-				var Bound  = max(1, goto);
-				var Amount = index + range;
-			
-				// Reset duration
-				Palette.Duration[paletteType,index] = duration;
-			
-				// Update colour(s)
-				for (var i = index; i < Amount; i++)
+				if paletteType == TypePrimary
 				{
-					if paletteType == PaletteDry
+					if (++Palette.IndexType1[i]) > last
 					{
-						if (++Palette.IndexDry[i]) > last
-						{
-							Palette.IndexDry[i] = Bound;
-						}
+						Palette.IndexType1[i] = goto;
 					}
-					else if paletteType == PaletteWet
+				}
+				else if paletteType == TypeSecondary
+				{
+					if (++Palette.IndexType2[i]) > last
 					{
-						if (++Palette.IndexWet[i]) > last
-						{
-							Palette.IndexWet[i] = Bound;
-						}
+						Palette.IndexType2[i] = goto;
 					}
 				}
 			}
+			
+			// Reset duration
+			Palette.SwapTime[paletteType,id] = Palette.Duration[paletteType,id];
 		}
 	}
 }

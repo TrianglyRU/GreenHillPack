@@ -1,51 +1,31 @@
 function ObjCollisionTriggerMain()
 {
 	// Check for GroundOnly flag
-	if GroundOnly and !Player.Grounded
+	if !State and GroundOnly and !Player.Grounded
 	{
 		exit;
 	}
 	
-	// Exit if no overlap occured
-	if !object_check_overlap(Triggerbox) or Player.DebugMode
+	// Change layer if we passed through the object
+	if !object_check_overlap(Triggerbox)
 	{
 		if State
 		{
-			if floor(Player.PosX) > x
+			if floor(Player.PosX) > x and RightDirection != "None"
 			{
-				Player.Layer = LayerA;
+				Player.Layer = RightDirection;
 			}
-			else
+			else if floor(Player.PosX) <= x and LeftDirection != "None"
 			{
-				Player.Layer = LayerB;
+				Player.Layer = LeftDirection;
 			}
 			State = 0;
 		}
-		exit;
 	}
 	
-	// Check player's movement direction
-	var    Direction = Player.Xsp > 0 ? RightDirection : LeftDirection;
-	switch Direction
+	// Increment state on overlap
+	else
 	{
-		case "To LayerA":
-		{
-			TargetLayer = LayerA;
-			image_index = 1;
-		}
-		break;
-		case "To LayerB":
-		{
-			TargetLayer = LayerB;
-			image_index = 2;
-		}
-		break;
-	}
-	
-	// Change layer
-	if !State
-	{
-		State++;
-	}
-	Player.Layer = TargetLayer;
+		State = min(State + 1, 1);
+	}	
 }

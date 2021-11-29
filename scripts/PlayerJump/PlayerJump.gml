@@ -30,7 +30,7 @@ function PlayerJump()
 		}
 	}
 	
-	// Do not perform any actions if moving too fast or no input press has been registered
+	// Do not perform anything if action buttons weren't released yet
 	if Ysp < JumpMin or !Input.ABCPress
 	{
 		exit;
@@ -61,7 +61,7 @@ function PlayerJump()
 		
 			// Play sound and music
 			audio_sfx_play(sfxTransform, false);		
-			audio_bgm_play(PriorityLow, SuperTheme, other, other);
+			audio_bgm_play(ChannelPrimary, SuperTheme);
 				
 			// Exit the code
 			exit;
@@ -71,101 +71,111 @@ function PlayerJump()
 	// Perform character action
 	switch Game.Character
 	{
-		// Sonic
 		case CharSonic:
-		{		
-			if BarrierType <= BarrierNormal or SuperState
-			{
-				// Perform dropdash if enabled
+		{	
+			// Perform double spin attack if enabled
+			if !BarrierType
+			{	
+				if Game.DSpinAttackEnabled and !(InvincibleBonus or SuperState or DoubleSpinAttack != -1)
+				{
+					// Set flag
+					DoubleSpinAttack = 0;
+					
+					// Create object and play sound
+					instance_create(PosX, PosY, DoubleSpinShield);
+					audio_sfx_play(sfxDoubleSpinAttack, false);
+				}
+			}
+			
+			// Perform dropdash if enabled
+			else if BarrierType <= BarrierNormal
+			{	
 				if Game.DropdashEnabled and DropdashFlag == 0
 				{
+					// Set flags
 					AirLock      = false;
 					DropdashFlag = 1;
 				}
 			}
-			else
-			{
-				// Perform barrier action
-				if !(InvincibleBonus or DropdashFlag or BarrierIsActive)
-				{			
-					switch BarrierType
+			
+			// Perform barrier action
+			else if !(InvincibleBonus or BarrierIsActive or SuperState)
+			{	
+				switch BarrierType
+				{
+					case BarrierFlame:
 					{
-						case BarrierFlame:
+						// Freeze the screen for 16 frames
+						if !Game.CDCamera
 						{
-							// Freeze the screen for 16 frames
-							if !Game.CDCamera
-							{
-								Camera.ScrollDelay = 16;
-							}
-							
-							// Set barrier animation
-							with Barrier
-							{
-								animation_play(spr_obj_barrier_flame_dash, 2, 0, 0);
-							}
-						
-							// Set speeds
-							Xsp = 8 * Facing;
-							Ysp = 0;
-							
-							// Lock control
-							AirLock = true;
-						
-							// Play sound
-							audio_sfx_play(sfxFlameBarrierDash, false);
+							Camera.ScrollDelay = 16;
 						}
-						break;
-						case BarrierThunder:
+							
+						// Set barrier animation
+						with Barrier
 						{
-							// Create sparkles
-							for (var i = 0; i < 4; i++)
-							{
-								var  Object = instance_create(PosX, PosY, BarrierSparkle);
-								with Object
-								{
-									SparkleID = i;
-								}
-							}
-							
-							// Restore control
-							AirLock = false;
-						
-							// Set vertical speed
-							Ysp = -5.5;
-						
-							// Play sound
-							audio_sfx_play(sfxThunderBarrierJump, false);
+							animation_play(spr_obj_barrier_flame_dash, 2, 0, 0);
 						}
-						break;
-						case BarrierWater:
-						{						
-							// Set barrier animation
-							with Barrier
-							{
-								animation_play(spr_obj_barrier_water_drop, [6, 19, 0], 0, 0);
-							}
-							
-							// Restore control
-							AirLock = false;
 						
-							// Set speeds
-							Xsp = 0;
-							Ysp = 8;
+						// Set speeds
+						Xsp = 8 * Facing;
+						Ysp = 0;
 							
-							// Play sound
-							audio_sfx_play(sfxWaterBarrierBounce, false);
-						}
-						break;
+						// Lock control
+						AirLock = true;
+						
+						// Play sound
+						audio_sfx_play(sfxFlameBarrierDash, false);
 					}
-					
-					// Set flag
-					BarrierIsActive = true;
+					break;
+					case BarrierThunder:
+					{
+						// Create sparkles
+						for (var i = 0; i < 4; i++)
+						{
+							var  Object = instance_create(PosX, PosY, BarrierSparkle);
+							with Object
+							{
+								SparkleID = i;
+							}
+						}
+							
+						// Restore control
+						AirLock = false;
+						
+						// Set vertical speed
+						Ysp = -5.5;
+						
+						// Play sound
+						audio_sfx_play(sfxThunderBarrierJump, false);
+					}
+					break;
+					case BarrierWater:
+					{						
+						// Set barrier animation
+						with Barrier
+						{
+							animation_play(spr_obj_barrier_water_drop, [6, 19, 0], 0, 0);
+						}
+							
+						// Restore control
+						AirLock = false;
+						
+						// Set speeds
+						Xsp = 0;
+						Ysp = 8;
+							
+						// Play sound
+						audio_sfx_play(sfxWaterBarrierBounce, false);
+					}
+					break;
 				}
+					
+				// Set flag
+				BarrierIsActive = true;
 			}
 		}
 		break;
-		
-		// Start Tails flight
 		case CharTails:
 		{
 			// Reset collision radiuses
@@ -191,8 +201,6 @@ function PlayerJump()
 			Input.ABCPress = false;
 		}
 		break;
-			
-		// Start Knuckles glide
 		case CharKnuckles:
 		{
 			// Set collision radiuses
@@ -209,9 +217,9 @@ function PlayerJump()
 			Jumping        = false;
 			Spinning       = false;
 			GlideGrounded  = false;
+			GlideState     = GlideAir;
 			GlideDirection = Facing;
 			GlideValue     = Facing == FlipLeft ? 0 : 180;
-			GlideState     = GlideAir;
 				
 			// Set animation
 			Animation = AnimGlide;

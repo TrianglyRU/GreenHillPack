@@ -11,11 +11,11 @@ function PaletteUpdate()
 		shader_set(ShaderPalette);
 		
 		// Render fade
-		shader_set_uniform_f(Shader.ScreenStep,   FadeColour == ColourFlash ? FadeStep div 3 : FadeStep);
-		shader_set_uniform_i(Shader.ScreenColour, FadeColour);
+		shader_set_uniform_f(Shader.ScreenStep,   FadeBlend == BlendFlash ? FadeStep div 3 : FadeStep);
+		shader_set_uniform_i(Shader.ScreenColour, FadeBlend);
 		shader_set_uniform_i(Shader.ScreenMode,   FadeMode);
 		
-		// Get a render boundary between surface and underwater palette
+		// Get a render boundary between type 1 and type 2 palettes for playable stages
 		var Height = Game.Height;
 		if  variable_check(Stage, "WaterEnabled")
 		{
@@ -29,20 +29,20 @@ function PaletteUpdate()
 		// Transfer boundary data into the shader
 		shader_set_uniform_f(Shader.ScreenWaterHeight, Boundary);
 		
-		// Render surface palette
-		if Boundary > 0 and ColourSet[PaletteDry] != false
+		// Render palette type 1
+		if Boundary > 0 and ColourSet[TypePrimary] != false
 		{
-			shader_set_uniform_f_array(Shader.ScreenDryIndex, IndexDry);
+			shader_set_uniform_f_array(Shader.ScreenDryIndex, IndexType1);
 			texture_set_stage(Shader.ScreenDryTex,			  ColourSet[0][0]);
 			shader_set_uniform_f(Shader.ScreenDryTexelSize,   ColourSet[0][1], ColourSet[0][2]);
 			shader_set_uniform_f(Shader.ScreenDryUVs,		  ColourSet[0][3], ColourSet[0][4], ColourSet[0][5]);
 		}
 		
-		// Render underwater palette
-		if Boundary < Height and ColourSet[PaletteWet] != false
+		// Render palette type 2
+		if Boundary < Height and ColourSet[TypeSecondary] != false
 		{
 			texture_set_stage(Shader.ScreenWetTex,			  ColourSet[1][0]);
-			shader_set_uniform_f_array(Shader.ScreenWetIndex, IndexWet);
+			shader_set_uniform_f_array(Shader.ScreenWetIndex, IndexType2);
 			shader_set_uniform_f(Shader.ScreenWetTexelSize,   ColourSet[1][1], ColourSet[1][2]);
 			shader_set_uniform_f(Shader.ScreenWetUVs,		  ColourSet[1][3], ColourSet[1][4], ColourSet[1][5]);
 		}

@@ -2,7 +2,7 @@ function GameSetup()
 {
 	// Game settings
 	Game.WindowTitle = "Green Hill Revisited (Beta)";
-	Game.DevMode     = true;
+	Game.DevMode     = false;
 	Game.ShowSplash  = false;
 	Game.ForceLoad	 = Screen_Title;	// If set to false the game will load into DevMenu, else into the room you choose
 	
@@ -10,6 +10,7 @@ function GameSetup()
 	Game.SpindashEnabled    = true;
 	Game.DropdashEnabled    = false;
 	Game.PeeloutEnabled		= false;
+	Game.DSpinAttackEnabled	= true;
 	Game.GroundSpeedcap	    = false;
 	Game.AirSpeedcap	    = false;
 	Game.CDCamera			= false;
@@ -40,7 +41,7 @@ function GameSetup()
 	Game.WindowSize	      = 3;
 	
 	// Audio settings
-	Game.MusicVolume = 0.5;
+	Game.MusicVolume = 0;
 	Game.SoundVolume = 0.5;
 	
 	// Control settings (keyboard)

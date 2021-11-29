@@ -9,7 +9,7 @@ function SpecialScreenStartup()
 	// Turn screen into white if not coming back from special stage
 	if !Game.SpecialState
 	{
-		fade_perform(FadeTo, ColourWhite, 0);
+		fade_perform(ModeInto, BlendWhite, 0);
 	}
 	
 	// If coming back from special stage, set offsets and play music
@@ -23,7 +23,7 @@ function SpecialScreenStartup()
 		Offset[5]  =  330;
 		RenderFlag = -1;
 		
-		audio_bgm_play(PriorityLow, ActClear, 0, 0);
+		audio_bgm_play(ChannelPrimary, ActClear);
 	}
 	
 	// Else redirect to special stage

@@ -18,29 +18,26 @@ function GameMacro()
 	#macro FlipRight   1
 
 	// Audio macro
-	#macro PriorityLow  -2
-	#macro PriorityHigh -1
-	#macro EventIdle	 0
-	#macro EventMute	 1
-	#macro EventUnmute   2
-	#macro EventStop	 3
+	#macro ChannelPrimary   -2
+	#macro ChannelSecondary -1
+	#macro EventIdle	     0
+	#macro EventMute	     1
+	#macro EventUnmute       2
+	#macro EventStop	     3
 	
 	// Palette macro
 	#macro PaletteLimit  64
-	#macro PaletteDry    0
-	#macro PaletteWet    1
-	#macro FadeActive    0
-	#macro FadeMax       1
-	#macro FadeTo        0
-	#macro FadeFrom      1
-	#macro ColourBlack   0
-	#macro ColorBlack    0
-	#macro ColourWhite   1
-	#macro ColorWhite    1
-	#macro ColourFlash   2
-	#macro ColorFlash    2
-	#macro FlashWhite	 0
-	#macro FlashNegative 1
+	#macro TypePrimary    0
+	#macro TypeSecondary  1
+	
+	// Fade macro
+	#macro StateActive 0
+	#macro StateMax    1
+	#macro ModeInto    0
+	#macro ModeFrom    1
+	#macro BlendBlack  0
+	#macro BlendWhite  1
+	#macro BlendFlash  2
 
 	// Player macro
 	#macro CharSonic		 0
@@ -95,6 +92,7 @@ function GameMacro()
 	#macro SideRight  2
 	#macro SideBottom 3
 	#macro Hitbox	  0
-	#macro Triggerbox 1
-	#macro Solidbox	  2
+	#macro Hitbox2    1
+	#macro Triggerbox 2
+	#macro Solidbox	  3
 }
