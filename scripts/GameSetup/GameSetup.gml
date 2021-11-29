@@ -2,15 +2,15 @@ function GameSetup()
 {
 	// Game settings
 	Game.WindowTitle = "Green Hill Revisited (Beta)";
-	Game.DevMode     = false;
+	Game.DevMode     = true;
 	Game.ShowSplash  = false;
-	Game.ForceLoad	 = Screen_Title;	// If set to false the game will load into DevMenu, else into the room you choose
+	Game.ForceLoad	 = Screen_SEGA;	// If set to false the game will load into DevMenu, else into the room you choose
 	
 	// Originals differences
 	Game.SpindashEnabled    = true;
 	Game.DropdashEnabled    = false;
 	Game.PeeloutEnabled		= false;
-	Game.DSpinAttackEnabled	= true;
+	Game.DSpinAttackEnabled	= false;
 	Game.GroundSpeedcap	    = false;
 	Game.AirSpeedcap	    = false;
 	Game.CDCamera			= false;
@@ -41,8 +41,8 @@ function GameSetup()
 	Game.WindowSize	      = 3;
 	
 	// Audio settings
-	Game.MusicVolume = 0;
-	Game.SoundVolume = 0.5;
+	Game.MusicVolume = 0.3;
+	Game.SoundVolume = 0.3;
 	
 	// Control settings (keyboard)
 	Game.KeyboardControl = [vk_up, vk_down, vk_left, vk_right, ord("Z"), ord("X"), ord("C"), vk_space, vk_enter];

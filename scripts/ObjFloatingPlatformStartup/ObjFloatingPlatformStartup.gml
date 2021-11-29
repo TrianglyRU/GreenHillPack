@@ -16,8 +16,8 @@ function ObjFloatingPlatformStartup()
 		case Stage_GHZ2:
 		case Stage_GHZ3:
 		{
-			var XRadius	 = 40;
-			var YRadius	 = 11;
+			var XRadius	 = 32;
+			var YRadius	 = 8;
 			sprite_index = spr_obj_platform_ghz;
 		}
 		break;

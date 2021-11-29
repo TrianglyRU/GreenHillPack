@@ -23,6 +23,9 @@ function ObjGHZBallMain()
 	// Damage player
 	if GHZBoss.HP and object_check_overlap(Hitbox)
 	{
-		player_damage(false, false, false);
+		if !Player.DoubleSpinAttack
+		{
+			player_damage(false, false, false);
+		}
 	}
 }
