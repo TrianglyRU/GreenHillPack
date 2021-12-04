@@ -1,5 +1,5 @@
 function InterfacePauseStartup()
 {
-	PauseValue[0] = 0;
-	PauseValue[1] = 0;
+	PauseValue = 0;
+	PauseTimer = 0;
 }

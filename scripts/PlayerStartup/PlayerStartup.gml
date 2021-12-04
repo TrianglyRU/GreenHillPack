@@ -24,6 +24,7 @@ function PlayerStartup()
 	Spinning			= 0;
 	Jumping				= 0;
 	Pushing             = 0;
+	Grounded		    = 0;
 	OnObject			= 0;
 	PeeloutForce        = 0;
 	DropdashSide	    = 0;
@@ -62,7 +63,6 @@ function PlayerStartup()
 	AirTimer	     = 1800;
 	AllowCollision   = true;
 	AllowMovement    = true;
-	Grounded	     = true;
 	PeeloutRev       = -1;
 	SpindashRev      = -1;
 	DropdashRev      = -1;
@@ -110,7 +110,7 @@ function PlayerStartup()
 	// Load score and lives
 	Score		 = Game.Score;
 	Lives		 = Game.Lives;
-	LivesRewards = [(Rings & -100) + 100, (Score & -50000) + 50000];
+	LivesRewards = [(Rings div 100 * 100) + 100, (Score div 50000 * 50000) + 50000];
 	
 	// Initialise recorded position datalist
 	RecordedPosX = ds_list_create();

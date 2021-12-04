@@ -602,7 +602,6 @@
     {"id":{"name":"spr_obj_starpost","path":"sprites/spr_obj_starpost/spr_obj_starpost.yy",},"order":57,},
     {"id":{"name":"spr_obj_starpost_lamp","path":"sprites/spr_obj_starpost_lamp/spr_obj_starpost_lamp.yy",},"order":58,},
     {"id":{"name":"spr_obj_swingplatform_editor","path":"sprites/spr_obj_swingplatform_editor/spr_obj_swingplatform_editor.yy",},"order":53,},
-    {"id":{"name":"gui_pause_options","path":"sprites/gui_pause_options/gui_pause_options.yy",},"order":19,},
     {"id":{"name":"gui_pause_menu","path":"sprites/gui_pause_menu/gui_pause_menu.yy",},"order":20,},
     {"id":{"name":"gui_results_act","path":"sprites/gui_results_act/gui_results_act.yy",},"order":10,},
     {"id":{"name":"ObjItemBoxDraw","path":"scripts/ObjItemBoxDraw/ObjItemBoxDraw.yy",},"order":98,},

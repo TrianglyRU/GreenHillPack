@@ -6,6 +6,7 @@
 	InterfaceOverlayDraw();
 	InterfaceResultsDraw();
 	InterfaceGameOverDraw();
+	InterfacePauseProcess();
 	InterfacePauseDraw();
 	InterfaceRendererUpdate();
 	InterfaceRendererHighProcess();

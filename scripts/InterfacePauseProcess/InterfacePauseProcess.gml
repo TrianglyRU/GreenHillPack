@@ -10,102 +10,89 @@ function InterfacePauseProcess()
 	// Check if stage is paused
 	if Stage.IsPaused
 	{	
-		// Loop through options
-		if Input.DownPress
+		if !fade_check(StateActive)
 		{
-			PauseValue[0] = loop_value(PauseValue[0] + 1, 0, PauseValue[1] ? 2 : 3);
-		}
-		else if Input.UpPress
-		{
-			PauseValue[0] = loop_value(PauseValue[0] - 1, 0, PauseValue[1] ? 2 : 3);
-		}
+			// Pause timer
+			PauseTimer = loop_value(PauseTimer + 1, 0, 16);
+			
+			// Loop through options
+			if Input.DownPress
+			{
+				PauseValue = loop_value(PauseValue + 1, 0, 3);
+				PauseTimer = 0;
+			}
+			else if Input.UpPress
+			{
+				PauseValue = loop_value(PauseValue - 1, 0, 3);
+				PauseTimer = 0;
+			}
 	
-		// React to action or start button
-		if Input.StartPress or Input.ABCPress
+			// React to action or start button
+			if Input.StartPress or Input.ABCPress
+			{
+				switch PauseValue
+				{
+					// Return to stage
+					case 0:
+					{
+						Stage.IsPaused = false;
+						Camera.Enabled = true;
+					
+						// Activate objects
+						instance_activate_range(Camera.ViewX);
+					
+						// Resume audio
+						audio_resume_all();
+					
+					}
+					break;
+					
+					// Restart the stage if we have more than 1 life
+					case 1: 
+					{
+						if Player.Lives > 1
+						{
+							// Perform fade
+							fade_perform(ModeInto, BlendBlack, 1);
+						}
+						else
+						{
+							// Play deny sound
+							audio_sfx_play(sfxFail, false);
+						}
+					}
+					break;
+					
+					// Exit the stage
+					case 2: 
+					{	
+						// Perform fade
+						fade_perform(ModeInto, BlendBlack, 1);
+					}
+					break;
+				}
+			
+				// Clear input
+				Input.StartPress = false;
+				Input.ABCPress   = false;
+			}
+		}	
+		else if fade_check(StateMax)
 		{
-			// 'RESTART' or 'EXIT' menu
-			if PauseValue[1]
+			if PauseValue == 1
 			{
-				// If first option is selected, return to previous menu
-				if PauseValue[0]
-				{
-					PauseValue[1] = 0;
-					PauseValue[0] = 0;
-				}
-				else
-				{
-					// Stop all audio
-					audio_stop_all();
-					
-					// Restart
-					if PauseValue[1] == 1
-					{
-						room_restart();
-						
-						// Subtract a life
-						Player.Lives -= 1;
-						Game.Lives    = Player.Lives;
-					}
-					
-					// Exit
-					else if PauseValue[1] == 2
-					{
-						//room_goto(Screen_DevMenu);
-						room_goto(Screen_Title);
-						
-						// Reset all saved data during the stage		
-						Game.StarPostData    = [];
-						Game.SpecialRingList = [];
-					}
-				}
+				Game.Lives--;
+				room_restart();
 			}
-			
-			// Main menu
-			else switch PauseValue[0]
+			else if PauseValue == 2
 			{
-				// Return to stage
-				case 0:
-				{
-					Stage.IsPaused = false;
-					Camera.Enabled = true;
+				// Reset all saved data during the stage		
+				Game.StarPostData    = [];
+				Game.SpecialRingList = [];
 					
-					// Activate objects
-					instance_activate_range(Camera.ViewX);
-					
-					// Resume audio
-					audio_resume_all();
-					
-				}
-				break;
-					
-				// Enter 'RESTART' menu if we have more than 1 life
-				case 1: 
-				{
-					if Player.Lives > 1
-					{
-						PauseValue[1] = 1;
-						PauseValue[0] = 0;
-					}
-					else
-					{
-						// Play deny sound
-						audio_sfx_play(sfxFail, false);
-					}
-				}
-				break;
-					
-				// Enter 'EXIT' menu
-				case 2: 
-				{
-					PauseValue[1] = 2;
-					PauseValue[0] = 0;
-				}
-				break;
-			}
-			
-			// Clear input
-			Input.StartPress = false;
-			Input.ABCPress   = false;
+				// Return to title screen
+				room_goto(Screen_Title);
+			}	
 		}
 	}
 	
