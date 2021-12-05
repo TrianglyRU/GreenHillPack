@@ -11,7 +11,7 @@ function BackgroundProcess()
 	var ViewY = Camera.ViewY;
 	
 	// Check if we should update autoscroll value
-	var UpdateAutoscroll = !(fade_check(StateActive) or variable_check(Stage, "IsPaused") or variable_check(Player, "Death"));
+	var UpdateAutoscroll = !(fade_check(StateActive) or variable_check(Stage, "IsPaused"));
 	
 	// Work with each layer individually
 	var Length = array_length(BGSprites);
@@ -34,7 +34,7 @@ function BackgroundProcess()
 		var InclineModeY  = BGValues[i][7];
 		var Height	      = BGValues[i][8];
 		var Width	      = BGValues[i][9];
-		var PixelSize     = BGValues[i][10];
+		var MapSize       = BGValues[i][10];
 		
 		// Get screen position
 		var DrawX = ViewX;
@@ -81,7 +81,7 @@ function BackgroundProcess()
 		shader_set_uniform_f(Shader.ParOffset,    DrawX * ScrollX - ScrollXAuto);
 		shader_set_uniform_f(Shader.ParPos,       DrawX + PosX, DrawY);
 		shader_set_uniform_f(Shader.ParWidth,     Width);
-		shader_set_uniform_f(Shader.ParPixelSize, PixelSize);
+		shader_set_uniform_f(Shader.ParMapSize, MapSize);
 		
 		// Set incline height
 		if InclineHeight != 0 
