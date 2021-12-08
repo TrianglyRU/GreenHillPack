@@ -87,6 +87,7 @@
     {"id":{"name":"StartupScreenProcess","path":"scripts/StartupScreenProcess/StartupScreenProcess.yy",},"order":2,},
     {"id":{"name":"spr_collision_ghz","path":"sprites/spr_collision_ghz/spr_collision_ghz.yy",},"order":2,},
     {"id":{"name":"SpringYellowVertical","path":"objects/SpringYellowVertical/SpringYellowVertical.yy",},"order":20,},
+    {"id":{"name":"PlayerHitboxUpdate","path":"scripts/PlayerHitboxUpdate/PlayerHitboxUpdate.yy",},"order":49,},
     {"id":{"name":"spr_obj_newtrongreen","path":"sprites/spr_obj_newtrongreen/spr_obj_newtrongreen.yy",},"order":97,},
     {"id":{"name":"spr_obj_newtron_fly","path":"sprites/spr_obj_newtron_fly/spr_obj_newtron_fly.yy",},"order":96,},
     {"id":{"name":"spr_obj_collapsingledge_editor","path":"sprites/spr_obj_collapsingledge_editor/spr_obj_collapsingledge_editor.yy",},"order":40,},
