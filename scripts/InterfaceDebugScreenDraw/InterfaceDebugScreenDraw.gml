@@ -76,7 +76,7 @@ function InterfaceDebugScreenDraw()
 		
 		// Draw rectangle
 		draw_set_alpha(0.65);
-		draw_rectangle_colour(Game.Width - 90, 4, Game.Width - 4, Game.Height - 8, c_black, c_black, c_black, c_black, false)
+		draw_rectangle_colour(Game.Width - 90, 4, Game.Width - 4, Game.Height - 4, c_black, c_black, c_black, c_black, false);
 	
 		// Set font
 		draw_set_alpha(1);
@@ -102,6 +102,7 @@ function InterfaceDebugScreenDraw()
 				+ "\n   AIR LOCK: "      + string(Player.AirLock)
 				+ "\n   SLOPE GRAVITY: " + string(Player.SlopeGravity)
 				+ "\n   ANGLE: "		 + string(Player.Angle)
+				+ "\n   MODE: "			 + string(Player.CollisionMode)
 				+ "\n"
 				+ "\n         * PLAYER FLAGS *"
 				+ "\n"

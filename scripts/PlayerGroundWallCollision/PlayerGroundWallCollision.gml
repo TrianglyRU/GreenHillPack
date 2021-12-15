@@ -15,28 +15,28 @@ function PlayerGroundWallCollision()
 		}
 	}
 	
-	// Use different from floor collision angle ranges if custom collision is disabled
+	// Get current angle quadrant (shallower on walls, comparing to default ground collision)
 	if Angle <= 43.59 or Angle >= 316.41			
 	{
-		var CollisionMode = 0;
+		var WallMode = 0;
 	}
 	else if Angle >= 45 and Angle <= 135	
 	{
-		var CollisionMode = 1;
+		var WallMode = 1;
 	}
 	else if Angle >= 136.41 and Angle <= 223.59
 	{
-		var CollisionMode = 2;
+		var WallMode = 2;
 	}
 	else if Angle >= 225 and Angle <= 315	
 	{
-		var CollisionMode = 3;
+		var WallMode = 3;
 	}
 	
 	// Collide with the wall to our left, frame ahead
 	if Inertia < 0
 	{
-		switch CollisionMode
+		switch WallMode
 		{
 			case 0:
 			{	
@@ -97,7 +97,7 @@ function PlayerGroundWallCollision()
 	// Collide with the wall to our right, frame ahead
 	else if Inertia > 0
 	{
-		switch CollisionMode
+		switch WallMode
 		{
 			case 0:
 			{	

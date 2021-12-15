@@ -7,7 +7,7 @@ function PlayerGroundFloorCollision()
 	}
 	
 	// Get current angle quadrant normally, like in originals
-	if Angle <= 45 or Angle >= 315
+	/*if Angle <= 45 or Angle >= 315
 	{
 		var CollisionMode = 0;
 	}
@@ -22,10 +22,106 @@ function PlayerGroundFloorCollision()
 	else if Angle >= 226.41 and Angle <= 313.59
 	{
 		var CollisionMode = 3;
+	}*/
+	
+	// Update collision mode
+	if !CollisionMode[1]
+	{
+		switch CollisionMode[0]
+		{
+			case 0:
+			{
+				var FindTile = tile_check_collision_h(PosX + RadiusY, PosY + RadiusX, true, false, Layer);
+				if  FindTile[0] < 0
+				{
+					if FindTile[1] - Angle mod 360 < 45
+					{
+						CollisionMode[0] = 1;
+					}
+				}
+			
+				var FindTile = tile_check_collision_h(PosX - RadiusY, PosY + RadiusX, false, false, Layer);
+				if  FindTile[0] < 0
+				{
+					if Angle - FindTile[1] < 45
+					{
+						CollisionMode[0] = 3;
+					}
+				}
+			}
+			break;
+			case 1:	
+			{
+				var FindTile = tile_check_collision_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer);
+				if  FindTile[0] < 0
+				{
+					if Angle - FindTile[1] mod 360 < 45
+					{
+						CollisionMode[0] = 0;
+					}
+				}
+			
+				var FindTile = tile_check_collision_v(PosX + RadiusX, PosY - RadiusY, false, false, Layer);
+				if  FindTile[0] < 0
+				{
+					if FindTile[1] - Angle < 45
+					{
+						CollisionMode[0] = 2;
+					}
+				}
+			}
+			break;
+			case 2:
+			{
+				var FindTile = tile_check_collision_h(PosX + RadiusY, PosY - RadiusX, true, false, Layer);
+				if  FindTile[0] < 0
+				{
+					if Angle - FindTile[1] < 45
+					{
+						CollisionMode[0] = 1;
+					}
+				}
+			
+				var FindTile = tile_check_collision_h(PosX - RadiusY, PosY - RadiusX, false, false, Layer);
+				if  FindTile[0] < 0
+				{
+					if FindTile[1] - Angle < 45
+					{
+						CollisionMode[0] = 3;
+					}
+				}
+			}
+			break;
+			case 3:
+			{
+				var FindTile = tile_check_collision_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer);
+				if  FindTile[0] < 0
+				{
+					if FindTile[1] - Angle < 45
+					{
+						CollisionMode[0] = 0;
+					}
+				}
+			
+				var FindTile = tile_check_collision_v(PosX - RadiusX, PosY - RadiusY, false, false, Layer);
+				if  FindTile[0] < 0
+				{
+					if Angle - FindTile[1] < 45
+					{
+						CollisionMode[0] = 2;
+					}
+				}
+			}
+			break;
+		}
+	}
+	else
+	{
+		CollisionMode[1] = false;
 	}
 	
 	// Collide with floor
-	switch CollisionMode
+	switch CollisionMode[0]
 	{
 		case 0:
 		{		
