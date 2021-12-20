@@ -30,6 +30,12 @@ function tile_check_nearest(leftdata,rightdata,objectAngle)
 			{
 				ResultAngle = 360;
 			}
+			
+			// not in originals
+			if ResultDistance >= 4
+			{
+				ResultDistance = 32;
+			}
 		}
 	}
 	

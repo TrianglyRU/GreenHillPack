@@ -49,14 +49,36 @@
 		}
 	}
 	
-	// React to START button
-	if Input.StartPress
+	// Confirm option
+	if Input.StartPress or Input.ABCPress
 	{
-		LoadFlag = true;
-		fade_perform(ModeInto, BlendBlack, 1);
-		
-		// Stop BGM
-		audio_bgm_stop(ChannelPrimary, 0.5);
+		switch SubState
+		{
+			case 2:
+			{
+				if !StateOption
+				{
+					fade_perform(ModeInto, BlendBlack, 1);
+					audio_bgm_stop(ChannelPrimary, 0.5);
+					
+					// Load into the stage
+					LoadFlag = true;
+				}
+				
+				// End game
+				else
+				{
+					game_end();
+				}
+			}
+			break;
+			default:
+			{
+				SubState = 2;
+				audio_sfx_play(sfxStarPost, false);
+			}
+			break;
+		}
 	}
 	
 	// Update palette
@@ -81,13 +103,47 @@
 		break;
 		case 1:
 		{
-			if (++StateTimer) == 339
+			var Time = (++StateTimer)
+			if  Time == 10
+			{
+				if !SubState
+				{
+					SubState = 1;
+				}
+			}
+			else if Time == 339
 			{
 				State	  += 1;
 				StateTimer = 0;
 			}
 		}
 		break;
+	}
+	
+	// Update substate option and timer
+	if SubState > 1
+	{
+		if Input.DownPress
+		{
+			StateOption  += 1;
+			SubStateTimer = 24;
+			
+			// Play sound
+			audio_sfx_play(sfxScoreCount, false);
+		}
+		else if Input.UpPress
+		{
+			StateOption  -= 1;
+			SubStateTimer = 24;
+			
+			// Play sound
+			audio_sfx_play(sfxScoreCount, false);
+		}
+		else
+		{
+			SubStateTimer++;
+		}
+		StateOption = loop_value(StateOption, 0, 2);
 	}
 	
 	// Move camera (scroll the background)

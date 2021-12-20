@@ -12,6 +12,30 @@
 	var SonicW = sprite_get_width(tex_title_sonic0);
 	var SonicH = sprite_get_height(tex_title_sonic0);
 	
+	// Draw text
+	switch SubState
+	{
+		case 1:
+		{
+			draw_animated_sprite(tex_title_startbutton, 32, StateTimer - 10, Camera.ViewX + Game.Width / 2, Camera.ViewY + Game.Height - 44);
+		}
+		break;
+		case 2:
+		{
+			if !StateOption
+			{
+				draw_animated_sprite(tex_title_startgame, 24, SubStateTimer, Camera.ViewX + Game.Width / 2, Camera.ViewY + Game.Height - 44);
+				draw_sprite(tex_title_quit, 0, Camera.ViewX + Game.Width / 2, Camera.ViewY + Game.Height - 26);
+			}
+			else
+			{
+				draw_sprite(tex_title_startgame, 0, Camera.ViewX + Game.Width / 2, Camera.ViewY + Game.Height - 44);
+				draw_animated_sprite(tex_title_quit, 24, SubStateTimer, Camera.ViewX + Game.Width / 2, Camera.ViewY + Game.Height - 26);
+			}
+		}
+		break;
+	}
+	
 	// Draw Sonic
 	switch State
 	{
