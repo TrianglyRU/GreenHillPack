@@ -4,7 +4,7 @@ function GameSetup()
 	Game.WindowTitle = "Green Hill Revisited (Beta)";
 	Game.DevMode     = true;
 	Game.ShowSplash  = false;
-	Game.ForceLoad	 = Screen_Title;	// If set to false the game will load into DevMenu, else into the room you choose
+	Game.ForceLoad	 = Stage_GHZ1;	// If set to false the game will load into DevMenu, else into the room you choose
 	
 	// Originals differences
 	Game.SpindashEnabled    = true;
@@ -19,7 +19,7 @@ function GameSetup()
 	Game.S3WaterPhysics		= false;
 	Game.SKCrouch			= false;
 	Game.SKRollDeceleration	= false;
-	Game.S2FloorCollision	= true;
+	Game.S2FloorCollision	= false;
 	Game.SKWallCollision	= false;	
 	Game.SKItemBoxBehaviour = false;
 	Game.CDStageTimer	    = false;
@@ -38,7 +38,7 @@ function GameSetup()
 	Game.WindowFullscreen = false;
 	Game.Width            = 400;
 	Game.Height			  = 224;
-	Game.WindowSize	      = 3;
+	Game.WindowSize	      = 4;
 	
 	// Audio settings
 	Game.MusicVolume = 0.3;
