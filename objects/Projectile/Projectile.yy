@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_projectile_buzzbomber",
-    "path": "sprites/spr_obj_projectile_buzzbomber/spr_obj_projectile_buzzbomber.yy",
+    "name": "spr_tempobject",
+    "path": "sprites/spr_tempobject/spr_tempobject.yy",
   },
   "solid": false,
   "visible": true,
@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Call-Only",
-    "path": "folders/Game Objects/Stage Objects/Call-Only.yy",
+    "path": "folders/Stage Objects/Call-Only.yy",
   },
   "resourceVersion": "1.0",
   "name": "Projectile",

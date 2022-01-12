@@ -17,8 +17,8 @@
   "width": 7,
   "height": 11,
   "textureGroupId": {
-    "name": "tgGlobal",
-    "path": "texturegroups/tgGlobal",
+    "name": "tgFonts",
+    "path": "texturegroups/tgFonts",
   },
   "swatchColours": null,
   "gridX": 0,

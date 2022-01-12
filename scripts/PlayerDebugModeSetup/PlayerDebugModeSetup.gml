@@ -10,21 +10,29 @@ function PlayerDebugModeSetup()
 	DebugList = 
 	[
 		Ring,
+		SpecialRing,
 		ItemBox,
-		Crabmeat,
-		Buzzbomber,
-		Chopper,
 		SpikesVertical,
-		FloatingPlatform,
-		Dwayne,
-		Motobug,
+		SpikesHorizontal,
+		SpringYellowVertical,
+		SpringYellowHorizontal,
+		SpringYellowDiagonal,
 		SpringRedVertical,
-		Newtron,
-		SolidWall,
+		SpringRedHorizontal,
+		SpringRedDiagonal,
 		StarPost,
-		SpecialRing,	
-		
-		// Placeholder object, that will grant (or revoke) emeralds
-		Player
+		Bridge,
+		FloatingPlatform,
+		CollapsingPlatform,
+		SwingingPlatform,
+		Buzzbomber,
+		Motobug,
+		Crabmeat,
+		Orbinaut,
+		PushableBlock,
+		Bumper,
+		Animal,
+		ClearPanel,
+		EggPrison,
 	];
 }

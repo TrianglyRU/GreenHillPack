@@ -1,19 +1,18 @@
 function StageWaterSurfaceDraw()
 {
-    // Exit if no water enabled in the stage
-    if !WaterEnabled
+    // Check if we should exit
+    if !WaterEnabled or Game.GlobalTime mod 2
     {
         exit;
     }
-    
-    // Render waves on-screen
-    var ScrnWater = WaterLevel - Camera.ViewY;
-    if  ScrnWater > -16 and ScrnWater < Game.Height + 16
-    {
-        var Length = ceil(Game.Width / 32) + 2;
-        for (var i = -1; i < Length; i++)
-        {
-			draw_animated_sprite(tex_water_surface, 4, Game.GlobalTime, (floor(Camera.ViewX / 32) + i) * 32, WaterLevel);
-        }
-    }
+	
+	// Render water surface
+	if (WaterLevel - Camera.ViewY) > -16 and( WaterLevel - Camera.ViewY) < Game.Height + 16
+	{
+	    var Length = ceil(Game.Width / 32) + 2;
+	    for (var i = -1; i < Length; i++)
+	    {
+			draw_animated_sprite(tex_water_surface, 16, true, (floor(Camera.ViewX / 32) + i) * 32, WaterLevel);
+	    }
+	}
 }

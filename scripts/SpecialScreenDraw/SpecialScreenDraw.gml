@@ -1,6 +1,6 @@
 function SpecialScreenDraw()
 {
-	// Exit if not coming from a Special Stage, or fading out
+	// Check if we should exit
 	if !Game.SpecialState or State == 3
 	{
 		exit;
@@ -9,10 +9,9 @@ function SpecialScreenDraw()
 	// Get screen centre
 	var CentreX	= Game.Width / 2;
 	var CentreY = Game.Height / 2;
+	var ShiftY  = floor(Offset[3]);
 	
-	var ShiftY = floor(Offset[3]);
-	
-	// Win messages
+	// Display win messages
 	if Game.SpecialState == 1
 	{
 		if Game.Emeralds == 7
@@ -39,7 +38,7 @@ function SpecialScreenDraw()
 		}
 	}
 	
-	// Lose messages
+	// Display lose messages
 	else if Game.SpecialState == 2
 	{
 		draw_sprite(tex_sstage_stage, 0, CentreX + Offset[1], CentreY - 20 + ShiftY);

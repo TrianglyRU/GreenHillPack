@@ -31,7 +31,7 @@
   "roomSettings": {
     "inheritRoomSettings": false,
     "Width": 320,
-    "Height": 240,
+    "Height": 224,
     "persistent": false,
   },
   "viewSettings": {
@@ -49,7 +49,7 @@
   },
   "parent": {
     "name": "Continue Screen",
-    "path": "folders/Rooms/Screens/Continue Screen.yy",
+    "path": "folders/Rooms/Continue Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "Screen_Continue",

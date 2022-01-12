@@ -7,12 +7,6 @@ function object_check_push(pushSide)
 		return false;
 	}
 	
-	// Exit if no solid radiuses were initialized for this object
-	if !variable_instance_exists(id, "Obj_SolidStatus")
-	{
-		return false;
-	}
-	
 	// Exit if object is off-screen
 	if !object_is_onscreen(id)
 	{

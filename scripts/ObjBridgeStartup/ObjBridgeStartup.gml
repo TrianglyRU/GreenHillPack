@@ -19,14 +19,12 @@ function ObjBridgeStartup()
 		break;
 	}
 	
-	// Set blank values
+	// Initialise variables
+	x				 += (BridgeLength / 2 - 6) * 16;
+	NativeY			 = y;
 	RecoveryAngle    = 0;
 	ActiveSegment    = 0;
 	ActiveDepression = 0;
-	
-	// Set other variables
-	NativeY = y;
-	x += (BridgeLength / 2 - 6) * 16;
 	
 	// Calculate log depression value
 	for (var i = 0; i < BridgeLength; i++) 
@@ -34,9 +32,7 @@ function ObjBridgeStartup()
 		LogDepression[i] = (i < BridgeLength / 2 ? i : BridgeLength - i - 1) * 2 + 2;
 	}
 	
-	// Set object solidbox
+	// Set object properties
 	object_set_solidbox(BridgeLength / 2 * 16, 7, false);
-	
-	// Set object unload type
 	object_set_unload(TypePause);
 }

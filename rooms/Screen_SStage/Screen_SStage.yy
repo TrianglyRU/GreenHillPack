@@ -31,7 +31,7 @@
   "roomSettings": {
     "inheritRoomSettings": false,
     "Width": 320,
-    "Height": 240,
+    "Height": 224,
     "persistent": false,
   },
   "viewSettings": {
@@ -49,7 +49,7 @@
   },
   "parent": {
     "name": "Special Stage",
-    "path": "folders/Rooms/Screens/Special Stage.yy",
+    "path": "folders/Rooms/Special Stage.yy",
   },
   "resourceVersion": "1.0",
   "name": "Screen_SStage",

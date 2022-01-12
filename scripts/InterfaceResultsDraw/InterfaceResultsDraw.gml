@@ -17,193 +17,183 @@ function InterfaceResultsDraw()
 	----------------------------
 	*/
 	
-	// Exit if act is not finished
 	if Stage.IsFinished < 2
 	{
 		exit;
 	}
-
 	if Stage.DoUpdate
 	{	
-		// State 0
-		if !ResultsValue[8]
+		switch ResultsValue[8]
 		{
-			// Calculate ring bonus
-			ResultsValue[9] = Player.Rings * 100;
+			case 0:
+			{
+				// Calculate ring bonus
+				ResultsValue[9] = Player.Rings * 100;
 			
-			// Calculate time bonus
-			if Stage.Time >= 35940
-			{
-				ResultsValue[10] = 100000;
-			}
-			else if Stage.Time < 1800
-			{
-				ResultsValue[10] = 50000;
-			}			
-			else if Stage.Time >= 1800 and Stage.Time < 2700
-			{
-				ResultsValue[10] = 10000;
-			}
-			else
-			{
-				switch Stage.Time div 1800
+				// Calculate time bonus
+				if Stage.Time >= 35940
 				{
-					case 0:			
-						ResultsValue[10] = 5000; 
-					break;
-					case 1:			
-						ResultsValue[10] = 5000;  
-					break;
-					case 2:			
-						ResultsValue[10] = 4000;  
-					break;
-					case 3:			
-						ResultsValue[10] = 3000;  
-					break;
-					case 4: 
-					case 5: 
-						ResultsValue[10] = 2000;  
-					break;
-					case 6: 
-					case 7: 
-						ResultsValue[10] = 1000;  
-					break;
-					case 8: 
-					case 9: 
-						ResultsValue[10] = 500;   
-					break;
-					default:
-						ResultsValue[10] = 0;	  
-					break;
+					ResultsValue[10] = 100000;
 				}
-			}			
-			
-			// Check if we can get a reward
-			ResultsValue[11] = ResultsValue[9] + ResultsValue[10] >= 10000
-			
-			// Increment state
-			ResultsValue[8]++;
-		}
-	
-		// State 1
-		else if ResultsValue[8] == 1
-		{
-			// Shift assets
-			if (++ResultsValue[0]) < 300
-			{
-				if ResultsValue[2]
+				else if Stage.Time < 1800
 				{
-					ResultsValue[2] -= 20;
-				}
-				else if ResultsValue[3]
+					ResultsValue[10] = 50000;
+				}			
+				else if Stage.Time >= 1800 and Stage.Time < 2700
 				{
-					ResultsValue[3] -= 20;
-				}
-				else if ResultsValue[7]
-				{
-					if ResultsValue[1]
-					{
-						ResultsValue[1] -= 20;
-					}
-					ResultsValue[7] -= 20;
+					ResultsValue[10] = 10000;
 				}
 				else
-				{		
-					if ResultsValue[4]
-					{
-						ResultsValue[4] -= 20;
-					}
-					if ResultsValue[5] 
-					{
-						ResultsValue[5] -= 20;
-					}
-					if ResultsValue[6] 
-					{
-						ResultsValue[6] -= 20;
-					}
-				}
-			}
-			else
-			{
-				// Play sound
-				if ResultsValue[0] == 300
 				{
-					audio_sfx_play(sfxScoreCount, true);
+					switch Stage.Time div 1800
+					{
+						case 0:			
+							ResultsValue[10] = 5000; 
+						break;
+						case 1:			
+							ResultsValue[10] = 5000;  
+						break;
+						case 2:			
+							ResultsValue[10] = 4000;  
+						break;
+						case 3:			
+							ResultsValue[10] = 3000;  
+						break;
+						case 4: 
+						case 5: 
+							ResultsValue[10] = 2000;  
+						break;
+						case 6: 
+						case 7: 
+							ResultsValue[10] = 1000;  
+						break;
+						case 8: 
+						case 9: 
+							ResultsValue[10] = 500;   
+						break;
+						default:
+							ResultsValue[10] = 0;	  
+						break;
+					}
+				}			
+			
+				// Check if we can get a continue
+				ResultsValue[11] = (ResultsValue[9] + ResultsValue[10] >= 10000);
+			
+				// Increment state
+				ResultsValue[8]++;
+			}
+			break;
+			
+			// State 1
+			case 1:
+			{
+				// Shift assets
+				if (++ResultsValue[0]) < 300
+				{
+					if ResultsValue[2]
+					{
+						ResultsValue[2] -= 20;
+					}
+					else if ResultsValue[3]
+					{
+						ResultsValue[3] -= 20;
+					}
+					else if ResultsValue[7]
+					{
+						if ResultsValue[1]
+						{
+							ResultsValue[1] -= 20;
+						}
+						ResultsValue[7] -= 20;
+					}
+					else
+					{		
+						if ResultsValue[4]
+						{
+							ResultsValue[4] -= 20;
+						}
+						if ResultsValue[5] 
+						{
+							ResultsValue[5] -= 20;
+						}
+						if ResultsValue[6] 
+						{
+							ResultsValue[6] -= 20;
+						}
+					}
 				}
+				else
+				{
+					if ResultsValue[0] == 300
+					{
+						audio_sfx_play(sfxScoreCount, true);
+					}
 				
-				// Skip bonuses math
-				if Input.StartPress
-				{
-					Player.Score += ResultsValue[10] + ResultsValue[9];
-					ResultsValue[10] = 0; 
-					ResultsValue[9] = 0;
-				}
-				else
-				{
 					// Count bonuses
 					if ResultsValue[10]
 					{ 
-						ResultsValue[10]	 -= 100;
-						Player.Score += 100;
+						ResultsValue[10] -= 100;
+						Player.Score     += 100;
 					}
 					if ResultsValue[9]
 					{
-						ResultsValue[9]    -= 100;
-						Player.Score += 100;
+						ResultsValue[9] -= 100;
+						Player.Score    += 100;
+					}
+			
+					// Score tally
+					if ResultsValue[10] == 0 and ResultsValue[9] == 0
+					{
+						audio_sfx_play(sfxScoreTally, false);
+						audio_sfx_stop(sfxScoreCount);
+					
+						// If earned more than 10000 points, grant continue
+						if ResultsValue[11]
+						{
+							ResultsValue[8] = 3;
+							ResultsValue[0] = -1;
+						}
+					
+						// Else don't grant anything
+						else
+						{
+							ResultsValue[8] = 2;
+							ResultsValue[0] = 0;
+						}
 					}
 				}
-				
-				// Score tally
-				if ResultsValue[10] == 0 and ResultsValue[9] == 0
+			}
+			break;
+			case 2:
+			{
+				// No continue
+				if (++ResultsValue[0]) == 180
 				{
-					audio_sfx_play(sfxScoreTally, false);
-					audio_sfx_stop(sfxScoreCount);
-					
-					// If earned more than 10000 points, grant continue
-					if ResultsValue[11]
+					fade_perform(ModeInto, BlendBlack, 1);
+				}
+			}
+			break;
+			case 3:
+			{
+				// Earned continue
+				if ResultsValue[0] == -1
+				{
+					if !audio_sfx_is_playing(sfxScoreTally)
 					{
-						ResultsValue[8] = 3;
-						ResultsValue[0] = -1;
-					}
-					
-					// Else do nothing
-					else
-					{
-						ResultsValue[8] = 2;
+						Game.Continues++;
+						audio_sfx_play(sfxContinue, false);
+						
+						// Increment timer
 						ResultsValue[0] = 0;
 					}
 				}
-			}
-		}
-	
-		// State 2 (end, no continue)
-		else if ResultsValue[8] == 2
-		{
-			if (++ResultsValue[0]) == 180
-			{
-				fade_perform(ModeInto, BlendBlack, 1);
-			}
-		}
-	
-		// State 3 (end with continue earned)
-		else if ResultsValue[8] == 3
-		{	
-			if ResultsValue[0] == -1
-			{
-				// Play continue sound
-				if !audio_is_playing(sfxScoreTally)
+				else if (++ResultsValue[0]) == 260
 				{
-					audio_sfx_play(sfxContinue, false);
-					
-					// Increment routine and continue amount
-					Game.Continues++;
-					ResultsValue[0]++;
+					fade_perform(ModeInto, BlendBlack, 1);
 				}
 			}
-			else if (++ResultsValue[0]) == 260
-			{
-				fade_perform(ModeInto, BlendBlack, 1);
-			}
+			break;
 		}
 	}
 	
@@ -221,23 +211,23 @@ function InterfaceResultsDraw()
 	draw_sprite(gui_results_ringbonus, 0,			   CentreX - 38 + ResultsValue[6], CentreY + 47);
 	
 	// Draw continue icon
-	if ResultsValue[8] == 3 and ResultsValue[0] > -1
+	if ResultsValue[8] == 3 and ResultsValue[0] >= 0
 	{
-		if ResultsValue[0] mod 32 <= 15
+		if (ResultsValue[0] mod 32) <= 15
 		{
 			switch Game.Character
 			{
 				case CharSonic:
-					var Icon = spr_obj_conticon_sonic;
+					var Icon = gui_icon_sonic;
 				break;
 				case CharTails:
-					var Icon = spr_obj_conticon_tails;
+					var Icon = gui_icon_tails;
 				break;
 				case CharKnuckles:
-					var Icon = spr_obj_conticon_knuckles;
+					var Icon = gui_icon_knuckles;
 				break;
 			}
-			draw_animated_sprite(Icon, 8, ResultsValue[0], CentreX + 96, CentreY + 11);
+			draw_animated_sprite(Icon, 8, false, CentreX + 96, CentreY + 11);
 		}
 	}
 	

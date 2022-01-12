@@ -1,16 +1,13 @@
 function GameMacro()
 {	
-	/* Macro are basically replacement for digits in your code to
-	make it more readable. We could use emums in that case, but macros are easier */
-	
 	// Global framework macro
 	#macro Shader	   global
 	#macro Game		   global
 	#macro GameCamera  view_camera[0]
 
 	// Object macro
-	#macro EnemyBadnik 0
-	#macro EnemyBoss   1
+	#macro TypeBadnik  0
+	#macro TypeBoss    1
 	#macro TypePause   1
 	#macro TypeReset   2
 	#macro TypeDelete  3
@@ -27,72 +24,71 @@ function GameMacro()
 	
 	// Palette macro
 	#macro PaletteLimit  64
-	#macro TypePrimary    0
-	#macro TypeSecondary  1
+	#macro TypePrimary   0
+	#macro TypeSecondary 1
 	
 	// Fade macro
-	#macro StateActive 0
-	#macro StateMax    1
-	#macro ModeInto    0
-	#macro ModeFrom    1
-	#macro BlendBlack  0
-	#macro BlendWhite  1
-	#macro BlendFlash  2
-
+	#macro StateActive   0
+	#macro StateMax      1
+	#macro ModeInto      0
+	#macro ModeFrom      1
+	#macro BlendBlack    0
+	#macro BlendWhite    1
+	#macro BlendFlash    2
+	
 	// Player macro
-	#macro CharSonic		 0
-	#macro CharTails	     1
-	#macro CharKnuckles	     2
-	#macro GlideFall         1
-	#macro GlideAir          2
-	#macro GlideGround       3
-	#macro LayerA		     0
-	#macro LayerB		     1
-	#macro BarrierNormal	 1
-	#macro BarrierThunder	 2
-	#macro BarrierWater      3
-	#macro BarrierFlame		 4	
-	#macro AnimIdle		     0
-	#macro AnimMove			 1
-	#macro AnimPeelout	     2
-	#macro AnimSpin			 3
-	#macro AnimAirSpin		 4
-	#macro AnimDropdash		 5
-	#macro AnimSpindash		 6
-	#macro AnimPush			 7
-	#macro AnimCrouch		 8
-	#macro AnimLookup		 9
-	#macro AnimFly			 10
-	#macro AnimFlyTired		 11
-	#macro AnimSwim			 22
-	#macro AnimSwimTired	 13
-	#macro AnimHurt			 14
-	#macro AnimDeath		 15
-	#macro AnimDrown		 16
-	#macro AnimGlide		 17
-	#macro AnimGlideFall     18    
-	#macro AnimSlide         19
-	#macro AnimDropStand	 20
-	#macro AnimGlideStand    21
-	#macro AnimClimb		 22
-	#macro AnimClimbLedge	 23
-	#macro AnimClimbFall     24
-	#macro AnimSkid			 25
-	#macro AnimBalance		 26
-	#macro AnimBalanceFlip	 27
-	#macro AnimBalancePanic  28
-	#macro AnimBalanceTurn   29
-	#macro AnimSpring		 30
-	#macro AnimTransform	 31
-	#macro AnimBreathe		 32
+	#macro CharSonic		0
+	#macro CharTails	    1
+	#macro CharKnuckles	    2
+	#macro GlideFall        1
+	#macro GlideAir         2
+	#macro GlideGround      3
+	#macro BarrierNormal	1
+	#macro BarrierThunder	2
+	#macro BarrierWater     3
+	#macro BarrierFlame		4	
+	#macro AnimIdle		    0
+	#macro AnimMove			1
+	#macro AnimPeelout	    2
+	#macro AnimSpin			3
+	#macro AnimDropdash		4
+	#macro AnimSpindash		5
+	#macro AnimPush			6
+	#macro AnimCrouch		7
+	#macro AnimLookup		8
+	#macro AnimFly			9
+	#macro AnimFlyTired		10
+	#macro AnimSwim			11
+	#macro AnimSwimTired	12
+	#macro AnimHurt			13
+	#macro AnimDeath		14
+	#macro AnimDrown		15
+	#macro AnimGlide		16
+	#macro AnimGlideFall    17    
+	#macro AnimSlide        18
+	#macro AnimDropStand	19
+	#macro AnimGlideStand   20
+	#macro AnimClimb		21
+	#macro AnimClamber	    22
+	#macro AnimDrop         23
+	#macro AnimSkid			24
+	#macro AnimBalance		25
+	#macro AnimBalanceFlip	26
+	#macro AnimBalancePanic 27
+	#macro AnimBalanceTurn  28
+	#macro AnimSpring		29
+	#macro AnimTransform	30
+	#macro AnimBreathe		31
 	
 	// Collision macro
-	#macro SideTop	  0
-	#macro SideLeft	  1
-	#macro SideRight  2
-	#macro SideBottom 3
-	#macro Hitbox	  0
-	#macro Hitbox2    1
-	#macro Triggerbox 2
-	#macro Solidbox	  3
+	#macro SideTop	    0
+	#macro SideLeft	    1
+	#macro SideRight    2
+	#macro SideBottom   3
+	#macro TypeHitbox   0
+	#macro TypeHitbox2  1
+	#macro TypeSolidbox 2
+	#macro TypeTrigger  3
+	#macro LayerA	    0
+	#macro LayerB	    1
 }

@@ -29,7 +29,7 @@ function PlayerWaterEvents()
 			}
 				
 			// Create splash object
-			if !Grounded
+			if !Grounded and !ClimbState
 			{
 				audio_sfx_play(sfxWaterSplash, false);
 				instance_create(PosX, Stage.WaterLevel, WaterSplash);
@@ -69,12 +69,7 @@ function PlayerWaterEvents()
 				// Reset speeds
 				Xsp	= 0;
 				Ysp	= 0;
-				
-				// Set gravity to its underwater value if sliding or flying
-				if FlightState or GlideState == GlideAir
-				{
-					Grv = 0.0625;
-				}
+				Grv = 0.0625;
 				
 				// Set flags
 				Stage.TimeEnabled = false;
@@ -161,7 +156,12 @@ function PlayerWaterEvents()
 				{
 					Ysp *= 2;
 				}
-				Grv = 0.21875;
+				
+				// Reset gravity (if not flying)
+				if !FlightState
+				{
+					Grv = 0.21875;
+				}
 				
 				// Limit vertical speed
 				if Ysp < -16
@@ -179,7 +179,7 @@ function PlayerWaterEvents()
 			AirTimer     = 1800;
 			
 			// Create splash object
-			if !Grounded
+			if !Grounded and !ClimbState
 			{
 				instance_create(PosX, Stage.WaterLevel, WaterSplash);
 				audio_sfx_play(sfxWaterSplash, false);

@@ -27,7 +27,7 @@ function ObjSpecialRingMain()
 		case 1:
 		{
 			// Check for overlap
-			if object_check_overlap(Hitbox)
+			if object_check_overlap(TypeHitbox)
 			{	
 				// Play sound
 				audio_sfx_play(sfxSpecialRing, false);
@@ -49,7 +49,7 @@ function ObjSpecialRingMain()
 					Game.SpecialRingData[2] = Player.Rings;
 					Game.SpecialRingData[3] = Player.BarrierType;
 					Game.SpecialRingData[4] = Stage.Time;
-					Game.SpecialRingData[5] = Stage.BottomBoundary;
+					Game.SpecialRingData[5] = Stage.TargetBottomBoundary;
 						
 					// Buffer score and lives into their global variables
 					Game.Score = Player.Score;
@@ -69,14 +69,14 @@ function ObjSpecialRingMain()
 						visible		  = 0;
 					}
 			
-					// If Tails, stop sounds
+					// If playing as Tails, stop his sounds
 					if Game.Character == CharTails
 					{
 						audio_sfx_stop(sfxTired);
 						audio_sfx_stop(sfxFlying);
 					}
 					
-					// Destroy barrier (S3 doesn't do this, but it is stupid)
+					// Destroy barrier (in S3/SK they don't do this, but it is stupid)
 					Player.BarrierType = false;
 					
 					// Increment state

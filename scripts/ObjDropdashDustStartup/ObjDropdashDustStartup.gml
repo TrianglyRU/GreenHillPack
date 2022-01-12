@@ -1,11 +1,9 @@
 function ObjDropdashDustStartup()
 {
-	// Match player facing direction
+	// Match player's facing direction
 	image_xscale = Player.Facing;
 	
-	// Set object depth
-	object_set_depth(Player, true);
-	
-	// Set animation
+	// Set object properties
+	object_set_depth(Player, 1);
 	animation_play(sprite_index, 2, 0, 7);
 }

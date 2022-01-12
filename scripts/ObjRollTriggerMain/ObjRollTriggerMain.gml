@@ -1,12 +1,11 @@
 function ObjRollTriggerMain()
 {	
 	// Check for overlap
-	if object_check_overlap(Triggerbox)
+	if object_check_overlap(TypeTrigger) 
 	{
-		// Set player flags
-		if Player.Grounded and !Player.OnObject
+		// Force player to roll
+		if Player.Grounded or Player.GlideState
 		{
-			// Set object flag
 			if !State and abs(Player.Inertia) < 4
 			{
 				Player.Inertia = 4 * Player.Facing;

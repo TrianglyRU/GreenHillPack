@@ -140,9 +140,6 @@ function PlayerAnimate()
 						}
 					}
 					break;
-					case AnimAirSpin:
-						animation_play(spr_sonic_airspin, 3, 0, 0);
-					break;
 					case AnimBreathe:
 					{
 						if !(--AnimBreatheTime)
@@ -252,9 +249,6 @@ function PlayerAnimate()
 						}
 					}
 					break;
-					case AnimAirSpin:
-						animation_play(spr_supersonic_airspin, 3, 0, 0);
-					break;
 					case AnimBreathe:
 					{	
 						if !(--AnimBreatheTime)
@@ -362,9 +356,6 @@ function PlayerAnimate()
 				break;
 				case AnimTransform:
 					animation_play(spr_tails_transform, [6, 3, 3], 0, 1);
-				break;
-				case AnimAirSpin:
-					animation_play(spr_tails_airspin, 3, 0, 0);
 				break;
 				case AnimBreathe:
 				{
@@ -486,10 +477,10 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_climb, Speed, 0, 0);
 				}
 				break;
-				case AnimClimbLedge:
-					animation_play(spr_knuckles_climbering, 6, 0, 3);
+				case AnimClamber:
+					animation_play(spr_knuckles_clamber, 6, 0, 3);
 				break;
-				case AnimClimbFall:
+				case AnimDrop:
 					animation_set(spr_knuckles_drop, 1);
 				break;
 				case AnimPush:
@@ -512,9 +503,6 @@ function PlayerAnimate()
 				break;
 				case AnimTransform:
 					animation_play(spr_knuckles_transform, [6, 3, 3], 0, 1);
-				break;
-				case AnimAirSpin:
-					animation_play(spr_knuckles_airspin, 3, 0, 0);
 				break;
 				case AnimBreathe:
 				{

@@ -17,8 +17,8 @@
   "width": 15,
   "height": 11,
   "textureGroupId": {
-    "name": "tgMenu",
-    "path": "texturegroups/tgMenu",
+    "name": "tgContinueScreen",
+    "path": "texturegroups/tgContinueScreen",
   },
   "swatchColours": null,
   "gridX": 0,
@@ -110,7 +110,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Rooms/Screens/Continue Screen/Textures.yy",
+    "path": "folders/Rooms/Continue Screen/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "tex_continue_countdown",

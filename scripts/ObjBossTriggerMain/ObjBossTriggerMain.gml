@@ -6,10 +6,10 @@ function ObjBossTriggerMain()
 	// Check if player ran past the trigger
 	if Stage.IsBossfight == -1
 	{
-		if object_check_overlap(Triggerbox)
+		if floor(Player.PosX) > x
 		{
 			// Play boss music
-			audio_bgm_play(ChannelPrimary, Boss);
+			audio_bgm_play(ChannelPrimary, Boss); 
 			
 			// Set new top boundary
 			if ArenaHeight != -1
@@ -17,12 +17,10 @@ function ObjBossTriggerMain()
 				Stage.TargetTopBoundary = Stage.BottomBoundary - ArenaHeight;
 			}
 			
-			// Spawn boss
+			/* SPAWN YOUR BOSS HERE. Do not forget to set BossTrigger.BossDefeated to
+			'true' once you want your stage to exit boss state! */
 			switch room
 			{
-				case Stage_GHZ3:
-					instance_create(x + 96 + 40, y - 206, GHZBoss);
-				break;
 				default: break;
 			}
 			Stage.IsBossfight = true;
@@ -45,14 +43,23 @@ function ObjBossTriggerMain()
 		}
 		else
 		{
-			// Scroll right boundary
+			/* Set right boundary to room_width. Normally, you have to place Egg Prison or Clear Panel
+			after the arena, so the game will automatically set new boundaries once again */
 			Stage.TargetRightBoundary = room_width;
 			
 			// Give 1000 points and cancel bossfight state
+			Player.Score     += 1000;
 			Stage.IsBossfight = false;
 			
-			// Play stage music
-			audio_bgm_play(ChannelPrimary, Stage.StageMusic);
+			// Restore music
+			if Player.SuperState
+			{
+				audio_bgm_play(ChannelPrimary, SuperTheme);
+			}
+			else
+			{
+				audio_bgm_play(ChannelPrimary, Stage.StageMusic);
+			}
 			
 			// Destroy object
 			instance_destroy();

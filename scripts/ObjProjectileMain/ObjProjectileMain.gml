@@ -9,10 +9,12 @@ function ObjProjectileMain()
 	x = floor(PosX);
 	y = floor(PosY);
 	
-	if object_check_overlap(Hitbox)
+	if object_check_overlap(TypeHitbox)
 	{
 		// Check if projectile should be reflected
-		if Player.BarrierType > BarrierNormal
+		if Player.FlightState			 and floor(Player.PosY) > y
+		or Player.GlideState == GlideAir and sign(x - floor(Player.PosX)) == sign(Player.Facing)
+		or Player.BarrierType > BarrierNormal 
 		{
 			if !State
 			{
@@ -28,7 +30,7 @@ function ObjProjectileMain()
 				State += 1;
 			}
 		}
-		
+
 		// Else damage player
 		else if !Player.DoubleSpinAttack
 		{

@@ -7,106 +7,124 @@ function InterfacePauseProcess()
 	---------------
 	*/
 	
-	// Check if stage is paused
 	if Stage.IsPaused
 	{	
-		if !fade_check(StateActive)
+		// Loop through options
+		if Input.DownPress
 		{
-			// Pause timer
-			PauseTimer = loop_value(PauseTimer + 1, 0, 16);
-			
-			// Loop through options
-			if Input.DownPress
-			{
-				PauseValue = loop_value(PauseValue + 1, 0, 3);
-				PauseTimer = 0;
-			}
-			else if Input.UpPress
-			{
-				PauseValue = loop_value(PauseValue - 1, 0, 3);
-				PauseTimer = 0;
-			}
+			PauseValue[0] = loop_value(PauseValue[0] + 1, 0, PauseValue[1] ? 2 : 3);
+			audio_sfx_play(sfxPauseSwitch, false);
+		}
+		else if Input.UpPress
+		{
+			PauseValue[0] = loop_value(PauseValue[0] - 1, 0, PauseValue[1] ? 2 : 3);
+			audio_sfx_play(sfxPauseSwitch, false);
+		}
 	
-			// React to action or start button
-			if Input.StartPress or Input.ABCPress
-			{
-				switch PauseValue
-				{
-					// Return to stage
-					case 0:
-					{
-						Stage.IsPaused = false;
-						Camera.Enabled = true;
-					
-						// Activate objects
-						instance_activate_range(Camera.ViewX);
-					
-						// Resume audio
-						audio_resume_all();
-					
-					}
-					break;
-					
-					// Restart the stage if we have more than 1 life
-					case 1: 
-					{
-						if Player.Lives > 1
-						{
-							// Perform fade
-							fade_perform(ModeInto, BlendBlack, 1);
-						}
-						else
-						{
-							// Play deny sound
-							audio_sfx_play(sfxFail, false);
-						}
-					}
-					break;
-					
-					// Exit the stage
-					case 2: 
-					{	
-						// Perform fade
-						fade_perform(ModeInto, BlendBlack, 1);
-					}
-					break;
-				}
-			
-				// Clear input
-				Input.StartPress = false;
-				Input.ABCPress   = false;
-			}
-		}	
-		else if fade_check(StateMax)
+		// React to action or start button
+		if (Input.StartPress or Input.ABCPress) and !fade_check(StateActive)
 		{
-			if PauseValue == 1
+			// Check if we're in RESTART or EXIT submenu
+			if PauseValue[1]
 			{
-				Game.Lives--;
-				room_restart();
+				if PauseValue[0]
+				{
+					PauseValue[1] = 0;
+					PauseValue[0] = 0;
+					
+					audio_sfx_play(sfxPauseBack, false);
+				}
+				else
+				{	
+					audio_sfx_play(sfxPauseSelect, false);
+					fade_perform(ModeInto, BlendBlack, 1);
+				}
 			}
-			else if PauseValue == 2
+			
+			// Main pause menu
+			else switch PauseValue[0]
 			{
-				// Reset all saved data during the stage		
+				// Return to stage
+				case 0:
+				{
+					Camera.Enabled = true;
+					Stage.IsPaused = false;	
+					
+					// Manually enable stage update to avoid 1 frame delay
+					Stage.DoUpdate = true;
+					
+					// Activate objects
+					instance_activate_range(Camera.ViewX);
+					
+					audio_resume_all();
+					audio_sfx_play(sfxPauseBack, false);
+				}
+				break;
+					
+				// Enter RESTART menu if we have more than 1 life
+				case 1: 
+				{
+					if Player.Lives > 1
+					{
+						PauseValue[1] = 1;
+						PauseValue[0] = 0;
+						audio_sfx_play(sfxPauseSelect, false);
+					}
+					else
+					{
+						audio_sfx_play(sfxFail, false);
+					}
+				}
+				break;
+					
+				// Enter EXIT menu
+				case 2: 
+				{
+					PauseValue[1] = 2;
+					PauseValue[0] = 0;
+					audio_sfx_play(sfxPauseSelect, false);
+				}
+				break;
+			}
+			
+			// Clear input
+			Input.StartPress = false;
+			Input.ABCPress   = false;
+		}
+		if fade_check(StateMax)
+		{
+			// Restart the stage if we're in RESTART menu
+			if PauseValue[1] == 1
+			{
+				Game.Lives -= 1;
+				room_restart();						
+			}
+					
+			// Exit to DevMenu
+			else if PauseValue[1] == 2
+			{
+				room_goto(Screen_DevMenu);
+						
+				// Reset all data saved during the stage		
 				Game.StarPostData    = [];
 				Game.SpecialRingList = [];
-					
-				// Return to title screen
-				room_goto(Screen_Title);
-			}	
+			}
 		}
 	}
-	
-	// If we pressed start button and are allowed to pause, then pause!
 	else if Input.StartPress
 	{
+		// If we pressed start button and are allowed to pause, then pause!
 		if CardValue[1] == 3 and Stage.DoUpdate and !Stage.IsFinished
 		{
 			Input.StartPress = false;
 			Camera.Enabled   = false;
-			Stage.IsPaused	 = true;	
+			Stage.IsPaused	 = true;
 			
-			// Stop all audio
+			// Manually disable stage update to avoid 1 frame delay
+			Stage.DoUpdate = false;
+			
 			audio_pause_all();
+			audio_sfx_play(sfxPauseSelect, false);
 		}
 	}
 }

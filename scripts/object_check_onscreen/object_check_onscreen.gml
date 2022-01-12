@@ -1,10 +1,10 @@
 /// @function object_is_onscreen(obj)
 function object_is_onscreen(obj)
 {
-	// Return true if object does not exist
+	// Return false if object does not exist
 	if !instance_exists(obj)
 	{
-		return true;
+		return false;
 	}
 	
 	// Get radiuses

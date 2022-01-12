@@ -1,5 +1,6 @@
 {
-  "compression": 1,
+  "conversionMode": 0,
+  "compression": 2,
   "volume": 1.0,
   "preload": false,
   "bitRate": 128,
@@ -11,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "Drowning.ogg",
-  "duration": 11.8089123,
+  "duration": 11.5973244,
   "parent": {
     "name": "BGM",
     "path": "folders/Audio/BGM.yy",

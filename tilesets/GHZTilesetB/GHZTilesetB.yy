@@ -11,8 +11,8 @@
   "tilevsep": 0,
   "spriteNoExport": true,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "tgGreenHill",
+    "path": "texturegroups/tgGreenHill",
   },
   "out_tilehborder": 2,
   "out_tilevborder": 2,
@@ -87,8 +87,8 @@
     "TileSerialiseData": [],
   },
   "parent": {
-    "name": "Green Hill Zone",
-    "path": "folders/Rooms/Stages/Green Hill Zone.yy",
+    "name": "_Green Hill Zone",
+    "path": "folders/Rooms/_Green Hill Zone.yy",
   },
   "resourceVersion": "1.0",
   "name": "GHZTilesetB",

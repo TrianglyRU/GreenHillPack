@@ -1,13 +1,9 @@
 function CameraStartup() 
 {
-	// Enable camera
-	Enabled	= true;
-	
-	// Set maximum speed
-	MaxShiftX = 16;
-	MaxShiftY = 16;
-	
-	// Set blank values
+	Target		   = Player;
+	Enabled		   = true;
+	MaxShiftX	   = 16;
+	MaxShiftY	   = 16;
 	TargetX	       = 0;
 	TargetY	       = 0;
 	PosX	       = 0;
@@ -24,31 +20,19 @@ function CameraStartup()
 	ShakeX	       = 0;
 	ShakeY	       = 0;
 	
-	switch room
+	// Set start position to Star Post or Special Ring
+	if instance_exists(Stage)
 	{
-		default:
+		if array_length(Game.StarPostData)
 		{
-			// Set player as a default target
-			Target = Player;
-			
-			// Set position on Star Post if its data exists
-			if array_length(Game.StarPostData)
-			{
-				PosX = Game.StarPostData[0] - Game.Width  / 2;
-				PosY = Game.StarPostData[1] - Game.Height / 2 + 16;
-			}
-	
-			// Set position on Special Ring if its data exists
-			if array_length(Game.SpecialRingData)
-			{
-				PosX = Game.SpecialRingData[0] - Game.Width  / 2;
-				PosY = Game.SpecialRingData[1] - Game.Height / 2 + 16;
-			}
-	
-			/* If none of positions above exist, the camera will spawn
-			on checkpoint. It is handled from its side! */
+			PosX = Game.StarPostData[0] - Game.Width  / 2;
+			PosY = Game.StarPostData[1] - Game.Height / 2 + 16;
 		}
-		break;
+		if array_length(Game.SpecialRingData)
+		{
+			PosX = Game.SpecialRingData[0] - Game.Width  / 2;
+			PosY = Game.SpecialRingData[1] - Game.Height / 2 + 16;
+		}
 	}
 	
 	// Enable room viewport 0 and make it visible

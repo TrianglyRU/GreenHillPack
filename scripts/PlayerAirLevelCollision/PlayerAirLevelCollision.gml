@@ -20,101 +20,81 @@ function PlayerAirLevelCollision()
 		case "MoveDown":
 		{
 			// Collide with left wall
-			var LeftDistance = tile_check_collision_h(PosX - RadiusW, PosY, false, true, Layer)[0];
-			if  LeftDistance < 0
+			var FindWall = tile_find_h(PosX - RadiusW, PosY, false, true, Layer)[0];
+			if  FindWall < 0
 			{
-				PosX -= LeftDistance;
+				PosX -= FindWall;
 				Xsp   = 0;
 			}
 			
 			// Collide with right wall
-			var RightDistance = tile_check_collision_h(PosX + RadiusW, PosY, true, true, Layer)[0];
-			if  RightDistance < 0
+			var FindWall = tile_find_h(PosX + RadiusW, PosY, true, true, Layer)[0];
+			if  FindWall < 0
 			{
-				PosX += RightDistance;
+				PosX += FindWall;
 				Xsp   = 0;
 			}
 			
-			// Get nearest tile below us
-			var TileLeft    = tile_check_collision_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer);
-			var TileRight   = tile_check_collision_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer);
-			var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
-			
-			// Get data
-			var FloorDistance = NearestTile[0];
-			var FloorAngle    = NearestTile[1];
-			
 			// Collide with floor
-			if FloorDistance < 0
+			var FindFloor = tile_find_2v(PosX - RadiusX, PosY + RadiusY, PosX + RadiusX, PosY + RadiusY, true, false, noone, Layer);
+			if  FindFloor[0] < 0 and FindFloor[0] >= -(Ysp + 8)
 			{
-				// Make sure at least one distance is within the clip distance
-				var ClipDistance = -(Ysp + 8)
-				if  TileLeft[0] >= ClipDistance or TileRight[0] >= ClipDistance
+				// Convert speed to inertia
+				if FindFloor[1] >= 46.41 and FindFloor[1] <= 315
 				{
-					// Convert speed to inertia
-					if FloorAngle >= 46.41 and FloorAngle <= 315
+					// Limit ysp
+					if Ysp > 15.75
 					{
-						// Limit ysp
-						if Ysp > 15.75
-						{
-							Ysp = 15.75;
-						}
-						Xsp		= 0;
-						Inertia = FloorAngle < 180 ? -Ysp : Ysp;
+						Ysp = 15.75;
 					}
-					else if FloorAngle >= 23.91 and FloorAngle <= 337.5
-					{
-						Inertia = FloorAngle < 180 ? -Ysp / 2 : Ysp / 2;
-					}
-					else 
-					{	
-						Ysp     = 0;
-						Inertia = Xsp;	
-					}
-					
-					// Clip out and land
-					PosY    += FloorDistance;
-					Angle    = FloorAngle;
-					Grounded = true;
+					Xsp		= 0;
+					Inertia = FindFloor[1] < 180 ? -Ysp : Ysp;
 				}
-			}	
+				else if FindFloor[1] >= 23.91 and FindFloor[1] <= 337.5
+				{
+					Inertia = FindFloor[1] < 180 ? -Ysp / 2 : Ysp / 2;
+				}
+				else 
+				{	
+					Ysp     = 0;
+					Inertia = Xsp;	
+				}
+					
+				// Clip out and land
+				PosY    += FindFloor[0];
+				Angle    = FindFloor[1];
+				Grounded = true;
+			}
 		}
 		break;	
 		case "MoveUp":
 		{
 			// Collide with left wall
-			var LeftDistance = tile_check_collision_h(PosX - RadiusW, PosY, false, true, Layer)[0];
-			if  LeftDistance < 0
+			var FindWall = tile_find_h(PosX - RadiusW, PosY, false, true, Layer)[0];
+			if  FindWall < 0
 			{
-				PosX -= LeftDistance;
+				PosX -= FindWall;
 				Xsp   = 0;
 			}
 			
 			// Collide with right wall
-			var RightDistance = tile_check_collision_h(PosX + RadiusW, PosY, true, true, Layer)[0];
-			if  RightDistance < 0
+			var FindWall = tile_find_h(PosX + RadiusW, PosY, true, true, Layer)[0];
+			if  FindWall < 0
 			{
-				PosX += RightDistance;
+				PosX += FindWall;
 				Xsp   = 0;
 			}
 			
-			// Get nearest tile above us
-			var TileLeft    = tile_check_collision_v(PosX - RadiusX, PosY - RadiusY, false, true, Layer);
-			var TileRight   = tile_check_collision_v(PosX + RadiusX, PosY - RadiusY, false, true, Layer);
-			var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
-			
-			// Get data
-			var RoofDistance = NearestTile[0];
-			var RoofAngle    = NearestTile[1];
-			
 			// Collide with ceiling
-			if RoofDistance < 0
+			var FindRoof = tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, true, noone, Layer);
+			if  FindRoof[0] < 0
 			{	
-				if (RoofAngle >= 91.41  and RoofAngle <= 136.41 
-				or  RoofAngle >= 226.41 and RoofAngle <= 268.59) and !FlightState
+				// Land on it if steep enough
+				if (FindRoof[1] >= 91.41  and FindRoof[1] <= 136.41 
+				or  FindRoof[1] >= 226.41 and FindRoof[1] <= 268.59) and !FlightState
 				{
-					Angle    = RoofAngle;
-					Inertia  = RoofAngle < 180 ? -Ysp : Ysp;
+					Angle    = FindRoof[1];
+					Inertia  = FindRoof[1] < 180 ? -Ysp : Ysp;
 					Grounded = true;
 				}
 				else 
@@ -125,17 +105,17 @@ function PlayerAirLevelCollision()
 					}	
 					Ysp = 0;
 				}				
-				PosY -= RoofDistance;
+				PosY -= FindRoof[0];
 			}
 		}
 		break;		
 		case "MoveLeft":
 		{
 			// Collide with left wall
-			var LeftDistance = tile_check_collision_h(PosX - RadiusW, PosY, false, true, Layer)[0];
-			if  LeftDistance < 0
+			var FindWall = tile_find_h(PosX - RadiusW, PosY, false, true, Layer)[0];
+			if  FindWall < 0
 			{
-				PosX -= LeftDistance;
+				PosX -= FindWall;
 				Xsp   = 0;
 				
 				// Set inertia to... ysp?
@@ -145,17 +125,8 @@ function PlayerAirLevelCollision()
 			// Try ceiling collision
 			else
 			{
-				// Get nearest tile above us
-				var TileLeft    = tile_check_collision_v(PosX - RadiusX, PosY - RadiusY, false, true, Layer);
-				var TileRight   = tile_check_collision_v(PosX + RadiusX, PosY - RadiusY, false, true, Layer);
-				var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
-				
-				// Get data
-				var RoofDistance = NearestTile[0];
-				var RoofAngle    = NearestTile[1];
-			
-				// Collide with ceiling
-				if RoofDistance < 0
+				var FindRoof = tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, true, noone, Layer);
+				if  FindRoof[0] < 0
 				{	
 					if Ysp < 0
 					{
@@ -165,26 +136,17 @@ function PlayerAirLevelCollision()
 					{
 						Grv	= 0.03125;
 					}
-					PosY -= RoofDistance;
+					PosY -= FindRoof[0];
 				}
 				
 				// Try floor collision
 				else if Ysp > 0
 				{
-					// Get nearest tile below us
-					var TileLeft    = tile_check_collision_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer);
-					var TileRight   = tile_check_collision_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer);
-					var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
-
-					// Get data
-					var FloorDistance = NearestTile[0];
-					var FloorAngle    = NearestTile[1];
-			
-					// Collide with floor
-					if FloorDistance < 0
+					var FindFloor = tile_find_2v(PosX - RadiusX, PosY + RadiusY, PosX + RadiusX, PosY + RadiusY, true, false, noone, Layer);
+					if  FindFloor[0] < 0
 					{
-						PosY	+= FloorDistance;
-						Angle    = FloorAngle;
+						PosY	+= FindFloor[0];
+						Angle    = FindFloor[1];
 						Inertia  = Xsp;
 						Ysp      = 0;
 						Grounded = true;
@@ -196,10 +158,10 @@ function PlayerAirLevelCollision()
 		case "MoveRight":
 		{
 			// Collide with right wall
-			var RightDistance = tile_check_collision_h(PosX + RadiusW, PosY, true, true, Layer)[0];
-			if  RightDistance < 0
+			var FindWall = tile_find_h(PosX + RadiusW, PosY, true, true, Layer)[0];
+			if  FindWall < 0
 			{
-				PosX += RightDistance;
+				PosX += FindWall;
 				Xsp   = 0;
 				
 				// Also set inertia to... ysp?
@@ -209,17 +171,8 @@ function PlayerAirLevelCollision()
 			// Try ceiling collision
 			else
 			{
-				// Get nearest tile above us
-				var TileLeft    = tile_check_collision_v(PosX - RadiusX, PosY - RadiusY, false, true, Layer);
-				var TileRight   = tile_check_collision_v(PosX + RadiusX, PosY - RadiusY, false, true, Layer);
-				var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
-				
-				// Get data
-				var RoofDistance = NearestTile[0];
-				var RoofAngle    = NearestTile[1];
-			
-				// Collide with ceiling
-				if RoofDistance < 0
+				var FindRoof = tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, true, noone, Layer);
+				if  FindRoof[0] < 0
 				{	
 					if Ysp < 0
 					{
@@ -229,26 +182,17 @@ function PlayerAirLevelCollision()
 					{
 						Grv	= 0.03125;
 					}
-					PosY -= RoofDistance;
+					PosY -= FindRoof[0];
 				}
 				
 				// Try floor collision
 				else if Ysp > 0
 				{
-					// Get nearest tile below us
-					var TileLeft    = tile_check_collision_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer);
-					var TileRight   = tile_check_collision_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer);
-					var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
-					
-					// Get data
-					var FloorDistance = NearestTile[0];
-					var FloorAngle    = NearestTile[1];
-			
-					// Collide with floor
-					if FloorDistance < 0
+					var FindFloor = tile_find_2v(PosX - RadiusX, PosY + RadiusY, PosX + RadiusX, PosY + RadiusY, true, false, noone, Layer);
+					if  FindFloor[0] < 0
 					{
-						PosY	+= FloorDistance;
-						Angle    = FloorAngle;
+						PosY	+= FindFloor[0];
+						Angle    = FindFloor[1];
 						Inertia  = Xsp
 						Ysp      = 0;
 						Grounded = true;
@@ -259,8 +203,8 @@ function PlayerAirLevelCollision()
 		break;
 	}
 	
-	// If landed, update collision mode
-	if Grounded
+	// If landed, update custom collision mode
+	if Game.BetterPlayerTileGrip and Grounded
 	{
 		if Angle <= 45 or Angle >= 315
 		{

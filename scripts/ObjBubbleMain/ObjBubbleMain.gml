@@ -32,7 +32,6 @@ function ObjBubbleMain()
 			// If reached last frame possible, pop the bubble
 			if image_index == 6
 			{
-				// Update animation
 				animation_play(spr_obj_bubble_disappear, 6, 0, 3);
 			}
 			
@@ -51,38 +50,14 @@ function ObjBubbleMain()
 	}
 	else
 	{
-		// Set animation
-		switch BubbleType
+		// Lock animation on certain frame for small and medium bubbles
+		if BubbleType < 2
 		{
-			case 0:
+			var TargetFrame = 2 + BubbleType * 2;
+			if  image_index >= TargetFrame
 			{
-				if image_index == 2
-				{
-					animation_set(sprite_index, 2);
-				}
-				else
-				{
-					animation_play(sprite_index, 15, 0, 2);
-				}
+				animation_set(sprite_index, TargetFrame);
 			}
-			break;
-			case 1:
-			{
-				if image_index == 4
-				{
-					animation_set(sprite_index, 4);
-				}
-				else
-				{
-					animation_play(sprite_index, 15, 1, 4);
-				}
-			}
-			break;
-			case 2:
-			{
-				animation_play(sprite_index, 15, 2, 6);
-			}
-			break;
 		}
 		
 		// Move bubble	
@@ -97,7 +72,7 @@ function ObjBubbleMain()
 	// If bubble is the large one, be collected by the player
 	if BubbleType == 2 and Player.BarrierType != BarrierWater
 	{
-		if image_index == 6 and object_check_overlap(Triggerbox)
+		if image_index == 6 and object_check_overlap(TypeTrigger)
 		{
 			// Restore music
 			if Player.AirTimer <= 720

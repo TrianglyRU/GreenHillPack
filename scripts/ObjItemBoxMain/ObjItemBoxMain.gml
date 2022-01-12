@@ -30,7 +30,7 @@ function ObjItemBoxMain()
 			if Check and (Player.Spinning or Player.GlideState > GlideFall) and Player.OnObject != id
 			{
 				// Destroy on overlap
-				if object_check_overlap(Hitbox2)
+				if object_check_overlap(TypeHitbox2)
 				{
 					// Inverse player's speed
 					if !Player.Grounded
@@ -60,7 +60,7 @@ function ObjItemBoxMain()
 				// Make itembox fall down
 				if !IsFalling and floor(Player.PosY) >= floor(y + 16)
 				{
-					if object_check_overlap(Hitbox2)
+					if object_check_overlap(TypeHitbox)
 					{
 						IsFalling  = true;
 						Ysp        = -1.5;
@@ -77,7 +77,7 @@ function ObjItemBoxMain()
 				PosY += Ysp;
 			
 				// Collide with floor
-				var FindFloor = tile_check_collision_v(PosX, PosY + 15, true, false, Player.Layer)[0];
+				var FindFloor = tile_find_v(PosX, PosY + 15, true, false, Player.Layer)[0];
 				if  FindFloor < 0
 				{
 					PosY     += FindFloor;
@@ -150,7 +150,7 @@ function ObjItemBoxMain()
 						break;
 					}
 					
-					// Give invincibility bonus for 20 seconds if not in super form
+					// Give invincibility bonus for 20 seconds
 					Player.InvincibleBonus = 1200;
 						
 					// Play music
@@ -159,13 +159,16 @@ function ObjItemBoxMain()
 				break;
 				case "Barrier":
 				{
-					// Give normal barrier
 					Player.BarrierType = BarrierNormal;
-						
-					// Spawn barrier object
+					
 					if !instance_exists(Barrier)
 					{
 						instance_create(Player.PosX, Player.PosY, Barrier);
+					}
+					else with Barrier
+					{
+						// If barrier exists, update properties
+						object_set_depth(Player, 1); animation_play(spr_obj_barrier_normal, 2, 0, 0);
 					}
 					
 					// Play sound
@@ -174,13 +177,16 @@ function ObjItemBoxMain()
 				break;
 				case "Flame Barrier":
 				{
-					// Give flame barrier
 					Player.BarrierType = BarrierFlame;
-						
-					// Spawn barrier object
+					
 					if !instance_exists(Barrier)
 					{
 						instance_create(Player.PosX, Player.PosY, Barrier);
+					}
+					else with Barrier
+					{
+						// If barrier exists, update animation
+						animation_play(spr_obj_barrier_flame, 2, 0, 0);
 					}
 					
 					// Play sound
@@ -189,13 +195,16 @@ function ObjItemBoxMain()
 				break;
 				case "Thunder Barrier":
 				{
-					// Give thunder barrier
 					Player.BarrierType = BarrierThunder;
-						
-					// Spawn barrier object
+					
 					if !instance_exists(Barrier)
 					{
 						instance_create(Player.PosX, Player.PosY, Barrier);
+					}
+					else with Barrier
+					{
+						// If barrier exists, update animation
+						animation_play(spr_obj_barrier_thunder, 2, 0, 0);
 					}
 					
 					// Play sound
@@ -204,13 +213,16 @@ function ObjItemBoxMain()
 				break;
 				case "Water Barrier":
 				{
-					// Give water barrier
-					Player.BarrierType = BarrierWater;	
-						
-					// Spawn barrier object
+					Player.BarrierType = BarrierWater;
+					
 					if !instance_exists(Barrier)
 					{
 						instance_create(Player.PosX, Player.PosY, Barrier);
+					}
+					else with Barrier
+					{
+						// If barrier exists, update properties
+						object_set_depth(Player, 1); animation_play(spr_obj_barrier_water, 2, 0, 0);
 					}
 					
 					// Play sound

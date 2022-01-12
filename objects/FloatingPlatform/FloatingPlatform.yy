@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_platform_template",
-    "path": "sprites/spr_obj_platform_template/spr_obj_platform_template.yy",
+    "name": "spr_obj_floatingplatform_editor",
+    "path": "sprites/spr_obj_floatingplatform_editor/spr_obj_floatingplatform_editor.yy",
   },
   "solid": false,
   "visible": true,
@@ -41,7 +41,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Stage Objects",
-    "path": "folders/Game Objects/Stage Objects.yy",
+    "path": "folders/Stage Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "FloatingPlatform",

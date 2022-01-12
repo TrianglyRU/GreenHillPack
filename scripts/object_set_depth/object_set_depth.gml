@@ -1,30 +1,28 @@
-/// @function object_set_depth(target,above)
-function object_set_depth(target,renderdepth)
+/// @function object_set_depth(target,depthFlag)
+function object_set_depth(target,depthFlag)
 {
-	// We control depth of chopper manually
-	if object_index == Chopper
-	{
-		exit;
-	}
-	
 	// Apply depth relative to the player
 	if target == Player
 	{
 		switch object_index
 		{
-			case SolidWall: case FloatingPlatform:
-				var Tolerance = 60;
-			break;
-			default:
-				var Tolerance = 50;
+			/* You can add your objects for more advanced depth 
+			manipulation. Example: 
+			
+			case FloatingPlatform:
+				var Tolerance = 25;
+			break; */	
+				
+			default:     
+				var Tolerance = 50; 
 			break;
 		}
-		depth = Player.DrawOrder - (renderdepth ? Tolerance : -Tolerance);
+		depth = Player.DrawOrder - (depthFlag ? Tolerance : -Tolerance);
 	}
 	
 	// Apply depth relative to another object
 	else
 	{
-		depth = target.depth - (renderdepth ? 1 : -1);
+		depth = target.depth - (depthFlag ? 1 : -1);
 	}
 }

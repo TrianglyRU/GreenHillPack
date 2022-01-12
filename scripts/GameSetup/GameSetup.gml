@@ -1,15 +1,18 @@
 function GameSetup()
 {
 	// Game settings
-	Game.WindowTitle = "Green Hill Revisited (Beta)";
+	Game.WindowTitle = "Green Hill Revisited";
 	Game.DevMode     = true;
-	Game.ShowSplash  = false;
-	Game.ForceLoad	 = Stage_GHZ1;	// If set to false the game will load into DevMenu, else into the room you choose
+	Game.ShowSplash  = true;
+	
+	/* If set to false the game will load into the DevMenu, else into the room you choose.
+	This won't work if Game.ShowSplash is enabled */
+	Game.ForceLoad	 = false;	
 	
 	// Originals differences
 	Game.SpindashEnabled    = true;
-	Game.DropdashEnabled    = false;
 	Game.PeeloutEnabled		= false;
+	Game.DropdashEnabled    = false;
 	Game.DSpinAttackEnabled	= false;
 	Game.GroundSpeedcap	    = false;
 	Game.AirSpeedcap	    = false;
@@ -19,14 +22,15 @@ function GameSetup()
 	Game.S3WaterPhysics		= false;
 	Game.SKCrouch			= false;
 	Game.SKRollDeceleration	= false;
-	Game.S2FloorCollision	= false;
+	Game.S1FloorCollision	= true;
 	Game.SKWallCollision	= false;	
 	Game.SKItemBoxBehaviour = false;
-	Game.CDStageTimer	    = false;
+	Game.CDStageTimer	    = false;	
 	
 	// Orbinaut improvements
 	Game.SmoothRotation	      = false;
 	Game.RichPresenceSupport  = false;
+	Game.BetterPlayerTileGrip = false;
 	Game.PreciseRingBehaviour = false;
 	Game.NoRollSpeedLimit	  = false;
 	Game.FlightCancel	      = false;
@@ -38,11 +42,11 @@ function GameSetup()
 	Game.WindowFullscreen = false;
 	Game.Width            = 400;
 	Game.Height			  = 224;
-	Game.WindowSize	      = 4;
+	Game.WindowSize	      = 3;
 	
 	// Audio settings
-	Game.MusicVolume = 0.3;
-	Game.SoundVolume = 0.3;
+	Game.MusicVolume = 0.5;
+	Game.SoundVolume = 0.5;
 	
 	// Control settings (keyboard)
 	Game.KeyboardControl = [vk_up, vk_down, vk_left, vk_right, ord("Z"), ord("X"), ord("C"), vk_space, vk_enter];
@@ -50,6 +54,7 @@ function GameSetup()
 	// Initialise other variables
 	Game.Character		 = 0;
 	Game.GlobalTime		 = 0;
+	Game.SpriteTimers    = 0;
 	Game.ActiveSave      = 0;
 	Game.SaveData		 = 0;
 	Game.SaveState       = 0;
@@ -60,7 +65,7 @@ function GameSetup()
 	Game.Stage			 = 0;
 	Game.StageRoom       = 0;
 	Game.SpecialScore    = 0;
-	Game.SpecialState    = 0;	
+	Game.SpecialState    = 0;
 	Game.DiscordTime	 = 0;
 	Game.DiscordEvent	 = "";
 	Game.StarPostData    = [];

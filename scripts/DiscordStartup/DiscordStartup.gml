@@ -4,9 +4,9 @@ function DiscordStartup()
 	var DiscordAppID = "795659000645287996";
 	
 	// Initialise Rich Presence
-	if !np_initdiscord(DiscordAppID, true, "0")
+	if !(os_type == os_windows or os_type == os_linux or os_type == os_macosx) or !np_initdiscord(DiscordAppID, true, "0")
 	{
-		Game.RichPresenceSupport = false;
+		Game.RichPresenceSupport = false; instance_destroy(); exit;
 	}
 	Game.DiscordTime = date_current_datetime();
 }

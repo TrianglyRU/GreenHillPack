@@ -1,8 +1,8 @@
 /// @function object_act_enemy(enemyType)
 function object_act_enemy(enemyType)
 {
-	// Return nothing if no collision is happening yet
-	if !object_check_overlap(Hitbox2)
+	// Wait until collision occurs
+	if !object_check_overlap(TypeHitbox2)
 	{
 		return false;
 	}
@@ -17,7 +17,7 @@ function object_act_enemy(enemyType)
 	{	
 		switch enemyType
 		{
-			case EnemyBadnik:
+			case TypeBadnik:
 			{
 				// Make player bounce if they are airborne
 				if !Player.Grounded
@@ -40,7 +40,7 @@ function object_act_enemy(enemyType)
 				var  Object = instance_create(x, y, ScoreObject);
 				with Object
 				{
-					ComboTrigger = true;
+					IsChain = true;
 				}
 			
 				// Spawn animal and explosion
@@ -65,7 +65,7 @@ function object_act_enemy(enemyType)
 				instance_destroy();
 			}
 			break;
-			case EnemyBoss:
+			case TypeBoss:
 			{
 				if !Player.Grounded
 				{

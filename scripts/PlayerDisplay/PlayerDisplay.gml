@@ -6,7 +6,7 @@ function PlayerDisplay()
 	depth		 = DrawOrder;
 	image_xscale = Facing;
 	image_angle  = VisualAngle;
-
+	
 	// Fix that one pixel offset when facing left
 	if Facing == FlipLeft
 	{

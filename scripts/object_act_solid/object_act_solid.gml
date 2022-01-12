@@ -17,23 +17,16 @@ function object_act_solid(sides,top,bottom,resetActions)
 		exit;
 	}
 	
-	// Exit if no solid radiuses were initialised for this object
-	if !variable_instance_exists(id, "Obj_SolidStatus")
+	// Exit if there is no side to collide with
+	if !sides and !top and !bottom
 	{
 		exit;
 	}
-	
 	
 	// Exit if the object's solid radiuses are null
 	if !Obj_SolidX or !Obj_SolidY
 	{
 		exit;	
-	}
-	
-	// Exit if there is no side to collide with
-	if !sides and !top and !bottom
-	{
-		exit;
 	}
 	
 	// Exit if the object is off-screen
@@ -101,7 +94,7 @@ function object_act_solid(sides,top,bottom,resetActions)
 			}
 		}
 	}
-			
+	
 	// If player is not standing on this object, collide with it
 	else
 	{	

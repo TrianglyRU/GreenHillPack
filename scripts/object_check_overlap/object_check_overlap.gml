@@ -6,17 +6,11 @@ function object_check_overlap(collisionType)
 	{
 		return false;
 	}	
-	else switch collisionType
+	switch collisionType
 	{
-		case Hitbox:
-		case Hitbox2:
-		{
-			// Exit if this object hitbox isn't initialised
-			if !variable_instance_exists(id, "Obj_HitStatus")
-			{
-				return false;
-			}
-		
+		case TypeHitbox:
+		case TypeHitbox2:
+		{	
 			// Exit if object can't be overlapped
 			if !Obj_HitX or !Obj_HitY
 			{
@@ -36,7 +30,7 @@ function object_check_overlap(collisionType)
 			var ObjectBottom = floor(y + Obj_HitY - 1);
 		
 			// Get player's normal hitbox
-			if !(collisionType == Hitbox2 and Player.DoubleSpinAttack)
+			if !(collisionType == TypeHitbox2 and Player.DoubleSpinAttack)
 			{
 				var HitboxData = Player.HitboxData[0];
 			}
@@ -52,23 +46,15 @@ function object_check_overlap(collisionType)
 			{
 				return false;
 			}
-			else if HitboxData[3] < ObjectTop or HitboxData[1] > ObjectBottom
+			if HitboxData[3] < ObjectTop or HitboxData[1] > ObjectBottom
 			{
 				return false;
 			}
-		
-			// If player overlaps object on both axis, they collided with it
 			return true;
 		}
 		break;
-		case Solidbox:
+		case TypeSolidbox:
 		{
-			// Exit if this object solidbox isn't initialised
-			if !variable_instance_exists(id, "Obj_SolidStatus")
-			{
-				return false;
-			}
-		
 			// Exit if object can't be overlapped
 			if !Obj_SolidX or !Obj_SolidY
 			{
@@ -98,24 +84,15 @@ function object_check_overlap(collisionType)
 			{
 				return false;
 			}
-			else if PlayerBottom < ObjectTop or PlayerTop > ObjectBottom
+			if PlayerBottom < ObjectTop or PlayerTop > ObjectBottom
 			{
 				return false;
 			}
-		
-			// If player overlaps object on both axis, they collided with it
 			return true;
 		}
 		break;
-		case Triggerbox:
+		case TypeTrigger:
 		{
-			// Exit if this object triggerbox isn't initialised
-			if !variable_instance_exists(id, "Obj_TriggerStatus")
-			{
-				return false;
-			}
-		
-			// Return check result
 			return point_in_rectangle(floor(Player.PosX), floor(Player.PosY), floor(x + Obj_TriggerLeft), floor(y + Obj_TriggerTop), floor(x + Obj_TriggerRight - 1), floor(y + Obj_TriggerBottom - 1));
 		}
 		break;

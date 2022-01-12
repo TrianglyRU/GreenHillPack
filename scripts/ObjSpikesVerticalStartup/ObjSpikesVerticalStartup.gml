@@ -1,11 +1,20 @@
 function ObjSpikesVerticalStartup()
 {
-	// Set object solidbox
-	object_set_solidbox(20, 16, false);
+	// Define solidbox
+	switch object_index
+	{
+		case SpikesVertical:
+			var Solidbox = [20, 16];
+		break;
+		case SpikesVerticalSingle:
+			var Solidbox = [4, 16];
+		break;
+		case SpikesVerticalWide: break;
+		case SpikesVerticalLong: break;
+	}
 	
-	// Set object depth
-	object_set_depth(Player, false);
-	
-	// Set object unload type
+	// Set object properties
+	object_set_solidbox(Solidbox[0], Solidbox[1], false);
 	object_set_unload(TypePause);
+	object_set_depth(Player, 0);
 }

@@ -31,7 +31,7 @@
   "roomSettings": {
     "inheritRoomSettings": false,
     "Width": 320,
-    "Height": 240,
+    "Height": 224,
     "persistent": false,
   },
   "viewSettings": {
@@ -48,8 +48,8 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "Screens",
-    "path": "folders/Rooms/Screens.yy",
+    "name": "Rooms",
+    "path": "folders/Rooms.yy",
   },
   "resourceVersion": "1.0",
   "name": "Screen_Splash",

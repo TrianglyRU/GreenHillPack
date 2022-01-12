@@ -17,8 +17,8 @@
   "width": 39,
   "height": 37,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "tgSonic",
+    "path": "texturegroups/tgSonic",
   },
   "swatchColours": null,
   "gridX": 0,

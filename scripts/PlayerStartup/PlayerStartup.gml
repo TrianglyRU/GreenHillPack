@@ -1,6 +1,6 @@
 function PlayerStartup()
 {	
-	// Set blank values
+	// Initialise variables
 	PosX				= 0;
 	PosY				= 0;
 	Acc					= 0;
@@ -57,11 +57,11 @@ function PlayerStartup()
 	DebugMode           = 0;
 	DebugItem			= 0;
 	DebugSpeed			= 0;
-	Landed				= 0;
-	CollisionMode       = [];
-	HitboxData          = [];
+	HitboxData			= [];
 	
-	// Set default values
+	// Set defaults
+	DrawOrder		 = layer_get_depth("Objects");
+	Facing			 = FlipRight;
 	Grv			     = 0.21875;
 	AirTimer	     = 1800;
 	AllowCollision   = true;
@@ -69,9 +69,10 @@ function PlayerStartup()
 	PeeloutRev       = -1;
 	SpindashRev      = -1;
 	DropdashRev      = -1;
-	DropdashFlag     = -1;	
+	DropdashFlag     = -1;
 	DoubleSpinAttack = -1;
-	
+	CollisionMode    = [0, 0];
+
 	// Set default sprite
 	switch Game.Character
 	{
@@ -85,9 +86,7 @@ function PlayerStartup()
 			sprite_index = spr_knuckles_idle;
 		break;
 	}
-	Facing	  = FlipRight;
-	DrawOrder = layer_get_depth("Objects");
-	
+
 	// Set collision radiuses
 	if Game.Character != CharTails
 	{
@@ -110,6 +109,42 @@ function PlayerStartup()
 	RadiusY = DefaultRadiusY;
 	RadiusW = 10;				// Wall radius. It is 10 for everyone by default
 	
+	// If respawning on checkpoint, load saved player data
+	if array_length(Game.StarPostData)
+	{
+		PosX = Game.StarPostData[0];
+		PosY = Game.StarPostData[1];
+	}
+	
+	// If coming back from special stage, load saved player data
+	if array_length(Game.SpecialRingData)
+	{
+		PosX  = Game.SpecialRingData[0];
+		PosY  = Game.SpecialRingData[1];
+		
+		// Load saved ring and barrier
+		if Game.SpecialRingData[3]
+		{
+			BarrierType = Game.SpecialRingData[3];
+			instance_create(PosX, PosY, Barrier);
+		}
+		Rings = Game.SpecialRingData[2];
+	}
+	
+	/* If none of the positions above exist, player will spawn
+	on spawnpoint. It is handled from its side! */
+	
+	// If coming back from bonus stage, load saved rings and barrier
+	if array_length(Game.BonusStageData)
+	{
+		Rings		= Game.BonusStageData[0];
+		BarrierType = Game.BonusStageData[1];
+		instance_create(PosX, PosY, Barrier);
+		
+		// Clear array
+		Game.BonusStageData = [];
+	}
+	
 	// Load score and lives
 	Score		 = Game.Score;
 	Lives		 = Game.Lives;
@@ -123,41 +158,5 @@ function PlayerStartup()
 	{
 		RecordedPosX[| Index] = x;
 		RecordedPosY[| Index] = y;
-	}
-	
-	// If respawning on checkpoint, load saved player data
-	if array_length(Game.StarPostData)
-	{
-		PosX = Game.StarPostData[0];
-		PosY = Game.StarPostData[1];
-	}
-	
-	// If coming from special stage, load saved player data
-	if array_length(Game.SpecialRingData)
-	{
-		PosX  = Game.SpecialRingData[0];
-		PosY  = Game.SpecialRingData[1];
-		Rings = Game.SpecialRingData[2];
-		
-		// Restore barrier
-		if Game.SpecialRingData[3]
-		{
-			BarrierType = Game.SpecialRingData[3];
-			instance_create(PosX, PosY, Barrier);
-		}	
-	}
-	
-	/* If none of positions above exist, player will spawn
-	on checkpoint. It is handled from its side! */
-	
-	// If coming from bonus stage, load saved rings and barrier
-	if array_length(Game.BonusStageData)
-	{
-		Rings		= Game.BonusStageData[0];
-		BarrierType = Game.BonusStageData[1];
-		instance_create(PosX, PosY, Barrier);
-		
-		// Clear array
-		Game.BonusStageData = [];
 	}
 }

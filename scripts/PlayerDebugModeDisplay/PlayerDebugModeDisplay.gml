@@ -12,49 +12,79 @@ function PlayerDebugModeDisplay()
 			switch DebugList[DebugItem]
 			{
 				case Ring:
-					animation_set(spr_obj_ring, 0);
+					sprite_index = spr_obj_ring;		  
 				break;
 				case SpecialRing:
-					animation_set(spr_obj_specialring, 0);
-				break;
-				case Crabmeat:
-					animation_set(spr_obj_crabmeat_move, 0);
+					sprite_index = spr_obj_specialring;
 				break;
 				case ItemBox:
-					animation_set(spr_obj_itembox, 0);
+					sprite_index = spr_obj_itembox;
 				break;
-				case SpikesVertical:
-					animation_set(spr_obj_spikesvertical, 0);
+				case SpikesVertical:	    
+					sprite_index = spr_obj_spikesvertical;  
 				break;
-				case SpringRedVertical:   
-					animation_set(spr_obj_spring_red_v, 0);  
+				case SpikesHorizontal:	    
+					sprite_index = spr_obj_spikeshorizontal;  
 				break;
-				case StarPost:
-					animation_set(spr_obj_starpost, 0);		  
+				case SpringYellowVertical:   
+					sprite_index = spr_obj_spring_yellow_v; 
+				break;
+				case SpringYellowHorizontal:
+					sprite_index = spr_obj_spring_yellow_h; 
+				break;
+				case SpringYellowDiagonal:   
+					sprite_index = spr_obj_spring_yellow_d; 
+				break;
+				case SpringRedVertical:      
+					sprite_index = spr_obj_spring_red_v;	  
+				break;
+				case SpringRedHorizontal:   
+					sprite_index = spr_obj_spring_red_h;    
+				break;
+				case SpringRedDiagonal:      
+					sprite_index = spr_obj_spring_red_d;
+				break;
+				case StarPost:				 
+					sprite_index = spr_obj_starpost;		  
+				break;
+				case Bridge:
+					sprite_index = spr_obj_bridge_editor;
 				break;
 				case FloatingPlatform:
-					animation_set(spr_obj_platform_ghz, 0);
+					sprite_index = spr_obj_floatingplatform_editor;
+				break;
+				case CollapsingPlatform:
+					sprite_index = spr_obj_collapsingplatform_editor;
+				break;
+				case SwingingPlatform:
+					sprite_index = spr_obj_swingplatform_editor;
 				break;
 				case Buzzbomber:
-					animation_set(spr_obj_buzzbomber_idle, 0);
-				break;
-				case Newtron:
-					animation_set(spr_obj_newtron_fall, 1);
-				break;
-				case SolidWall:
-					animation_set(spr_obj_solidwall, 1);
-				break;
-				case Dwayne:
-					animation_set(spr_obj_dwayne, 1);
-				break;
-				case Chopper:
-					animation_set(spr_obj_chopper, 0);
+					sprite_index = spr_obj_buzzbomber_idle;
 				break;
 				case Motobug:
-					animation_set(spr_obj_motobug, 0);
+					sprite_index = spr_obj_motobug;
 				break;
-				case Player:
-					animation_set(tex_sstage_reward, 0);
+				case Crabmeat:
+					sprite_index = spr_obj_crabmeat_move;
+				break;
+				case Orbinaut:
+					sprite_index = spr_obj_orbinaut;
+				break;
+				case PushableBlock:
+					sprite_index = spr_obj_pushableblock;
+				break;
+				case Bumper:
+					sprite_index = spr_obj_bumper;
+				break;
+				case Animal:				 
+					sprite_index = spr_obj_animal_flicky;   
+				break;	
+				case ClearPanel:				 
+					sprite_index = spr_obj_clearpanel_start_st;   
+				break;
+				case EggPrison:				 
+					sprite_index = spr_obj_eggprison;   
 				break;
 			}
 		}
@@ -62,6 +92,7 @@ function PlayerDebugModeDisplay()
 		// Update player
 		x			 = floor(PosX);
 		y			 = floor(PosY);
+		image_index  = 0;
 		image_xscale = Player.Facing;
 		image_angle  = 360;
 	

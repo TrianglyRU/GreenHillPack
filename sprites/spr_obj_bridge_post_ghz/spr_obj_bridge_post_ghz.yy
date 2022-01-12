@@ -2,7 +2,7 @@
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
-  "origin": 4,
+  "origin": 9,
   "preMultiplyAlpha": false,
   "edgeFiltering": false,
   "collisionTolerance": 0,
@@ -24,9 +24,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"26186870-8fba-43d4-9ba3-b11d075d3b39","path":"sprites/spr_obj_bridge_post_ghz/spr_obj_bridge_post_ghz.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"26186870-8fba-43d4-9ba3-b11d075d3b39","path":"sprites/spr_obj_bridge_post_ghz/spr_obj_bridge_post_ghz.yy",},"LayerId":{"name":"b68b01d1-c61b-4c1c-8ee0-cb1ce193e068","path":"sprites/spr_obj_bridge_post_ghz/spr_obj_bridge_post_ghz.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_obj_bridge_post_ghz","path":"sprites/spr_obj_bridge_post_ghz/spr_obj_bridge_post_ghz.yy",},"resourceVersion":"1.0","name":"26186870-8fba-43d4-9ba3-b11d075d3b39","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"fb1c7bb6-5284-4eae-8f53-ac05c11ffc14","path":"sprites/spr_obj_bridge_post_ghz/spr_obj_bridge_post_ghz.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"fb1c7bb6-5284-4eae-8f53-ac05c11ffc14","path":"sprites/spr_obj_bridge_post_ghz/spr_obj_bridge_post_ghz.yy",},"LayerId":{"name":"0dc0b070-5e3a-4773-93b8-c988ca1f5964","path":"sprites/spr_obj_bridge_post_ghz/spr_obj_bridge_post_ghz.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_obj_bridge_post_ghz","path":"sprites/spr_obj_bridge_post_ghz/spr_obj_bridge_post_ghz.yy",},"resourceVersion":"1.0","name":"fb1c7bb6-5284-4eae-8f53-ac05c11ffc14","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_obj_bridge_post_ghz","path":"sprites/spr_obj_bridge_post_ghz/spr_obj_bridge_post_ghz.yy",},
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"bad70a8f-ec55-491d-9a77-3cc14f53272e","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"26186870-8fba-43d4-9ba3-b11d075d3b39","path":"sprites/spr_obj_bridge_post_ghz/spr_obj_bridge_post_ghz.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"c67ecce7-c56e-4e81-ae6b-2e3e28117b02","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"fb1c7bb6-5284-4eae-8f53-ac05c11ffc14","path":"sprites/spr_obj_bridge_post_ghz/spr_obj_bridge_post_ghz.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -54,7 +54,7 @@
     "backdropHeight": 768,
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
-    "xorigin": 14,
+    "xorigin": 13,
     "yorigin": 6,
     "eventToFunction": {},
     "eventStubScript": null,
@@ -65,12 +65,12 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"b68b01d1-c61b-4c1c-8ee0-cb1ce193e068","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"0dc0b070-5e3a-4773-93b8-c988ca1f5964","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/Stage Objects/Sprites.yy",
+    "path": "folders/Stage Objects/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_bridge_post_ghz",

@@ -1,20 +1,23 @@
 function DiscordSetup()
 {
-	// Set initalisation flag
+	// Remove controller if Rich Presence is disabled
+	if !Game.RichPresenceSupport
+	{
+		instance_destroy(); exit;
+	}
 	PresenceReady = false;
 	
-	// Set details
+	// Set stage data
 	switch room 
 	{
-		case Stage_GHZ1:
-			DetailsString = "GREEN HILL 1";
-		break;
 		default:
-			DetailsString = "";
+			DetailsString = "In Menus";
 		break;
 	}
+	MainImage     = "orbinaut";
+	MainImageDesc = "";
 	
-	// Set data
+	// Set character data
 	if instance_exists(Player)
 	{
 		switch Game.Character
@@ -42,6 +45,4 @@ function DiscordSetup()
 		SmallImageDesc = "";
 		SmallImage     = "";
 	}
-	MainImage     = "orbinaut";
-	MainImageDesc = "";
 }

@@ -134,8 +134,8 @@ function PlayerKnuxGlide()
 				Xsp = min(0, Xsp + AirAcc);
 			}	
 			
-			// Leave state if not moving anymore
-			if Xsp == 0 or !Input.ABC
+			// Stop sliding if not moving anymore or forced to roll
+			if Xsp == 0 or !Input.ABC or ForcedRoll
 			{
 				if !Input.ABC
 				{
@@ -164,13 +164,13 @@ function PlayerKnuxGlide()
 	and is not recommended to edit unless you know what are you doing */
 	
 	// Collide with left wall
-	var LeftWall = tile_check_collision_h(PosX - RadiusX, PosY, false, true, Layer);
-	if  LeftWall[0] < 0
+	var FindWall = tile_find_h(PosX - RadiusX, PosY, false, true, Layer);
+	if  FindWall[0] < 0
 	{
 		// Attach if wall is flat
 		if GlideState == GlideAir and Xsp <= 0
 		{
-			if LeftWall[1] == 270
+			if FindWall[1] mod 90 == 0
 			{
 				GlideState = false;
 				ClimbState = true;
@@ -186,18 +186,21 @@ function PlayerKnuxGlide()
 		}
 		
 		// Clip out
-		PosX -= LeftWall[0];
+		PosX -= FindWall[0];
 		Xsp   = 0;
+		
+		// Exit the code
+		exit;
 	}
 			
 	// Collide with right wall
-	var RightWall = tile_check_collision_h(PosX + RadiusX, PosY, true, true, Layer);
-	if  RightWall[0] < 0
+	var FindWall = tile_find_h(PosX + RadiusX, PosY, true, true, Layer);
+	if  FindWall[0] < 0
 	{
 		// Attach if wall is flat
 		if GlideState == GlideAir and Xsp >= 0
 		{
-			if RightWall[1] == 90
+			if FindWall[1] mod 90 == 0
 			{
 				GlideState = false;
 				ClimbState = true;
@@ -213,44 +216,39 @@ function PlayerKnuxGlide()
 		}
 			
 		// Clip out
-		PosX += RightWall[0];
+		PosX += FindWall[0];
 		Xsp   = 0;
-	}
-	
-	// Exit the rest of the code if we've attached to the wall
-	if ClimbState
-	{
+		
+		// Exit the code
 		exit;
 	}
 	
-	// Get nearest tile above us
-	var TileLeft    = tile_check_collision_v(PosX - RadiusX, PosY - RadiusY, false, true, Layer);
-	var TileRight   = tile_check_collision_v(PosX + RadiusX, PosY - RadiusY, false, true, Layer);
-	var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
-			
 	// Collide with ceiling
-	if NearestTile[0] < 0
+	var FindRoof = tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, true, noone, Layer);
+	if  FindRoof[0] < 0
 	{	
 		Ysp   = 0;			
-		PosY -= NearestTile[0];
+		PosY -= FindRoof[0];
 	}
 	
 	// Try floor collision
 	else if Ysp >= 0
 	{
-		// Get nearest tile below us
-		var TileLeft    = tile_check_collision_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer);
-		var TileRight   = tile_check_collision_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer);
-		var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
+		// Get tile below us
+		var FindFloor = tile_find_2v(PosX - RadiusX, PosY + RadiusY, PosX + RadiusX, PosY + RadiusY, true, false, noone, Layer);
 		
-		// Get data
-		var FloorDistance = NearestTile[0];
-		Angle			  = NearestTile[1];
+		// Get angle
+		Angle = FindFloor[1];
 	
-		// Check if we're gliding and distance is negative
+		// Check if we're gliding and should land
 		if GlideState != GlideGround 
 		{
-			if FloorDistance < 0
+			if ForcedRoll
+			{
+				PosY    += FindFloor[0];
+				Grounded = true;
+			}
+			else if FindFloor[0] < 0
 			{
 				// If floor is shallow enough, change state
 				if Angle <= 45 or Angle >= 316.41
@@ -266,7 +264,7 @@ function PlayerKnuxGlide()
 						Ysp = 0;
 					
 						// Create dust object
-						instance_create(PosX, PosY + RadiusY + FloorDistance, DustPuff);
+						instance_create(PosX, PosY + RadiusY + FindFloor[0], DustPuff);
 					}
 					else if GlideState == GlideFall
 					{
@@ -288,13 +286,13 @@ function PlayerKnuxGlide()
 				}
 			
 				// Adhere to the surface
-				PosY += FloorDistance;
+				PosY += FindFloor[0];
 			}
 		}
 		else 
 		{
 			// If sliding and no ground found, fall
-			if FloorDistance > 14
+			if FindFloor[0] > 14
 			{
 				GlideState = GlideFall;
 				Animation  = AnimGlideFall;
@@ -318,7 +316,7 @@ function PlayerKnuxGlide()
 			// Clip to the surface
 			else
 			{
-				PosY += FloorDistance;
+				PosY += FindFloor[0];
 			}
 		}
 	}

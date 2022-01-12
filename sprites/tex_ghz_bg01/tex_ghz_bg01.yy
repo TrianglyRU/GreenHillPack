@@ -2,7 +2,7 @@
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
-  "origin": 0,
+  "origin": 4,
   "preMultiplyAlpha": false,
   "edgeFiltering": false,
   "collisionTolerance": 0,
@@ -17,16 +17,16 @@
   "width": 3840,
   "height": 16,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "tgGreenHill",
+    "path": "texturegroups/tgGreenHill",
   },
   "swatchColours": null,
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"a330a621-8ca5-448b-a924-952e29cab053","path":"sprites/tex_ghz_bg01/tex_ghz_bg01.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"a330a621-8ca5-448b-a924-952e29cab053","path":"sprites/tex_ghz_bg01/tex_ghz_bg01.yy",},"LayerId":{"name":"fd2cef7e-b511-41c7-a9bd-272e9ec7b15a","path":"sprites/tex_ghz_bg01/tex_ghz_bg01.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"tex_ghz_bg01","path":"sprites/tex_ghz_bg01/tex_ghz_bg01.yy",},"resourceVersion":"1.0","name":"a330a621-8ca5-448b-a924-952e29cab053","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"f176d194-a8dc-43ab-835a-c7d858f42736","path":"sprites/tex_ghz_bg01/tex_ghz_bg01.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"f176d194-a8dc-43ab-835a-c7d858f42736","path":"sprites/tex_ghz_bg01/tex_ghz_bg01.yy",},"LayerId":{"name":"9ee702ec-457f-4c46-a4ad-b013acddf7de","path":"sprites/tex_ghz_bg01/tex_ghz_bg01.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"tex_ghz_bg01","path":"sprites/tex_ghz_bg01/tex_ghz_bg01.yy",},"resourceVersion":"1.0","name":"f176d194-a8dc-43ab-835a-c7d858f42736","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"tex_ghz_bg01","path":"sprites/tex_ghz_bg01/tex_ghz_bg01.yy",},
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"e87d6341-cf01-4495-bc77-e076d2e8d076","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a330a621-8ca5-448b-a924-952e29cab053","path":"sprites/tex_ghz_bg01/tex_ghz_bg01.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"7145672b-93f6-4787-9a07-7ca2ca013c6c","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f176d194-a8dc-43ab-835a-c7d858f42736","path":"sprites/tex_ghz_bg01/tex_ghz_bg01.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -54,8 +54,8 @@
     "backdropHeight": 768,
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
-    "xorigin": 0,
-    "yorigin": 0,
+    "xorigin": 1920,
+    "yorigin": 8,
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"tex_ghz_bg01","path":"sprites/tex_ghz_bg01/tex_ghz_bg01.yy",},
@@ -65,12 +65,12 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"fd2cef7e-b511-41c7-a9bd-272e9ec7b15a","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"9ee702ec-457f-4c46-a4ad-b013acddf7de","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Rooms/Stages/Green Hill Zone/Textures.yy",
+    "path": "folders/Rooms/_Green Hill Zone/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "tex_ghz_bg01",

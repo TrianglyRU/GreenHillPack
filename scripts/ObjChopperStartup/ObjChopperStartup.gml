@@ -1,16 +1,14 @@
 function ObjChopperStartup()
 {
-	// Set default position and speed
-	OriginY = y;
-	PosY    = y;
+	// Initialise variables
+	OriginY =  y;
+	PosY    =  y;
 	Ysp		= -7;
+	State   =  0;
 	
-	// Set object hitbox
+	// Set object properties
 	object_set_hitbox(12, 16);
-	
-	// Set object unload type
 	object_set_unload(TypeReset);
-	
-	// Set animation
+	object_set_depth(Player, 0);
 	animation_play(sprite_index, 8, 0, 0);
 }

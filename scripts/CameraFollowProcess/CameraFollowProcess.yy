@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Camera",
-    "path": "folders/Camera.yy",
+    "path": "folders/Game Code/Camera.yy",
   },
   "resourceVersion": "1.0",
   "name": "CameraFollowProcess",

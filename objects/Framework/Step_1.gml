@@ -1,8 +1,6 @@
-/// @description Game Process
+/// @description Process Code
 // You can write your code in this editor
 
-	// Global Time Script
+	// Process Scripts
 	GameTimeProcess();
-	
-	// Instances Animation Script
 	GameAnimationsProcess();

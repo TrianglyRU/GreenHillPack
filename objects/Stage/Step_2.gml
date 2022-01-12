@@ -6,12 +6,3 @@
 	StageObjectsProcess();
 	StageBoundariesProcess();
 	StageEndProcess();
-	
-	if instance_exists(Chopper)
-	{
-		show_debug_message("Chopper: " + string(Chopper.depth));
-	}
-	if instance_exists(Bridge)
-	{
-		show_debug_message("Bridge: " + string(Bridge.depth));
-	}
