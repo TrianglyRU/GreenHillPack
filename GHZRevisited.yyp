@@ -590,7 +590,6 @@
     {"id":{"name":"ObjStarPostPortalDraw","path":"scripts/ObjStarPostPortalDraw/ObjStarPostPortalDraw.yy",},"order":111,},
     {"id":{"name":"spr_obj_spindashdust","path":"sprites/spr_obj_spindashdust/spr_obj_spindashdust.yy",},"order":61,},
     {"id":{"name":"spr_obj_spring_red_h","path":"sprites/spr_obj_spring_red_h/spr_obj_spring_red_h.yy",},"order":52,},
-    {"id":{"name":"Sprite230","path":"sprites/Sprite230/Sprite230.yy",},"order":16,},
     {"id":{"name":"spr_obj_spring_red_v","path":"sprites/spr_obj_spring_red_v/spr_obj_spring_red_v.yy",},"order":54,},
     {"id":{"name":"spr_obj_spring_yellow_d","path":"sprites/spr_obj_spring_yellow_d/spr_obj_spring_yellow_d.yy",},"order":57,},
     {"id":{"name":"spr_supersonic_spring","path":"sprites/spr_supersonic_spring/spr_supersonic_spring.yy",},"order":62,},

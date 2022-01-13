@@ -163,163 +163,154 @@ function PlayerKnuxGlide()
 	/* From here everything below is level collision 
 	and is not recommended to edit unless you know what are you doing */
 	
-	// Collide with ceiling
-	var FindRoof = tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, true, noone, Layer);
-	if  FindRoof[0] < 0
-	{	
-		Ysp   = 0;			
-		PosY -= FindRoof[0];
-	}
-	else 
+	// Collide with left wall
+	var FindWall = tile_find_h(PosX - RadiusX, PosY, false, true, Layer);
+	if  FindWall[0] < 0
 	{
-		// Collide with left wall
-		var FindWall = tile_find_h(PosX - RadiusX, PosY, false, true, Layer);
-		if  FindWall[0] < 0
+		if !(Xsp > 0)
 		{
-			// Attach if wall is flat
-			if GlideState == GlideAir and Xsp <= 0
-			{
-				if FindWall[1] mod 90 == 0
-				{
-					GlideState = false;
-					ClimbState = true;
-					ClimbValue = 0;
-					Ysp		   = 0;
-				
-					// Play sound
-					audio_sfx_play(sfxGrab, false);
-				
-					// Set animation
-					Animation = AnimClimb;
-				}	
-			}
-		
 			// Clip out
 			PosX -= FindWall[0];
 			Xsp   = 0;
 		
-			// Exit the code
-			exit;
-		}
-			
-		// Collide with right wall
-		var FindWall = tile_find_h(PosX + RadiusX, PosY, true, true, Layer);
-		if  FindWall[0] < 0
-		{
-			// Attach if wall is flat
-			if GlideState == GlideAir and Xsp >= 0
+			// Attach to it
+			if GlideState == GlideAir and FindWall[1] mod 90 == 0
 			{
-				if FindWall[1] mod 90 == 0
-				{
-					GlideState = false;
-					ClimbState = true;
-					ClimbValue = 0;
-					Ysp		   = 0;
-			
-					// Play sound
-					audio_sfx_play(sfxGrab, false);
+				GlideState = false;
+				ClimbState = ClimbWall;
+				ClimbValue = 0;
+				Ysp		   = 0;
+				Animation  = AnimClimb;
 				
-					// Set animation
-					Animation = AnimClimb;
-				}
+				// Play sound
+				audio_sfx_play(sfxGrab, false); exit;
 			}
+		}	
+	}
 			
+	// Collide with right wall
+	var FindWall = tile_find_h(PosX + RadiusX, PosY, true, true, Layer);
+	if  FindWall[0] < 0
+	{
+		if !(Xsp < 0)
+		{
 			// Clip out
 			PosX += FindWall[0];
 			Xsp   = 0;
 		
-			// Exit the code
-			exit;
+			// Attach to it
+			if GlideState == GlideAir and FindWall[1] mod 90 == 0
+			{
+				GlideState = false;
+				ClimbState = ClimbWall;
+				ClimbValue = 0;
+				Ysp		   = 0;
+				Animation  = AnimClimb;
+			
+				// Play sound
+				audio_sfx_play(sfxGrab, false); exit;
+			}	
 		}
-		
-		// Try floor collision
-		if Ysp >= 0
-		{
-			// Get tile below us
-			var FindFloor = tile_find_2v(PosX - RadiusX, PosY + RadiusY, PosX + RadiusX, PosY + RadiusY, true, false, noone, Layer);
-		
-			// Get angle
-			Angle = FindFloor[1];
+	}
 	
-			// Check if we're gliding and should land
-			if GlideState != GlideGround 
+	// Collide with ceiling if not falling down
+	var FindRoof = tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, true, noone, Layer);
+	if  FindRoof[0] < 0
+	{	
+		if GlideState != GlideFall
+		{
+			Ysp   = 0;			
+			PosY -= FindRoof[0];
+		}
+	}
+	
+	// Collid with floor if moving down
+	else if Ysp >= 0
+	{
+		// Get tile below us
+		var FindFloor = tile_find_2v(PosX - RadiusX, PosY + RadiusY, PosX + RadiusX, PosY + RadiusY, true, false, noone, Layer);
+		
+		// Are we gliding?
+		if GlideState != GlideGround 
+		{
+			if ForcedRoll
 			{
-				if ForcedRoll
-				{
-					PosY    += FindFloor[0];
-					Grounded = true;
-				}
-				else if FindFloor[0] < 0
-				{
-					// If floor is shallow enough, change state
-					if Angle <= 45 or Angle >= 316.41
-					{
-						if GlideState == GlideAir
-						{
-							GlideState = GlideGround;
-							Animation  = AnimSlide;
-							GlideValue = 8;
-							
-							// Reset gravity
-							Grv = 0;
-							Ysp = 0;
-					
-							// Create dust object
-							instance_create(PosX, PosY + RadiusY + FindFloor[0], DustPuff);
-						}
-						else if GlideState == GlideFall
-						{
-							Grounded   = true;
-							Xsp		   = 0;
-							GroundLock = 16;
-							Animation  = AnimDropStand;
-					
-							// Play sound
-							audio_sfx_play(sfxLand, false);
-						}
-					}
-			
-					// Else just land
-					else
-					{
-						Grounded = true;
-						Inertia  = -Xsp;
-					}
-			
-					// Adhere to the surface
-					PosY += FindFloor[0];
-				}
+				PosY    += FindFloor[0];
+				Grounded = true;
 			}
-			else 
+			else if FindFloor[0] < 0
 			{
-				// If sliding and no ground found, fall
-				if FindFloor[0] > 14
+				// If floor is shallow enough, change state
+				if Angle <= 45 or Angle >= 316.41
 				{
-					GlideState = GlideFall;
-					Animation  = AnimGlideFall;
-			
-					// Reset collision radiuses
-					RadiusX	= DefaultRadiusX;
-					RadiusY	= DefaultRadiusY;
+					if GlideState == GlideAir
+					{
+						GlideState = GlideGround;
+						Animation  = AnimSlide;
+						GlideValue = 8;
+						Grv		   = 0;
+						Ysp		   = 0;
 					
-					// Reset gravity
-					if !IsUnderwater
-					{
-						Grv	= 0.21875;
+						// Create dust object
+						instance_create(PosX, PosY + RadiusY + FindFloor[0], DustPuff);
 					}
-					else
+					else if GlideState == GlideFall
 					{
-						// Lower by 0x28 (0.15625) if underwater
-						Grv = 0.0625
+						Grounded   = true;
+						Xsp		   = 0;
+						GroundLock = 16;
+						Animation  = AnimDropStand;
+					
+						// Play sound
+						audio_sfx_play(sfxLand, false);
 					}
+				}
+			
+				// Else just land
+				else
+				{
+					Grounded = true;
+					Inertia  = -Xsp;
 				}
 			
 				// Clip to the surface
-				else
-				{
-					PosY += FindFloor[0];
-				}
+				PosY += FindFloor[0];
 			}
 		}
+		
+		// Are we sliding?
+		else 
+		{
+			// If no ground found, fall
+			if FindFloor[0] > 14
+			{
+				GlideState = GlideFall;
+				Animation  = AnimGlideFall;
+			
+				// Reset collision radiuses
+				RadiusX	= DefaultRadiusX;
+				RadiusY	= DefaultRadiusY;
+					
+				// Reset gravity
+				if !IsUnderwater
+				{
+					Grv	= 0.21875;
+				}
+				else
+				{
+					// Lower by 0x28 (0.15625) if underwater
+					Grv = 0.0625
+				}
+			}
+			
+			// Else clip to the surface
+			else
+			{
+				PosY += FindFloor[0];
+			}
+		}
+		
+		// Get angle
+		Angle = FindFloor[1];
 	}
 }

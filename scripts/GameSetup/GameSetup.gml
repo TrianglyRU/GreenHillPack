@@ -13,7 +13,7 @@ function GameSetup()
 	Game.SpindashEnabled    = true;
 	Game.PeeloutEnabled		= false;
 	Game.DropdashEnabled    = false;
-	Game.DSpinAttackEnabled	= false;
+	Game.DSpinAttackEnabled	= true;
 	Game.GroundSpeedcap	    = false;
 	Game.AirSpeedcap	    = false;
 	Game.CDCamera			= false;

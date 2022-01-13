@@ -24,7 +24,14 @@ function InterfaceDebugScreenDraw()
 		{
 			if array_length(Player.CollisionMode)
 			{
-				var ModeInfo = string(Player.CollisionMode[0]) + " : " + string(Player.CollisionMode[1]);
+				if Game.BetterPlayerTileGrip
+				{
+					var ModeInfo = string(Player.CollisionMode[0]) + " : " + string(Player.CollisionMode[1]);
+				}
+				else
+				{
+					var ModeInfo = string(Player.CollisionMode[0]);
+				}
 			}
 			else
 			{
