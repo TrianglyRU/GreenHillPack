@@ -13,19 +13,19 @@ function ObjClearPanelStartup()
 	{
 		case CharSonic:
 		{
-			SpriteData[0] = spr_obj_clearpanel_start_st;
+			SpriteData[0] = spr_obj_clearpanel_start_s;
 			SpriteData[1] = spr_obj_clearpanel_end_s;
 		}
 		break;
 		case CharTails:
 		{
-			SpriteData[0] = spr_obj_clearpanel_start_st;
+			SpriteData[0] = spr_obj_clearpanel_start_tk;
 			SpriteData[1] = spr_obj_clearpanel_end_t;
 		}
 		break;
 		case CharKnuckles:
 		{
-			SpriteData[0] = spr_obj_clearpanel_start_k;
+			SpriteData[0] = spr_obj_clearpanel_start_tk;
 			SpriteData[1] = spr_obj_clearpanel_end_k;
 		}
 		break;

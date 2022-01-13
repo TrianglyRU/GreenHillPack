@@ -12,7 +12,14 @@ function object_set_depth(target,depthFlag)
 			case FloatingPlatform:
 				var Tolerance = 25;
 			break; */	
-				
+			
+			case FloatingPlatform:
+			case SolidWall:
+				var Tolerance = 75;
+			break;
+			case StarPost:
+				var Tolerance = 60;
+			break;
 			default:     
 				var Tolerance = 50; 
 			break;

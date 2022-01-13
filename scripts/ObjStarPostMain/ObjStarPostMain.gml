@@ -9,9 +9,10 @@ function ObjStarPostMain()
 			{
 				if instance_exists(Game.StarPostData[4]) and Game.StarPostData[4].ID >= ID
 				{
-					// Increment state by 2
-					State = 2;
-					Angle = 900;
+					// Increment state by 2		
+					Angle		= 900;
+					State		= 2;
+					image_index = 2;
 					
 					// Exit
 					break;
@@ -49,12 +50,6 @@ function ObjStarPostMain()
 			
 				// Play sound
 				audio_sfx_play(sfxStarPost, false);
-			
-				// Create Bonus Stage portal if we have more than 20 rings
-				if Player.Rings >= 20
-				{
-					instance_create_child(x, y - sprite_get_height(sprite_index) div 2 - 10, StarPostPortal);
-				}
 			}
 		}
 		break;
@@ -69,7 +64,7 @@ function ObjStarPostMain()
 			// Set animation
 			else
 			{
-				animation_play(spr_obj_starpost_active, 4, 0, 0);
+				image_index = 2;
 			}
 		}
 		break;

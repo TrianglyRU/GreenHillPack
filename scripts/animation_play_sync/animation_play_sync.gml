@@ -5,6 +5,7 @@ function animation_play_sync(spriteid,duration)
 	if sprite_index != spriteid
 	{
 		sprite_index = spriteid;	
+		image_speed  = 0;
 	}
 	
 	// Play animation

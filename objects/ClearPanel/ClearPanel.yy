@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_clearpanel_start_st",
-    "path": "sprites/spr_obj_clearpanel_start_st/spr_obj_clearpanel_start_st.yy",
+    "name": "spr_obj_clearpanel_start_s",
+    "path": "sprites/spr_obj_clearpanel_start_s/spr_obj_clearpanel_start_s.yy",
   },
   "solid": false,
   "visible": true,

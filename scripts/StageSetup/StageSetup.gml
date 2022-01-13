@@ -17,14 +17,14 @@ function StageSetup()
 			FinalActID       = 2;
 			WaterEnabled     = false;
 			WaterLevel	     = 0;
-			StageMusic       = noone;
+			StageMusic       = GreenHill;
 			LeftBoundary	 = 0;
 			TopBoundary	     = 0;
 			RightBoundary	 = room_width;
 			BottomBoundary	 = 992;
 			AnimatedGraphics = [tex_ghz_anitile00, 21, tex_ghz_anitile01, 10];
 			AnimalSet	     = [spr_obj_animal_flicky, spr_obj_animal_ricky];
-			NextStage		 = Stage_GHZ1;
+			NextStage		 = Stage_GHZ2;
 		}
 		break;
 		case Stage_GHZ2:
@@ -35,7 +35,7 @@ function StageSetup()
 			FinalActID       = 2;
 			WaterEnabled     = false;
 			WaterLevel	     = 0;
-			StageMusic       = noone;
+			StageMusic       = GreenHill;
 			LeftBoundary	 = 0;
 			TopBoundary	     = 0;
 			RightBoundary	 = room_width;
@@ -53,7 +53,7 @@ function StageSetup()
 			FinalActID       = 2;
 			WaterEnabled     = false;
 			WaterLevel	     = 0;
-			StageMusic       = noone;
+			StageMusic       = GreenHill;
 			LeftBoundary	 = 0;
 			TopBoundary	     = 0;
 			RightBoundary	 = room_width;
