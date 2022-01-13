@@ -489,6 +489,7 @@
     {"id":{"name":"font_default","path":"sprites/font_default/font_default.yy",},"order":3,},
     {"id":{"name":"font_menu","path":"sprites/font_menu/font_menu.yy",},"order":4,},
     {"id":{"name":"ObjCountdownBubbleDraw","path":"scripts/ObjCountdownBubbleDraw/ObjCountdownBubbleDraw.yy",},"order":29,},
+    {"id":{"name":"Sprite240","path":"sprites/Sprite240/Sprite240.yy",},"order":16,},
     {"id":{"name":"spr_obj_specialring","path":"sprites/spr_obj_specialring/spr_obj_specialring.yy",},"order":63,},
     {"id":{"name":"tex_obj_cont_tails_action","path":"sprites/tex_obj_cont_tails_action/tex_obj_cont_tails_action.yy",},"order":7,},
     {"id":{"name":"spr_obj_specialring_flash","path":"sprites/spr_obj_specialring_flash/spr_obj_specialring_flash.yy",},"order":62,},

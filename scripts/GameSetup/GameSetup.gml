@@ -7,13 +7,13 @@ function GameSetup()
 	
 	/* If set to false the game will load into the DevMenu, else into the room you choose.
 	This won't work if Game.ShowSplash is enabled */
-	Game.ForceLoad	 = Stage_GHZ1;	
+	Game.ForceLoad	 = false;	
 	
 	// Originals differences
 	Game.SpindashEnabled    = true;
 	Game.PeeloutEnabled		= false;
 	Game.DropdashEnabled    = false;
-	Game.DSpinAttackEnabled	= true;
+	Game.DSpinAttackEnabled	= false;
 	Game.GroundSpeedcap	    = false;
 	Game.AirSpeedcap	    = false;
 	Game.CDCamera			= false;

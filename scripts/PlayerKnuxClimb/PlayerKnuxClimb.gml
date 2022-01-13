@@ -26,9 +26,9 @@ function PlayerKnuxClimb()
 				Animation  = AnimSpin;
 				Jumping	   = true;
 				Spinning   = true;
-				Xsp		   = 3.5 * Facing;
-				Ysp		   = -4;
 				Facing	  *= -1;
+				Ysp		   = -4;
+				Xsp		   = 3.5 * Facing;
 			
 				// Play sound
 				audio_sfx_play(sfxJump, false);

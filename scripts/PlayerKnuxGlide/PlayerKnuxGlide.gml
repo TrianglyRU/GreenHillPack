@@ -230,7 +230,10 @@ function PlayerKnuxGlide()
 		// Get tile below us
 		var FindFloor = tile_find_2v(PosX - RadiusX, PosY + RadiusY, PosX + RadiusX, PosY + RadiusY, true, false, noone, Layer);
 		
-		// Are we gliding?
+		// Update angle
+		Angle = FindFloor[1];
+		
+		// Are we airborne?
 		if GlideState != GlideGround 
 		{
 			if ForcedRoll
@@ -309,8 +312,5 @@ function PlayerKnuxGlide()
 				PosY += FindFloor[0];
 			}
 		}
-		
-		// Get angle
-		Angle = FindFloor[1];
 	}
 }
