@@ -17,8 +17,8 @@
   "width": 1280,
   "height": 2816,
   "textureGroupId": {
-    "name": "tgGreenHill",
-    "path": "texturegroups/tgGreenHill",
+    "name": "tgGameplay",
+    "path": "texturegroups/tgGameplay",
   },
   "swatchColours": null,
   "gridX": 0,

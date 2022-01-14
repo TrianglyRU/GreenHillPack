@@ -11,8 +11,8 @@
   "tilevsep": 0,
   "spriteNoExport": true,
   "textureGroupId": {
-    "name": "tgCollisions",
-    "path": "texturegroups/tgCollisions",
+    "name": "tgGameplay",
+    "path": "texturegroups/tgGameplay",
   },
   "out_tilehborder": 2,
   "out_tilevborder": 2,

@@ -17,8 +17,8 @@
   "width": 1072,
   "height": 32,
   "textureGroupId": {
-    "name": "tgCollisions",
-    "path": "texturegroups/tgCollisions",
+    "name": "tgGameplay",
+    "path": "texturegroups/tgGameplay",
   },
   "swatchColours": null,
   "gridX": 0,
