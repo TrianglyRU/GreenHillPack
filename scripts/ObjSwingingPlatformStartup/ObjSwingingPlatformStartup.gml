@@ -8,12 +8,19 @@ function ObjSwingingPlatformStartup()
 	// Setup object
 	switch room
 	{
+		case Stage_GHZ1:
+		case Stage_GHZ2:
+		case Stage_GHZ3:
+		{
+			var Solidbox = [24, 8];
+			SpriteData   = [spr_obj_swingplatform_ghz, spr_obj_swingchain_ghz, spr_obj_swingpelundum_ghz];
+		}
+		break;
 		default:
 		{
-			var XRadius = 0;
-			var YRadius = 0;
-			SpriteData  = [spr_tempobject, spr_tempobject, spr_tempobject];
-					   /* [platform,	   chain,	       pendulum] */
+			var Solidbox = [0, 0];
+			SpriteData   = [spr_tempobject, spr_tempobject, spr_tempobject];
+					    /* [platform,	    chain,	        pendulum] */
 		}
 		break;
 	}
@@ -26,6 +33,6 @@ function ObjSwingingPlatformStartup()
     Amplitude = (ChainCount + 2) * 16 + sprite_get_width(SpriteData[0]) div 2;
     
 	// Set object properties
-    object_set_solidbox(XRadius, YRadius, false);
+    object_set_solidbox(Solidbox[0], Solidbox[1], false);
     object_set_depth(Player, 0);
 }

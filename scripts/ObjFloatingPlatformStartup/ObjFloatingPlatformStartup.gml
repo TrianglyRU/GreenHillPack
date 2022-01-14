@@ -16,8 +16,15 @@ function ObjFloatingPlatformStartup()
 		case Stage_GHZ2:
 		case Stage_GHZ3:
 		{
-			var Solidbox = [32, 8];
-			sprite_index = spr_obj_floatingplatform_ghz;
+			if object_index == ColumnPlatform
+			{
+				var Solidbox = [32, 69];
+			}
+			else
+			{
+				var Solidbox = [32, 8];
+				sprite_index = spr_obj_floatingplatform_ghz;
+			}
 		}
 		break;
 		default:

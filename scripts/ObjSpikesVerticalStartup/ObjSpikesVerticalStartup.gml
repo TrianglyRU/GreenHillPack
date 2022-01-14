@@ -9,8 +9,12 @@ function ObjSpikesVerticalStartup()
 		case SpikesVerticalSingle:
 			var Solidbox = [4, 16];
 		break;
-		case SpikesVerticalWide: break;
-		case SpikesVerticalLong: break;
+		case SpikesVerticalWide: 
+			var Solidbox = [28, 16];
+		break;
+		case SpikesVerticalLong:
+			var Solidbox = [64, 16];
+		break;
 	}
 	
 	// Set object properties

@@ -4,7 +4,7 @@ function gamesettings_load(filename)
 	// If no config exist, create a default one
 	if !file_exists(filename + ".ini")
 	{
-		gamesettings_save("config");
+		gamesettings_save(filename);
 	}
 	else if !Game.DevMode
 	{

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_floatingplatform_ghz",
-    "path": "sprites/spr_obj_floatingplatform_ghz/spr_obj_floatingplatform_ghz.yy",
+    "name": "spr_obj_columnplatform",
+    "path": "sprites/spr_obj_columnplatform/spr_obj_columnplatform.yy",
   },
   "solid": false,
   "visible": true,
@@ -44,7 +44,7 @@
     "path": "folders/Stage Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "FloatingPlatform",
+  "name": "ColumnPlatform",
   "tags": [],
   "resourceType": "GMObject",
 }

@@ -16,7 +16,10 @@ function ObjFloatingPlatformMain()
 				}
 				
 				// Lower the platform
-				Weight += 0.25;
+				if object_index != ColumnPlatform
+				{
+					Weight += 0.25;
+				}
 			}
 			else
 			{
@@ -77,7 +80,7 @@ function ObjFloatingPlatformMain()
 			y = floor(PosY + Weight);
 	
 			// Do collision
-			object_act_solid(false, true, false, false);
+			object_act_solid(object_index == ColumnPlatform, true, false, false);
 		}
 		break;
 		

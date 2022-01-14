@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_collapsingplatform_editor",
-    "path": "sprites/spr_obj_collapsingplatform_editor/spr_obj_collapsingplatform_editor.yy",
+    "name": "spr_obj_collapsingplatform_ghz",
+    "path": "sprites/spr_obj_collapsingplatform_ghz/spr_obj_collapsingplatform_ghz.yy",
   },
   "solid": false,
   "visible": true,

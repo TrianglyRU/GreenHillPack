@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_spikesvertical",
-    "path": "sprites/spr_obj_spikesvertical/spr_obj_spikesvertical.yy",
+    "name": "spr_obj_spikesvertical3",
+    "path": "sprites/spr_obj_spikesvertical3/spr_obj_spikesvertical3.yy",
   },
   "solid": false,
   "visible": true,
