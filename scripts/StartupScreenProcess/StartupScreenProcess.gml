@@ -22,7 +22,8 @@ function StartupScreenProcess()
 			// Set default game data
 			Game.ActiveSave = -1;
 			Game.Continues  =  2;
-			Game.Lives		=  3;	
+			Game.Lives		=  3;
+			Game.Emeralds   =  7;
 		}
 	}
 }

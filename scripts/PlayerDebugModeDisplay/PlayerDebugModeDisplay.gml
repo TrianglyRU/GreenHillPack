@@ -81,7 +81,7 @@ function PlayerDebugModeDisplay()
 					sprite_index = spr_obj_animal_flicky;   
 				break;	
 				case ClearPanel:				 
-					sprite_index = spr_obj_clearpanel_start_st;   
+					sprite_index = spr_obj_clearpanel_start_s;   
 				break;
 				case EggPrison:				 
 					sprite_index = spr_obj_eggprison;   
