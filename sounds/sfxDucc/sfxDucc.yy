@@ -11,14 +11,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sfxDrowning.wav",
-  "duration": 1.665669,
+  "soundFile": "sfxDucc.wav",
+  "duration": 0.272766,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sfxDrowning",
+  "name": "sfxDucc",
   "tags": [],
   "resourceType": "GMSound",
 }

@@ -67,7 +67,36 @@ function ObjClearPanelMain()
 		break;
 		case 2:
 		{
-			if Player.Grounded
+			/* S1 Behaviour */
+			
+			if Stage.IsFinished < 2
+			{
+				// Check if the player passed by the right boundary
+				if floor(Player.PosX + Player.Xsp) > Stage.RightBoundary - 24
+				{
+					// Increment stage state
+					Stage.IsFinished = 2;
+					
+					// Play bgm
+					audio_bgm_play(ChannelPrimary, ActClear);
+				}
+				
+				// Take away control from the player
+				if Player.Grounded and !Input.IgnoreInput
+				{
+					Input.IgnoreInput = true;
+				}
+			}
+			
+			// Force player movement
+			if Input.IgnoreInput
+			{
+				Input.Right = true;
+			}
+			
+			/* Original behaviour */
+			
+			/*if Player.Grounded
 			{
 				// Check if the player passed by the right boundary
 				if floor(Player.PosX) > Stage.RightBoundary - 24
@@ -90,7 +119,7 @@ function ObjClearPanelMain()
 				{
 					Input.Right = true;
 				}
-			}
+			}*/
 		}
 	}
 	

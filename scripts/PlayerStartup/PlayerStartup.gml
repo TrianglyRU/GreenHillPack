@@ -58,7 +58,6 @@ function PlayerStartup()
 	DebugItem			= 0;
 	DebugSpeed			= 0;
 	HitboxData			= [];
-	CollisionMode       = [];
 	
 	// Set defaults
 	DrawOrder		 = layer_get_depth("Objects");
@@ -72,6 +71,7 @@ function PlayerStartup()
 	DropdashRev      = -1;
 	PeeloutRev       = -1;
 	SpindashRev      = -1;
+	CollisionMode    = [0, 0];
 
 	// Set default sprite
 	switch Game.Character
