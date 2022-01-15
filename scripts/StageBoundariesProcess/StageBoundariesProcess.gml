@@ -68,7 +68,10 @@ function StageBoundariesProcess()
 	// Update bottom boundary
 	if BottomBoundary < TargetBottomBoundary
 	{
-		BottomBoundary = min(BottomBoundary + 2, TargetBottomBoundary);
+		// Scroll faster in GHZ3
+		var Speed = room == Stage_GHZ3 ? 16 : 2;
+		
+		BottomBoundary = min(BottomBoundary + Speed, TargetBottomBoundary);
 		DeathBoundary  = TargetBottomBoundary;
 	}
 	else if BottomBoundary > TargetBottomBoundary

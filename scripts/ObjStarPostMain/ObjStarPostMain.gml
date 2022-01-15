@@ -14,6 +14,9 @@ function ObjStarPostMain()
 					State		= 2;
 					image_index = 2;
 					
+					// Update unload type
+					object_set_unload(TypePause);
+					
 					// Exit
 					break;
 				}
@@ -65,6 +68,9 @@ function ObjStarPostMain()
 			else
 			{
 				image_index = 2;
+				
+				// Update unload type
+				object_set_unload(TypePause);
 			}
 		}
 		break;

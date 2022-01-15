@@ -44,7 +44,7 @@
 			Player.PosX -= Player.Xsp;
 			
 			// Play sound
-			audio_sfx_play(sfxWallBreak, false);
+			audio_sfx_play(sfxLedgeBreak, false);
 			
 			// Destroy object
 			instance_destroy();

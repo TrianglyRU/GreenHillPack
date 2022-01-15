@@ -21,6 +21,9 @@ function ObjBossTriggerMain()
 			'true' once you want your stage to exit boss state! */
 			switch room
 			{
+				case Stage_GHZ3:
+					instance_create(x + 96 + 40, y - 206, GHZBoss);
+				break;
 				default: break;
 			}
 			Stage.IsBossfight = true;
@@ -48,7 +51,7 @@ function ObjBossTriggerMain()
 			Stage.TargetRightBoundary = room_width;
 			
 			// Give 1000 points and cancel bossfight state
-			Player.Score     += 1000;
+			// Player.Score     += 1000;
 			Stage.IsBossfight = false;
 			
 			// Restore music
