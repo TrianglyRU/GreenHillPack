@@ -2,6 +2,12 @@ function PaletteSetup()
 {	
 	switch room 
 	{
+		case Screen_SEGA:
+		{
+			palette_load(TypePrimary,   pal_sega);
+			palette_load(TypeSecondary, noone);
+		}
+		break;
 		case Stage_GHZ1:
 		case Stage_GHZ2:
 		case Stage_GHZ3:

@@ -7,7 +7,7 @@ function GameSetup()
 	
 	/* If set to false the game will load into the DevMenu, else into the room you choose.
 	This won't work if Game.ShowSplash is enabled */
-	Game.ForceLoad	 = false;	
+	Game.ForceLoad	 = Screen_SEGA;	
 	
 	// Originals differences
 	Game.SpindashEnabled    = true;
