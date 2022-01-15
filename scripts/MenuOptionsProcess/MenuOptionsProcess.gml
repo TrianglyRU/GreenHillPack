@@ -34,55 +34,68 @@ function MenuOptionsProcess()
 				// Set active save (no-save slot will be -1)
 				Game.ActiveSave = OptionID - 1;
 				
-				// Redirect to character select if selected no-save slot
-				if !OptionID
+				switch OptionID
 				{
-					menu_list_redirect(2, true, true);
-				}
-				else if OptionID < 5
-				{
-					// Get slot
-					var Slot  = Game.SaveData[Game.ActiveSave];
-					if  Slot != 0
-					{
-						// Apply data
-						Game.Character = Slot[0];
-						Game.Stage	   = Slot[1];
-						Game.Emeralds  = Slot[2];
-						Game.Lives	   = Slot[3];
-						Game.Continues = Slot[4];
-						Game.SaveState = Slot[5];
-						Game.Score	   = Slot[6];
-				
-						// Load stage if the game is not completed. Game.Stage is a ZoneID you set in StageSetup()
-						if !Game.SaveState
-						{
-							switch Game.Stage
-							{
-								default:
-									room_goto(Stage_GHZ1);
-								break;
-							}
-						}
-						else
-						{
-							/* You can add redirection to your in-game level select here,
-							we'll play funny sound instead :P */	
-							audio_sfx_play(sfxScoreTally, false);
-						}
-					}
-					
-					// Redirect to character select if slot is empty
-					else
+					// Redirect to character select if selected no-save slot
+					case 0:
 					{
 						menu_list_redirect(2, true, true);
 					}
-				}
+					break;
+					
+					case 1:
+					case 2:
+					case 3:
+					case 4:
+					{
+						// Get slot
+						var Slot  = Game.SaveData[Game.ActiveSave];
+						if  Slot != 0
+						{
+							// Apply data
+							Game.Character = Slot[0];
+							Game.Stage	   = Slot[1];
+							Game.Emeralds  = Slot[2];
+							Game.Lives	   = Slot[3];
+							Game.Continues = Slot[4];
+							Game.SaveState = Slot[5];
+							Game.Score	   = Slot[6];
 				
-				// Redirect to save deletion
-				else
-				{
-					menu_list_redirect(9, false, true);
+							// Load stage if the game is not completed. Game.Stage is a ZoneID you set in StageSetup()
+							if !Game.SaveState
+							{
+								switch Game.Stage
+								{
+									default:
+										room_goto(Stage_GHZ1);
+									break;
+								}
+							}
+							else
+							{
+								/* You can add redirection to your in-game level select here,
+								we'll play funny sound instead :P */	
+								audio_sfx_play(sfxScoreTally, false);
+							}
+						}
+					
+						// Redirect to character select if slot is empty
+						else
+						{
+							menu_list_redirect(2, true, true);
+						}
+					}
+					break;
+				
+					// Redirect to save deletion
+					case 5:
+						menu_list_redirect(9, false, true);
+					break;
+					
+					// Redirect to demo files menu
+					case 6:
+						menu_list_redirect(10, true, true);
+					break;
 				}
 			}
 		}
@@ -292,6 +305,85 @@ function MenuOptionsProcess()
 				
 				// Redirect back to save select
 				menu_list_redirect(1, false, false);
+			}
+		}
+		break;
+		
+		// Game Start (demo files)
+		case 10:
+		{
+			Game.DemoMode = false;
+			
+			if Input.APress or Input.StartPress
+			{
+				switch OptionID
+				{
+					// Record file
+					case 0:
+					{
+						Game.DemoMode = DemoRecord; menu_list_redirect(3, true, true);
+					}
+					break;
+					
+					// Save file
+					case 1:
+					{	
+						if array_equals(Game.DemoData, []) 
+						{
+							audio_sfx_play(sfxFail, false); break;
+						}
+						
+						var Dir  = get_save_filename_ext("Demo File|*.demo", "", working_directory, "Save a demo file");
+						if  Dir != ""
+						{ 
+							var String = json_stringify(Game.DemoData);
+							var Buffer = buffer_create(string_byte_length(String) + 1, buffer_fixed, 1);
+							
+							buffer_write(Buffer, buffer_string, String);
+							buffer_save(Buffer, Dir);
+							buffer_delete(Buffer);
+						}
+						else
+						{
+							audio_sfx_play(sfxFail, false);
+						}
+					}
+					break;
+					
+					// Load file
+					case 2:
+					{
+						var Dir  = get_open_filename_ext("Demo File|*.demo", "", working_directory, "Open a demo file");
+						if  Dir != "" 
+						{ 
+							var Buffer = buffer_load(Dir);
+							if  Buffer != -1
+							{
+					 			Game.DemoData = json_parse(buffer_read(Buffer, buffer_string));
+								buffer_delete(Buffer);
+							}
+						}
+						else
+						{
+							audio_sfx_play(sfxFail, false);
+						}
+					}
+					break;
+					
+					// Play file
+					case 3:
+					{
+						if array_equals(Game.DemoData, []) 
+						{
+							audio_sfx_play(sfxFail, false);
+						}
+						else
+						{
+							Game.DemoMode = DemoPlay; menu_list_redirect(3, true, true);
+						}
+					}
+					break;
+				}
 			}
 		}
 		break;

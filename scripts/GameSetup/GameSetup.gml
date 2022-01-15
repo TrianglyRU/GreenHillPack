@@ -1,17 +1,17 @@
 function GameSetup()
 {
 	// Game settings
-	Game.WindowTitle = "Green Hill Revisited";
+	Game.WindowTitle = "Orbinaut Framework";
 	Game.DevMode     = true;
 	Game.ShowSplash  = false;
 	
 	/* If set to false the game will load into the DevMenu, else into the room you choose.
 	This won't work if Game.ShowSplash is enabled */
-	Game.ForceLoad	 = Screen_SEGA;	
+	Game.ForceLoad	 = false;	
 	
 	// Originals differences
 	Game.SpindashEnabled    = true;
-	Game.PeeloutEnabled		= false;
+	Game.PeeloutEnabled		= true;
 	Game.DropdashEnabled    = false;
 	Game.DSpinAttackEnabled	= false;
 	Game.GroundSpeedcap	    = false;
@@ -22,17 +22,17 @@ function GameSetup()
 	Game.S3WaterPhysics		= false;
 	Game.SKCrouch			= false;
 	Game.SKRollDeceleration	= false;
-	Game.S1FloorCollision	= true;
+	Game.S1FloorCollision	= false;
 	Game.SKWallCollision	= false;	
 	Game.SKItemBoxBehaviour = false;
 	Game.CDStageTimer	    = false;	
 	
 	// Orbinaut improvements
 	Game.SmoothRotation	      = true;
-	Game.RichPresenceSupport  = false;
-	Game.BetterPlayerTileGrip = true;
+	Game.RichPresenceSupport  = true;
+	Game.BetterPlayerTileGrip = false;
 	Game.PreciseRingBehaviour = false;
-	Game.NoRollSpeedLimit	  = false;
+	Game.NoRollSpeedLimit	  = true;
 	Game.FlightCancel	      = false;
 	
 	/* Video, audio and control settings below are overwritten by 
@@ -45,7 +45,7 @@ function GameSetup()
 	Game.WindowSize	      = 3;
 	
 	// Audio settings
-	Game.MusicVolume = 0;
+	Game.MusicVolume = 0.5;
 	Game.SoundVolume = 0.5;
 	
 	// Control settings (keyboard)
@@ -66,10 +66,12 @@ function GameSetup()
 	Game.StageRoom       = 0;
 	Game.SpecialScore    = 0;
 	Game.SpecialState    = 0;
+	Game.DemoMode		 = 0;
 	Game.DiscordTime	 = 0;
 	Game.DiscordEvent	 = "";
 	Game.StarPostData    = [];
 	Game.BonusStageData  = [];
 	Game.SpecialRingData = [];
 	Game.SpecialRingList = [];
+	Game.DemoData		 = [];
 }

@@ -6,15 +6,23 @@ function fade_check(fadeState)
 	{
 		return false;
 	}
-	
+
 	// Return check result
 	switch fadeState
 	{
 		case StateActive:
+		{
+			if Game.DemoMode != false
+			{
+				return false;
+			}
 			return Palette.FadeStep < 756;
+		}
 		break;
 		case StateMax:
+		{
 			return Palette.FadeStep == 0;
+		}
 		break;
 	}	
 }

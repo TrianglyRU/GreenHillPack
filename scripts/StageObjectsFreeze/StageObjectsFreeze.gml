@@ -3,7 +3,7 @@ function StageObjectsFreeze()
 	/* This event don't happen on the very first frame so ALL the objects will be
 	active for that frame, but will they all will be deactivated on the next one */
 	
-	if DoUpdate
+	if DoUpdate or Game.DemoMode != false
 	{
 		exit;
 	}

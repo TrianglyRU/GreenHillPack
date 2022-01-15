@@ -6,14 +6,20 @@ function StageEndProcess()
 		exit;
 	}
 	
+	ds_list_destroy(Player.RecordedPosX);
+	ds_list_destroy(Player.RecordedPosY);
+	
+	// Exit demo mode
+	if Game.DemoMode
+	{
+		Input.DemoEnd = true; exit;
+	}
+	
 	// Buffer and reset data
 	Game.Score			 = Player.Score;
 	Game.Lives			 = Player.Lives;
 	Game.StarPostData    = [];
 	Game.SpecialRingList = [];
-	
-	ds_list_destroy(Player.RecordedPosX);
-	ds_list_destroy(Player.RecordedPosY);
 		
 	// Check if this is the final act of the zone
 	if ActID == FinalActID and Game.ActiveSave != -1

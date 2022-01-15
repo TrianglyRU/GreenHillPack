@@ -101,4 +101,9 @@ function GameMacro()
 	#macro TypeTrigger  3
 	#macro LayerA	    0
 	#macro LayerB	    1
+	
+	// Demo macro
+	#macro DemoRecord 1
+	#macro DemoPlay   2
+	#macro DemoMenu   3
 }

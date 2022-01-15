@@ -1,9 +1,16 @@
 /// @description Pre-Objects Code
 // You can call your scripts in this editor
 	
-	// Pre-Objects Scripts
+	// Update Input
 	InputUpdate();
-	InputGamepadProcess();
-	InputKeyboardProcess();
+	
+	// Pre-Objects Scripts
+	if !InputDemoPlay()
+	{
+		InputGamepadProcess();
+		InputKeyboardProcess();
+		InputReset();
+	}
+	InputDemoRecord();
+	InputDemoEnd();
 	InputHotkeysProcess();
-	InputReset();

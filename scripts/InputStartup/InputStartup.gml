@@ -33,4 +33,29 @@ function InputStartup()
 		Type = "Keyboard";
 	}
 	gamepad_set_axis_deadzone(0, 0.3); gamepad_set_axis_deadzone(4, 0.3);
+	
+	// Initialise demo variables
+	if Game.DemoMode and instance_exists(Stage)
+	{
+		DemoEnd = false;
+		ButtonTimer = array_create(9, []);
+		ButtonNumber[8] = 0;
+		
+		if Game.DemoMode == DemoRecord
+		{
+			ButtonTimer = array_create(9, [0]);
+		}
+		else
+		{
+			var NewArr, Len;
+			for (var i = 0; i < 9; i++)
+			{
+				NewArr = [];
+				Len = array_length(Game.DemoData[i]);
+				array_copy(NewArr, 0, Game.DemoData[i], 0, Len);
+				ButtonTimer[i] = NewArr;
+				TimerLimit[i] = Len;
+			}
+		}
+	}
 }

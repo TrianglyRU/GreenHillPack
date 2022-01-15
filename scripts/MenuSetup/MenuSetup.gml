@@ -15,13 +15,7 @@ function MenuSetup()
 	menu_add_option(1, 3, string(DisplayData[2]));
 	menu_add_option(1, 4, string(DisplayData[3]));
 	menu_add_option(1, 5, "DELETE SAVE");
-	
-	// Game Start (delete data)
-	menu_add_header(9,    "SELECT A SAVE FILE TO DELETE");
-	menu_add_option(9, 0, "SLOT 1");
-	menu_add_option(9, 1, "SLOT 2");
-	menu_add_option(9, 2, "SLOT 3");
-	menu_add_option(9, 3, "SLOT 4");
+	menu_add_option(1, 6, "DEMO FILES");
 	
 	// Game Start (character select)
 	menu_add_header(2,    "SELECT A PLAYER");
@@ -68,4 +62,18 @@ function MenuSetup()
 	menu_add_option(8, 6, "C:"	   + menu_get_keyname(Game.KeyboardControl[6]));
 	menu_add_option(8, 7, "MODE:"  + menu_get_keyname(Game.KeyboardControl[7]));
 	menu_add_option(8, 8, "START:" + menu_get_keyname(Game.KeyboardControl[8]));
+	
+	// Game Start (delete data)
+	menu_add_header(9,    "SELECT A SAVE FILE TO DELETE");
+	menu_add_option(9, 0, "SLOT 1");
+	menu_add_option(9, 1, "SLOT 2");
+	menu_add_option(9, 2, "SLOT 3");
+	menu_add_option(9, 3, "SLOT 4");
+	
+	// Game Start (demo files)
+    menu_add_header(10,    "DEMO FILES");
+    menu_add_option(10, 0, "RECORD FILE");
+    menu_add_option(10, 1, "SAVE FILE");
+    menu_add_option(10, 2, "LOAD FILE");
+    menu_add_option(10, 3, "PLAY FILE");
 }

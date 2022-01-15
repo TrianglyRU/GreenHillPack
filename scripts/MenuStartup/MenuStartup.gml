@@ -19,4 +19,9 @@ function MenuStartup()
 	// Set font and its align
 	draw_set_font(game_font(font_menu));
 	draw_set_halign(fa_center);
+	
+	if Game.DemoMode == DemoMenu
+	{
+		Game.DemoMode = false; menu_list_redirect(10, false, false);
+	}
 }

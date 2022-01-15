@@ -116,6 +116,12 @@ function InterfacePauseProcess()
 		// If we pressed start button and are allowed to pause, then pause!
 		if CardValue[1] == 3 and Stage.DoUpdate and !Stage.IsFinished
 		{
+			// Exit demo mode
+			if Game.DemoMode
+	        {
+	            Input.DemoEnd = true; exit;
+	        }
+			
 			Input.StartPress = false;
 			Camera.Enabled   = false;
 			Stage.IsPaused	 = true;
