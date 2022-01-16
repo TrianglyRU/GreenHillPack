@@ -75,12 +75,6 @@ function StageGameplayProcess()
 			}
 			if fade_check(StateMax)
 			{	
-				// Exit demo mode
-				if Game.DemoMode
-				{
-					Input.DemoEnd = true; exit;
-				}
-				
 				if Player.Lives != 0
 				{
 					// Clear saved checkpoint time if we got TIME OVER

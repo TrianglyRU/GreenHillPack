@@ -25,11 +25,18 @@ function ScreenTitleProcess()
 	{
 		case TitleState.preRoll:
 		{		
-			/* if Game.GlobalTime > 408		// @TODO: Load demo files
+			if Game.GlobalTime > 408 and !LoadFlag
 			{
 				LoadFlag = TitleLoad.loadDemo; fade_perform(ModeInto, BlendBlack, 1);
+				
+				// Set data
+				Game.Emeralds   =  0;
+				Game.Lives	    =  3;
+				Game.Continues  =  0;
+				Game.Score	    =  0;
+				Game.ActiveSave = -1;
 			}
-			else */ if Input.StartPress
+			else if Input.StartPress
 			{
 				State = TitleState.Main; audio_sfx_play(sfxStarPost, false);
 			}
@@ -58,7 +65,7 @@ function ScreenTitleProcess()
 					Game.Emeralds   =  0;
 					Game.Lives	    =  3;
 					Game.Continues  =  0;
-					Game.Score	    =  0;	
+					Game.Score	    =  0;
 					Game.ActiveSave = -1;
 					
 					// Announce character

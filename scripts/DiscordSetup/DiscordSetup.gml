@@ -10,11 +10,37 @@ function DiscordSetup()
 	// Set stage data
 	switch room 
 	{
-		default:
+		case Stage_GHZ1:
+		{
+			DetailsString = "GREEN HILL 1";
+			MainImage     = "ghz";
+		}
+		break;
+		case Stage_GHZ2:
+		{
+			DetailsString = "GREEN HILL 2";
+			MainImage     = "ghz";
+		}
+		break;
+		case Stage_GHZ3:
+		{
+			DetailsString = "GREEN HILL 3";
+			MainImage     = "ghz";
+		}
+		break;
+		case Screen_Title:
+		{
 			DetailsString = "In Menus";
+			MainImage     = "menu";
+		}
+		break;
+		default:
+		{
+			DetailsString = "Loading...";
+			MainImage     = "main";
+		}
 		break;
 	}
-	MainImage     = "orbinaut";
 	MainImageDesc = "";
 	
 	// Set character data

@@ -105,5 +105,4 @@ function GameMacro()
 	// Demo macro
 	#macro DemoRecord 1
 	#macro DemoPlay   2
-	#macro DemoMenu   3
 }

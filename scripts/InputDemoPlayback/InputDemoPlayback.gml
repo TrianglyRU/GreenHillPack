@@ -1,12 +1,13 @@
-function InputDemoPlay()
+function InputDemoPlayback()
 {
+	// Exit if not playing the demo
 	if Game.DemoMode != DemoPlay or !instance_exists(Stage) 
 	{
 		return false;
 	}
 	
-	var Inputs; Inputs[8] = 0;
-			
+	// Read input data
+	var Inputs; Inputs[8] = 0;		
 	for (var i = 0; i < 9; i++)
 	{
 		if ButtonNumber[i] < TimerLimit[i] 
@@ -24,7 +25,7 @@ function InputDemoPlay()
 		}
 	}
 			
-	// Key Press
+	// Register Key Press
 	UpPress    = Inputs[0] and !Up;
 	DownPress  = Inputs[1] and !Down;
 	LeftPress  = Inputs[2] and !Left;
@@ -36,7 +37,7 @@ function InputDemoPlay()
 	StartPress = Inputs[8] and !Start;	
 	ABCPress   = APress or BPress or CPress;
 		
-	// Key Down
+	// Register Key Down
 	Up    = Inputs[0];
 	Down  = Inputs[1];
 	Left  = Inputs[2];
@@ -48,7 +49,7 @@ function InputDemoPlay()
 	Start = Inputs[8];
 	ABC   = A or B or C;
 	
-	// Stop playback
+	// Stop playback if 30 seconds have passed, or we pressed any button
 	if !DemoEnd
 	{
 		if Stage.Time >= 1800
@@ -75,18 +76,17 @@ function InputDemoPlay()
 			break;
 			case "Gamepad":
 			{
-				// Key Press
 				if gamepad_button_check_pressed(0, gp_padu)
 				or gamepad_button_check_pressed(0, gp_padd)
 				or gamepad_button_check_pressed(0, gp_padl)
 				or gamepad_button_check_pressed(0, gp_padr)
-				or gamepad_axis_value(0, gp_axislv) != 0
-				or gamepad_axis_value(0, gp_axislh) != 0
 				or gamepad_button_check_pressed(0, gp_face1)
 				or gamepad_button_check_pressed(0, gp_face2)
 				or gamepad_button_check_pressed(0, gp_face3)
 				or gamepad_button_check_pressed(0, gp_select)
 				or gamepad_button_check_pressed(0, gp_start)
+				or gamepad_axis_value(0, gp_axislv) != 0
+				or gamepad_axis_value(0, gp_axislh) != 0
 				{
 					DemoEnd = true;
 				}

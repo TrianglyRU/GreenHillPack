@@ -1,31 +1,29 @@
 function InputDemoRecord()
 {
-	if !Game.DemoMode or !instance_exists(Stage) 
+	// Exit if not in recording
+	if Game.DemoMode != DemoRecord or !instance_exists(Stage) 
 	{
 		exit;
 	}
 	
-	// Recording
-	if Game.DemoMode == DemoRecord
+	// Record input
+	var Inputs = [Up, Down, Left, Right, A, B, C, Mode, Start];
+	for (var i = 0; i < 9; i++)
 	{
-		var Inputs = [Up, Down, Left, Right, A, B, C, Mode, Start];
-		for(var i = 0; i < 9; i++)
+		if ButtonNumber[i] mod 2 != Inputs[i]
 		{
-			if ButtonNumber[i] mod 2 != Inputs[i]
-			{
-				ButtonNumber[i]++;
-				ButtonTimer[i][ButtonNumber[i]] = 0;
-			}
-			else
-			{
-				ButtonTimer[i][ButtonNumber[i]]++;
-			}
+			ButtonNumber[i]++;
+			ButtonTimer[i][ButtonNumber[i]] = 0;
 		}
-		
-		// Stop after 30 seconds
-		if Stage.Time >= 1800
+		else
 		{
-			DemoEnd = true;
-		}	
+			ButtonTimer[i][ButtonNumber[i]]++;
+		}
 	}
+		
+	// Stop recording
+	if Stage.Time >= 1800 or Input.StartPress
+	{
+		DemoEnd = true;
+	}	
 }

@@ -311,29 +311,26 @@ function MenuOptionsProcess()
 		
 		// Game Start (demo files)
 		case 10:
-		{
-			Game.DemoMode = false;
-			
+		{	
 			if Input.APress or Input.StartPress
 			{
 				switch OptionID
 				{
-					// Record file
+					// Record demo
 					case 0:
 					{
 						Game.DemoMode = DemoRecord; menu_list_redirect(3, true, true);
 					}
 					break;
 					
-					// Save file
+					// Save the demo
 					case 1:
 					{	
 						if array_equals(Game.DemoData, []) 
 						{
 							audio_sfx_play(sfxFail, false); break;
 						}
-						
-						var Dir  = get_save_filename_ext("Demo File|*.demo", "", working_directory, "Save a demo file");
+						var Dir  = get_save_filename_ext("Demo File|*.demo", "", temp_directory, "Save a demo file");
 						if  Dir != ""
 						{ 
 							var String = json_stringify(Game.DemoData);
@@ -350,27 +347,14 @@ function MenuOptionsProcess()
 					}
 					break;
 					
-					// Load file
+					// Load a demo
 					case 2:
 					{
-						var Dir  = get_open_filename_ext("Demo File|*.demo", "", working_directory, "Open a demo file");
-						if  Dir != "" 
-						{ 
-							var Buffer = buffer_load(Dir);
-							if  Buffer != -1
-							{
-					 			Game.DemoData = json_parse(buffer_read(Buffer, buffer_string));
-								buffer_delete(Buffer);
-							}
-						}
-						else
-						{
-							audio_sfx_play(sfxFail, false);
-						}
+						demodata_load(false);
 					}
 					break;
 					
-					// Play file
+					// Play a demo
 					case 3:
 					{
 						if array_equals(Game.DemoData, []) 
@@ -379,11 +363,15 @@ function MenuOptionsProcess()
 						}
 						else
 						{
-							Game.DemoMode = DemoPlay; menu_list_redirect(3, true, true);
+							menu_list_redirect(3, true, true);
 						}
 					}
 					break;
 				}
+			}
+			else
+			{
+				Game.DemoMode = false;
 			}
 		}
 		break;

@@ -1,5 +1,6 @@
 /// @description Initialisation Code
 // You can write your code in this editor
 	
-	// Initialisation Script
+	// Initialisation Scripts
 	InputStartup();
+	InputDemoStartup();

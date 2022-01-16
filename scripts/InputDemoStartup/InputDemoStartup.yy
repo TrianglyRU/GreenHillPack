@@ -6,7 +6,7 @@
     "path": "folders/Game Code/Input.yy",
   },
   "resourceVersion": "1.0",
-  "name": "InputDemoPlay",
+  "name": "InputDemoStartup",
   "tags": [],
   "resourceType": "GMScript",
 }

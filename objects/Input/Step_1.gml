@@ -5,7 +5,7 @@
 	InputUpdate();
 	
 	// Pre-Objects Scripts
-	if !InputDemoPlay()
+	if !InputDemoPlayback()
 	{
 		InputGamepadProcess();
 		InputKeyboardProcess();

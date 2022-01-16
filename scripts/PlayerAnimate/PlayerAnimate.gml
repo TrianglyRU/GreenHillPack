@@ -81,15 +81,22 @@ function PlayerAnimate()
 					break;
 					case AnimSpin:
 					{
-						if abs(Inertia) < 6
+						if Jumping and Stage.IsFinished > 1
 						{
-							var Sprite = spr_sonic_spin;
+							animation_play(spr_sonic_jump_victory, 12, 0, 1);
 						}
 						else
 						{
-							var Sprite = spr_sonic_spin_fast;
+							if abs(Inertia) < 6
+							{
+								var Sprite = spr_sonic_spin;
+							}
+							else
+							{
+								var Sprite = spr_sonic_spin_fast;
+							}
+							animation_play(Sprite, round(max(1, 5 - abs(Inertia))), 0, 0);
 						}
-						animation_play(Sprite, round(max(1, 5 - abs(Inertia))), 0, 0);
 					}
 					break;
 					case AnimSpindash:

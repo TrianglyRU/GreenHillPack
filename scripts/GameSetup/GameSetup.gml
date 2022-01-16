@@ -29,7 +29,7 @@ function GameSetup()
 	
 	// Orbinaut improvements
 	Game.SmoothRotation	      = false;
-	Game.RichPresenceSupport  = false;
+	Game.RichPresenceSupport  = true;
 	Game.BetterPlayerTileGrip = false;
 	Game.PreciseRingBehaviour = false;
 	Game.NoRollSpeedLimit	  = false;
@@ -39,13 +39,13 @@ function GameSetup()
 	game settings if Developer Mode is disabled! */
 	
 	// Video settings
-	Game.WindowFullscreen = true;
+	Game.WindowFullscreen = false;
 	Game.Width            = 400;
 	Game.Height			  = 224;
 	Game.WindowSize	      = 3;
 	
 	// Audio settings
-	Game.MusicVolume = 0;
+	Game.MusicVolume = 0.5;
 	Game.SoundVolume = 0.5;
 	
 	// Control settings (keyboard)
@@ -67,6 +67,7 @@ function GameSetup()
 	Game.SpecialScore    = 0;
 	Game.SpecialState    = 0;
 	Game.DemoMode		 = 0;
+	Game.DemoQueue		 = 0;
 	Game.DiscordTime	 = 0;
 	Game.DiscordEvent	 = "";
 	Game.StarPostData    = [];

@@ -1,32 +1,32 @@
 function InputDemoEnd()
 {
-	// If stopped recording, exit. This is set if trying to pause the game, or 30 seconds have passed
+	// If demo playback or recording has ended, exit demo mode!
 	if DemoEnd						
 	{
 		if Camera.Enabled
 		{
-			fade_perform(ModeInto, BlendBlack, 0.5);
-			
-			audio_bgm_stop(ChannelPrimary,   0.5);
-			audio_bgm_stop(ChannelSecondary, 0.5);
-			
-			Camera.Enabled = false;
+			// Stop music
+			audio_bgm_stop(ChannelPrimary,   1.75); 
+			audio_bgm_stop(ChannelSecondary, 1.75);
+				
+			// Fade out
+			fade_perform(ModeInto, BlendBlack, 0.25); Camera.Enabled = false;
 		}
-		if fade_check(StateMax)
+		else if fade_check(StateMax)
 		{
 			if Game.DemoMode == DemoRecord
 			{
 				Game.DemoData = ButtonTimer;
 			}
-			Game.DemoMode = DemoMenu;
+			Game.DemoMode = false;
 		
-			// Reset all saved data during the stage		
+			// Reset all data saved during the stage		
 			Game.StarPostData    = [];
 			Game.SpecialRingList = [];
 			Game.SpecialRingData = [];
 			
-			// Return to DevMenu
-			room_goto(Screen_DevMenu);
+			// Return to SEGA screen
+			room_goto(Screen_SEGA);
 		}
 	}
 }

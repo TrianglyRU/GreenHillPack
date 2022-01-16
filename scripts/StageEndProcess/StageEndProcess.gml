@@ -1,19 +1,13 @@
 function StageEndProcess()
 {
 	// Check if we should exit
-	if !(IsFinished and fade_check(StateMax))
+	if !(IsFinished == 2 and fade_check(StateMax))
 	{
 		exit;
 	}
 	
 	ds_list_destroy(Player.RecordedPosX);
 	ds_list_destroy(Player.RecordedPosY);
-	
-	// Exit demo mode
-	if Game.DemoMode
-	{
-		Input.DemoEnd = true; exit;
-	}
 	
 	// Buffer and reset data
 	Game.Score			 = Player.Score;
