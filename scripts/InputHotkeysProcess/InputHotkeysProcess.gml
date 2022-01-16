@@ -12,6 +12,17 @@ function InputHotkeysProcess()
 	{
 		exit;
 	}
+	
+	// Goto DevMenu
+	if keyboard_check_pressed(vk_escape)
+	{
+		// Reset all saved data	
+		Game.StarPostData    = [];
+		Game.SpecialRingList = [];
+		Game.SpecialRingData = [];
+		
+		room_goto(Screen_DevMenu);
+	}
 		
 	// Restart game (F1)
 	if keyboard_check_pressed(vk_f1) 

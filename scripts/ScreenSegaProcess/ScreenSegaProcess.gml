@@ -62,7 +62,7 @@ function ScreenSegaProcess()
 			}
 			else if fade_check(StateMax)
 			{
-				room_goto(Screen_DevMenu);
+				room_goto(Screen_Title);
 			}
 		}
 		break;

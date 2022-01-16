@@ -17,8 +17,8 @@
   "width": 148,
   "height": 40,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "tgSega",
+    "path": "texturegroups/tgSega",
   },
   "swatchColours": null,
   "gridX": 0,

@@ -100,10 +100,10 @@ function InterfacePauseProcess()
 				room_restart();						
 			}
 					
-			// Exit to DevMenu
+			// Exit to Menu
 			else if PauseValue[1] == 2
 			{
-				room_goto(Screen_DevMenu);
+				room_goto(Screen_Title);
 						
 				// Reset all data saved during the stage		
 				Game.StarPostData    = [];

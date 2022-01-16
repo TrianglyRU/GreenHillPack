@@ -22,6 +22,7 @@ function InputStartup()
 	ABCPress	= 0;
 	StartPress  = 0;
 	ModePress   = 0;
+	DemoEnd     = 0;
 	
 	// Set default input controller and deadzone for gamepad
 	if gamepad_is_connected(0) or gamepad_is_connected(4)

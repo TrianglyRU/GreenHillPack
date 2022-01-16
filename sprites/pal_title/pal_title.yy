@@ -17,8 +17,8 @@
   "width": 5,
   "height": 4,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "tgTitle",
+    "path": "texturegroups/tgTitle",
   },
   "swatchColours": null,
   "gridX": 0,

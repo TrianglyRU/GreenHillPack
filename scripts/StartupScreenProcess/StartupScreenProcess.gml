@@ -11,7 +11,7 @@ function StartupScreenProcess()
 		// Load into the DevMenu
 		else if !Game.ForceLoad
 		{
-			room_goto(Screen_DevMenu);
+			room_goto(Screen_SEGA);
 		}
 		
 		// Load into the forced room
@@ -23,7 +23,6 @@ function StartupScreenProcess()
 			Game.ActiveSave = -1;
 			Game.Continues  =  2;
 			Game.Lives		=  3;
-			Game.Emeralds   =  7;
 		}
 	}
 }

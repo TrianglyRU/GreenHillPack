@@ -1,17 +1,17 @@
 function GameSetup()
 {
 	// Game settings
-	Game.WindowTitle = "Orbinaut Framework";
+	Game.WindowTitle = "Sonic 1: Green Hill Revisited";
 	Game.DevMode     = true;
 	Game.ShowSplash  = false;
 	
 	/* If set to false the game will load into the DevMenu, else into the room you choose.
 	This won't work if Game.ShowSplash is enabled */
-	Game.ForceLoad	 = false;	
+	Game.ForceLoad = Screen_SEGA;	
 	
 	// Originals differences
 	Game.SpindashEnabled    = true;
-	Game.PeeloutEnabled		= true;
+	Game.PeeloutEnabled		= false;
 	Game.DropdashEnabled    = false;
 	Game.DSpinAttackEnabled	= false;
 	Game.GroundSpeedcap	    = false;
@@ -22,30 +22,30 @@ function GameSetup()
 	Game.S3WaterPhysics		= false;
 	Game.SKCrouch			= false;
 	Game.SKRollDeceleration	= false;
-	Game.S1FloorCollision	= false;
+	Game.S1FloorCollision	= true;
 	Game.SKWallCollision	= false;	
 	Game.SKItemBoxBehaviour = false;
 	Game.CDStageTimer	    = false;	
 	
 	// Orbinaut improvements
-	Game.SmoothRotation	      = true;
-	Game.RichPresenceSupport  = true;
+	Game.SmoothRotation	      = false;
+	Game.RichPresenceSupport  = false;
 	Game.BetterPlayerTileGrip = false;
 	Game.PreciseRingBehaviour = false;
-	Game.NoRollSpeedLimit	  = true;
+	Game.NoRollSpeedLimit	  = false;
 	Game.FlightCancel	      = false;
 	
 	/* Video, audio and control settings below are overwritten by 
 	game settings if Developer Mode is disabled! */
 	
 	// Video settings
-	Game.WindowFullscreen = false;
+	Game.WindowFullscreen = true;
 	Game.Width            = 400;
 	Game.Height			  = 224;
 	Game.WindowSize	      = 3;
 	
 	// Audio settings
-	Game.MusicVolume = 0.5;
+	Game.MusicVolume = 0;
 	Game.SoundVolume = 0.5;
 	
 	// Control settings (keyboard)
