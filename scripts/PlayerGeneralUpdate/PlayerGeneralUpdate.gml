@@ -51,12 +51,35 @@ function PlayerGeneralUpdate()
 	if InvincibleBonus 
 	{
 		// Create star particles
-		if InvincibleBonus == 1200 and !instance_exists(InvincibilityStar)
+		/*if InvincibleBonus == 1200 and !instance_exists(InvincibilityStar)
 		{
 			for (var i = 0; i < 8; i++)
 			{
 				var Object = instance_create(PosX, PosY, InvincibilityStar);
 				Object.ID  = i;
+			}
+		}*/
+		
+		// Create sparkles
+		if InvincibleBonus == 1200 and !instance_exists(InvincibilitySparkles)
+		{
+			for (var i = 0; i < 4; i++)
+			{
+				var  Object = instance_create(PosX, PosY, InvincibilitySparkles);
+				with Object
+				{
+					ID			   = i;
+					PositionOffset = i * 6;
+					
+					// Play animation
+					switch ID
+					{
+						case 0: animation_play(spr_obj_invsparkles1, 6, 0, 0); break;
+						case 1: animation_play(spr_obj_invsparkles2, 1, 0, 0); break;
+						case 2: animation_play(spr_obj_invsparkles3, 1, 0, 0); break;
+						case 3: animation_play(spr_obj_invsparkles4, 1, 0, 0); break;
+					}
+				}
 			}
 		}
 		if !(--InvincibleBonus)
