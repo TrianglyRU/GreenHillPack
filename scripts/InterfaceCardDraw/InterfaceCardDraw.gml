@@ -72,10 +72,13 @@ function InterfaceCardDraw()
 				// Start gameplay
 				if CardValue[0] == 60
 				{
+					if fade_check(StateMax)
+					{
+						fade_perform(ModeFrom, BlendBlack, 1);
+					}
 					Input.IgnoreInput = false;
 					Stage.TimeEnabled = true;
-					
-					fade_perform(ModeFrom, BlendBlack, 1);
+					Camera.Enabled    = true;
 				}
 				
 				// Move ribbon

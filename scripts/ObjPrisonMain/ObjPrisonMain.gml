@@ -120,7 +120,7 @@ function ObjPrisonMain()
 	}
 	
 	// Update stage boundaries
-	if !Stage.IsBossfight
+	if !Stage.IsBossfight and floor(x - Player.PosX) < 512
 	{
 		if floor(Player.PosX) >= Camera.ViewX + Game.Width / 2
 		{

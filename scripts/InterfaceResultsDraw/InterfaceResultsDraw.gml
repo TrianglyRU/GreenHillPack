@@ -37,7 +37,7 @@ function InterfaceResultsDraw()
 				}
 				else if Stage.Time < 1800
 				{
-					ResultsValue[10] = 50000;
+					ResultsValue[10] = 100; //50000;
 				}			
 				else if Stage.Time >= 1800 and Stage.Time < 2700
 				{
@@ -170,7 +170,11 @@ function InterfaceResultsDraw()
 				// No continue
 				if (++ResultsValue[0]) == 180
 				{
-					fade_perform(ModeInto, BlendBlack, 1);
+					if Stage.ActID == Stage.FinalActID
+					{
+						fade_perform(ModeInto, BlendBlack, 1);
+					}
+					Stage.IsFinished = 3;
 				}
 			}
 			break;
@@ -190,7 +194,11 @@ function InterfaceResultsDraw()
 				}
 				else if (++ResultsValue[0]) == 260
 				{
-					fade_perform(ModeInto, BlendBlack, 1);
+					if Stage.ActID == Stage.FinalActID
+					{
+						fade_perform(ModeInto, BlendBlack, 1);
+					}
+					Stage.IsFinished = 3;
 				}
 			}
 			break;

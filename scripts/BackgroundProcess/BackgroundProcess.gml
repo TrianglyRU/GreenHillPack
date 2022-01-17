@@ -4,7 +4,15 @@ function BackgroundProcess()
 	shader_set(ShaderParallax);
 	
 	// Get camera position
-	var ViewX = Camera.ViewX;
+	if array_equals(Game.TransitionData, [])
+	{
+		var TransitionOffset = 0;
+	}
+	else
+	{
+		var TransitionOffset = Game.TransitionData[2];
+	}
+	var ViewX = Camera.ViewX + TransitionOffset;
 	var ViewY = Camera.ViewY;
 	
 	// Check if we should update the autoscroll value

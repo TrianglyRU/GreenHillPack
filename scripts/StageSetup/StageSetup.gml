@@ -36,10 +36,10 @@ function StageSetup()
 			WaterEnabled     = false;
 			WaterLevel	     = 0;
 			StageMusic       = GreenHill;
-			LeftBoundary	 = 0;
+			LeftBoundary	 = 2048;
 			TopBoundary	     = 0;
 			RightBoundary	 = room_width;
-			BottomBoundary	 = 992;
+			BottomBoundary	 = 480;
 			AnimatedGraphics = [tex_ghz_anitile00, 21, tex_ghz_anitile01, 10];
 			AnimalSet	     = [spr_obj_animal_flicky, spr_obj_animal_ricky];
 			NextStage		 = Stage_GHZ3;
@@ -54,7 +54,7 @@ function StageSetup()
 			WaterEnabled     = false;
 			WaterLevel	     = 0;
 			StageMusic       = GreenHill;
-			LeftBoundary	 = 0;
+			LeftBoundary	 = 256 * 2;
 			TopBoundary	     = 0;
 			RightBoundary	 = room_width;
 			BottomBoundary	 = 992;

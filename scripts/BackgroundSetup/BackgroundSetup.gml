@@ -24,7 +24,10 @@ function BackgroundSetup()
 			background_colour_set($900000);
 		}
 		break;
-		case Stage_GHZ1: case Stage_GHZ2: case Stage_GHZ3:
+		
+		case Stage_GHZ1: 
+		case Stage_GHZ2: 
+		case Stage_GHZ3:
 		{
 			// Add layers
 			background_layer_add(0, tex_ghz_bg00);
@@ -34,13 +37,23 @@ function BackgroundSetup()
 			background_layer_add(4, tex_ghz_bg04);
 			background_layer_add(5, tex_ghz_bg05);
 			
+			// Shift the background vertically for Act 2
+			if room == Stage_GHZ2 and !array_equals(Game.TransitionData, [])
+			{
+				var Offset = 24;
+			}
+			else
+			{
+				var Offset = 0;
+			}
+			
 			// Setup layers
-			background_layer_setup(0, 0, -32, 0.375, -0.032, -1,    0, 0, 0,     0);
-			background_layer_setup(1, 0, 0,   0.375, -0.032, -0.5,  0, 0, 0,     0);
-			background_layer_setup(2, 0, 16,  0.375, -0.032, -0.25, 0, 0, 0,     0);
-			background_layer_setup(3, 0, 32,  0.375, -0.032, 0,     0, 0, 0,     0);
-			background_layer_setup(4, 0, 80,  0.5,   -0.032, 0,     0, 0, 0,     0);
-			background_layer_setup(5, 0, 120, 0.5,   -0.032, 0,     0, 1, 0.005, 0);
+			background_layer_setup(0, 0, -32 + Offset, 0.375, -0.032, -1,    0, 0, 0,     0);
+			background_layer_setup(1, 0, 0   + Offset, 0.375, -0.032, -0.5,  0, 0, 0,     0);
+			background_layer_setup(2, 0, 16  + Offset, 0.375, -0.032, -0.25, 0, 0, 0,     0);
+			background_layer_setup(3, 0, 32  + Offset, 0.375, -0.032, 0,     0, 0, 0,     0);
+			background_layer_setup(4, 0, 80  + Offset, 0.5,   -0.032, 0,     0, 0, 0,     0);
+			background_layer_setup(5, 0, 120 + Offset, 0.5,   -0.032, 0,     0, 1, 0.005, 0);
 			
 			// Set colour
 			background_colour_set($FC9000);
