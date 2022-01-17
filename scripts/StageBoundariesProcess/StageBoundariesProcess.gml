@@ -88,7 +88,6 @@ function StageBoundariesProcess()
 		DeathBoundary = BottomBoundary;
 	}
 	
-	// Keep boundaries within the room size
 	TopBoundary    = max(0,			  TopBoundary);
 	LeftBoundary   = max(0,			  LeftBoundary);
 	RightBoundary  = min(room_width,  RightBoundary);

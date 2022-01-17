@@ -1,14 +1,7 @@
 /// @description Main
 // You can write your code in this editor
 	
-	// Exit if fade is active
-	if fade_check(StateActive)
-	{
-		exit;
-	}
-	
-	// Exit if this source is not the closest one
-	if id != instance_nearest(floor(Player.PosX), floor(Player.PosY), SoundSource)
+	if !Stage.Time or id != instance_nearest(Player.PosX, Player.PosY, SoundSource)
 	{
 		exit;
 	}

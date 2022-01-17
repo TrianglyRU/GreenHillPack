@@ -13,8 +13,16 @@ function object_set_depth(target,depthFlag)
 				var Tolerance = 25;
 			break; */	
 			
-			case FloatingPlatform:
-			case SolidWall:
+			/* 
+			If object is drawn above the target, the higher value
+			means it will be closer to the camera
+			
+			If object is drawn behind the targer, the higher value
+			 means  it will be further away from the camera
+			*/
+			
+			case FloatingPlatform:    case SolidWall:
+			case SpringRedHorizontal: case Chopper:
 				var Tolerance = 75;
 			break;
 			case StarPost:

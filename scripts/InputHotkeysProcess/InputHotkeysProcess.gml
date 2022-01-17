@@ -20,6 +20,7 @@ function InputHotkeysProcess()
 		Game.StarPostData    = [];
 		Game.SpecialRingList = [];
 		Game.SpecialRingData = [];
+		Game.DemoMode        = false;
 		
 		room_goto(Screen_DevMenu);
 	}

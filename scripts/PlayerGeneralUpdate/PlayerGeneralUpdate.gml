@@ -59,29 +59,6 @@ function PlayerGeneralUpdate()
 				Object.ID  = i;
 			}
 		}*/
-		
-		// Create sparkles
-		if InvincibleBonus == 1200 and !instance_exists(InvincibilitySparkles)
-		{
-			for (var i = 0; i < 4; i++)
-			{
-				var  Object = instance_create(PosX, PosY, InvincibilitySparkles);
-				with Object
-				{
-					ID			   = i;
-					PositionOffset = i * 6;
-					
-					// Play animation
-					switch ID
-					{
-						case 0: animation_play(spr_obj_invsparkles1, 6, 0, 0); break;
-						case 1: animation_play(spr_obj_invsparkles2, 1, 0, 0); break;
-						case 2: animation_play(spr_obj_invsparkles3, 1, 0, 0); break;
-						case 3: animation_play(spr_obj_invsparkles4, 1, 0, 0); break;
-					}
-				}
-			}
-		}
 		if !(--InvincibleBonus)
 		{
 			if audio_bgm_is_playing(Invincibility)
@@ -90,4 +67,10 @@ function PlayerGeneralUpdate()
 			}
 		}
 	}
+	
+	// Remember player's position for previous 32 frames
+	ds_list_delete(RecordedPosX, 31);
+	ds_list_delete(RecordedPosY, 31);
+	ds_list_insert(RecordedPosX, 0, PosX);
+	ds_list_insert(RecordedPosY, 0, PosY);
 }

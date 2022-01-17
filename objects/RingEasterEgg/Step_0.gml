@@ -1,7 +1,7 @@
 /// @description Main
 // You can write your code in this editor
 	
-	if object_check_overlap(TypeTrigger)
+	if object_check_overlap(TypeTrigger) and !Player.Grounded
 	{
 		if Player.Rings == InitialAmount + 30
 		{

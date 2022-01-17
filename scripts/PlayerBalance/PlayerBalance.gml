@@ -41,7 +41,7 @@ function PlayerBalance()
 		// Standing on the left edge
 		if !FindAngle1
 		{	
-			if !SuperState and Game.Character == CharSonic
+			/*if !SuperState and Game.Character == CharSonic
 			{
 				// Use "panic balance" animation
 				var FindFloor  = tile_find_v(PosX + 6, PosY + RadiusY, true, false, Layer)[0];
@@ -71,10 +71,9 @@ function PlayerBalance()
 					}
 				}
 			}
-			
-			// Use one-sided balance animation
-			else
+			else*/
 			{
+				// Use one-sided balance animation
 				Facing    = FlipLeft;
 				Animation = AnimBalance;
 			}
@@ -83,7 +82,7 @@ function PlayerBalance()
 		// Standing on the right edge
 		else if !FindAngle2
 		{
-			if !SuperState and Game.Character == CharSonic
+			/*if !SuperState and Game.Character == CharSonic
 			{
 				// Use "panic balance" animation
 				var FindFloor  = tile_find_v(PosX - 6, PosY + RadiusY, true, false, Layer)[0];
@@ -113,10 +112,9 @@ function PlayerBalance()
 					}
 				}
 			}
-			
-			// Use one-sided balance animation
-			else
+			else*/
 			{
+				// Use one-sided balance animation
 				Facing    = FlipRight;
 				Animation = AnimBalance;
 			}
@@ -142,7 +140,7 @@ function PlayerBalance()
 		// Standing on the left edge
 		if PlayerX < 2
 		{
-			if !SuperState and Game.Character == CharSonic
+			/*if !SuperState and Game.Character == CharSonic
 			{
 				// Use "panic balance" animation
 				if PlayerX < -2
@@ -171,10 +169,9 @@ function PlayerBalance()
 					}
 				}
 			}
-			
-			// Use one-sided balance animation
-			else
+			else*/
 			{
+				// Use one-sided balance animation
 				Facing    = FlipLeft;
 				Animation = AnimBalance;
 			}
@@ -183,7 +180,7 @@ function PlayerBalance()
 		// Standing on the right edge
 		else if PlayerX > RightEdge - 2
 		{
-			if !SuperState and Game.Character == CharSonic
+			/*if !SuperState and Game.Character == CharSonic
 			{
 				// Use "panic balance" animation
 				if PlayerX > RightEdge + 2
@@ -212,10 +209,9 @@ function PlayerBalance()
 					}
 				}
 			}
-			
-			// Use one-sided balance animation
-			else
+			else*/
 			{
+				// Use one-sided balance animation
 				Facing    = FlipRight;
 				Animation = AnimBalance;
 			}
