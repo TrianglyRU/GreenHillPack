@@ -96,6 +96,7 @@
     {"id":{"name":"SpringRedDiagonal","path":"objects/SpringRedDiagonal/SpringRedDiagonal.yy",},"order":18,},
     {"id":{"name":"StagePaletteUpdate","path":"scripts/StagePaletteUpdate/StagePaletteUpdate.yy",},"order":9,},
     {"id":{"name":"InterfacePauseStartup","path":"scripts/InterfacePauseStartup/InterfacePauseStartup.yy",},"order":13,},
+    {"id":{"name":"spr_obj_transitionobj","path":"sprites/spr_obj_transitionobj/spr_obj_transitionobj.yy",},"order":112,},
     {"id":{"name":"tex_title_options","path":"sprites/tex_title_options/tex_title_options.yy",},"order":7,},
     {"id":{"name":"PlayerAirLevelCollision","path":"scripts/PlayerAirLevelCollision/PlayerAirLevelCollision.yy",},"order":29,},
     {"id":{"name":"SpringRedHorizontal","path":"objects/SpringRedHorizontal/SpringRedHorizontal.yy",},"order":20,},

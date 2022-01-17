@@ -170,7 +170,7 @@ function InterfaceResultsDraw()
 				// No continue
 				if (++ResultsValue[0]) == 180
 				{
-					if Stage.ActID == Stage.FinalActID
+					if Stage.ActID == Stage.FinalActID or !Game.StageTransitions
 					{
 						fade_perform(ModeInto, BlendBlack, 1);
 					}
@@ -194,7 +194,7 @@ function InterfaceResultsDraw()
 				}
 				else if (++ResultsValue[0]) == 260
 				{
-					if Stage.ActID == Stage.FinalActID
+					if Stage.ActID == Stage.FinalActID or !Game.StageTransitions
 					{
 						fade_perform(ModeInto, BlendBlack, 1);
 					}

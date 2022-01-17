@@ -6,7 +6,8 @@ function StageEndTransitionProcess()
 		exit;
 	}
 	
-	// Lock the left boundarys
+	/* Lock the left boundary at certain point. This isn't needed 
+	/  for the stages that were built with stage transition in mind */
 	switch room
 	{
 		case Stage_GHZ2: var Bound = 2048; break;
@@ -51,11 +52,16 @@ function StageEndTransitionProcess()
 		}
 	}
 	
-	// Buffer camera and player positions and background offset
+	// Buffer camera position, player position and background autoscroll offset
 	else
 	{
+		var Length = array_length(Background.BGValues);
+		for (var i = 0; i < Length; i++)
+		{
+			Game.TransitionData[2][i] = Background.BGValues[i][12];
+		}	
 		Game.TransitionData[0] = floor(Player.PosX) - (Camera.ViewX + Game.Width / 2);
-		Game.TransitionData[1] = floor(ClearPanel.y + sprite_get_height(ClearPanel.sprite_index) div 2 - Camera.ViewY);
+		Game.TransitionData[1] = floor(ClearPanel.y + sprite_get_height(ClearPanel.sprite_index) div 2 - Camera.ViewY);	
 	}
 
 	// Load into the next stage

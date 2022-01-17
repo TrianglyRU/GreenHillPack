@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_tempobject",
-    "path": "sprites/spr_tempobject/spr_tempobject.yy",
+    "name": "spr_obj_transitionobj",
+    "path": "sprites/spr_obj_transitionobj/spr_obj_transitionobj.yy",
   },
   "solid": false,
   "visible": true,

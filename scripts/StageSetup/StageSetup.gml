@@ -54,7 +54,7 @@ function StageSetup()
 			WaterEnabled     = false;
 			WaterLevel	     = 0;
 			StageMusic       = GreenHill;
-			LeftBoundary	 = 256 * 2;
+			LeftBoundary	 = 512;
 			TopBoundary	     = 0;
 			RightBoundary	 = room_width;
 			BottomBoundary	 = 992;
