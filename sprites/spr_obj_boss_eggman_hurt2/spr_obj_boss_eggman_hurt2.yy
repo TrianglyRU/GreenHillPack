@@ -74,7 +74,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Stage Objects/Sprites.yy",
+    "path": "folders/Objects/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_boss_eggman_hurt2",

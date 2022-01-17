@@ -18,10 +18,9 @@ function animation_play(spriteid,duration,loopframe)
 		image_index		= 0;
 		image_speed     = 0;
 	}
-	
-	// Update duration
 	else 
 	{	
+		// Update duration
 		if !is_array(duration) and image_duration != duration
 		or  is_array(duration) and !is_array(image_duration)
 		{
@@ -38,6 +37,12 @@ function animation_play(spriteid,duration,loopframe)
 				image_timer    = abs(duration[0]);
 				image_duration = duration;
 			}
+		}
+		
+		// Update loopframe
+		if image_loopframe != loopframe
+		{
+			image_loopframe = loopframe;
 		}
 	}
 }

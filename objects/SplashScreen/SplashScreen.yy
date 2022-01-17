@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Screen (Splash)",
-    "path": "folders/Game Code/Screen (Splash).yy",
+    "name": "Screen Splash",
+    "path": "folders/Rooms/Screen Splash.yy",
   },
   "resourceVersion": "1.0",
   "name": "SplashScreen",

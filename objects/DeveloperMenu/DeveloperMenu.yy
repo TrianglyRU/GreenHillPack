@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Screen (DevMenu)",
-    "path": "folders/Game Code/Screen (DevMenu).yy",
+    "name": "Screen DevMenu",
+    "path": "folders/Rooms/Screen DevMenu.yy",
   },
   "resourceVersion": "1.0",
   "name": "DeveloperMenu",

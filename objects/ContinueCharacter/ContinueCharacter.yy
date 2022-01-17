@@ -26,8 +26,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Screen Continue",
-    "path": "folders/Rooms/Screen Continue.yy",
+    "name": "Objects",
+    "path": "folders/Rooms/Screen Continue/Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "ContinueCharacter",

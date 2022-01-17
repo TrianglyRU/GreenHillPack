@@ -26,11 +26,11 @@ function GameSetup()
 	Game.SKWallCollision	= false;	
 	Game.SKItemBoxBehaviour = false;
 	Game.CDStageTimer	    = false;
-	Game.StageTransitions   = false;
+	Game.StageTransitions   = true;
 	
 	// Orbinaut improvements
-	Game.SmoothRotation	      = false;
-	Game.RichPresenceSupport  = false;
+	Game.SmoothRotation	      = true;
+	Game.RichPresenceSupport  = true;
 	Game.BetterPlayerTileGrip = false;
 	Game.PreciseRingBehaviour = false;
 	Game.NoRollSpeedLimit	  = false;

@@ -30,9 +30,9 @@
 					StateTimer = 96;
 					Xsp		   = -1.415; //-1; 
 					Ysp		   = -0.25;
-				
+					
 					// Play animation
-					animation_play(spr_obj_boss_eggmobile, 4, 7); image_index = 7;
+					animation_play(sprite_index, 4, 7); image_index = 7;
 				}
 				break;
 			
@@ -56,7 +56,7 @@
 				{
 					StateTimer = 128;
 					Xsp		   = -0.5625; //-0.25;
-				
+					
 					// Play animation
 					animation_play(sprite_index, 4, 7); image_index = 7; 
 				}
@@ -79,9 +79,9 @@
 				{
 					StateTimer = 64;
 					Xsp		   = 2.25 * -image_xscale; // 1 * -image_xscale;
-				
+					
 					// Play animation
-					animation_play(sprite_index, 4, 7); image_index = 7; 
+					animation_play(sprite_index, 4, 7); image_index = 7;
 				}
 				break;
 			
@@ -100,11 +100,11 @@
 				{
 					Xsp = 4;
 					Ysp	= -0.25;
-				
+					
 					// Play animation
 					animation_play(sprite_index, 3, 7); image_index = 1;
 				
-					// Boss defeated now. Set flag
+					// Boss is defeated now. Set flag
 					BossTrigger.BossDefeated = true;
 				}
 				break;
