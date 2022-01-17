@@ -1,9 +1,6 @@
 /// @description Draw
 // You can write your code in this editor
-	
-	// Clear data
-	Game.TransitionData = [];
-	
+		
 	// Draw Clear Panel
 	switch Game.Character
 	{

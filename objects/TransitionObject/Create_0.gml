@@ -30,7 +30,7 @@
 
 		Camera.PosX    = x - Game.Width / 2;
 		Camera.PosY	   = y - Game.TransitionData[1] + 1;
-		Camera.Enabled = false;
+		Camera.Enabled = false;	
 	}
 	
 	// Set object properties

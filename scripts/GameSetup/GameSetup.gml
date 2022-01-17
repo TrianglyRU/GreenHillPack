@@ -71,10 +71,10 @@ function GameSetup()
 	Game.DemoQueue		 = 0;
 	Game.DiscordTime	 = 0;
 	Game.DiscordEvent	 = "";
+	Game.TransitionData  = [];
 	Game.StarPostData    = [];
 	Game.BonusStageData  = [];
 	Game.SpecialRingData = [];
 	Game.SpecialRingList = [];
-	Game.TransitionData  = [];
-	Game.DemoData		 = [];
+	Game.DemoData		 = [];	
 }

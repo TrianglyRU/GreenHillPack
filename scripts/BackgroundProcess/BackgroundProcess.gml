@@ -4,13 +4,15 @@ function BackgroundProcess()
 	shader_set(ShaderParallax);
 	
 	// Get camera position
-	if array_equals(Game.TransitionData, [])
+	if !Game.StageTransitions
 	{
 		var TransitionOffset = 0;
 	}
-	else
+	else switch room
 	{
-		var TransitionOffset = Game.TransitionData[2];
+		case Stage_GHZ2: var TransitionOffset = 9568		 - Game.Width / 2; break;
+		case Stage_GHZ3: var TransitionOffset = 10018 + 9568 - Game.Width / 2; break;
+		default:		 var TransitionOffset = 0;							   break;
 	}
 	var ViewX = Camera.ViewX + TransitionOffset;
 	var ViewY = Camera.ViewY;

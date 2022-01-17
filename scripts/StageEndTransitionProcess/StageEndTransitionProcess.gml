@@ -51,12 +51,11 @@ function StageEndTransitionProcess()
 		}
 	}
 	
-	// Buffer camera and player positions
+	// Buffer camera and player positions and background offset
 	else
 	{
-		Game.TransitionData[0] = floor(Player.PosX) - (Camera.PosX + Game.Width / 2);
-		Game.TransitionData[1] = floor(ClearPanel.y + sprite_get_height(ClearPanel.sprite_index) div 2 - Camera.PosY);
-		Game.TransitionData[2] = Camera.PosX;
+		Game.TransitionData[0] = floor(Player.PosX) - (Camera.ViewX + Game.Width / 2);
+		Game.TransitionData[1] = floor(ClearPanel.y + sprite_get_height(ClearPanel.sprite_index) div 2 - Camera.ViewY);
 	}
 
 	// Load into the next stage
