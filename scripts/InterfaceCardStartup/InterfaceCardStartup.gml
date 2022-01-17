@@ -27,5 +27,8 @@ function InterfaceCardStartup()
 	Input.IgnoreInput = true;
 	
 	// Turn screen into black
-	fade_perform(ModeInto, BlendBlack, 0);
+	if array_equals(Game.TransitionData, [])
+	{
+		fade_perform(ModeInto, BlendBlack, 0);
+	}
 }

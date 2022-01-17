@@ -1,7 +1,13 @@
-function StageEndProcess()
+function StageEndRegularProcess()
 {
-	// Check if we should exit
-	if !(IsFinished == 2 and fade_check(StateMax))
+	// Exit if stage transition should be performed
+	if Game.StageTransitions
+	{
+		exit;
+	}
+	
+	// Wait until we fade out
+	if !(IsFinished > 1 and fade_check(StateMax))
 	{
 		exit;
 	}
@@ -15,7 +21,7 @@ function StageEndProcess()
 	Game.StarPostData    = [];
 	Game.SpecialRingList = [];
 		
-	// Check if this is the final act of the zone
+	// Save our progress at the end of the zone
 	if ActID == FinalActID and Game.ActiveSave != -1
 	{
 		if ZoneID == FinalZoneID
@@ -27,8 +33,6 @@ function StageEndProcess()
 		{
 			Game.Stage++;
 		}
-		
-		// Save our progress
 		gamedata_save(Game.ActiveSave);
 	}
 

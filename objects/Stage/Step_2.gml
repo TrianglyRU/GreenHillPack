@@ -5,4 +5,5 @@
 	StageGameplayProcess();
 	StageObjectsProcess();
 	StageBoundariesProcess();
-	StageEndProcess();
+	StageEndRegularProcess();
+	StageEndTransitionProcess();

@@ -12,7 +12,7 @@ function ObjPrisonStartup()
 	object_set_depth(Player, 0);
 	
 	// Create button object
-	ChildObject	= instance_create_child(x, y - 38, PrisonButton);
+	ChildObject	= instance_create(x, y - 38, PrisonButton);
 	with ChildObject
 	{
 		object_set_depth(EggPrison, 0);

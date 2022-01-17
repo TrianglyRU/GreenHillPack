@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_trigger",
-    "path": "sprites/spr_trigger/spr_trigger.yy",
+    "name": "spr_obj_transitionobj",
+    "path": "sprites/spr_obj_transitionobj/spr_obj_transitionobj.yy",
   },
   "solid": false,
   "visible": true,
@@ -22,11 +22,14 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [
-    {"varType":1,"value":"4","rangeEnabled":true,"rangeMin":1.0,"rangeMax":16.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"XSize","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":1,"value":"4","rangeEnabled":true,"rangeMin":1.0,"rangeMax":32.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"YSize","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":6,"value":"\"All\"","rangeEnabled":true,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
+        "\"All\"",
+        "\"Sonic & Tails\"",
+        "\"Knuckles\"",
+      ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"PlayerType","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],
   "parent": {
@@ -34,7 +37,7 @@
     "path": "folders/Stage Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "BackgroundTrigger",
+  "name": "TransitionObject",
   "tags": [],
   "resourceType": "GMObject",
 }
