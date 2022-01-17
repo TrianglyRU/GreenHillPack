@@ -17,8 +17,8 @@
   "width": 398,
   "height": 240,
   "textureGroupId": {
-    "name": "tgGameplay",
-    "path": "texturegroups/tgGameplay",
+    "name": "tgOther",
+    "path": "texturegroups/tgOther",
   },
   "swatchColours": null,
   "gridX": 0,
@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "GUI",
-    "path": "folders/GUI.yy",
+    "name": "Textures",
+    "path": "folders/Rooms/Screen Splash/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "gui_framework_splash",

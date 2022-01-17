@@ -78,7 +78,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Rooms/Special Stage/Textures.yy",
+    "path": "folders/Rooms/Stage Special/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "tex_sstage_besuper",

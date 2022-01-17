@@ -90,7 +90,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Rooms/Title Screen/Textures.yy",
+    "path": "folders/Rooms/Screen Title/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "tex_title_sonic1",

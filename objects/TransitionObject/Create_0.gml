@@ -23,11 +23,18 @@
 		Stage.LeftBoundary       = x - Game.Width / 2;
 		Stage.TargetLeftBoundary = x - Game.Width / 2;
 	
-		// Set player and camera positions
-		Player.PosX		= x + Game.TransitionData[0];
-		Player.PosY		= y - Player.RadiusY - 1;
-		Player.Grounded = true;
-
+		// Setup player
+		Player.PosX		   = x + Game.TransitionData[0];
+		Player.PosY	       = y - Player.RadiusY - 1;	
+		Player.BarrierType = Game.TransitionData[2]; 
+		Player.Grounded	   = true;
+		
+		if Player.BarrierType
+		{
+			instance_create(Player.PosX, Player.PosY, Barrier);
+		}
+		
+		// Setup camera
 		Camera.PosX    = x - Game.Width / 2;
 		Camera.PosY	   = y - Game.TransitionData[1] + 1;
 		Camera.Enabled = false;	

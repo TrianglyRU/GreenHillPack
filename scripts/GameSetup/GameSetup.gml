@@ -26,7 +26,7 @@ function GameSetup()
 	Game.SKWallCollision	= false;	
 	Game.SKItemBoxBehaviour = false;
 	Game.CDStageTimer	    = false;
-	Game.StageTransitions   = true;
+	Game.StageTransitions   = false;
 	
 	// Orbinaut improvements
 	Game.SmoothRotation	      = false;
@@ -46,7 +46,7 @@ function GameSetup()
 	Game.WindowSize	      = 3;
 	
 	// Audio settings
-	Game.MusicVolume = 0;
+	Game.MusicVolume = 0.5;
 	Game.SoundVolume = 0.5;
 	
 	// Control settings (keyboard)

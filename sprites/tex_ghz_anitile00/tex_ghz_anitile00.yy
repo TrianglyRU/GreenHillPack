@@ -74,7 +74,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Rooms/Green Hill Zone/Textures.yy",
+    "path": "folders/Rooms/Stage GHZ/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "tex_ghz_anitile00",

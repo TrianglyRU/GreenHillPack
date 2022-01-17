@@ -48,8 +48,8 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "SEGA Screen",
-    "path": "folders/Rooms/SEGA Screen.yy",
+    "name": "Screen SEGA",
+    "path": "folders/Rooms/Screen SEGA.yy",
   },
   "resourceVersion": "1.0",
   "name": "Screen_SEGA",

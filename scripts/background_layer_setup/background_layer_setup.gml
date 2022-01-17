@@ -32,7 +32,7 @@ function background_layer_setup(id,x,y,scrollX,scrollY,autoXSpeed,animDuration,i
 		// Initialise autoscroll offset value
 		if !array_equals(Game.TransitionData, [])
 		{
-			BGValues[id][12] = Game.TransitionData[2][id];
+			BGValues[id][12] = Game.TransitionData[3][id];
 		}
 		else
 		{

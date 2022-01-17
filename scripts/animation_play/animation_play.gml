@@ -1,5 +1,5 @@
-/// @function animation_play(spriteid,duration,startframe,loopframe)
-function animation_play(spriteid,duration,startframe,loopframe)
+/// @function animation_play(spriteid,duration,loopframe)
+function animation_play(spriteid,duration,loopframe)
 {
 	// Update or set animation
 	if sprite_index != spriteid or event_type == ev_create
@@ -10,17 +10,18 @@ function animation_play(spriteid,duration,startframe,loopframe)
 		}
 		else
 		{
-			image_timer = abs(duration[startframe]);	
+			image_timer = abs(duration[0]);	
 		}
-		image_duration  = duration;
 		image_loopframe = loopframe;
-		image_index		= startframe;
+		image_duration  = duration;
 		sprite_index    = spriteid;	
+		image_index		= 0;
 		image_speed     = 0;
 	}
+	
+	// Update duration
 	else 
-	{
-		// Update duration
+	{	
 		if !is_array(duration) and image_duration != duration
 		or  is_array(duration) and !is_array(image_duration)
 		{
@@ -37,12 +38,6 @@ function animation_play(spriteid,duration,startframe,loopframe)
 				image_timer    = abs(duration[0]);
 				image_duration = duration;
 			}
-		}
-		
-		// Update loopframe
-		if image_loopframe != loopframe
-		{
-			image_loopframe = loopframe;
 		}
 	}
 }

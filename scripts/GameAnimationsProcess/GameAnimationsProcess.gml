@@ -10,7 +10,7 @@ function GameAnimationsProcess()
 			image_loopframe = 0;
 			image_speed		= 0;
 		}
-		else if !fade_check(StateActive) and !variable_check(Stage, "IsPaused")
+		else if !fade_check(StateActive) and !variable_check(Stage, "IsPaused") or Game.DemoMode
 		{
 			// Handle subimage change
 			var FrameDuration  = is_array(image_duration) ? image_duration[image_index] : image_duration;

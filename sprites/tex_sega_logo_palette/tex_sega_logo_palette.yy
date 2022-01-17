@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Rooms/SEGA Screen/Textures.yy",
+    "path": "folders/Rooms/Screen SEGA/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "tex_sega_logo_palette",

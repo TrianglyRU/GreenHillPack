@@ -52,16 +52,17 @@ function StageEndTransitionProcess()
 		}
 	}
 	
-	// Buffer camera position, player position and background autoscroll offset
+	// Buffer data
 	else
 	{
 		var Length = array_length(Background.BGValues);
 		for (var i = 0; i < Length; i++)
 		{
-			Game.TransitionData[2][i] = Background.BGValues[i][12];
+			Game.TransitionData[3][i] = Background.BGValues[i][12];
 		}	
 		Game.TransitionData[0] = floor(Player.PosX) - (Camera.ViewX + Game.Width / 2);
 		Game.TransitionData[1] = floor(ClearPanel.y + sprite_get_height(ClearPanel.sprite_index) div 2 - Camera.ViewY);	
+		Game.TransitionData[2] = Player.BarrierType;
 	}
 
 	// Load into the next stage

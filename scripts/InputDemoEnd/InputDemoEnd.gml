@@ -6,11 +6,11 @@ function InputDemoEnd()
 		if Camera.Enabled
 		{
 			// Stop music
-			audio_bgm_stop(ChannelPrimary,   1.75); 
-			audio_bgm_stop(ChannelSecondary, 1.75);
+			audio_bgm_stop(ChannelPrimary,   1); 
+			audio_bgm_stop(ChannelSecondary, 1);
 				
 			// Fade out
-			fade_perform(ModeInto, BlendBlack, 0.25); Camera.Enabled = false;
+			fade_perform(ModeInto, BlendBlack, 0.5); Camera.Enabled = false;
 		}
 		else if fade_check(StateMax)
 		{

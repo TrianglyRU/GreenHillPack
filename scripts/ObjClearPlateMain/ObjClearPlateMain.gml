@@ -33,7 +33,7 @@ function ObjClearPanelMain()
 				audio_sfx_play(sfxClearPanel, false);
 				
 				// Set animation
-				animation_play(SpriteData[0], 1, 0, 0);
+				animation_play(SpriteData[0], 1, 0);
 			}
 		}
 		break;
@@ -45,7 +45,7 @@ function ObjClearPanelMain()
 			// Set animation
 			if StateTimer == 62
 			{
-				animation_play(SpriteData[1], 1, 0, 0);
+				animation_play(SpriteData[1], 1, 0);
 			}
 			
 			// Increment state after 124 frames
@@ -69,29 +69,48 @@ function ObjClearPanelMain()
 		{
 			/* S1 Behaviour */
 			
-			if Stage.IsFinished < 2
+			if !Game.StageTransitions
 			{
-				// Check if the player passed by the right boundary
-				if floor(Player.PosX + Player.Xsp) > Stage.RightBoundary - 24
+				if Stage.IsFinished < 2
 				{
-					// Increment stage state
-					Stage.IsFinished = 2;
-					
-					// Play bgm
-					audio_bgm_play(ChannelPrimary, ActClear);
+					// Check if the player passed by the right boundary
+					if floor(Player.PosX + Player.Xsp) > Stage.RightBoundary - 24
+					{
+						Stage.IsFinished = 2; audio_bgm_play(ChannelPrimary, ActClear);
+					}
+				
+					// Take away control from the player
+					if Player.Grounded and !Input.IgnoreInput
+					{
+						Input.IgnoreInput = true;
+					}
 				}
 				
-				// Take away control from the player
-				if Player.Grounded and !Input.IgnoreInput
+				// Force player movement
+				if Input.IgnoreInput
 				{
-					Input.IgnoreInput = true;
+					Input.Right = true;
 				}
 			}
 			
-			// Force player movement
-			if Input.IgnoreInput
+			/* Transition Behaviour */
+			
+			else if Player.Grounded
 			{
-				Input.Right = true;
+				if Stage.IsFinished < 2
+				{
+					Player.Xsp	      = 0;
+					Player.Ysp        = 0;
+					Player.Inertia    = 0;
+					Stage.IsFinished  = 2; 
+					Input.IgnoreInput = true;
+						
+					// Play resuts music
+					audio_bgm_play(ChannelPrimary, ActClear);
+				}	
+				
+				// Force animation
+				Player.Animation = AnimHurt;
 			}
 			
 			/* Original behaviour */

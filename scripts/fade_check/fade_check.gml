@@ -12,10 +12,6 @@ function fade_check(fadeState)
 	{
 		case StateActive:
 		{
-			if Game.DemoMode != false
-			{
-				return false;
-			}
 			return Palette.FadeStep < 756;
 		}
 		break;

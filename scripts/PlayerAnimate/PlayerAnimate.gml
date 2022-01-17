@@ -32,7 +32,7 @@ function PlayerAnimate()
 				{
 					case AnimIdle:
 					{
-						animation_play(spr_sonic_idle, [288, 24, 48, 24, 24], 0, 3);
+						animation_play(spr_sonic_idle, [288, 24, 48, 24, 24], 3);
 					}
 					break;
 					case AnimMove:	
@@ -59,7 +59,7 @@ function PlayerAnimate()
 								var Sprite = spr_sonic_run;
 							}	
 						}
-						animation_play(Sprite, round(max(1, 8 - abs(Inertia))), 0, 0);
+						animation_play(Sprite, round(max(1, 8 - abs(Inertia))), 0);
 					}
 					break;
 					case AnimPeelout:
@@ -76,14 +76,14 @@ function PlayerAnimate()
 						{
 							var Sprite = spr_sonic_peelout;
 						}	
-						animation_play(Sprite, round(max(1, 8 - abs(PeeloutRev))), 0, 0);
+						animation_play(Sprite, round(max(1, 8 - abs(PeeloutRev))), 0);
 					}
 					break;
 					case AnimSpin:
 					{
 						if Jumping and Stage.IsFinished > 1
 						{
-							animation_play(spr_sonic_jump_victory, 12, 0, 1);
+							animation_play(spr_sonic_jump_victory, 24, 1);
 						}
 						else
 						{
@@ -95,24 +95,24 @@ function PlayerAnimate()
 							{
 								var Sprite = spr_sonic_spin_fast;
 							}
-							animation_play(Sprite, round(max(1, 5 - abs(Inertia))), 0, 0);
+							animation_play(Sprite, round(max(1, 5 - abs(Inertia))), 0);
 						}
 					}
 					break;
 					case AnimSpindash:
-						animation_play(spr_sonic_spindash, 1, 0, 0);
+						animation_play(spr_sonic_spindash, 1, 0);
 					break;
 					case AnimCrouch:
-						animation_play(spr_sonic_crouch, 4, 0, 1);
+						animation_play(spr_sonic_crouch, 4, 1);
 					break;
 					case AnimLookup:
-						animation_play(spr_sonic_lookup, 4, 0, 1);
+						animation_play(spr_sonic_lookup, 4, 1);
 					break;
 					case AnimSkid:
-						animation_play(spr_sonic_skid, 6, 0, 2);
+						animation_play(spr_sonic_skid, 6, 2);
 					break;
 					case AnimPush:
-						animation_play(spr_sonic_push, round(max(1, 8 - abs(Inertia)) * 4), 0, 0);
+						animation_play(spr_sonic_push, round(max(1, 8 - abs(Inertia)) * 4), 0);
 					break;
 					case AnimHurt:
 						animation_set(spr_sonic_hurt, 0);
@@ -124,13 +124,13 @@ function PlayerAnimate()
 						animation_set(spr_sonic_drown, 0);
 					break;
 					case AnimBalance:
-						animation_play(spr_sonic_balance, 16, 0, 0);
+						animation_play(spr_sonic_balance, 16, 0);
 					break;
 					case AnimBalanceFlip:
-						animation_play(spr_sonic_balance_flip, 16, 0, 0);
+						animation_play(spr_sonic_balance_flip, 16, 0);
 					break;
 					case AnimBalancePanic:
-						animation_play(spr_sonic_balance_panic, 4, 0, 0);
+						animation_play(spr_sonic_balance_panic, 4, 0);
 					break;
 					case AnimBalanceTurn:
 						animation_set(spr_sonic_balance_turn, 0);
@@ -160,7 +160,7 @@ function PlayerAnimate()
 					}
 					break;
 					case AnimDropdash:
-						animation_play(spr_sonic_dropdash, 1, 0, 0);
+						animation_play(spr_sonic_dropdash, 1, 0);
 					break;
 					default: break;
 				}
@@ -172,10 +172,10 @@ function PlayerAnimate()
 				switch Animation
 				{
 					case AnimTransform:
-						animation_play(spr_supersonic_transform, [6, 6, 3, 3, 3], 0, 3);
+						animation_play(spr_supersonic_transform, [6, 6, 3, 3, 3], 3);
 					break;
 					case AnimIdle:
-						animation_play(spr_supersonic_idle, 8, 0, 0);
+						animation_play(spr_supersonic_idle, 8, 0);
 					break;
 					case AnimMove:	
 					{
@@ -188,7 +188,7 @@ function PlayerAnimate()
 						{
 							var Sprite = spr_supersonic_fly;
 						}
-						animation_play(Sprite, round(max(1, 8 - abs(Inertia))), 0, 0);
+						animation_play(Sprite, round(max(1, 8 - abs(Inertia))), 0);
 					}
 					break;
 					case AnimPeelout: 
@@ -201,7 +201,7 @@ function PlayerAnimate()
 						{
 							var Sprite = spr_supersonic_fly;
 						}
-						animation_play(Sprite, round(max(1, 8 - abs(PeeloutRev))), 0, 0);
+						animation_play(Sprite, round(max(1, 8 - abs(PeeloutRev))), 0);
 					}
 					break;
 					case AnimSpin:
@@ -214,23 +214,23 @@ function PlayerAnimate()
 						{
 							var Sprite = spr_sonic_spin_fast;
 						}
-						animation_play(Sprite, round(max(1, 5 - abs(Inertia))), 0, 0);
+						animation_play(Sprite, round(max(1, 5 - abs(Inertia))), 0);
 					}
 					break;
 					case AnimSpindash:
-						animation_play(spr_sonic_spindash, 1, 0, 0); 
+						animation_play(spr_sonic_spindash, 1, 0); 
 					break;
 					case AnimCrouch:
-						animation_play(spr_supersonic_crouch, [4, 8, 8, 8, 8], 0, 1);
+						animation_play(spr_supersonic_crouch, [4, 8, 8, 8, 8], 1);
 					break;
 					case AnimLookup:
-						animation_play(spr_supersonic_lookup, [4, 8, 8, 8, 8], 0, 1);
+						animation_play(spr_supersonic_lookup, [4, 8, 8, 8, 8], 1);
 					break;
 					case AnimSkid:
-						animation_play(spr_supersonic_skid, 3, 0, 4);
+						animation_play(spr_supersonic_skid, 3, 4);
 					break;
 					case AnimPush:
-						animation_play(spr_supersonic_push, round(max(1, 8 - abs(Inertia)) * 4), 0, 0);
+						animation_play(spr_supersonic_push, round(max(1, 8 - abs(Inertia)) * 4), 0);
 					break;
 					case AnimHurt:
 						animation_set(spr_supersonic_hurt, 0);
@@ -242,7 +242,7 @@ function PlayerAnimate()
 						animation_set(spr_supersonic_drown, 0);
 					break;
 					case AnimBalance:
-						animation_play(spr_supersonic_balance, 10, 0, 0);
+						animation_play(spr_supersonic_balance, 10, 0);
 					break;
 					case AnimSpring:
 					{
@@ -252,7 +252,7 @@ function PlayerAnimate()
 						}
 						else
 						{
-							animation_play(spr_supersonic_spring, 4, 0, 0);
+							animation_play(spr_supersonic_spring, 4, 0);
 						}
 					}
 					break;
@@ -269,7 +269,7 @@ function PlayerAnimate()
 					}
 					break;
 					case AnimDropdash:
-						animation_play(spr_sonic_dropdash, 1, 0, 0);
+						animation_play(spr_sonic_dropdash, 1, 0);
 					break;
 					default: break;
 				}
@@ -289,7 +289,7 @@ function PlayerAnimate()
 						128, 8, 8, 64, 8, 8, 72, 128, 8, 
 						8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8
 					];
-					animation_play(spr_tails_idle, FrameData, 0, 7);
+					animation_play(spr_tails_idle, FrameData, 7);
 				} 
 				break;
 				case AnimMove:	
@@ -306,14 +306,23 @@ function PlayerAnimate()
 					{
 						var Sprite = spr_tails_dash;
 					}
-					animation_play(Sprite, round(max(1, 8 - abs(Inertia))), 0, 0);
+					animation_play(Sprite, round(max(1, 8 - abs(Inertia))), 0);
 				}
 				break;
 				case AnimSpin:
-					animation_play(spr_tails_roll, 2, 0, 0);
+				{
+					if Jumping and Stage.IsFinished > 1
+					{
+						animation_play(spr_tails_jump_victory, 24, 1);
+					}
+					else
+					{
+						animation_play(spr_tails_roll, 2, 0);
+					}
+				}
 				break;
 				case AnimSpindash:
-					animation_play(spr_tails_spindash, 1, 0, 0); 
+					animation_play(spr_tails_spindash, 1, 0); 
 				break;
 				case AnimCrouch:
 					animation_set(spr_tails_crouch, 0);
@@ -322,19 +331,19 @@ function PlayerAnimate()
 					animation_set(spr_tails_lookup, 0);
 				break;
 				case AnimSkid:
-					animation_play(spr_tails_skid, 8, 0, 0);
+					animation_play(spr_tails_skid, 8, 0);
 				break;
 				case AnimFly:
 					animation_set(spr_tails_fly, 0);
 				break;
 				case AnimFlyTired:
-					animation_play(spr_tails_fly_tired, 8, 0, 0);
+					animation_play(spr_tails_fly_tired, 8, 0);
 				break;
 				case AnimSwim:
-					animation_play(spr_tails_swim, Ysp < 0 ? 4 : 8, 0, 0);
+					animation_play(spr_tails_swim, Ysp < 0 ? 4 : 8, 0);
 				break;
 				case AnimSwimTired:
-					animation_play(spr_tails_swim_tired, 8, 0, 0)
+					animation_play(spr_tails_swim_tired, 8, 0)
 				break;
 				case AnimHurt:
 					animation_set(spr_tails_hurt, 0);
@@ -351,18 +360,18 @@ function PlayerAnimate()
 					}
 					else
 					{
-						animation_play(spr_tails_spring, 4, 0, 0);
+						animation_play(spr_tails_spring, 4, 0);
 					}
 				}
 				break;
 				case AnimPush:
-					animation_play(spr_tails_push, round(max(1, 8 - abs(Inertia)) * 4), 0, 0);
+					animation_play(spr_tails_push, round(max(1, 8 - abs(Inertia)) * 4), 0);
 				break;
 				case AnimBalance:
-					animation_play(spr_tails_balance, 20, 0, 0);
+					animation_play(spr_tails_balance, 20, 0);
 				break;
 				case AnimTransform:
-					animation_play(spr_tails_transform, [6, 3, 3], 0, 1);
+					animation_play(spr_tails_transform, [6, 3, 3], 1);
 				break;
 				case AnimBreathe:
 				{
@@ -394,7 +403,7 @@ function PlayerAnimate()
 						30, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,  6, 6, 6, 6, 6, 
 						6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 12, 6, 6
 					]
-					animation_play(spr_knuckles_idle, FrameData, 0, 0);	
+					animation_play(spr_knuckles_idle, FrameData, 0);	
 				}
 				break;
 				case AnimMove:	
@@ -407,23 +416,32 @@ function PlayerAnimate()
 					{
 						var Sprite = spr_knuckles_run;
 					}
-					animation_play(Sprite, round(max(1, 8 - abs(Inertia))), 0, 0);
+					animation_play(Sprite, round(max(1, 8 - abs(Inertia))), 0);
 				}
 				break;
 				case AnimSpin:
-					animation_play(spr_knuckles_roll, round(max(1, 5 - abs(Inertia))), 0, 0);
+				{
+					if Jumping and Stage.IsFinished > 1
+					{
+						animation_play(spr_knuckles_jump_victory, 24, 1);
+					}
+					else 
+					{
+						animation_play(spr_knuckles_roll, round(max(1, 5 - abs(Inertia))), 0);
+					}	
+				}
 				break;
 				case AnimSpindash:
-					animation_play(spr_knuckles_spindash, 1, 0, 0); 
+					animation_play(spr_knuckles_spindash, 1, 0); 
 				break;
 				case AnimCrouch:
-					animation_play(spr_knuckles_crouch, 6, 0, 1);
+					animation_play(spr_knuckles_crouch, 6, 1);
 				break;
 				case AnimLookup:
-					animation_play(spr_knuckles_lookup, 6, 0, 1);
+					animation_play(spr_knuckles_lookup, 6, 1);
 				break;
 				case AnimSkid:
-					animation_play(spr_knuckles_skid, 4, 0, 3);
+					animation_play(spr_knuckles_skid, 4, 3);
 				break;
 				case AnimHurt:
 					animation_set(spr_knuckles_hurt, 0);
@@ -438,7 +456,7 @@ function PlayerAnimate()
 					animation_set(spr_knuckles_glide, GlideFrame);
 				break;
 				case AnimGlideFall:
-					animation_play(spr_knuckles_drop, 6, 0, 1);
+					animation_play(spr_knuckles_drop, 6, 1);
 				break;			
 				case AnimSlide:
 					animation_set(spr_knuckles_glideground, 0);
@@ -481,17 +499,17 @@ function PlayerAnimate()
 					{
 						var Speed = 0;
 					}
-					animation_play(spr_knuckles_climb, Speed, 0, 0);
+					animation_play(spr_knuckles_climb, Speed, 0);
 				}
 				break;
 				case AnimClamber:
-					animation_play(spr_knuckles_clamber, 6, 0, 3);
+					animation_play(spr_knuckles_clamber, 6, 3);
 				break;
 				case AnimDrop:
 					animation_set(spr_knuckles_drop, 1);
 				break;
 				case AnimPush:
-					animation_play(spr_knuckles_push, round(max(1, 8 - abs(Inertia))), 0, 0);
+					animation_play(spr_knuckles_push, round(max(1, 8 - abs(Inertia))), 0);
 				break;
 				case AnimSpring:
 				{
@@ -506,10 +524,10 @@ function PlayerAnimate()
 				}
 				break;
 				case AnimBalance:
-					animation_play(spr_knuckles_balance, [8, 8, 8, 8, 8, 8, 60, 12, 12, 8, 8, 8], 0, 9);
+					animation_play(spr_knuckles_balance, [8, 8, 8, 8, 8, 8, 60, 12, 12, 8, 8, 8], 9);
 				break;
 				case AnimTransform:
-					animation_play(spr_knuckles_transform, [6, 3, 3], 0, 1);
+					animation_play(spr_knuckles_transform, [6, 3, 3], 1);
 				break;
 				case AnimBreathe:
 				{

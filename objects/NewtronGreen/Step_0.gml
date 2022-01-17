@@ -10,7 +10,7 @@
 			{
 				if abs(floor(Player.PosX - x)) <= 128
 				{
-					animation_play(sprite_index, [20, 40, 20, 40, 20, 0], 0, 5);
+					animation_play(sprite_index, [20, 40, 20, 40, 20, 0], 5);
 					visible = true;
 					
 					// Always face player

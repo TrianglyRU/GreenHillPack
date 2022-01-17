@@ -6,6 +6,7 @@ function MenuSetup()
 	menu_add_option(0, 1, "STAGE SELECT");
 	menu_add_option(0, 2, "OPTIONS");
 	menu_add_option(0, 3, "EXIT GAME");
+	menu_add_option(0, 4, "DEMO FILES");
 
 	// Game Start
 	menu_add_header(1,    "SELECT A SAVE FILE");
@@ -15,7 +16,6 @@ function MenuSetup()
 	menu_add_option(1, 3, string(DisplayData[2]));
 	menu_add_option(1, 4, string(DisplayData[3]));
 	menu_add_option(1, 5, "DELETE SAVE");
-	menu_add_option(1, 6, "DEMO FILES");
 	
 	// Game Start (character select)
 	menu_add_header(2,    "SELECT A PLAYER");

@@ -87,8 +87,8 @@
     "TileSerialiseData": [],
   },
   "parent": {
-    "name": "Green Hill Zone",
-    "path": "folders/Rooms/Green Hill Zone.yy",
+    "name": "Stage GHZ",
+    "path": "folders/Rooms/Stage GHZ.yy",
   },
   "resourceVersion": "1.0",
   "name": "GHZTilesetB",

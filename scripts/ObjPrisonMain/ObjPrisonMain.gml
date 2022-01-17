@@ -21,7 +21,11 @@ function ObjPrisonMain()
 				}
 				Stage.IsFinished  = 1;
 				Stage.TimeEnabled = false;
-				Input.IgnoreInput = true;
+				
+				if !Game.StageTransitions
+				{
+					Input.IgnoreInput = true;
+				}
 				
 				// Increment state
 				State	  += 1;
@@ -34,7 +38,10 @@ function ObjPrisonMain()
 		case 1: 
 		{
 			// Force player movement
-			Input.Right = true;
+			if Input.IgnoreInput
+			{
+				Input.Right = true;
+			}
 			
 			// Do collision
 			object_act_solid(true, true, true, false);

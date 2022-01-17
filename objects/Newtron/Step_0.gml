@@ -10,7 +10,7 @@
 			{
 				if abs(floor(Player.PosX - PosX)) < 128
 				{
-					animation_play(sprite_index, 20, 0, 4);
+					animation_play(sprite_index, 20, 4);
 					visible = true;
 				}
 			}
@@ -40,7 +40,7 @@
 				Ysp   = 0;
 				
 				// Update animation
-				animation_play(spr_obj_newtron_fly, 3, 0, 0);
+				animation_play(spr_obj_newtron_fly, 3, 0);
 				
 				// Increment state
 				State++;

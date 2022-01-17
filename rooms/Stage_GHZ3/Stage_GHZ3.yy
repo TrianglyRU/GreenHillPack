@@ -1478,8 +1478,8 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "Green Hill Zone",
-    "path": "folders/Rooms/Green Hill Zone.yy",
+    "name": "Stage GHZ",
+    "path": "folders/Rooms/Stage GHZ.yy",
   },
   "resourceVersion": "1.0",
   "name": "Stage_GHZ3",

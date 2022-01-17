@@ -37,7 +37,7 @@ function InterfaceResultsDraw()
 				}
 				else if Stage.Time < 1800
 				{
-					ResultsValue[10] = 100; //50000;
+					ResultsValue[10] = 50000;
 				}			
 				else if Stage.Time >= 1800 and Stage.Time < 2700
 				{
