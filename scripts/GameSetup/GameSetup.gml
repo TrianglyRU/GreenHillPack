@@ -74,5 +74,6 @@ function GameSetup()
 	Game.BonusStageData  = [];
 	Game.SpecialRingData = [];
 	Game.SpecialRingList = [];
+	Game.TransitionData  = [];
 	Game.DemoData		 = [];
 }
