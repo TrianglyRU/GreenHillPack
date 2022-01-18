@@ -7,15 +7,18 @@ function ScreenTitleProcess()
 		exit;
 	}
 	
-	// Update palette
-	palette_handle_range(TypePrimary, 0, 4, 4, 1, 6);
+	// Update room
+	if State != TitleState.Settings
+	{
+		StateTimer++; palette_handle_range(TypePrimary, 0, 3, 4, 1, 6);
+	}
 	
 	// Play the music and scroll the background by moving the camera
-	if Game.GlobalTime == 1
+	if StateTimer == 1
 	{
 		audio_bgm_play(ChannelPrimary, TitleTheme);
 	}
-	else if Game.GlobalTime > 42
+	else if StateTimer > 42 and State != TitleState.Settings
 	{
 		Camera.PosX += 2;
 	}
@@ -25,7 +28,7 @@ function ScreenTitleProcess()
 	{
 		case TitleState.preRoll:
 		{		
-			if Game.GlobalTime > 408 and !LoadFlag
+			if StateTimer == 409
 			{
 				LoadFlag = TitleLoad.loadDemo; fade_perform(ModeInto, BlendBlack, 1);
 				
@@ -38,7 +41,10 @@ function ScreenTitleProcess()
 			}
 			else if Input.StartPress
 			{
-				State = TitleState.Main; audio_sfx_play(sfxStarPost, false);
+				if StateTimer > 29
+				{
+					State = TitleState.Main; audio_sfx_play(sfxStarPost, false);
+				}
 			}
 		}
 		break;
@@ -61,21 +67,12 @@ function ScreenTitleProcess()
 				case 0:
 				{
 					// Set data
-					Game.Character  =  choose(CharSonic, CharTails, CharKnuckles);
 					Game.Emeralds   =  0;
 					Game.Lives	    =  3;
 					Game.Continues  =  0;
 					Game.Score	    =  0;
 					Game.ActiveSave = -1;
 					
-					// Announce character
-					switch Game.Character
-					{
-						case CharSonic:    CharSound = sfxVOSonic; break;
-						case CharTails:    CharSound = sfxVOTails; break;
-						case CharKnuckles: CharSound = sfxVOKnux;  break;
-					}
-					audio_sfx_play(CharSound,      false); 
 					audio_sfx_play(sfxStarPost,    false);
 					audio_bgm_stop(ChannelPrimary, 0.5);
 						
@@ -84,8 +81,16 @@ function ScreenTitleProcess()
 				}
 				break;
 				case 1:
-				{
-					audio_sfx_play(sfxFail, false);
+				{	
+					// Replace palette
+					palette_set_colour_range(TypePrimary, 0, 3,  5);
+					palette_set_colour_range(TypePrimary, 4, 19, 2);
+					
+					// Set flags
+					State = TitleState.Settings; Background.AllowScrolling = false;
+					
+					// Play sound
+					audio_sfx_play(sfxStarPost, false);
 				}
 				break;
 				case 2:
@@ -98,6 +103,72 @@ function ScreenTitleProcess()
 		break;
 		case TitleState.Settings:
 		{
+			// Loop through options
+			if Input.UpPress
+			{
+				if SettingOption == 15
+				{
+					SettingOption = 12;
+				}
+				else if SettingOption == 20
+				{
+					SettingOption = 16;
+				}
+				else
+				{
+					SettingOption--; 
+				}
+				audio_sfx_play(sfxScoreCount, false);
+				
+			}
+			else if Input.DownPress
+			{
+				if SettingOption == 12
+				{
+					SettingOption = 15;
+				}
+				else if SettingOption == 16
+				{
+					SettingOption = 20;
+				}
+				else
+				{
+					SettingOption++; 
+				}
+				audio_sfx_play(sfxScoreCount, false);		
+			}
+			SettingOption = loop_value(SettingOption, 2, array_length(StringData));
+			
+			// Toggle options
+			switch SettingOption
+			{
+				case 2: Game.Character		    = toggle_option(Game.Character, 2);	         break;
+				case 3: Game.SpindashEnabled    = toggle_option(Game.SpindashEnabled, 1);    break;
+				case 4: Game.PeeloutEnabled     = toggle_option(Game.PeeloutEnabled, 1);     break;
+				case 5: Game.DSpinAttackEnabled = toggle_option(Game.DSpinAttackEnabled, 1); break;
+				case 6: Game.RolljumpControl    = toggle_option(Game.RolljumpControl, 1);	 break;
+				case 7: Game.FlightCancel       = toggle_option(Game.FlightCancel, 1);	     break;
+				case 8:							  toggle_option("speedcap", 2);				 break;
+				case 9:  Game.StageTransitions  = toggle_option(Game.StageTransitions, 1);   break;
+				case 10: Game.SmoothRotation    = toggle_option(Game.SmoothRotation, 1);     break;
+				case 11: Game.CDCamera		    = toggle_option(Game.CDCamera, 1);		     break;
+				case 12: Game.CDStageTimer      = toggle_option(Game.CDStageTimer, 1);       break;
+				case 15:						  toggle_option("fullscreen", "");			 break;
+				case 16:						  toggle_option("size", 4);					 break;
+				case 20:						  toggle_option("music", 10);				 break;
+				case 21:						  toggle_option("sound", 10);				 break;
+				default: break;
+			}
+			
+			if Input.BPress
+			{		
+				Background.AllowScrolling = true;
+				palette_set_colour_range(TypePrimary, 0, 19, 1); audio_sfx_play(sfxStarPost, false);
+				
+				// Reset state
+				State		  = TitleState.Main;
+				SettingOption = 2;
+			}
 		}
 		break;
 	}

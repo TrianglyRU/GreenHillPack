@@ -7,7 +7,7 @@ function GameSetup()
 	
 	/* If set to false the game will load into the DevMenu, else into the room you choose.
 	This won't work if Game.ShowSplash is enabled */
-	Game.ForceLoad = Screen_SEGA;	
+	Game.ForceLoad = Screen_Title;	
 	
 	// Originals differences
 	Game.SpindashEnabled    = true;
@@ -46,7 +46,7 @@ function GameSetup()
 	Game.WindowSize	      = 3;
 	
 	// Audio settings
-	Game.MusicVolume = 0.5;
+	Game.MusicVolume = 0;
 	Game.SoundVolume = 0.5;
 	
 	// Control settings (keyboard)

@@ -41,7 +41,7 @@ function BackgroundProcess()
 		shader_set(ShaderParallax);
 	
 		// Define if autoscroll value should be able to update
-		if fade_check(StateActive) or variable_check(Stage, "IsPaused") or variable_check(Player, "Death")
+		if fade_check(StateActive) or variable_check(Stage, "IsPaused") or variable_check(Player, "Death") or !AllowScrolling
 		{
 			var UpdateAutoscroll = false;
 		}

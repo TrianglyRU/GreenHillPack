@@ -5,7 +5,7 @@ function ScreenTitleEvent()
 	{
 		exit;
 	}
-	if fade_check(StateMax) and !audio_sfx_is_playing(CharSound)
+	if fade_check(StateMax)
 	{
 		switch LoadFlag
 		{

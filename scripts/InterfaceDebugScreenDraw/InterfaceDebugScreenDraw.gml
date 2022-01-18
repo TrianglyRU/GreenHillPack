@@ -3,8 +3,7 @@ function InterfaceDebugScreenDraw()
 	if DebugFPS
 	{
 		// Set font
-		draw_set_halign(fa_left);
-		draw_set_font(game_font(font_default));
+		draw_set_halign(fa_left); draw_set_font(game_font(font_default));
 		
 		// Draw FPS counter
 		if !DebugVariables
