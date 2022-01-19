@@ -23,8 +23,8 @@ function BackgroundProcess()
 	else
 	{
 		// Formula: "XDistance camera passed in the previous act(s)" - "initial camera PosX for this act after the transition"
-		var DistanceGHZ1 = 9568  - Game.Width / 2 - 152;
-		var DistanceGHZ2 = 10080 - Game.Width / 2 + DistanceGHZ1 - 152;
+		var DistanceGHZ1 = 9568  - Game.Width / 2 - (352 - Game.Width / 2);
+		var DistanceGHZ2 = 10080 - Game.Width / 2 + DistanceGHZ1 - (352 - Game.Width / 2);
 		
 		switch room
 		{
@@ -40,21 +40,11 @@ function BackgroundProcess()
 		draw_clear(BGColour);
 		shader_set(ShaderParallax);
 	
-		// Define if autoscroll value should be able to update
-		if fade_check(StateActive) or variable_check(Stage, "IsPaused") or variable_check(Player, "Death") or !AllowScrolling
-		{
-			var UpdateAutoscroll = false;
-		}
-		else
-		{
-			var UpdateAutoscroll = true;
-		}
-	
 		var Length = array_length(BGSprites);
 		for (var i = 0; i < Length; i++)
 		{
 			// Update autoscroll value
-			if UpdateAutoscroll
+			if Game.UpdateAnimations
 			{
 				BGValues[i][12] += BGValues[i][4];
 			}
@@ -78,7 +68,7 @@ function BackgroundProcess()
 			var DrawY = floor(Camera.ViewY * (1 - ScrollY)) + PosY;
 		
 			// Set y-scale mode properties
-			if InclineY and variable_check(Stage, "WaterLevel")
+			if InclineY and instance_exists(Stage)
 			{
 				var YScale = clamp((Stage.WaterLevel - DrawY) / Height, -1, 1);
 			} 
@@ -94,7 +84,7 @@ function BackgroundProcess()
 			}
 			else
 			{
-				var Frame = Game.GlobalTime div AnimSpeed mod sprite_get_number(BGSprites[i]);
+				var Frame = Game.AnimationTime[? GlobalTime] div AnimSpeed mod sprite_get_number(BGSprites[i]);
 			}
 		
 			// Transfer data to the shader

@@ -39,7 +39,7 @@ function PlayerAnimate()
 					{
 						if abs(Inertia) < 6
 						{
-							var Sprite = spr_sonic_walk;
+							animation_play(spr_sonic_walk, round(max(1, 8 - abs(Inertia))), 0);
 						}
 						else
 						{
@@ -57,9 +57,9 @@ function PlayerAnimate()
 							else
 							{
 								var Sprite = spr_sonic_run;
-							}	
+							}
+							animation_play(Sprite, round(max(1, 9 - abs(Inertia))), 0);
 						}
-						animation_play(Sprite, round(max(1, 8 - abs(Inertia))), 0);
 					}
 					break;
 					case AnimPeelout:
@@ -296,17 +296,20 @@ function PlayerAnimate()
 				{
 					if abs(Inertia) < 6
 					{
-						var Sprite = spr_tails_walk;
+						animation_play(spr_tails_walk, round(max(1, 8 - abs(Inertia))), 0);
 					}
-					else if abs(Inertia) < 10
+					else 
 					{
-						var Sprite = spr_tails_run;
+						if abs(Inertia) < 10
+						{
+							var Sprite = spr_tails_run;
+						}
+						else
+						{
+							var Sprite = spr_tails_dash;
+						}
+						animation_play(Sprite, round(max(1, 9 - abs(Inertia))), 0);
 					}
-					else
-					{
-						var Sprite = spr_tails_dash;
-					}
-					animation_play(Sprite, round(max(1, 8 - abs(Inertia))), 0);
 				}
 				break;
 				case AnimSpin:
@@ -410,13 +413,12 @@ function PlayerAnimate()
 				{
 					if abs(Inertia) < 6
 					{
-						var Sprite = spr_knuckles_walk;
+						animation_play(spr_knuckles_walk, round(max(1, 8 - abs(Inertia))), 0);
 					}
 					else
 					{
-						var Sprite = spr_knuckles_run;
+						animation_play(spr_knuckles_run, round(max(1, 9 - abs(Inertia))), 0);
 					}
-					animation_play(Sprite, round(max(1, 8 - abs(Inertia))), 0);
 				}
 				break;
 				case AnimSpin:

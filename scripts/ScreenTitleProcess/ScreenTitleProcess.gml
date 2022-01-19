@@ -1,26 +1,27 @@
 function ScreenTitleProcess()
 {
 	/* Exit if fade is active. Notice that because of this we perform
-	transition in the Draw End event !*/
+	transition in the Step End event !*/
 	if fade_check(StateActive)
 	{
 		exit;
 	}
-	
+
 	// Update room
 	if State != TitleState.Settings
 	{
-		StateTimer++; palette_handle_range(TypePrimary, 0, 3, 4, 1, 6);
-	}
-	
-	// Play the music and scroll the background by moving the camera
-	if StateTimer == 1
-	{
-		audio_bgm_play(ChannelPrimary, TitleTheme);
-	}
-	else if StateTimer > 42 and State != TitleState.Settings
-	{
-		Camera.PosX += 2;
+		if (++StateTimer) == 1
+		{
+			Game.UpdateAnimations = true; 
+			Camera.Enabled        = true;
+			
+			audio_bgm_play(ChannelPrimary, TitleTheme);
+		} 
+		else if StateTimer > 42
+		{
+			Camera.PosX += 2;
+		}
+		palette_handle_range(TypePrimary, 0, 3, 4, 1, 6);
 	}
 	
 	// State Machine
@@ -38,6 +39,8 @@ function ScreenTitleProcess()
 				Game.Continues  =  0;
 				Game.Score	    =  0;
 				Game.ActiveSave = -1;
+
+				Game.UpdateAnimations = false;
 			}
 			else if Input.StartPress
 			{
@@ -67,35 +70,38 @@ function ScreenTitleProcess()
 				case 0:
 				{
 					// Set data
-					Game.Emeralds   =  0;
-					Game.Lives	    =  3;
-					Game.Continues  =  0;
-					Game.Score	    =  0;
-					Game.ActiveSave = -1;
+					Game.Emeralds         =  0;
+					Game.Lives			  =  3;
+					Game.Continues		  =  0;
+					Game.Score			  =  0;
+					Game.ActiveSave		  = -1;
+					
+					Game.UpdateAnimations = false;
+					LoadFlag			  = TitleLoad.loadStage;	
 					
 					audio_sfx_play(sfxStarPost,    false);
 					audio_bgm_stop(ChannelPrimary, 0.5);
-						
-					// Fade out
-					LoadFlag = TitleLoad.loadStage; fade_perform(ModeInto, BlendBlack, 1);
+					
+					fade_perform(ModeInto, BlendBlack, 1);
 				}
 				break;
 				case 1:
 				{	
-					// Replace palette
 					palette_set_colour_range(TypePrimary, 0, 3,  5);
 					palette_set_colour_range(TypePrimary, 4, 19, 2);
 					
-					// Set flags
-					State = TitleState.Settings; Background.AllowScrolling = false;
-					
-					// Play sound
 					audio_sfx_play(sfxStarPost, false);
+					
+					Game.UpdateAnimations = false;
+					State				  = TitleState.Settings;	
 				}
 				break;
 				case 2:
 				{
-					LoadFlag = TitleLoad.loadEnd; fade_perform(ModeInto, BlendBlack, 1); audio_sfx_play(sfxStarPost, false);
+					fade_perform(ModeInto, BlendBlack, 1); audio_sfx_play(sfxStarPost, false);
+					
+					Game.UpdateAnimations = false;
+					LoadFlag			  = TitleLoad.loadEnd; 
 				}
 				break;
 			}
@@ -106,13 +112,13 @@ function ScreenTitleProcess()
 			// Loop through options
 			if Input.UpPress
 			{
-				if SettingOption == 15
+				if SettingOption == 16
 				{
-					SettingOption = 12;
+					SettingOption = 13;
 				}
-				else if SettingOption == 20
+				else if SettingOption == 21
 				{
-					SettingOption = 16;
+					SettingOption = 17;
 				}
 				else
 				{
@@ -123,13 +129,13 @@ function ScreenTitleProcess()
 			}
 			else if Input.DownPress
 			{
-				if SettingOption == 12
+				if SettingOption == 13
 				{
-					SettingOption = 15;
+					SettingOption = 16;
 				}
-				else if SettingOption == 16
+				else if SettingOption == 17
 				{
-					SettingOption = 20;
+					SettingOption = 21;
 				}
 				else
 				{
@@ -149,25 +155,30 @@ function ScreenTitleProcess()
 				case 6: Game.RolljumpControl    = toggle_option(Game.RolljumpControl, 1);	 break;
 				case 7: Game.FlightCancel       = toggle_option(Game.FlightCancel, 1);	     break;
 				case 8:							  toggle_option("speedcap", 2);				 break;
-				case 9:  Game.StageTransitions  = toggle_option(Game.StageTransitions, 1);   break;
-				case 10: Game.SmoothRotation    = toggle_option(Game.SmoothRotation, 1);     break;
-				case 11: Game.CDCamera		    = toggle_option(Game.CDCamera, 1);		     break;
-				case 12: Game.CDStageTimer      = toggle_option(Game.CDStageTimer, 1);       break;
-				case 15:						  toggle_option("fullscreen", "");			 break;
-				case 16:						  toggle_option("size", 4);					 break;
-				case 20:						  toggle_option("music", 10);				 break;
-				case 21:						  toggle_option("sound", 10);				 break;
+				case 9:  Game.ElementalBarriers = toggle_option(Game.ElementalBarriers, 1);  break;
+				case 10: Game.StageTransitions  = toggle_option(Game.StageTransitions, 1);   break;
+				case 11: Game.SmoothRotation    = toggle_option(Game.SmoothRotation, 1);     break;
+				case 12: Game.CDCamera		    = toggle_option(Game.CDCamera, 1);		     break;
+				case 13: Game.CDStageTimer      = toggle_option(Game.CDStageTimer, 1);       break;
+				case 16:						  toggle_option("fullscreen", "");			 break;
+				case 17:						  toggle_option("size", 4);					 break;
+				case 21:						  toggle_option("music", 10);				 break;
+				case 22:						  toggle_option("sound", 10);				 break;
 				default: break;
 			}
 			
 			if Input.BPress
-			{		
-				Background.AllowScrolling = true;
-				palette_set_colour_range(TypePrimary, 0, 19, 1); audio_sfx_play(sfxStarPost, false);
-				
+			{	
 				// Reset state
-				State		  = TitleState.Main;
-				SettingOption = 2;
+				Game.UpdateAnimations = true; 
+				SettingOption		  = 2;
+				State				  = TitleState.Main; 
+				
+				palette_set_colour_range(TypePrimary, 0, 19, 1); 
+				audio_sfx_play(sfxStarPost, false);
+				
+				// Save settings
+				gametweaks_save(); gamesettings_save("config");
 			}
 		}
 		break;

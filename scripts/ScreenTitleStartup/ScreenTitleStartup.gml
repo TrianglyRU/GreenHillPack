@@ -36,7 +36,8 @@ function ScreenTitleStartup()
 		"ROLLJUMP CONTROL",
 		"FLIGHT CANCEL",
 		"SPEED CAP",
-		"STAGE TRANSITIONS",
+		"ELEMENTAL BARRIERS",
+		"STAGE TRANSITIONS",	
 		"SMOOTH ROTATION",
 		"CAMERA STYLE",
 		"TIMER STYLE",
@@ -52,5 +53,5 @@ function ScreenTitleStartup()
 	];
 	
 	// Fade in
-	fade_perform(ModeFrom, BlendBlack, 1);
+	fade_perform(ModeFrom, BlendBlack, 1); Game.UpdateAnimations = false;
 }

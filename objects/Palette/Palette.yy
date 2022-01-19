@@ -30,7 +30,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Palette",
-    "path": "folders/Game Logic/Palette.yy",
+    "path": "folders/Game Code/Palette.yy",
   },
   "resourceVersion": "1.0",
   "name": "Palette",

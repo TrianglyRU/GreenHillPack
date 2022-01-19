@@ -1,7 +1,7 @@
 function CameraStartup() 
 {
 	Target		   = Player;
-	Enabled		   = true;
+	Enabled		   = false;
 	MaxShiftX	   = 16;
 	MaxShiftY	   = 16;
 	TargetX	       = 0;

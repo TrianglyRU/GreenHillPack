@@ -4,13 +4,13 @@
 	switch WallType
 	{
 		case "Edge":
-			animation_set(sprite_index, 1);
+			image_index = 1;
 		break;
 		case "Bright":
-			animation_set(sprite_index, 2);
+			image_index = 2;
 		break;
 		case "Dark":
-			animation_set(sprite_index, 3);
+			image_index = 3;
 		break;
 	}
 	

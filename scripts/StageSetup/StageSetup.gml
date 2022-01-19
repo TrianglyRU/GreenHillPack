@@ -11,7 +11,7 @@ function StageSetup()
 	{	
 		case Stage_GHZ1:
 		{
-			ZoneName	     = "GREEN HILL";
+			ZoneName	     = "GREEN Hil1";
 			ZoneID		     = 0;
 			ActID		     = 0;
 			FinalActID       = 2;
@@ -29,7 +29,7 @@ function StageSetup()
 		break;
 		case Stage_GHZ2:
 		{
-			ZoneName	     = "GREEN HILL";
+			ZoneName	     = "GREEN Hil1";
 			ZoneID		     = 0;
 			ActID		     = 1;
 			FinalActID       = 2;
@@ -47,7 +47,7 @@ function StageSetup()
 		break;
 		case Stage_GHZ3:
 		{
-			ZoneName	     = "GREEN HILL";
+			ZoneName	     = "GREEN Hil1";
 			ZoneID		     = 0;
 			ActID		     = 2;
 			FinalActID       = 2;
@@ -60,7 +60,7 @@ function StageSetup()
 			BottomBoundary	 = 992;
 			AnimatedGraphics = [tex_ghz_anitile00, 21, tex_ghz_anitile01, 10];
 			AnimalSet	     = [spr_obj_animal_flicky, spr_obj_animal_ricky];
-			NextStage		 = Screen_DevMenu;
+			NextStage		 = Screen_SEGA;
 		}
 		break;
 		default:

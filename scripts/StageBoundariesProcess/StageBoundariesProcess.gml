@@ -1,10 +1,5 @@
 function StageBoundariesProcess()
 {	
-	if !DoUpdate
-	{
-		exit;
-	}
-	
 	// Update left boundary
 	if LeftBoundary < TargetLeftBoundary
 	{

@@ -1,12 +1,10 @@
 function PlayerDebugMode()
 {
-	// Exit if not in devmode or stage is inactive (but procees if player died)
-	if !Game.DevMode or !(Player.Death or Stage.DoUpdate) 
+	// Check if we should exit
+	if !Game.DevMode or fade_check(StateActive)
 	{
 		return false;
 	}
-	
-	// Exit if player has died and fell off-screen
 	if Player.Death and floor(Player.PosY) >= Camera.ViewY + Game.Height
 	{
 		return false;
@@ -45,12 +43,12 @@ function PlayerDebugMode()
 			// Cancel death event
 			if (Death or Drown) and floor(Player.PosY) < Camera.ViewY + Game.Height
 			{
-				DrawOrder		  = layer_get_depth("Objects");
-				Death		      = false;
-				Drown             = false;
-				Camera.Enabled    = true;
-				Stage.DoUpdate    = true;
-				Stage.TimeEnabled = true;
+				DrawOrder		    = layer_get_depth("Objects");
+				Death		        = false;
+				Drown               = false;
+				Camera.Enabled      = true;
+				Stage.UpdateObjects = true;
+				Stage.TimeEnabled   = true;
 			}
 			
 			// Reset air timer and restore music

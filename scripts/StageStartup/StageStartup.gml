@@ -1,14 +1,14 @@
 function StageStartup()
 {
 	// Initialise variables
-	EventTimer	= 0;
-	IsFinished	= 0;
-	IsPaused	= 0;
-	IsGameOver	= 0;
-	Time		= 0;
-	TimeEnabled	= 0;
-	DoUpdate	= 0;
-	IsBossfight = -1;
+	IsBossfight   = -1;
+	RestartTimer  = 0;
+	RestartEvent  = 0;
+	IsFinished	  = 0;
+	IsPaused	  = 0;
+	Time		  = 0;
+	TimeEnabled	  = 0;
+	UpdateObjects = false;
 	
 	// Store current zone ID and room index
 	Game.Stage     = ZoneID;

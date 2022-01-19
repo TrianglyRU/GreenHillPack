@@ -11,4 +11,7 @@ function GameControllersLoad()
 		instance_create(x, y, Palette);
 		instance_create(x, y, Camera);
 	}
+	
+	// Enable animations
+	Game.UpdateAnimations = true;
 }

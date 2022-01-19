@@ -47,11 +47,11 @@ function InterfacePauseProcess()
 				// Return to stage
 				case 0:
 				{
-					Camera.Enabled = true;
-					Stage.IsPaused = false;	
-					
-					// Manually enable stage update to avoid 1 frame delay
-					Stage.DoUpdate = true;
+					Stage.IsPaused        = false;
+					Stage.TimeEnabled     = true;
+					Stage.UpdateObjects   = true;
+					Camera.Enabled        = true;
+					Game.UpdateAnimations = true;
 					
 					// Activate objects
 					instance_activate_range(Camera.ViewX);
@@ -114,7 +114,7 @@ function InterfacePauseProcess()
 	else if Input.StartPress
 	{
 		// If we pressed start button and are allowed to pause, then pause!
-		if CardValue[1] == 3 and Stage.DoUpdate and !Stage.IsFinished
+		if CardValue[1] == 3 and !Stage.IsFinished
 		{
 			// Do not react if in demo mode
 			if Game.DemoMode
@@ -122,12 +122,12 @@ function InterfacePauseProcess()
 	            exit;
 	        }
 			
-			Input.StartPress = false;
-			Camera.Enabled   = false;
-			Stage.IsPaused	 = true;
-			
-			// Manually disable stage update to avoid 1 frame delay
-			Stage.DoUpdate = false;
+			Game.UpdateAnimations = false;
+			Stage.UpdateObjects   = false;
+			Stage.TimeEnabled     = false;
+			Stage.IsPaused	      = true;
+			Input.StartPress	  = false;
+			Camera.Enabled        = false;
 			
 			audio_pause_all();
 			audio_sfx_play(sfxPauseSelect, false);

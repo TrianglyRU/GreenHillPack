@@ -1,5 +1,5 @@
 function StartupScreenStartup()
 {
 	// Initialise variable
-	RoomTimer = 16;
+	RoomTimer = 32;
 }

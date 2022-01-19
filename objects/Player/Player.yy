@@ -30,7 +30,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Player",
-    "path": "folders/Game Logic/Player.yy",
+    "path": "folders/Game Code/Player.yy",
   },
   "resourceVersion": "1.0",
   "name": "Player",

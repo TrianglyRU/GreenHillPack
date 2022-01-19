@@ -4,6 +4,7 @@ function GameMacro()
 	#macro Shader	   global
 	#macro Game		   global
 	#macro GameCamera  view_camera[0]
+	#macro GlobalTime  -1
 
 	// Object macro
 	#macro TypeBadnik  0

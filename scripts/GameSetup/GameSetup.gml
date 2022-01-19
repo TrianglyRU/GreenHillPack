@@ -7,7 +7,7 @@ function GameSetup()
 	
 	/* If set to false the game will load into the DevMenu, else into the room you choose.
 	This won't work if Game.ShowSplash is enabled */
-	Game.ForceLoad = Screen_Title;	
+	Game.ForceLoad = false;	
 	
 	// Originals differences
 	Game.SpindashEnabled    = true;
@@ -27,9 +27,10 @@ function GameSetup()
 	Game.SKItemBoxBehaviour = false;
 	Game.CDStageTimer	    = false;
 	Game.StageTransitions   = true;
+	Game.ElementalBarriers  = false;
 	
 	// Orbinaut improvements
-	Game.SmoothRotation	      = true;
+	Game.SmoothRotation	      = false;
 	Game.RichPresenceSupport  = true;
 	Game.BetterPlayerTileGrip = false;
 	Game.PreciseRingBehaviour = false;
@@ -52,29 +53,29 @@ function GameSetup()
 	// Control settings (keyboard)
 	Game.KeyboardControl = [vk_up, vk_down, vk_left, vk_right, ord("Z"), ord("X"), ord("C"), vk_space, vk_enter];
 	
-	// Initialise other variables
-	Game.Character		 = 0;
-	Game.GlobalTime		 = 0;
-	Game.SpriteTimers    = 0;
-	Game.ActiveSave      = 0;
-	Game.SaveData		 = 0;
-	Game.SaveState       = 0;
-	Game.Score		     = 0;
-	Game.Lives		     = 0;
-	Game.Continues	     = 0;
-	Game.Emeralds	     = 0;
-	Game.Stage			 = 0;
-	Game.StageRoom       = 0;
-	Game.SpecialScore    = 0;
-	Game.SpecialState    = 0;
-	Game.DemoMode		 = 0;
-	Game.DemoQueue		 = 0;
-	Game.DiscordTime	 = 0;
-	Game.DiscordEvent	 = "";
-	Game.TransitionData  = [];
-	Game.StarPostData    = [];
-	Game.BonusStageData  = [];
-	Game.SpecialRingData = [];
-	Game.SpecialRingList = [];
-	Game.DemoData		 = [];	
+	// Initialise other variables	
+	Game.Character		   = 0;
+	Game.AnimationTime     = 0;
+	Game.ActiveSave        = 0;
+	Game.SaveData		   = 0;
+	Game.SaveState         = 0;
+	Game.Score		       = 0;
+	Game.Lives		       = 0;
+	Game.Continues	       = 0;
+	Game.Emeralds	       = 0;
+	Game.Stage			   = 0;
+	Game.StageRoom         = 0;
+	Game.SpecialScore      = 0;
+	Game.SpecialState      = 0;
+	Game.DemoMode		   = 0;
+	Game.DemoQueue		   = 0;
+	Game.UpdateAnimations  = 0;
+	Game.DiscordTime	   = 0;
+	Game.DiscordEvent	   = "";
+	Game.TransitionData    = [];
+	Game.StarPostData      = [];
+	Game.BonusStageData    = [];
+	Game.SpecialRingData   = [];
+	Game.SpecialRingList   = [];
+	Game.DemoData		   = [];	
 }

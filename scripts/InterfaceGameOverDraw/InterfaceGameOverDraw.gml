@@ -1,6 +1,6 @@
 function InterfaceGameOverDraw()
 {
-	if !Stage.IsGameOver
+	if !Stage.RestartEvent
 	{
 		exit;
 	}

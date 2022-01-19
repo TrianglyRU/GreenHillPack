@@ -29,7 +29,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Audio",
-    "path": "folders/Game Logic/Audio.yy",
+    "path": "folders/Game Code/Audio.yy",
   },
   "resourceVersion": "1.0",
   "name": "Audio",

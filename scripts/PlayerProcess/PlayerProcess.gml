@@ -1,7 +1,11 @@
 function PlayerProcess()
 {
-	// Do not process player events if something of the following is happening
-	if DebugMode or Stage.IsPaused or (!Game.DemoMode and fade_check(StateActive))
+	// Check if we should not process player
+	if DebugMode or Stage.IsPaused
+	{
+		return false;
+	}
+	if fade_check(StateActive) and !Game.DemoMode
 	{
 		return false;
 	}

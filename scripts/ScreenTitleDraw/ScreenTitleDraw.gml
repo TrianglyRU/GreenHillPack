@@ -23,10 +23,6 @@ function ScreenTitleDraw()
 			draw_animated_sprite(tex_title_startbutton, 32, false, TextX, TextY);
 		}
 		break;
-		case TitleState.Settings:
-		{
-		}
-		break;
 		case TitleState.Main:
 		{
 			draw_sprite(tex_title_options, StateOption, TextX, TextY);
@@ -35,11 +31,7 @@ function ScreenTitleDraw()
 			draw_animated_sprite_ext(tex_title_options_arrow, 8, true, TextX + (48 - StateOption * 12), TextY, -1, 1);
 		}
 		break;
-		default:
-		{
-			
-		}
-		break;
+		default: break;
 	}
 	
 
@@ -80,11 +72,11 @@ function ScreenTitleDraw()
 		}
 		else if StateTimer < 87
 		{
-			draw_sprite(tex_title_sonic1_brown, Game.SpriteTimers[? tex_title_sonic1] div 8 mod sprite_get_number(tex_title_sonic1), SonicX, SonicY);
+			draw_sprite(tex_title_sonic1_brown, Game.AnimationTime[? tex_title_sonic1] div 8 mod sprite_get_number(tex_title_sonic1), SonicX, SonicY);
 		}
 		else if StateTimer < 376
 		{
-			draw_sprite(tex_title_sonic2_brown, Game.SpriteTimers[? tex_title_sonic2] div 8 mod sprite_get_number(tex_title_sonic2), SonicX, SonicY);
+			draw_sprite(tex_title_sonic2_brown, Game.AnimationTime[? tex_title_sonic2] div 8 mod sprite_get_number(tex_title_sonic2), SonicX, SonicY);
 		}
 		else
 		{
@@ -113,6 +105,7 @@ function ScreenTitleDraw()
 			get_boolean(Game.RolljumpControl),
 			get_boolean(Game.FlightCancel),
 			get_option("speedcap"),
+			get_boolean(Game.ElementalBarriers),
 			get_boolean(Game.StageTransitions),
 			get_boolean(Game.SmoothRotation),
 			get_option("camera"),
@@ -129,7 +122,7 @@ function ScreenTitleDraw()
 		];
 		
 		// Define a range of options to display
-		var Length = SettingOption <= 12 ? [0, 12] : [13, array_length(StringData) - 1];
+		var Length = SettingOption <= 13 ? [0, 13] : [14, array_length(StringData) - 1];
 		
 		for (var i = Length[0]; i <= Length[1]; i++)
 		{
@@ -141,18 +134,21 @@ function ScreenTitleDraw()
 			{
 				draw_set_colour($FCFCD9);
 			}
-			if i == 0 or i == 13 or i == 18
+			if i == 0 or i == 14 or i == 19
 			{
 				draw_set_halign(fa_center);
-				draw_text(Camera.ViewX + Game.Width / 2,  24 + (i < 13 ? i * 12 : (i - 13) * 12), StringData[i]);
+				draw_text(Camera.ViewX + Game.Width / 2, 24 + (i < 14 ? i * 12 : (i - 14) * 12), StringData[i]);
 			}
 			else
 			{
+				var Left  = Game.Width == 400 ? 90 : 64;
+				var Right = Game.Width == 400 ? 81 : 55;
+				
 				draw_set_halign(fa_left);  
-				draw_text(Camera.ViewX + 90,			  24 + (i < 13 ? i * 12 : (i - 13) * 12), StringData[i]);
+				draw_text(Camera.ViewX + Left, 24 + (i < 14 ? i * 12 : (i - 14) * 12), StringData[i]);
 			
 				draw_set_halign(fa_right); 
-				draw_text(Camera.ViewX + Game.Width - 81, 24 + (i < 13 ? i * 12 : (i - 13) * 12), OptionsData[i]);
+				draw_text(Camera.ViewX + Game.Width - Right, 24 + (i < 14 ? i * 12 : (i - 14) * 12), OptionsData[i]);
 			}
 			draw_set_colour($FFFFFF);
 		}

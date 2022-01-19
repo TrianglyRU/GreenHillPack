@@ -4,21 +4,21 @@ function draw_animated_sprite(spriteid,duration,useGlobalTime,x,y)
 	// Set duration timer for that sprite
 	if !useGlobalTime
 	{
-		if !ds_map_exists(Game.SpriteTimers, spriteid)
+		if !ds_map_exists(Game.AnimationTime, spriteid)
 		{
-			Game.SpriteTimers[? spriteid] = 0;
+			ds_map_add(Game.AnimationTime, spriteid, 0);
 		}
 	
 		// Count timer
-		else if !fade_check(StateActive) and !variable_check(Stage, "IsPaused")
+		else if Game.UpdateAnimations
 		{
-			Game.SpriteTimers[? spriteid]++;
+			Game.AnimationTime[? spriteid]++;
 		}
-		var Timer = Game.SpriteTimers[? spriteid];
+		var Timer = Game.AnimationTime[? spriteid];
 	}
 	else
 	{
-		var Timer = Game.GlobalTime;
+		var Timer = Game.AnimationTime[? GlobalTime];
 	}
 	
 	// Draw sprite

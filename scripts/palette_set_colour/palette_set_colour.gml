@@ -1,8 +1,7 @@
 /// @function palette_set_colour(palType,iCol,rCol)
 function palette_set_colour(palType,iCol,rCol)
 {
-	// Exit if no pallete set, playable stage is paused or fade is active
-	if Palette.ColourSet[palType] == false or variable_check(Stage, "IsPaused") or fade_check(StateActive)
+	if Palette.ColourSet[palType] == false or !Game.UpdateAnimations
 	{
 		exit;
 	}

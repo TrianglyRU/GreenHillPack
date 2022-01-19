@@ -4,3 +4,4 @@
 	// Collision Initialisation Scripts
 	GameCollisionsSetup();
 	GameCollisionsLoad();
+	GameAnimationsStartup();

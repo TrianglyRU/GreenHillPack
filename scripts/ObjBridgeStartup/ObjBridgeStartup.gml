@@ -4,7 +4,7 @@ function ObjBridgeStartup()
 	1. BridgeLength,  default = 12
 	2. GeneratePosts, default = true
 	*/
-	
+
 	// Setup object
 	switch room
 	{

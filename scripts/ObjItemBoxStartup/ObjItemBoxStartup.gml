@@ -14,6 +14,12 @@ function ObjItemBoxStartup()
 	IsFalling = 0;
 	State	  = 0;
 	Ysp		  = 0;
+	
+	// Re-assign BoxType
+	if Game.ElementalBarriers
+	{
+		BoxType = BoxType2;
+	}
 
 	// Set item card to display
 	switch BoxType

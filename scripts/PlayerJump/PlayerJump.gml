@@ -80,12 +80,15 @@ function PlayerJump()
 				{
 					if Game.DSpinAttackEnabled and !(InvincibleBonus or SuperState or DoubleSpinAttack != SpinReady)
 					{
-						// Set flag
-						DoubleSpinAttack = SpinActive;
+						if Stage.IsFinished < 2
+						{
+							// Set flag
+							DoubleSpinAttack = SpinActive;
 					
-						// Create object and play sound
-						instance_create(PosX, PosY, DoubleSpinShield);
-						audio_sfx_play(sfxDoubleSpinAttack, false);
+							// Create object and play sound
+							instance_create(PosX, PosY, DoubleSpinShield);
+							audio_sfx_play(sfxDoubleSpinAttack, false);
+						}
 					}
 				}
 				

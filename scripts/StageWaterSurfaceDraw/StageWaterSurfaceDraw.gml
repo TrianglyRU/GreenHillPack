@@ -1,7 +1,7 @@
 function StageWaterSurfaceDraw()
 {
     // Check if we should exit
-    if !WaterEnabled or Game.GlobalTime mod 2
+    if !WaterEnabled or Game.AnimationTime[? GlobalTime] mod 2
     {
         exit;
     }

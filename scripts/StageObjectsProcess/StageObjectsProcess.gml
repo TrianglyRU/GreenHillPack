@@ -1,6 +1,6 @@
 function StageObjectsProcess() 
 {	
-	if DoUpdate
+	if UpdateObjects
 	{
 		// Get active bounds
 		var LeftBound  = (Camera.ViewX - 128) & -128;

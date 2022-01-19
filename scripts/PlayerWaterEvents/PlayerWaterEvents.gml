@@ -67,7 +67,7 @@ function PlayerWaterEvents()
 			if !Drown
 			{
 				// Play sound
-				audio_sfx_play(sfxDrowning, false);
+				audio_sfx_play(sfxDrown, false);
 				
 				// Reset speeds
 				Xsp	= 0;
@@ -119,7 +119,6 @@ function PlayerWaterEvents()
 		// Check for leaving the water
 		if PosY < Stage.WaterLevel and !Death
 		{
-			// Destroy player bubble maker object
 			if instance_exists(BubbleController)
 			{
 				instance_destroy(BubbleController);
@@ -163,27 +162,21 @@ function PlayerWaterEvents()
 				{
 					Ysp *= 2;
 				}
-				
-				// Reset gravity (if not flying)
 				if !FlightState
 				{
 					Grv = 0.21875;
 				}
-				
-				// Limit vertical speed
 				if Ysp < -16
 				{
 					Ysp = -16;
 				}
 			}
 			
-			// Play sound
+			// Play Tails' tails sound
 			if FlightState
 			{
 				audio_sfx_play(sfxFlying, true);
 			}
-			IsUnderwater = false;	
-			AirTimer     = 1800;
 			
 			// Create splash object
 			if !Grounded and !ClimbState
@@ -191,6 +184,9 @@ function PlayerWaterEvents()
 				instance_create(PosX, Stage.WaterLevel, WaterSplash);
 				audio_sfx_play(sfxWaterSplash, false);
 			}
+			
+			IsUnderwater = false;	
+			AirTimer     = 1800;
 		}
 	}
 }

@@ -21,7 +21,7 @@ function InterfaceResultsDraw()
 	{
 		exit;
 	}
-	if Stage.DoUpdate
+	if !fade_check(StateActive)
 	{	
 		switch ResultsValue[8]
 		{
@@ -172,6 +172,9 @@ function InterfaceResultsDraw()
 				{
 					if Stage.ActID == Stage.FinalActID or !Game.StageTransitions
 					{
+						Game.UpdateAnimations = false;
+						Stage.UpdateObjects   = false;
+						
 						fade_perform(ModeInto, BlendBlack, 1);
 					}
 					Stage.IsFinished = 3;
@@ -196,6 +199,9 @@ function InterfaceResultsDraw()
 				{
 					if Stage.ActID == Stage.FinalActID or !Game.StageTransitions
 					{
+						Game.UpdateAnimations = false;
+						Stage.UpdateObjects   = false;
+						
 						fade_perform(ModeInto, BlendBlack, 1);
 					}
 					Stage.IsFinished = 3;
@@ -210,7 +216,6 @@ function InterfaceResultsDraw()
 	var CentreY = Game.Height / 2;
 	
 	// Draw assets
-	draw_sprite(gui_results_head,	   Game.Character, CentreX + 53 + ResultsValue[1], CentreY - 25);
 	draw_sprite(gui_results_char,	   Game.Character, CentreX - 14 - ResultsValue[2], CentreY - 52);
 	draw_sprite(gui_results_act,	   Stage.ActID,    CentreX + 46 + ResultsValue[7], CentreY - 23);	
 	draw_sprite(gui_results_through,   0,			   CentreX - 15 - ResultsValue[3], CentreY - 32);

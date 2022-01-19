@@ -38,6 +38,12 @@
         "\"Extra Life\"",
         "\"Eggman\"",
       ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"BoxType","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":6,"value":"BoxType","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
+        "BoxType",
+        "\"Thunder Barrier\"",
+        "\"Flame Barrier\"",
+        "\"Water Barrier\"",
+      ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"BoxType2","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],
   "parent": {
