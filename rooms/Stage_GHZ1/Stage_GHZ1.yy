@@ -1031,8 +1031,8 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "Stage GHZ",
-    "path": "folders/Rooms/Stage GHZ.yy",
+    "name": "> GREEN HILL",
+    "path": "folders/Rooms/> GREEN HILL.yy",
   },
   "resourceVersion": "1.0",
   "name": "Stage_GHZ1",

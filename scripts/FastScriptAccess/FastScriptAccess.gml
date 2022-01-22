@@ -5,6 +5,7 @@ function FastScriptAccess()
 	
 	// Click on the script and press F1 to open it
 	GameSetup();
+	MenuSetup();
 	AudioLooppointsSetup();
 	BackgroundSetup();
 	DiscordSetup();

@@ -10,7 +10,7 @@ function ObjTailsObjectMain()
 		break;
 		case AnimSpin:
 		{
-			if Player.Jumping and Stage.IsFinished > 1
+			if Player.Jumping and Stage.IsFinished > 1 and Stage.ActID != 2
 			{
 				animation_play(spr_tails_tail_hidden, 0, 0);
 			}

@@ -48,8 +48,8 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "Screen Splash",
-    "path": "folders/Rooms/Screen Splash.yy",
+    "name": "Splash Screen",
+    "path": "folders/Rooms/Splash Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "Screen_Splash",

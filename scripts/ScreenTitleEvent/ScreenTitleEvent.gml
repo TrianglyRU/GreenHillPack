@@ -24,7 +24,8 @@ function ScreenTitleEvent()
 						Game.DemoQueue += 1;
 						
 						// Load GHZ1
-						demodata_load("demo_ghz1"); room_goto(Stage_GHZ1);
+						demodata_load(Game.Width < 400 ? "demo_ghz1_s" : "demo_ghz1"); 
+						room_goto(Stage_GHZ1);
 					}
 					break;
 					case 1:

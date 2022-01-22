@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Screen Startup",
-    "path": "folders/Rooms/Screen Startup.yy",
+    "name": "Startup Screen",
+    "path": "folders/Rooms/Startup Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "StartupScreenStartup",

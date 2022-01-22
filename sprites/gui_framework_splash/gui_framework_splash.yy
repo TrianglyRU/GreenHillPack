@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Rooms/Screen Splash/Textures.yy",
+    "path": "folders/Rooms/Splash Screen/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "gui_framework_splash",

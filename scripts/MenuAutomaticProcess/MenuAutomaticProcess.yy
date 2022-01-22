@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Screen DevMenu",
-    "path": "folders/Rooms/Screen DevMenu.yy",
+    "name": "Developer Menu",
+    "path": "folders/Rooms/Developer Menu.yy",
   },
   "resourceVersion": "1.0",
-  "name": "MenuSystemProcess",
+  "name": "MenuAutomaticProcess",
   "tags": [],
   "resourceType": "GMScript",
 }

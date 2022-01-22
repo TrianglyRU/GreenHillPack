@@ -126,7 +126,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Rooms/Screen Continue/Textures.yy",
+    "path": "folders/Rooms/Continue Screen/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "tex_obj_cont_knux_action",

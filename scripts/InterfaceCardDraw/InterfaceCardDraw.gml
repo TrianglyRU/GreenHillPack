@@ -22,6 +22,13 @@ function InterfaceCardDraw()
 		// Appear
 		case 0:
 		{	
+			if CardValue[0] == 0
+			{
+				if !fade_check(StateActive)
+				{
+					Stage.UpdateObjects = true;
+				}
+			}
 			CardValue[0]++;
 			
 			if CardValue[3] != Game.Width / 2 + 92
@@ -102,8 +109,8 @@ function InterfaceCardDraw()
 	}
 		
 	// Draw assets
-	draw_sprite(gui_results_oval, 0,		   CardValue[2], Game.Height / 2 - 16);
-	draw_sprite(gui_results_act,  Stage.ActID, CardValue[5], Game.Height / 2 - 6);
+	draw_sprite(gui_results_oval, Game.Character, CardValue[2], Game.Height / 2 - 16);
+	draw_sprite(gui_results_act,  Stage.ActID,    CardValue[5], Game.Height / 2 - 6);
 
 	draw_set_halign(fa_right); 
 	draw_set_font(game_font(font_card_s1));

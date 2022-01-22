@@ -35,6 +35,19 @@ function ObjFloatingPlatformStartup()
 		break;
 	}
 	
+	// Update position for bossfight
+	if Game.Width < 400
+	{
+		if BossPlatformLeft
+		{
+			x += 40;
+		}
+		else if BossPlatformRight
+		{
+			x -= 40;
+		}
+	}
+	
 	// Initialise variables
 	OriginX   = x;
 	OriginY	  = y;

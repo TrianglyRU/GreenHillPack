@@ -86,7 +86,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Rooms/Screen SEGA/Textures.yy",
+    "path": "folders/Rooms/SEGA Screen/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "tex_sega_logo_showup",

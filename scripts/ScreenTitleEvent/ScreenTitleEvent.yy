@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Screen Title",
-    "path": "folders/Rooms/Screen Title.yy",
+    "name": "Title Screen",
+    "path": "folders/Rooms/Title Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "ScreenTitleEvent",

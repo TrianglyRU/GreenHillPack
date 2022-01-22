@@ -48,8 +48,8 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "Screen Continue",
-    "path": "folders/Rooms/Screen Continue.yy",
+    "name": "Continue Screen",
+    "path": "folders/Rooms/Continue Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "Screen_Continue",

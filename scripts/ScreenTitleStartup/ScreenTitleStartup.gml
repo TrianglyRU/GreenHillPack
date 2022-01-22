@@ -45,6 +45,7 @@ function ScreenTitleStartup()
 		"",
 		"FULLSCREEN",
 		"WINDOW SIZE",
+		"RESOLUTION",
 		"",
 		"AUDIO",
 		"",

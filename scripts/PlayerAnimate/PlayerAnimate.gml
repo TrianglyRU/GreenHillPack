@@ -81,7 +81,7 @@ function PlayerAnimate()
 					break;
 					case AnimSpin:
 					{
-						if Jumping and Stage.IsFinished > 1
+						if Jumping and Stage.IsFinished > 1 and Stage.ActID != 2
 						{
 							animation_play(spr_sonic_jump_victory, 24, 1);
 						}
@@ -314,7 +314,7 @@ function PlayerAnimate()
 				break;
 				case AnimSpin:
 				{
-					if Jumping and Stage.IsFinished > 1
+					if Jumping and Stage.IsFinished > 1 and Stage.ActID != 2
 					{
 						animation_play(spr_tails_jump_victory, 24, 1);
 					}
@@ -423,7 +423,7 @@ function PlayerAnimate()
 				break;
 				case AnimSpin:
 				{
-					if Jumping and Stage.IsFinished > 1
+					if Jumping and Stage.IsFinished > 1 and Stage.ActID != 2
 					{
 						animation_play(spr_knuckles_jump_victory, 24, 1);
 					}

@@ -55,6 +55,11 @@ function ScreenTitleFunctions()
 				if !Game.CDStageTimer then return "REGULAR" else return "SONIC CD";
 			}
 			break;
+			case "resolution":
+			{
+				if Game.Width < 400 then return "ORIGINAL" else return "WIDESCREEN";
+			}
+			break;
 		}
 	}
 	
@@ -104,6 +109,28 @@ function ScreenTitleFunctions()
 							Game.GroundSpeedcap = false; Game.AirSpeedcap = false;
 						break;
 					}
+				}
+			}
+			break;
+			case "resolution":
+			{
+				var Width = Game.Width;		
+				if Input.LeftPress
+				{
+					Game.Width -= 80; audio_sfx_play(sfxScoreCount, false);
+				}
+				else if Input.RightPress
+				{
+					Game.Width += 80; 
+					
+					audio_sfx_play(sfxScoreCount, false);
+				}
+				Game.Width = loop_value(Game.Width, 320, 480);
+				
+				// Update application size
+				if Game.Width != Width
+				{
+					application_set_size(Game.Width, Game.Height);
 				}
 			}
 			break;

@@ -5,7 +5,7 @@ function GameAnimationsProcess()
 		exit;
 	}
 	
-	// Process global timer
+	// Process global animation timer
 	Game.AnimationTime[? GlobalTime]++;
 	
 	with all 

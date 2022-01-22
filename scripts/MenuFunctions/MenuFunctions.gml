@@ -1,12 +1,13 @@
 function MenuFunctions()
 {
-	/// @function menu_add_option(listid,optionid,optionname)
-	function menu_add_option(listid,optionid,optionname)
+	/// @function menu_add_option(listid,optionid,optionname,redirect)
+	function menu_add_option(listid,optionid,optionname,redirect)
 	{
 		MenuSize[listid]++;
-		MenuOption[listid][optionid] = optionname;
+		MenuOption[listid][optionid]   = optionname;
+		MenuRedirect[listid][optionid] = redirect;
 	}
-	
+
 	/// @function menu_list_redirect(listid,rememberOption,rememberMenu)
 	function menu_list_redirect(listid,rememberOption,rememberMenu)
 	{

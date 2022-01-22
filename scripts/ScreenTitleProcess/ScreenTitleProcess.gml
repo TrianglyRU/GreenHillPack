@@ -116,9 +116,9 @@ function ScreenTitleProcess()
 				{
 					SettingOption = 13;
 				}
-				else if SettingOption == 21
+				else if SettingOption == 22
 				{
-					SettingOption = 17;
+					SettingOption = 18;
 				}
 				else
 				{
@@ -133,9 +133,9 @@ function ScreenTitleProcess()
 				{
 					SettingOption = 16;
 				}
-				else if SettingOption == 17
+				else if SettingOption == 18
 				{
-					SettingOption = 21;
+					SettingOption = 22;
 				}
 				else
 				{
@@ -162,8 +162,9 @@ function ScreenTitleProcess()
 				case 13: Game.CDStageTimer      = toggle_option(Game.CDStageTimer, 1);       break;
 				case 16:						  toggle_option("fullscreen", "");			 break;
 				case 17:						  toggle_option("size", 4);					 break;
-				case 21:						  toggle_option("music", 10);				 break;
-				case 22:						  toggle_option("sound", 10);				 break;
+				case 18:						  toggle_option("resolution", "");			 break;
+				case 22:						  toggle_option("music", 10);				 break;
+				case 23:						  toggle_option("sound", 10);				 break;
 				default: break;
 			}
 			

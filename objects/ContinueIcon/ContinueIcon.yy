@@ -27,7 +27,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Objects",
-    "path": "folders/Rooms/Screen Continue/Objects.yy",
+    "path": "folders/Rooms/Continue Screen/Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "ContinueIcon",

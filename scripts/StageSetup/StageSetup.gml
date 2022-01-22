@@ -17,7 +17,7 @@ function StageSetup()
 			FinalActID       = 2;
 			WaterEnabled     = false;
 			WaterLevel	     = 0;
-			StageMusic       = GreenHill;
+			StageMusic       = (irandom(99) + 1) mod 25 == 0 ? GBAHill : GreenHill;
 			LeftBoundary	 = 0;
 			TopBoundary	     = 0;
 			RightBoundary	 = room_width;

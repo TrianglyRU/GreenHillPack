@@ -114,6 +114,7 @@ function ScreenTitleDraw()
 			"",
 			get_boolean(Game.WindowFullscreen),
 			string(Game.WindowSize) + "X",
+			get_option("resolution"),
 			"",
 			"",
 			"",

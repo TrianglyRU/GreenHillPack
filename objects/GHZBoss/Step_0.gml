@@ -28,7 +28,7 @@
 				case 2:
 				{
 					StateTimer = 96;
-					Xsp		   = -1.415; //-1; 
+					Xsp		   = Game.Width < 400 ? -1 : -1.415;
 					Ysp		   = -0.25;
 					
 					// Play animation
@@ -55,7 +55,7 @@
 				case 4:
 				{
 					StateTimer = 128;
-					Xsp		   = -0.5625; //-0.25;
+					Xsp		   = Game.Width < 400 ? -0.25 : -0.5625;
 					
 					// Play animation
 					animation_play(sprite_index, 4, 7); image_index = 7; 
@@ -78,7 +78,7 @@
 				case 6:
 				{
 					StateTimer = 64;
-					Xsp		   = 2.25 * -image_xscale; // 1 * -image_xscale;
+					Xsp		   = Game.Width < 400 ? (1 * -image_xscale) : (2.25 * -image_xscale);
 					
 					// Play animation
 					animation_play(sprite_index, 4, 7); image_index = 7;

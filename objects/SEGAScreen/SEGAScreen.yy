@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Screen SEGA",
-    "path": "folders/Rooms/Screen SEGA.yy",
+    "name": "SEGA Screen",
+    "path": "folders/Rooms/SEGA Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "SEGAScreen",

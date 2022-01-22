@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Rooms/Stage GHZ/Textures.yy",
+    "path": "folders/Rooms/> GREEN HILL/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "tex_ghz_tileset_a",

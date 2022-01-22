@@ -2,5 +2,8 @@
 // You can write your code in this editor
 	
 	// Process Scripts
-	MenuOptionsProcess();
-	MenuSystemProcess();
+	if MenuManualProcess()
+	{
+		return;
+	}
+	MenuAutomaticProcess();

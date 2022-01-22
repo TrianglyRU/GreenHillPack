@@ -22,7 +22,7 @@ function ObjBossTriggerMain()
 			switch room
 			{
 				case Stage_GHZ3:
-					instance_create(x + 96 + 40, y - 206, GHZBoss);
+					instance_create(x + 96 + (Game.Width >= 400) * 40, y - 206, GHZBoss);
 				break;
 				default: break;
 			}
