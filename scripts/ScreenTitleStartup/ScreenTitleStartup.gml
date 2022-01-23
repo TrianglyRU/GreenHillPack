@@ -54,5 +54,13 @@ function ScreenTitleStartup()
 	];
 	
 	// Fade in
-	fade_perform(ModeFrom, BlendBlack, 1); Game.UpdateAnimations = false;
+	if Game.IntroSequence
+	{
+		fade_perform(ModeFrom, BlendWhite, 1); 
+	}
+	else
+	{
+		fade_perform(ModeFrom, BlendBlack, 1);
+	}
+	Game.UpdateAnimations = false;
 }

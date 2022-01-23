@@ -4,17 +4,17 @@ function application_set_size(width,height)
 	// Set camera and surface size
 	window_set_size(width * Game.WindowSize, height * Game.WindowSize);
 	camera_set_view_size(GameCamera, width, height);
-	surface_resize(application_surface, width, height);
 
-	// Resize palette surfaces
-	if surface_exists(Palette.SurfaceLow)
+	// Update surfaces
+	if surface_exists(Palette.SurfaceMain)
 	{
-		surface_resize(Palette.SurfaceLow, width, height);
+		surface_resize(Palette.SurfaceMain, width, height);
 	}
-	if surface_exists(Palette.SurfaceHigh)
+	if surface_exists(Palette.SurfaceOverlay)
 	{
-		surface_resize(Palette.SurfaceHigh, width, height);
+		surface_resize(Palette.SurfaceOverlay, width, height);
 	}
+	surface_resize(application_surface, width, height);
 	
 	// Update room size
 	if !instance_exists(Stage)

@@ -1,12 +1,12 @@
 function PaletteSurfaceStartup()
 {
 	// Create surfaces
-	if !surface_exists(SurfaceLow)
+	if !surface_exists(SurfaceMain)
 	{
-		SurfaceLow = surface_create(Game.Width, Game.Height); view_surface_id[0] = SurfaceLow;
+		SurfaceMain = surface_create(Game.Width, Game.Height); view_surface_id[0] = SurfaceMain;
 	}
-	if !surface_exists(SurfaceHigh)
+	if !surface_exists(SurfaceOverlay)
 	{
-		SurfaceHigh = surface_create(Game.Width, Game.Height);
+		SurfaceOverlay = surface_create(Game.Width, Game.Height);
 	}
 }

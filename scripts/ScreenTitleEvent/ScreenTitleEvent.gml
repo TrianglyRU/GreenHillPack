@@ -16,6 +16,13 @@ function ScreenTitleEvent()
 			break;
 			case TitleLoad.loadDemo:
 			{
+				// Set settings in case they were overwritten
+				Game.DropdashEnabled = false;
+				Game.AirSpeedcap     = false;
+				Game.GroundSpeedcap  = false;
+				Game.FlightCancel    = false;
+				Game.SpindashEnabled = true;
+				
 				switch Game.DemoQueue
 				{
 					case 0:

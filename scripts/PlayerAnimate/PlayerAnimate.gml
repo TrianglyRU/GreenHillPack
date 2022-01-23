@@ -162,6 +162,12 @@ function PlayerAnimate()
 					case AnimDropdash:
 						animation_play(spr_sonic_dropdash, 1, 0);
 					break;
+					case AnimClear:
+						animation_play(spr_sonic_actclear, 12, 0);
+					break;
+					case AnimClearAlt:
+						animation_play(spr_sonic_actclearalt, [14, 18, 2, 4, 4, 6, 6, 1], 7);
+					break;
 					default: break;
 				}
 			}
@@ -388,6 +394,9 @@ function PlayerAnimate()
 					}
 				}
 				break;
+				case AnimClear:
+					animation_play(spr_tails_actclear, [16, 1], 1);
+				break;
 				default: break;
 			}	
 		}
@@ -543,6 +552,8 @@ function PlayerAnimate()
 					}
 				}
 				break;
+				case AnimClear:
+					animation_play(spr_knuckles_actclear, [6, 18, 6, 1], 3);
 				default: break;
 			}
 		}

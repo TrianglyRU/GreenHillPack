@@ -11,6 +11,23 @@ function InterfaceCardDraw()
 	------------------------
 	*/
 	
+	if Game.IntroSequence
+	{
+		if fade_check(StateMax)
+		{
+			fade_perform(ModeFrom, BlendBlack, 1);
+		}
+		else if !fade_check(StateActive)
+		{
+			Game.UpdateAnimations = true;
+			Stage.UpdateObjects   = true;
+			Stage.TimeEnabled     = true;
+			Camera.Enabled        = true;
+			Input.IgnoreInput     = false;
+		}
+		return;
+	}
+	
 	var AssetSpeed = 16 * (Game.Width / 320);
 	
 	if CardValue[1] == 3

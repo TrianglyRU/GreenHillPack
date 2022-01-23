@@ -8,6 +8,7 @@ function ObjClearPanelStartup()
 	State	     = 0;
 	StateTimer   = 0;
 	SparkleToUse = 0;
+	ClearAnim	 = noone;
 	
 	switch Game.Character
 	{

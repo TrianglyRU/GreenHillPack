@@ -9,7 +9,7 @@ function GameVideoMemoryClear()
 	// Clear palette surfaces
 	with Palette
 	{
-		DoReset = true; event_perform(ev_gui_end, 0);
+		SurfaceReset = true; event_perform(ev_gui_end, 0);
 	}
 	
 	/* Now this one is interesting. We found out there is a bug on NVIDIA GPUs which causes the surface not 

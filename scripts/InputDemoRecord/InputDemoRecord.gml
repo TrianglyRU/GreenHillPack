@@ -22,8 +22,15 @@ function InputDemoRecord()
 	}
 		
 	// Stop recording
-	if Stage.Time >= 1800 or Input.StartPress
+	if !Game.IntroSequence
+	{
+		if Stage.Time >= 1800 or Input.StartPress
+		{
+			DemoEnd = true;
+		}	
+	}
+	else if Stage.Time > 800
 	{
 		DemoEnd = true;
-	}	
+	}
 }

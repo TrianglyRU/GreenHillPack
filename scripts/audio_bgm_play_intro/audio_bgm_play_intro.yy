@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "object_check_onscreen",
+  "name": "audio_bgm_play_intro",
   "tags": [],
   "resourceType": "GMScript",
 }

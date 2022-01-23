@@ -52,11 +52,11 @@ function InputDemoPlayback()
 	// Stop playback if 30 seconds have passed, or we pressed any button
 	if !DemoEnd
 	{
-		if Stage.Time >= 1800
+		if Stage.Time >= 1800 or Game.IntroSequence and Stage.Time > 750
 		{
 			DemoEnd = true;
 		}	
-		else switch Type
+		else if !Game.IntroSequence and Interface.CardValue[1] == 3 then switch Type
 		{
 			case "Keyboard": 
 			{

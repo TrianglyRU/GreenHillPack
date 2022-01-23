@@ -100,18 +100,42 @@ function ObjClearPanelMain()
 			{
 				if Stage.IsFinished < 2
 				{
-					Player.Xsp	      = 0;
-					Player.Ysp        = 0;
+					if Game.Character == CharSonic
+					{
+						ClearAnim = choose(AnimClear, AnimClear, AnimClear, AnimClearAlt);
+					}
+					else
+					{
+						ClearAnim = AnimClear;
+					}
+					
+					if ClearAnim == AnimClearAlt
+					{
+						Player.Xsp		=  1.5 * Player.Facing;
+						Player.Ysp		= -3.25;
+						Player.Grounded =  false;
+					}
+					else
+					{
+						Player.Xsp = 0;
+						Player.Ysp = 0;
+					}
 					Player.Inertia    = 0;
 					Stage.IsFinished  = 2; 
 					Input.IgnoreInput = true;
 						
 					// Play resuts music
 					audio_bgm_play(ChannelPrimary, ActClear);
-				}	
+				}
+				else if Player.Grounded
+				{
+					Player.Inertia = 0;
+					Player.Xsp	   = 0;
+					Player.Ysp	   = 0;
+				}
 				
 				// Force animation
-				Player.Animation = AnimHurt;
+				Player.Animation = ClearAnim;
 			}
 			
 			/* Original behaviour */

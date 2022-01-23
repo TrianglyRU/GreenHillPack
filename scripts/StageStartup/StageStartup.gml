@@ -15,7 +15,14 @@ function StageStartup()
 	Game.StageRoom = room;
 	
 	// Play stage music
-	audio_bgm_play(ChannelPrimary, StageMusic);
+	if Game.IntroSequence
+	{
+		audio_bgm_play_intro(Intro_FM);
+	}
+	else
+	{
+		audio_bgm_play(ChannelPrimary, StageMusic);
+	}
 	
 	// Set bubble wobble data
 	if WaterEnabled

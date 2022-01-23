@@ -62,7 +62,28 @@ function ScreenSegaProcess()
 			}
 			else if fade_check(StateMax)
 			{
-				room_goto(Screen_Title);
+				if file_exists("introfile.bin")
+				{
+					room_goto(Screen_Title);
+				}
+				else
+				{
+					var File = file_bin_open("introfile.bin", 1);
+					file_bin_rewrite(File);
+					file_bin_close(File);
+					
+					// Set settings in case they were overwritten (somehow?)
+					Game.DropdashEnabled = false;
+					Game.AirSpeedcap     = false;
+					Game.GroundSpeedcap  = false;
+					Game.FlightCancel    = false;
+					Game.SpindashEnabled = true;
+					
+					Game.IntroSequence = true;
+					Game.Character     = CharSonic;
+					
+					demodata_load("demo_intro"); room_goto(Stage_GHZ1);
+				}
 			}
 		}
 		break;

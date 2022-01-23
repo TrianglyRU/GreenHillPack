@@ -1,10 +1,10 @@
 function GameSetup()
 {
 	// Game settings
-	Game.WindowTitle	 = "Sonic 1: Green Hill Revisited";
+	Game.WindowTitle	 = "Green Hill Revisited";
 	Game.StartRoom		 = Screen_SEGA;	
 	Game.DevMode		 = true;
-	Game.ShowSplash		 = true;
+	Game.ShowSplash		 = false;
 	Game.Width			 = 400;		// <- Default value. Can be overwritten by config file
 	Game.Height			 = 224;
 	Game.KeyboardControl = [vk_up, vk_down, vk_left, vk_right, ord("Z"), ord("X"), ord("C"), vk_space, vk_enter];
@@ -59,6 +59,7 @@ function GameSetup()
 	Game.DemoQueue		   = 0;
 	Game.UpdateAnimations  = 0;
 	Game.DiscordTime	   = 0;
+	Game.IntroSequence     = 0;
 	Game.DiscordEvent	   = "";
 	Game.TransitionData    = [];
 	Game.StarPostData      = [];

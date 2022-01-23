@@ -5,12 +5,19 @@ function InputDemoEnd()
 	{
 		if Camera.Enabled
 		{
-			// Stop music
-			audio_bgm_stop(ChannelPrimary,   1); 
-			audio_bgm_stop(ChannelSecondary, 1);
-				
 			// Fade out
-			fade_perform(ModeInto, BlendBlack, 0.5); Camera.Enabled = false;
+			if Game.IntroSequence
+			{
+				fade_perform(ModeInto, BlendWhite, 1);
+			}
+			else
+			{
+				audio_bgm_stop(ChannelPrimary,   1); 
+				audio_bgm_stop(ChannelSecondary, 1);
+				
+				fade_perform(ModeInto, BlendBlack, 0.5);
+			}
+			Camera.Enabled = false;
 		}
 		else if fade_check(StateMax)
 		{
@@ -26,7 +33,14 @@ function InputDemoEnd()
 			Game.SpecialRingData = [];
 			
 			// Return to SEGA screen
-			room_goto(Screen_SEGA);
+			if Game.IntroSequence
+			{
+				room_goto(Screen_Title);
+			}
+			else
+			{
+				room_goto(Screen_SEGA);
+			}
 		}
 	}
 }

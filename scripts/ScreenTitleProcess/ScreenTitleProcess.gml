@@ -15,7 +15,14 @@ function ScreenTitleProcess()
 			Game.UpdateAnimations = true; 
 			Camera.Enabled        = true;
 			
-			audio_bgm_play(ChannelPrimary, TitleTheme_FM);
+			if !Game.IntroSequence
+			{
+				audio_bgm_play(ChannelPrimary, TitleTheme_FM);
+			}
+			else
+			{
+				audio_bgm_play_intro(Intro_FM); Game.IntroSequence = false;
+			}
 		} 
 		else if StateTimer > 42
 		{
@@ -29,24 +36,30 @@ function ScreenTitleProcess()
 	{
 		case TitleState.preRoll:
 		{		
-			if StateTimer == 409
+			if LoadFlag == TitleLoad.loadNone
 			{
-				LoadFlag = TitleLoad.loadDemo; fade_perform(ModeInto, BlendBlack, 1);
-				
-				// Set data
-				Game.Emeralds   =  0;
-				Game.Lives	    =  3;
-				Game.Continues  =  0;
-				Game.Score	    =  0;
-				Game.ActiveSave = -1;
-
-				Game.UpdateAnimations = false;
-			}
-			else if Input.StartPress
-			{
-				if StateTimer > 29
+				if StateTimer > 408 and !audio_bgm_is_playing(Intro_FM)
 				{
-					State = TitleState.Main; audio_sfx_play(sfxStarPost, false);
+					LoadFlag = TitleLoad.loadDemo; fade_perform(ModeInto, BlendBlack, 1);
+				
+					// Set data
+					Game.Emeralds   =  0;
+					Game.Lives	    =  3;
+					Game.Continues  =  0;
+					Game.Score	    =  0;
+					Game.ActiveSave = -1;
+
+					Game.UpdateAnimations = false;
+				}
+				else if Input.StartPress
+				{
+					if StateTimer > 29
+					{
+						State = TitleState.Main; 
+						
+						gametweaks_load();
+						audio_sfx_play(sfxStarPost, false);
+					}
 				}
 			}
 		}

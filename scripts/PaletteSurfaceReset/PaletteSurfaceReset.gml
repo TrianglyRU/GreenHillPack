@@ -1,18 +1,18 @@
 function PaletteSurfaceReset()
 {
 	/* This script will be called on room end */
-	if !DoReset
+	if !SurfaceReset
 	{
 		return;
 	}
 	
 	// Reset surfaces
-    if surface_exists(SurfaceLow) 
+    if surface_exists(SurfaceMain) 
     {
-        surface_free(SurfaceLow);
+        surface_free(SurfaceMain);
     }
-    if surface_exists(SurfaceHigh) 
+    if surface_exists(SurfaceOverlay) 
     {
-        surface_free(SurfaceHigh);    
+        surface_free(SurfaceOverlay);    
     }
 }

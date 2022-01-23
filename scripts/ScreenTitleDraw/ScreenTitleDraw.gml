@@ -135,7 +135,7 @@ function ScreenTitleDraw()
 			{
 				draw_set_colour($FCFCD9);
 			}
-			if i == 0 or i == 14 or i == 19
+			if i == 0 or i == 14 or i == 20
 			{
 				draw_set_halign(fa_center);
 				draw_text(Camera.ViewX + Game.Width / 2, 24 + (i < 14 ? i * 12 : (i - 14) * 12), StringData[i]);

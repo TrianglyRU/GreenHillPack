@@ -3,5 +3,4 @@
 
 	// Shader Process Scripts
 	PaletteFadeProcess();
-	PaletteUpdate();
 	PaletteSurfaceProcess();

@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Palette",
-    "path": "folders/Game Code/Palette.yy",
+    "name": "Game Functions",
+    "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "PaletteUpdate",
+  "name": "object_is_onscreen",
   "tags": [],
   "resourceType": "GMScript",
 }

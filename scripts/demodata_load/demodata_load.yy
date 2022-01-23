@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "demo_load",
+  "name": "demodata_load",
   "tags": [],
   "resourceType": "GMScript",
 }
