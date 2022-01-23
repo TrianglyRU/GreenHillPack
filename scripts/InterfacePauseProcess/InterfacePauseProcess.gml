@@ -114,7 +114,7 @@ function InterfacePauseProcess()
 	else if Input.StartPress
 	{
 		// If we pressed start button and are allowed to pause, then pause!
-		if CardValue[1] == 3 and !Stage.IsFinished
+		if CardValue[1] == 3 and !Stage.IsFinished and !Player.Death
 		{
 			// Do not react if in demo mode
 			if Game.DemoMode
