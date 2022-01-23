@@ -2,6 +2,7 @@
 function application_set_size(width,height)
 {	
 	// Set camera and surface size
+	window_set_size(width * Game.WindowSize, height * Game.WindowSize);
 	camera_set_view_size(GameCamera, width, height);
 	surface_resize(application_surface, width, height);
 

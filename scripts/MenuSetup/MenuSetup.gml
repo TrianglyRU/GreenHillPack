@@ -25,8 +25,8 @@ function MenuSetup()
 		menu_add_option(0, 0, "GAME START",   1);
 		menu_add_option(0, 1, "SCENE SELECT", 2);
 		menu_add_option(0, 2, "OPTIONS",      7);	
-		menu_add_option(0, 3, "DEMO FILES",   9);
-		menu_add_option(0, 4, "EXIT GAME",    noone);
+		menu_add_option(0, 3, "EXIT GAME",    noone);
+		menu_add_option(0, 4, "DEMO FILES",   9);
 	
 		// Game Start
 		menu_add_header(1,    "SELECT A SAVE FILE");
@@ -35,7 +35,7 @@ function MenuSetup()
 		menu_add_option(1, 2, string(DisplayData[1]), 3);
 		menu_add_option(1, 3, string(DisplayData[2]), 3);
 		menu_add_option(1, 4, string(DisplayData[3]), 3);
-		menu_add_option(1, 5, "DELETE SAVE",		  9);
+		menu_add_option(1, 5, "DELETE SAVE",		  8);
 	
 		// Scene Select
 		menu_add_header(2,    "SELECT SCENE TYPE");
@@ -50,17 +50,17 @@ function MenuSetup()
 	
 		// Options
 		menu_add_header(7,    "OPTIONS");
-		menu_add_option(7, 0, "WINDOW SIZE: "  + string(Game.WindowSize) + "X",					  noone);
-		menu_add_option(7, 1, "FULLSCREEN: "   + string(menu_get_boolean(Game.WindowFullscreen)), noone);
-		menu_add_option(7, 2, "SOUND VOLUME: " + string(round(Game.SoundVolume * 100)),			  noone);
-		menu_add_option(7, 3, "MUSIC VOLUME: " + string(round(Game.MusicVolume * 100)),			  noone);
+		menu_add_option(7, 0, "FULLSCREEN:",   noone);
+		menu_add_option(7, 1, "WINDOW SIZE:",  noone);
+		menu_add_option(7, 2, "SOUND VOLUME:", noone);
+		menu_add_option(7, 3, "MUSIC VOLUME:", noone);
 	
 		// Game Start (delete data)
 		menu_add_header(8,    "SELECT A SAVE FILE TO DELETE");
-		menu_add_option(8, 0, "SLOT 1", 1);
-		menu_add_option(8, 1, "SLOT 2", 1);
-		menu_add_option(8, 2, "SLOT 3", 1);
-		menu_add_option(8, 3, "SLOT 4", 1);
+		menu_add_option(8, 0, "SLOT 1", noone);
+		menu_add_option(8, 1, "SLOT 2", noone);
+		menu_add_option(8, 2, "SLOT 3", noone);
+		menu_add_option(8, 3, "SLOT 4", noone);
 	
 		// Game Start (demo files)
 	    menu_add_header(9,    "DEMO FILES");

@@ -14,10 +14,13 @@ function AudioStartup()
 	PrimaryTrack[1]   = noone;
 	PrimaryTrack[2]   = 0;
 	PrimaryTrack[3]   = [];
+	PrimaryTrack[4]   = noone;
 	SecondaryTrack[0] = EventIdle;
 	SecondaryTrack[1] = noone;
 	SecondaryTrack[2] = 0;
+	SecondaryTrack[3] = noone;
 	
-	// Create data structure to store loopdata
-	TrackLoop = ds_map_create();
+	// Create data structures
+	TrackLoop  = ds_map_create();
+	DACChannel = ds_map_create();
 }

@@ -1,10 +1,13 @@
 function GameSetup()
 {
 	// Game settings
-	Game.WindowTitle = "Sonic 1: Green Hill Revisited";
-	Game.DevMode     = true;
-	Game.ShowSplash  = true;
-	Game.StartRoom   = Screen_SEGA;	
+	Game.WindowTitle	 = "Sonic 1: Green Hill Revisited";
+	Game.StartRoom		 = Screen_SEGA;	
+	Game.DevMode		 = true;
+	Game.ShowSplash		 = true;
+	Game.Width			 = 400;		// <- Default value. Can be overwritten by config file
+	Game.Height			 = 224;
+	Game.KeyboardControl = [vk_up, vk_down, vk_left, vk_right, ord("Z"), ord("X"), ord("C"), vk_space, vk_enter];
 	
 	// Originals differences
 	Game.SpindashEnabled    = true;
@@ -33,29 +36,17 @@ function GameSetup()
 	Game.PreciseRingBehaviour = false;
 	Game.NoRollSpeedLimit	  = false;
 	Game.FlightCancel	      = false;
-	
-	/* Video, audio and control settings below are overwritten by 
-	game settings if Developer Mode is disabled! */
-	
-	// Video settings
-	Game.WindowFullscreen = false;
-	Game.Width            = 400;
-	Game.Height			  = 224;
-	Game.WindowSize	      = 3;
-	
-	// Audio settings
-	Game.MusicVolume = 0.5;
-	Game.SoundVolume = 0.5;
-	
-	// Control settings (keyboard)
-	Game.KeyboardControl = [vk_up, vk_down, vk_left, vk_right, ord("Z"), ord("X"), ord("C"), vk_space, vk_enter];
-	
+
 	// Initialise other variables	
 	Game.Character		   = 0;
 	Game.AnimationTime     = 0;
 	Game.ActiveSave        = 0;
 	Game.SaveData		   = 0;
 	Game.SaveState         = 0;
+	Game.FullscreenMode    = 0;
+	Game.WindowSize	       = 0;
+	Game.MusicVolume	   = 0;
+	Game.SoundVolume	   = 0;
 	Game.Score		       = 0;
 	Game.Lives		       = 0;
 	Game.Continues	       = 0;

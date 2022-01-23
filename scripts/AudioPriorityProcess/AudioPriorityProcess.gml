@@ -2,7 +2,7 @@ function AudioPriorityProcess()
 {
 	if !SecondaryTrack[1]
 	{
-		exit;
+		return;
 	}
 	
 	/* Value Table Reference
@@ -10,7 +10,7 @@ function AudioPriorityProcess()
 	[0] - Event
 	[1] - Track ID
 	[2] - Event Time
-	[3] - Loop Data
+	[3] - DAC Channel
 	------------------------
 	*/
 	
@@ -18,6 +18,7 @@ function AudioPriorityProcess()
 	var Event     = SecondaryTrack[0];
 	var Track     = SecondaryTrack[1];
 	var EventTime = SecondaryTrack[2];
+	var DAC		  = SecondaryTrack[3];
 	
 	// Automatically mute and unmute primary track
 	if Track and Event != EventMute and Event != EventStop
@@ -32,6 +33,10 @@ function AudioPriorityProcess()
 	// Stop track once it finished playing
 	if audio_sound_get_track_position(Track) >= audio_sound_length(Track) - 0.1
 	{
+		if DAC
+		{
+			audio_stop_sound(DAC);
+		}
 		audio_bgm_stop(ChannelSecondary, 0);
 	}
 	
@@ -43,6 +48,10 @@ function AudioPriorityProcess()
 			// Reset event
 			if audio_sound_get_gain(Track) == 1
 			{
+				if DAC
+				{
+					audio_sound_gain(DAC, 1, 0);
+				}
 				SecondaryTrack[0] = EventIdle;
 				SecondaryTrack[2] = 0;
 			}
@@ -63,6 +72,10 @@ function AudioPriorityProcess()
 			var VolumeStep  = 1 / (EventTime * 60);
 			var VolumeLevel = max(audio_sound_get_gain(Track) - VolumeStep, 0);
 			
+			if DAC
+			{
+				audio_sound_gain(DAC, 0, 0);
+			}
 			audio_sound_gain(Track, VolumeLevel, 0);
 		}
 		break;
@@ -85,6 +98,11 @@ function AudioPriorityProcess()
 				var VolumeStep  = 1 / (EventTime * 60);
 				var VolumeLevel = max(audio_sound_get_gain(Track) - VolumeStep, 0);
 				
+				if DAC
+				{
+					audio_stop_sound(DAC);
+					audio_sound_gain(DAC, Game.MusicVolume, 0);
+				}
 				audio_sound_gain(Track, VolumeLevel, 0);
 			}
 		}

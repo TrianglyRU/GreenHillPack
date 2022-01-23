@@ -11,14 +11,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "GBAHill.ogg",
-  "duration": 53.6,
+  "soundFile": "Invincibility_DAC.ogg",
+  "duration": 13.36,
   "parent": {
     "name": "BGM",
     "path": "folders/Audio/BGM.yy",
   },
   "resourceVersion": "1.0",
-  "name": "GBAHill",
+  "name": "Invincibility_DAC",
   "tags": [],
   "resourceType": "GMSound",
 }

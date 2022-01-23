@@ -17,7 +17,7 @@ function StageSetup()
 			FinalActID       = 2;
 			WaterEnabled     = false;
 			WaterLevel	     = 0;
-			StageMusic       = (irandom(99) + 1) mod 25 == 0 ? GBAHill : GreenHill;
+			StageMusic       = GreenHill_FM;
 			LeftBoundary	 = 0;
 			TopBoundary	     = 0;
 			RightBoundary	 = room_width;
@@ -35,7 +35,7 @@ function StageSetup()
 			FinalActID       = 2;
 			WaterEnabled     = false;
 			WaterLevel	     = 0;
-			StageMusic       = GreenHill;
+			StageMusic       = GreenHill_FM;
 			LeftBoundary	 = 2048;
 			TopBoundary	     = 0;
 			RightBoundary	 = room_width;
@@ -53,7 +53,7 @@ function StageSetup()
 			FinalActID       = 2;
 			WaterEnabled     = false;
 			WaterLevel	     = 0;
-			StageMusic       = GreenHill;
+			StageMusic       = GreenHill_FM;
 			LeftBoundary	 = 512;
 			TopBoundary	     = 0;
 			RightBoundary	 = room_width;

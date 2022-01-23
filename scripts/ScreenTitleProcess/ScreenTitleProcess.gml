@@ -15,7 +15,7 @@ function ScreenTitleProcess()
 			Game.UpdateAnimations = true; 
 			Camera.Enabled        = true;
 			
-			audio_bgm_play(ChannelPrimary, TitleTheme);
+			audio_bgm_play(ChannelPrimary, TitleTheme_FM);
 		} 
 		else if StateTimer > 42
 		{

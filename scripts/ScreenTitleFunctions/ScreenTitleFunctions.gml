@@ -146,7 +146,7 @@ function ScreenTitleFunctions()
 				}
 				
 				// Update volume
-				audio_sound_gain(TitleTheme, Game.MusicVolume, 0);
+				audio_sound_gain(TitleTheme_FM, Game.MusicVolume, 0);
 			}
 			break;
 			case "sound":
@@ -165,10 +165,8 @@ function ScreenTitleFunctions()
 			{
 				if Input.LeftPress or Input.RightPress
 				{
-					Game.WindowFullscreen = !Game.WindowFullscreen;
-					
-					// Update window
-					window_set_fullscreen(Game.WindowFullscreen); audio_sfx_play(sfxScoreCount, false);
+					window_set_fullscreen(!window_get_fullscreen()); 
+					audio_sfx_play(sfxScoreCount, false);
 				}
 			}
 			break;

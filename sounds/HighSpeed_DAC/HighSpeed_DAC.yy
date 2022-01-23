@@ -11,14 +11,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "GreenHill.ogg",
-  "duration": 53.6320877,
+  "soundFile": "HighSpeed_DAC.ogg",
+  "duration": 28.53,
   "parent": {
     "name": "BGM",
     "path": "folders/Audio/BGM.yy",
   },
   "resourceVersion": "1.0",
-  "name": "GreenHill",
+  "name": "HighSpeed_DAC",
   "tags": [],
   "resourceType": "GMSound",
 }

@@ -11,14 +11,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "TitleTheme.ogg",
-  "duration": 8.83254,
+  "soundFile": "GreenHill_DAC.ogg",
+  "duration": 55.94,
   "parent": {
     "name": "BGM",
     "path": "folders/Audio/BGM.yy",
   },
   "resourceVersion": "1.0",
-  "name": "TitleTheme",
+  "name": "GreenHill_DAC",
   "tags": [],
   "resourceType": "GMSound",
 }

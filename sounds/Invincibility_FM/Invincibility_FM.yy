@@ -11,14 +11,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "Invincibility.ogg",
-  "duration": 22.07501,
+  "soundFile": "Invincibility_FM.ogg",
+  "duration": 14.12,
   "parent": {
     "name": "BGM",
     "path": "folders/Audio/BGM.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Invincibility",
+  "name": "Invincibility_FM",
   "tags": [],
   "resourceType": "GMSound",
 }

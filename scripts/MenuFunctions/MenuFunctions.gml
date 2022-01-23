@@ -7,25 +7,6 @@ function MenuFunctions()
 		MenuOption[listid][optionid]   = optionname;
 		MenuRedirect[listid][optionid] = redirect;
 	}
-
-	/// @function menu_list_redirect(listid,rememberOption,rememberMenu)
-	function menu_list_redirect(listid,rememberOption,rememberMenu)
-	{
-		if rememberOption
-		{	
-			PreviousOptionID[listid] = OptionID;
-		}
-		else
-		{
-			PreviousOptionID[listid] = noone;
-		}
-		if rememberMenu
-		{
-			PreviousMenuID[listid] = MenuID;
-		}
-		MenuID	 = listid;
-		OptionID = 0;
-	}
 	
 	/// @function menu_update_option(listid,optionid,newname)
 	function menu_update_option(listid,optionid,newname)

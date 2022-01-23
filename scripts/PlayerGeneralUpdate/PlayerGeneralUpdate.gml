@@ -40,7 +40,7 @@ function PlayerGeneralUpdate()
 	{	
 		if !(--HighspeedBonus)
 		{
-			if audio_bgm_is_playing(HighSpeed)
+			if audio_bgm_is_playing(HighSpeed_FM)
 			{
 				audio_bgm_play(ChannelPrimary, Stage.StageMusic);
 			}
@@ -61,7 +61,7 @@ function PlayerGeneralUpdate()
 		}*/
 		if !(--InvincibleBonus)
 		{
-			if audio_bgm_is_playing(Invincibility)
+			if audio_bgm_is_playing(Invincibility_FM)
 			{
 				audio_bgm_play(ChannelPrimary, Stage.StageMusic);
 			}

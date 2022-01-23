@@ -131,11 +131,11 @@ function PlayerWaterEvents()
 				{
 					if HighspeedBonus
 					{
-						audio_bgm_play(ChannelPrimary, HighSpeed);
+						audio_bgm_play(ChannelPrimary, HighSpeed_FM);
 					}
 					else if InvincibleBonus
 					{
-						audio_bgm_play(ChannelPrimary, Invincibility);
+						audio_bgm_play(ChannelPrimary, Invincibility_FM);
 					}
 					else
 					{

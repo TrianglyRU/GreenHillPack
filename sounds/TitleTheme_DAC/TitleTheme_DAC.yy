@@ -11,14 +11,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "Boss.ogg",
-  "duration": 29.8272781,
+  "soundFile": "TitleTheme_DAC.ogg",
+  "duration": 8.936646,
   "parent": {
     "name": "BGM",
     "path": "folders/Audio/BGM.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Boss",
+  "name": "TitleTheme_DAC",
   "tags": [],
   "resourceType": "GMSound",
 }

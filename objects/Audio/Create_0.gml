@@ -3,4 +3,4 @@
 	
 	// Initialisation Scripts
 	AudioStartup();
-	AudioLooppointsSetup();
+	AudioPropertiesSetup();

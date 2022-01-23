@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Audio",
-    "path": "folders/Game Code/Audio.yy",
+    "name": "Game Functions",
+    "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "AudioLooppointsSetup",
+  "name": "audio_bgm_setDAC",
   "tags": [],
   "resourceType": "GMScript",
 }

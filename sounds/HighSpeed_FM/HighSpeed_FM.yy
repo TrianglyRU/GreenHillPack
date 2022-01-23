@@ -11,14 +11,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "HighSpeed.ogg",
-  "duration": 36.06202,
+  "soundFile": "HighSpeed_FM.ogg",
+  "duration": 28.69,
   "parent": {
     "name": "BGM",
     "path": "folders/Audio/BGM.yy",
   },
   "resourceVersion": "1.0",
-  "name": "HighSpeed",
+  "name": "HighSpeed_FM",
   "tags": [],
   "resourceType": "GMSound",
 }

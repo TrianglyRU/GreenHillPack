@@ -55,10 +55,10 @@ function StageGameplayProcess()
 			}
 			RestartTimer++;
 			
-			// Wait for 1 (or 12 if event was triggered) seconds
-			if RestartTimer == RestartEvent * 11 + 60
+			// Wait for 1 (or 12 if the event was triggered) seconds
+			if RestartTimer == RestartEvent * 660 + 60
 			{
-				fade_perform(ModeInto, BlendBlack, 1);
+				fade_perform(ModeInto, BlendBlack, 1); 
 				
 				audio_bgm_stop(ChannelPrimary,   0.5);
 				audio_bgm_stop(ChannelSecondary, 0.5);
@@ -102,7 +102,7 @@ function StageGameplayProcess()
 							
 							gamedata_save(Game.ActiveSave);
 						}
-						room_goto(Screen_DevMenu);
+						room_goto(Screen_SEGA);
 					}
 				}
 			}	

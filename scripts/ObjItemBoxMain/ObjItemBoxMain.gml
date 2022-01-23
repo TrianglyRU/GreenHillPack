@@ -130,7 +130,7 @@ function ObjItemBoxMain()
 				{
 					if !Player.SuperState
 					{
-						audio_bgm_play(ChannelPrimary, HighSpeed);
+						audio_bgm_play(ChannelPrimary, HighSpeed_FM);
 					}
 					Player.HighspeedBonus = 1200;
 				}
@@ -144,7 +144,7 @@ function ObjItemBoxMain()
 					Player.InvincibleBonus = 1200; instance_create(Player.PosX, Player.PosY, InvincibilitySparkles);
 						
 					// Play music
-					audio_bgm_play(ChannelPrimary, Invincibility);
+					audio_bgm_play(ChannelPrimary, Invincibility_FM);
 				}
 				break;
 				case "Barrier":
@@ -217,11 +217,11 @@ function ObjItemBoxMain()
 						{
 							if Player.InvincibleBonus
 							{
-								audio_bgm_play(ChannelPrimary, Invincibility);
+								audio_bgm_play(ChannelPrimary, Invincibility_FM);
 							}
 							else if Player.HighspeedBonus
 							{
-								audio_bgm_play(ChannelPrimary, HighSpeed);
+								audio_bgm_play(ChannelPrimary, HighSpeed_FM);
 							}
 							else
 							{

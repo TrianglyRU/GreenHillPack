@@ -112,7 +112,7 @@ function ScreenTitleDraw()
 			get_option("timer"),
 			"",
 			"",
-			get_boolean(Game.WindowFullscreen),
+			get_boolean(window_get_fullscreen()),
 			string(Game.WindowSize) + "X",
 			get_option("resolution"),
 			"",

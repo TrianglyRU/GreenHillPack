@@ -76,7 +76,8 @@ function ObjClearPanelMain()
 					// Check if the player passed by the right boundary
 					if floor(Player.PosX + Player.Xsp) > Stage.RightBoundary - 24
 					{
-						Stage.IsFinished = 2; audio_bgm_play(ChannelPrimary, ActClear);
+						Stage.IsFinished = 2; 
+						audio_bgm_play(ChannelPrimary, ActClear);
 					}
 				
 					// Take away control from the player

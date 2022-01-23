@@ -5,7 +5,7 @@ function MenuManualProcess()
 		// Main Menu
 		case 0:
 		{
-			if (Input.APress or Input.StartPress) and OptionID == 4
+			if (Input.APress or Input.StartPress) and OptionID == 3
 			{
 				game_end();
 			}
@@ -62,11 +62,22 @@ function MenuManualProcess()
 				Game.Continues = 0;
 				Game.Score	   = 0;	
 				
+				Game.StarPostData	 = [];
+				Game.SpecialRingData = [];
+				Game.SpecialRingList = [];
+				
 				// If starting a new game, save data if we're not in "no-save" mode
-				if MenuID == 3 and Game.ActiveSave != -1
+				if MenuID == 3
 				{
-					gamedata_save(Game.ActiveSave);
-				}		
+					if Game.ActiveSave != -1
+					{
+						gamedata_save(Game.ActiveSave);
+					}
+					room_goto(MenuRedirect[MenuID][OptionID]);
+					
+					// Cancel MenuAutomaticProcess()
+					return true;
+				}	
 			}
 		}
 		break;
@@ -78,8 +89,7 @@ function MenuManualProcess()
 			if Input.APress or Input.StartPress
 			{
 				// Load into the room in "no-save" mode
-				Game.ActiveSave = -1;
-				room_goto(MenuRedirect[MenuID][OptionID]);
+				Game.ActiveSave = -1; room_goto(MenuRedirect[MenuID][OptionID]);
 				
 				// Cancel MenuAutomaticProcess()
 				return true;
@@ -94,23 +104,19 @@ function MenuManualProcess()
 			{
 				switch OptionID
 				{
-					// Window size toggle
-					case 0:
-					{
-						Game.WindowSize = loop_value(Game.WindowSize + (Input.RightPress ? 1 : -1), 1, 5);
-						window_set_size(Game.Width * Game.WindowSize, Game.Height * Game.WindowSize);
-						
-						menu_update_option(MenuID, OptionID, "WINDOW SIZE: " + string(Game.WindowSize) + "X");
+					// Fullscreen toggle
+					case 0:	
+					{		
+						window_set_fullscreen(!window_get_fullscreen());
 					}
 					break;
-				
-					// Fullscreen toggle
-					case 1:	
+					
+					// Window size toggle
+					case 1:
 					{
-						Game.WindowFullscreen = !Game.WindowFullscreen;			
-						window_set_fullscreen(Game.WindowFullscreen);
+						Game.WindowSize = loop_value(Game.WindowSize + (Input.RightPress ? 1 : -1), 1, 5);
 						
-						menu_update_option(MenuID, OptionID, "FULLSCREEN: " + menu_get_boolean(Game.WindowFullscreen));
+						window_set_size(Game.Width * Game.WindowSize, Game.Height * Game.WindowSize);
 					}
 					break;
 					
@@ -118,8 +124,6 @@ function MenuManualProcess()
 					case 2:
 					{
 						Game.SoundVolume = loop_value(Game.SoundVolume * 10 + (Input.RightPress ? 1 : -1), 0, 11) / 10;
-					
-						menu_update_option(MenuID, OptionID, "SOUND VOLUME: " + string(round(Game.SoundVolume * 100)));	
 					}
 					break;
 		
@@ -127,8 +131,6 @@ function MenuManualProcess()
 					case 3:
 					{
 						Game.MusicVolume = loop_value(Game.MusicVolume * 10 + (Input.RightPress ? 1 : -1), 0, 11) / 10;
-						
-						menu_update_option(MenuID, OptionID, "MUSIC VOLUME: " + string(round(Game.MusicVolume * 100)));
 					}
 					break;
 				}
@@ -139,6 +141,11 @@ function MenuManualProcess()
 			{
 				gamesettings_save("config");
 			}
+			
+			menu_update_option(MenuID, 0, "FULLSCREEN: "   + menu_get_boolean(window_get_fullscreen()));
+			menu_update_option(MenuID, 1, "WINDOW SIZE: "  + string(Game.WindowSize) + "X");
+			menu_update_option(MenuID, 2, "SOUND VOLUME: " + string(round(Game.SoundVolume * 100)));
+			menu_update_option(MenuID, 3, "MUSIC VOLUME: " + string(round(Game.MusicVolume * 100)));
 		}
 		break;
 		
@@ -151,6 +158,14 @@ function MenuManualProcess()
 				file_delete("saveslot" + string(OptionID + 1) + ".bin");	
 		
 				menu_update_option(1, OptionID + 1, "SAVE " + string(OptionID + 1) + " - NEW GAME");
+				menu_update_option(MenuID, OptionID, "DELETED");
+			}
+			else if Input.BPress
+			{
+				for (var i = 0; i < 4; i++)
+				{
+					menu_update_option(MenuID, i, "SLOT " + string_upper(i));
+				}
 			}
 		}
 		break;

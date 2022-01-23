@@ -9,7 +9,7 @@ function ObjBossTriggerMain()
 		if floor(Player.PosX) > x
 		{
 			// Play boss music
-			audio_bgm_play(ChannelPrimary, Boss); 
+			audio_bgm_play(ChannelPrimary, Boss_FM); 
 			
 			// Set new top boundary
 			if ArenaHeight != -1
