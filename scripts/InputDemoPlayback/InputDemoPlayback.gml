@@ -52,7 +52,7 @@ function InputDemoPlayback()
 	// Stop playback if 30 seconds have passed, or we pressed any button
 	if !DemoEnd
 	{
-		if Stage.Time >= 1800 or Game.IntroSequence and Stage.Time > 750
+		if Stage.Time >= 1800 or Game.IntroSequence and Stage.Time >= 800
 		{
 			DemoEnd = true;
 		}	
