@@ -2,7 +2,7 @@ function GameSetup()
 {
 	// Game settings	
 	Game.WindowTitle	 = "Green Hill Revisited";
-	Game.Version		 = 1;
+	Game.Version		 = 0;
 	Game.StartRoom		 = Screen_SEGA;	
 	Game.DevMode		 = false;
 	Game.ShowSplash		 = true;

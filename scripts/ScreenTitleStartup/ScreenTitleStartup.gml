@@ -31,6 +31,7 @@ function ScreenTitleStartup()
 		"",
 		"CHARACTER",
 		"SPIN DASH",
+		"DROP DASH",
 		"SUPER PEEL OUT",
 		"DOUBLE SPIN ATTACK",
 		"ROLLJUMP CONTROL",

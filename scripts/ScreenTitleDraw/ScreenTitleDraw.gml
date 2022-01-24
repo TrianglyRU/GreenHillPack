@@ -100,6 +100,7 @@ function ScreenTitleDraw()
 			"",
 			get_option("character"),
 			get_boolean(Game.SpindashEnabled),
+			get_boolean(Game.DropdashEnabled),
 			get_boolean(Game.PeeloutEnabled),
 			get_boolean(Game.DSpinAttackEnabled),
 			get_boolean(Game.RolljumpControl),
@@ -123,7 +124,7 @@ function ScreenTitleDraw()
 		];
 		
 		// Define a range of options to display
-		var Length = SettingOption <= 13 ? [0, 13] : [14, array_length(StringData) - 1];
+		var Length = SettingOption <= 14 ? [0, 14] : [15, array_length(StringData) - 1];
 		
 		for (var i = Length[0]; i <= Length[1]; i++)
 		{
@@ -135,10 +136,10 @@ function ScreenTitleDraw()
 			{
 				draw_set_colour($FCFCD9);
 			}
-			if i == 0 or i == 14 or i == 20
+			if i == 0 or i == 15 or i == 21
 			{
 				draw_set_halign(fa_center);
-				draw_text(Camera.ViewX + Game.Width / 2, 24 + (i < 14 ? i * 12 : (i - 14) * 12), StringData[i]);
+				draw_text(Camera.ViewX + Game.Width / 2, 24 + (i < 15 ? i * 12 : (i - 15) * 12), StringData[i]);
 			}
 			else
 			{
@@ -146,10 +147,10 @@ function ScreenTitleDraw()
 				var Right = Game.Width == 400 ? 81 : 55;
 				
 				draw_set_halign(fa_left);  
-				draw_text(Camera.ViewX + Left, 24 + (i < 14 ? i * 12 : (i - 14) * 12), StringData[i]);
+				draw_text(Camera.ViewX + Left, 24 + (i < 15 ? i * 12 : (i - 15) * 12), StringData[i]);
 			
 				draw_set_halign(fa_right); 
-				draw_text(Camera.ViewX + Game.Width - Right, 24 + (i < 14 ? i * 12 : (i - 14) * 12), OptionsData[i]);
+				draw_text(Camera.ViewX + Game.Width - Right, 24 + (i < 15 ? i * 12 : (i - 15) * 12), OptionsData[i]);
 			}
 			draw_set_colour($FFFFFF);
 		}

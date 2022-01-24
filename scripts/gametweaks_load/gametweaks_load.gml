@@ -8,6 +8,7 @@ function gametweaks_load()
 		
 		Game.Character			= file_bin_read_byte(File);
 		Game.SpindashEnabled	= file_bin_read_byte(File);
+		Game.DropdashEnabled	= file_bin_read_byte(File);
 		Game.PeeloutEnabled		= file_bin_read_byte(File);
 		Game.DropdashEnabled	= file_bin_read_byte(File);
 		Game.DSpinAttackEnabled = file_bin_read_byte(File);
@@ -27,6 +28,7 @@ function gametweaks_load()
 	{
 		Game.Character			= CharSonic;
 		Game.SpindashEnabled	= true;
+		Game.DropdashEnabled    = false;
 		Game.PeeloutEnabled		= false;
 		Game.DropdashEnabled	= false;
 		Game.DSpinAttackEnabled = false;

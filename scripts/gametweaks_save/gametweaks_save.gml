@@ -9,6 +9,7 @@ function gametweaks_save()
 		
 		file_bin_write_byte(File, Game.Character);
 		file_bin_write_byte(File, Game.SpindashEnabled);
+		file_bin_write_byte(File, Game.DropdashEnabled);
 		file_bin_write_byte(File, Game.PeeloutEnabled);
 		file_bin_write_byte(File, Game.DropdashEnabled);
 		file_bin_write_byte(File, Game.DSpinAttackEnabled);

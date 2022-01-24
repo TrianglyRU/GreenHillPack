@@ -128,13 +128,13 @@ function ScreenTitleProcess()
 			// Loop through options
 			if Input.UpPress
 			{
-				if SettingOption == 16
+				if SettingOption == 17
 				{
-					SettingOption = 13;
+					SettingOption = 14;
 				}
-				else if SettingOption == 22
+				else if SettingOption == 23
 				{
-					SettingOption = 18;
+					SettingOption = 19;
 				}
 				else
 				{
@@ -145,13 +145,13 @@ function ScreenTitleProcess()
 			}
 			else if Input.DownPress
 			{
-				if SettingOption == 13
+				if SettingOption == 14
 				{
-					SettingOption = 16;
+					SettingOption = 17;
 				}
-				else if SettingOption == 18
+				else if SettingOption == 19
 				{
-					SettingOption = 22;
+					SettingOption = 23;
 				}
 				else
 				{
@@ -166,21 +166,22 @@ function ScreenTitleProcess()
 			{
 				case 2: Game.Character		    = toggle_option(Game.Character, 2);	         break;
 				case 3: Game.SpindashEnabled    = toggle_option(Game.SpindashEnabled, 1);    break;
-				case 4: Game.PeeloutEnabled     = toggle_option(Game.PeeloutEnabled, 1);     break;
-				case 5: Game.DSpinAttackEnabled = toggle_option(Game.DSpinAttackEnabled, 1); break;
-				case 6: Game.RolljumpControl    = toggle_option(Game.RolljumpControl, 1);	 break;
-				case 7: Game.FlightCancel       = toggle_option(Game.FlightCancel, 1);	     break;
-				case 8:							  toggle_option("speedcap", 2);				 break;
-				case 9:  Game.ElementalBarriers = toggle_option(Game.ElementalBarriers, 1);  break;
-				case 10: Game.StageTransitions  = toggle_option(Game.StageTransitions, 1);   break;
-				case 11: Game.SmoothRotation    = toggle_option(Game.SmoothRotation, 1);     break;
-				case 12: Game.CDCamera		    = toggle_option(Game.CDCamera, 1);		     break;
-				case 13: Game.CDStageTimer      = toggle_option(Game.CDStageTimer, 1);       break;
-				case 16:						  toggle_option("fullscreen", "");			 break;
-				case 17:						  toggle_option("size", 4);					 break;
-				case 18:						  toggle_option("resolution", "");			 break;
-				case 22:						  toggle_option("music", 10);				 break;
-				case 23:						  toggle_option("sound", 10);				 break;
+				case 4: Game.DropdashEnabled    = toggle_option(Game.DropdashEnabled, 1);    break;
+				case 5: Game.PeeloutEnabled     = toggle_option(Game.PeeloutEnabled, 1);     break;
+				case 6: Game.DSpinAttackEnabled = toggle_option(Game.DSpinAttackEnabled, 1); break;
+				case 7: Game.RolljumpControl    = toggle_option(Game.RolljumpControl, 1);	 break;
+				case 8: Game.FlightCancel       = toggle_option(Game.FlightCancel, 1);	     break;
+				case 9:							  toggle_option("speedcap", 2);				 break;
+				case 10:  Game.ElementalBarriers = toggle_option(Game.ElementalBarriers, 1);  break;
+				case 11: Game.StageTransitions  = toggle_option(Game.StageTransitions, 1);   break;
+				case 12: Game.SmoothRotation    = toggle_option(Game.SmoothRotation, 1);     break;
+				case 13: Game.CDCamera		    = toggle_option(Game.CDCamera, 1);		     break;
+				case 14: Game.CDStageTimer      = toggle_option(Game.CDStageTimer, 1);       break;
+				case 17:						  toggle_option("fullscreen", "");			 break;
+				case 18:						  toggle_option("size", 4);					 break;
+				case 19:						  toggle_option("resolution", "");			 break;
+				case 23:						  toggle_option("music", 10);				 break;
+				case 24:						  toggle_option("sound", 10);				 break;
 				default: break;
 			}
 			
