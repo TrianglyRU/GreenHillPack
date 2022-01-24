@@ -2,29 +2,30 @@ function InterfaceResultsDraw()
 {
 	/* Value Table Reference
 	----------------------------
-	Value[0]  - Timer
-	Value[1]  - Character Head X
-	Value[2]  - 'CHARACTER' X
-	Value[3]  - 'GOT THROUGH' X
-	Value[4]  - 'SCORE' X
-	Value[5]  - 'TIME BONUS' X
-	Value[6]  - 'RINGS BONUS' X
-	Value[7]  - 'ACT' X
-	Value[8]  - State
-	Value[9]  - Ring Bonus
-	Value[10] - Time Bonus
-	Value[11] - Continue flag
+	Value[0]  -  Timer
+	Value[1]  -  State
+	Value[2]  - 'CHARACTER HAS' X OFFSET
+	Value[3]  - 'PASSED' X OFFSET
+	Value[4]  -  OVAL X OFFSET
+	Value[5]  - 'SCORE' X OFFSET
+	Value[6]  - 'TIME BONUS' X OFFSET
+	Value[7]  - 'RINGS BONUS' X OFFSET
+	Value[8]  - 'ACT' X
+	Value[9]  -  Ring Bonus
+	Value[10] -  Time Bonus
 	----------------------------
 	*/
 	
 	if Stage.IsFinished < 2
 	{
-		exit;
+		return;
 	}
+	
 	if !fade_check(StateActive)
 	{	
-		switch ResultsValue[8]
+		switch ResultsValue[1]
 		{
+			// Intialisation. Calculate bonuses
 			case 0:
 			{
 				// Calculate ring bonus
@@ -76,61 +77,82 @@ function InterfaceResultsDraw()
 						break;
 					}
 				}			
-			
-				// Check if we can get a continue
-				ResultsValue[11] = (ResultsValue[9] + ResultsValue[10] >= 10000);
-			
+				
 				// Increment state
-				ResultsValue[8]++;
+				ResultsValue[1]++;
 			}
 			break;
 			
-			// State 1
+			// Wait
 			case 1:
 			{
-				// Shift assets
-				if (++ResultsValue[0]) < 300
+				if (++ResultsValue[0]) > 46
 				{
-					if ResultsValue[2]
+					ResultsValue[0]  = 0;
+					ResultsValue[1] += 1;
+				}
+			}
+			break;
+			
+			// Move assets
+			case 2:
+			{
+				var Speed = 16 * (Game.Width / 320);
+				
+				ResultsValue[2] = min(ResultsValue[2] + Speed, 0);
+				ResultsValue[4] = max(ResultsValue[4] - Speed, 0);
+				
+				if ResultsValue[2] == 0 and ResultsValue[3] != 0
+				{
+					if (++ResultsValue[0]) > 6
 					{
-						ResultsValue[2] -= 20;
+						ResultsValue[3] = min(ResultsValue[3] + Speed, 0);
 					}
-					else if ResultsValue[3]
+					if ResultsValue[3] == 0
 					{
-						ResultsValue[3] -= 20;
-					}
-					else if ResultsValue[7]
-					{
-						if ResultsValue[1]
-						{
-							ResultsValue[1] -= 20;
-						}
-						ResultsValue[7] -= 20;
-					}
-					else
-					{		
-						if ResultsValue[4]
-						{
-							ResultsValue[4] -= 20;
-						}
-						if ResultsValue[5] 
-						{
-							ResultsValue[5] -= 20;
-						}
-						if ResultsValue[6] 
-						{
-							ResultsValue[6] -= 20;
-						}
+						ResultsValue[0] = 0;
 					}
 				}
-				else
+				if ResultsValue[3] == 0 and ResultsValue[8] != 0
 				{
-					if ResultsValue[0] == 300
+					ResultsValue[8] = max(ResultsValue[8] - Speed, 0);
+				}
+				if ResultsValue[8] == 0
+				{
+					if ResultsValue[0] > 5
 					{
-						audio_sfx_play(sfxScoreCount, true);
+						ResultsValue[5] = max(ResultsValue[5] - Speed, 0);
 					}
+					if ResultsValue[0] > 7
+					{
+						ResultsValue[6] = max(ResultsValue[6] - Speed, 0);
+					}
+					if ResultsValue[0] > 9
+					{
+						ResultsValue[7] = max(ResultsValue[7] - Speed, 0);
+					}
+					ResultsValue[0]++;
+				}
 				
-					// Count bonuses
+				// Increment state
+				if ResultsValue[7] == 0
+				{
+					ResultsValue[0]  = 0;
+					ResultsValue[1] += 1;	
+				}
+			}
+			break;
+			
+			// Count
+			case 3:
+			{
+				if (ResultsValue[0]++) == 180
+				{
+					audio_sfx_play(sfxScoreCount, true);
+				}
+				
+				if ResultsValue[0] >= 180
+				{
 					if ResultsValue[10]
 					{ 
 						ResultsValue[10] -= 100;
@@ -141,114 +163,74 @@ function InterfaceResultsDraw()
 						ResultsValue[9] -= 100;
 						Player.Score    += 100;
 					}
-			
-					// Score tally
+					
 					if ResultsValue[10] == 0 and ResultsValue[9] == 0
 					{
 						audio_sfx_play(sfxScoreTally, false);
 						audio_sfx_stop(sfxScoreCount);
-					
-						// If earned more than 10000 points, grant continue
-						if ResultsValue[11]
-						{
-							ResultsValue[8] = 3;
-							ResultsValue[0] = -1;
-						}
-					
-						// Else don't grant anything
-						else
-						{
-							ResultsValue[8] = 2;
-							ResultsValue[0] = 0;
-						}
+						
+						// Increment state
+						ResultsValue[0]  = 0;
+						ResultsValue[1] += 1;
 					}
 				}
 			}
 			break;
-			case 2:
+			
+			// Fade out / move out
+			case 4:
 			{
-				// No continue
-				if (++ResultsValue[0]) == 180
+				if !Game.StageTransitions or Stage.ActID == Stage.FinalActID
 				{
-					if Stage.ActID == Stage.FinalActID or !Game.StageTransitions
+					if (ResultsValue[0]++) == 180
 					{
-						Game.UpdateAnimations = false;
-						Stage.UpdateObjects   = false;
-						
 						fade_perform(ModeInto, BlendBlack, 1);
-					}
-					Stage.IsFinished = 3;
-				}
-			}
-			break;
-			case 3:
-			{
-				// Earned continue
-				if ResultsValue[0] == -1
-				{
-					if !audio_sfx_is_playing(sfxScoreTally)
-					{
-						Game.Continues++;
-						audio_sfx_play(sfxContinue, false);
 						
-						// Increment timer
-						ResultsValue[0] = 0;
+						Camera.Enabled        = false;
+						Stage.UpdateObjects   = false;
+						Game.UpdateAnimations = false;
 					}
 				}
-				else if (++ResultsValue[0]) == 260
+				else if (ResultsValue[0]++) >= 180
 				{
-					if Stage.ActID == Stage.FinalActID or !Game.StageTransitions
+					var Speed = 16 * (Game.Width / 320);
+					
+					if ResultsValue[6] > 240 * (Game.Width / 320) * 1.5
 					{
-						Game.UpdateAnimations = false;
-						Stage.UpdateObjects   = false;
-						
-						fade_perform(ModeInto, BlendBlack, 1);
+						ResultsValue[1]	+= 1;
+						Stage.IsFinished = 3;
 					}
-					Stage.IsFinished = 3;
+					ResultsValue[2] -= Speed * 2;
+					ResultsValue[3] -= Speed * 2;
+					ResultsValue[4] += Speed * 2;
+					ResultsValue[5] += Speed * 2;
+					ResultsValue[6] += Speed * 2;
+					ResultsValue[7] += Speed * 2;
+					ResultsValue[8] += Speed * 2;			
 				}
 			}
 			break;
 		}
 	}
-	
-	// Get screen centre
-	var CentreX = Game.Width  / 2;
-	var CentreY = Game.Height / 2;
 	
 	// Draw assets
-	draw_sprite(gui_results_char,	   Game.Character, CentreX - 14 - ResultsValue[2], CentreY - 52);
-	draw_sprite(gui_results_act,	   Stage.ActID,    CentreX + 46 + ResultsValue[7], CentreY - 23);	
-	draw_sprite(gui_results_through,   0,			   CentreX - 15 - ResultsValue[3], CentreY - 32);
-	draw_sprite(gui_results_score,	   0,			   CentreX - 58 + ResultsValue[4], CentreY + 15);
-	draw_sprite(gui_results_timebonus, 0,			   CentreX - 38 + ResultsValue[5], CentreY + 31);
-	draw_sprite(gui_results_ringbonus, 0,			   CentreX - 38 + ResultsValue[6], CentreY + 47);
-	
-	// Draw continue icon
-	if ResultsValue[8] == 3 and ResultsValue[0] >= 0
-	{
-		if (ResultsValue[0] mod 32) <= 15
-		{
-			switch Game.Character
-			{
-				case CharSonic:
-					var Icon = gui_icon_sonic;
-				break;
-				case CharTails:
-					var Icon = gui_icon_tails;
-				break;
-				case CharKnuckles:
-					var Icon = gui_icon_knuckles;
-				break;
-			}
-			draw_animated_sprite(Icon, 8, true, CentreX + 96, CentreY + 11);
-		}
-	}
-	
-	// Draw counters
+	var CentreX = Game.Width  / 2;
+	var CentreY = Game.Height / 2;
+		
+	draw_sprite(gui_results_oval, Game.Character, CentreX + 44 + ResultsValue[4], CentreY - 36);
+	draw_sprite(gui_results_act,  Stage.ActID,    CentreX + 45 + ResultsValue[8], CentreY - 26);
+		
+	draw_sprite(gui_results_character, Game.Character, CentreX + 89 + ResultsValue[2], CentreY - 60);
+	draw_sprite(gui_results_passed,    0,			   CentreX + 47 + ResultsValue[3], CentreY - 40);
+		
+	draw_sprite(gui_results_score,	   0, CentreX - 79 + ResultsValue[5], CentreY - 13);
+	draw_sprite(gui_results_timebonus, 0, CentreX - 79 + ResultsValue[6], CentreY + 3);
+	draw_sprite(gui_results_ringbonus, 0, CentreX - 79 + ResultsValue[7], CentreY + 19);
+		
 	draw_set_font(game_font(font_counter));
 	draw_set_halign(fa_right);
 	
-	draw_text(CentreX + 83 + ResultsValue[4], CentreY + 13, Player.Score);
-	draw_text(CentreX + 83 + ResultsValue[5], CentreY + 29, ResultsValue[10]);
-	draw_text(CentreX + 83 + ResultsValue[6], CentreY + 45, ResultsValue[9]);
+	draw_text(CentreX + 84 + ResultsValue[5], CentreY - 6,  Player.Score);
+	draw_text(CentreX + 84 + ResultsValue[6], CentreY + 10, ResultsValue[10]);
+	draw_text(CentreX + 84 + ResultsValue[7], CentreY + 26, ResultsValue[9]);
 }

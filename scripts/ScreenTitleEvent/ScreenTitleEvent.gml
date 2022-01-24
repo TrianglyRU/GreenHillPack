@@ -41,7 +41,8 @@ function ScreenTitleEvent()
 						Game.DemoQueue += 1;
 						
 						// Load GHZ2
-						demodata_load("demo_ghz2"); room_goto(Stage_GHZ2);
+						demodata_load(Game.Width < 400 ? "demo_ghz2_s" : "demo_ghz2"); 
+						room_goto(Stage_GHZ2);
 					}
 					break;
 					case 2:
@@ -50,7 +51,8 @@ function ScreenTitleEvent()
 						Game.DemoQueue -= 2;
 						
 						// Load GHZ3
-						demodata_load("demo_ghz3"); room_goto(Stage_GHZ3);
+						demodata_load(Game.Width < 400 ? "demo_ghz3_s" : "demo_ghz3"); 
+						room_goto(Stage_GHZ3);
 					}
 					break;
 				}

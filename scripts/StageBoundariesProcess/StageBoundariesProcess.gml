@@ -1,5 +1,10 @@
 function StageBoundariesProcess()
 {	
+	if Player.Death or fade_check(StateActive)
+	{
+		return;
+	}
+	
 	// Update left boundary
 	if LeftBoundary < TargetLeftBoundary
 	{

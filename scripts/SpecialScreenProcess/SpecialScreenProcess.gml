@@ -64,7 +64,7 @@ function SpecialScreenProcess()
 						if Game.Score mod 50000 == 0
 						{
 							Game.Lives++;
-							audio_bgm_play(ChannelSecondary, ExtraLife);
+							audio_bgm_play(ChannelSecondary, ExtraLife_FM);
 						}
 					}
 					else if Game.Emeralds != 7

@@ -5,15 +5,17 @@ function application_set_size(width,height)
 	window_set_size(width * Game.WindowSize, height * Game.WindowSize);
 	camera_set_view_size(GameCamera, width, height);
 
-	// Update surfaces
+	// Clear palette surfaces. They will be created automatically once again
 	if surface_exists(Palette.SurfaceMain)
 	{
-		surface_resize(Palette.SurfaceMain, width, height);
+		surface_free(Palette.SurfaceMain);
 	}
 	if surface_exists(Palette.SurfaceOverlay)
 	{
-		surface_resize(Palette.SurfaceOverlay, width, height);
+		surface_free(Palette.SurfaceMain);
 	}
+	
+	// Resize main surface
 	surface_resize(application_surface, width, height);
 	
 	// Update room size

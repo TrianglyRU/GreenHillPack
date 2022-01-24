@@ -12,7 +12,7 @@ function ObjStarPostMain()
 					// Increment state by 2		
 					Angle		= 900;
 					State		= 2;
-					image_index = 2;
+					image_index = 3;
 					
 					// Update unload type
 					object_set_unload(TypePause);
@@ -47,7 +47,7 @@ function ObjStarPostMain()
 					if State == 1 and ID <= ThisObject.ID
 					{
 						State       = 2;
-						image_index = 1;
+						image_index = 2;
 					}	
 				}
 			
@@ -67,7 +67,7 @@ function ObjStarPostMain()
 			// Set animation
 			else
 			{
-				image_index = 2;
+				image_index = 3;
 				
 				// Update unload type
 				object_set_unload(TypePause);

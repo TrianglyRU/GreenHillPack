@@ -21,11 +21,7 @@ function ObjPrisonMain()
 				}
 				Stage.IsFinished  = 1;
 				Stage.TimeEnabled = false;
-				
-				if !Game.StageTransitions
-				{
-					Input.IgnoreInput = true;
-				}
+				Input.IgnoreInput = true;
 				
 				// Increment state
 				State	  += 1;

@@ -20,4 +20,5 @@ function AudioPropertiesSetup()
 	audio_bgm_setDAC(Invincibility_FM, Invincibility_DAC);
 	audio_bgm_setDAC(HighSpeed_FM,	   HighSpeed_DAC);
 	audio_bgm_setDAC(Intro_FM,		   Intro_DAC);
+	audio_bgm_setDAC(ExtraLife_FM,	   ExtraLife_DAC);
 }

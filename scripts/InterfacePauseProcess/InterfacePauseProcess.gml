@@ -12,39 +12,22 @@ function InterfacePauseProcess()
 		// Loop through options
 		if Input.DownPress
 		{
-			PauseValue[0] = loop_value(PauseValue[0] + 1, 0, PauseValue[1] ? 2 : 3);
-			audio_sfx_play(sfxPauseSwitch, false);
+			PauseValue = loop_value(PauseValue + 1, 0, 3); audio_sfx_play(sfxPauseSwitch, false);
 		}
 		else if Input.UpPress
 		{
-			PauseValue[0] = loop_value(PauseValue[0] - 1, 0, PauseValue[1] ? 2 : 3);
-			audio_sfx_play(sfxPauseSwitch, false);
+			PauseValue = loop_value(PauseValue - 1, 0, 3); audio_sfx_play(sfxPauseSwitch, false);
 		}
 	
 		// React to action or start button
-		if (Input.StartPress or Input.ABCPress) and !fade_check(StateActive)
+		if !fade_check(StateActive)
 		{
-			// Check if we're in RESTART or EXIT submenu
-			if PauseValue[1]
-			{
-				if PauseValue[0]
-				{
-					PauseValue[1] = 0;
-					PauseValue[0] = 0;
-					
-					audio_sfx_play(sfxPauseBack, false);
-				}
-				else
-				{	
-					audio_sfx_play(sfxPauseSelect, false);
-					fade_perform(ModeInto, BlendBlack, 1);
-				}
-			}
+			PauseTimer++;
+			PauseTimer = PauseTimer mod 16;
 			
-			// Main pause menu
-			else switch PauseValue[0]
+			if (Input.StartPress or Input.ABCPress) then switch PauseValue
 			{
-				// Return to stage
+				// Continue
 				case 0:
 				{
 					Stage.IsPaused        = false;
@@ -53,7 +36,6 @@ function InterfacePauseProcess()
 					Camera.Enabled        = true;
 					Game.UpdateAnimations = true;
 					
-					// Activate objects
 					instance_activate_range(Camera.ViewX);
 					
 					audio_resume_all();
@@ -61,13 +43,13 @@ function InterfacePauseProcess()
 				}
 				break;
 					
-				// Enter RESTART menu if we have more than 1 life
+				// Restart
 				case 1: 
 				{
 					if Player.Lives > 1
 					{
-						PauseValue[1] = 1;
-						PauseValue[0] = 0;
+						fade_perform(ModeInto, BlendBlack, 1);
+						
 						audio_sfx_play(sfxPauseSelect, false);
 					}
 					else
@@ -77,11 +59,11 @@ function InterfacePauseProcess()
 				}
 				break;
 					
-				// Enter EXIT menu
+				// Exit
 				case 2: 
 				{
-					PauseValue[1] = 2;
-					PauseValue[0] = 0;
+					fade_perform(ModeInto, BlendBlack, 1);
+					
 					audio_sfx_play(sfxPauseSelect, false);
 				}
 				break;
@@ -93,15 +75,15 @@ function InterfacePauseProcess()
 		}
 		if fade_check(StateMax)
 		{
-			// Restart the stage if we're in RESTART menu
-			if PauseValue[1] == 1
+			// Restart the Stage
+			if PauseValue == 1
 			{
 				Game.Lives -= 1;
 				room_restart();						
 			}
 					
-			// Exit to Menu
-			else if PauseValue[1] == 2
+			// Exit to Title Screen
+			else if PauseValue == 2
 			{
 				room_goto(Screen_Title);
 						

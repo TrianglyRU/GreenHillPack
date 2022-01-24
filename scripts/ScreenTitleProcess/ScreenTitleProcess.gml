@@ -111,7 +111,10 @@ function ScreenTitleProcess()
 				break;
 				case 2:
 				{
-					fade_perform(ModeInto, BlendBlack, 1); audio_sfx_play(sfxStarPost, false);
+					fade_perform(ModeInto, BlendBlack, 1); 
+					audio_sfx_play(sfxStarPost, false);
+					
+					audio_bgm_stop(ChannelPrimary, 0.5);
 					
 					Game.UpdateAnimations = false;
 					LoadFlag			  = TitleLoad.loadEnd; 

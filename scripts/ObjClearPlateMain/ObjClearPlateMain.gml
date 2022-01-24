@@ -114,6 +114,9 @@ function ObjClearPanelMain()
 						Player.Xsp		=  1.5 * Player.Facing;
 						Player.Ysp		= -3.25;
 						Player.Grounded =  false;
+						
+						// Force animation
+						Player.Animation = ClearAnim;
 					}
 					else
 					{
@@ -132,10 +135,10 @@ function ObjClearPanelMain()
 					Player.Inertia = 0;
 					Player.Xsp	   = 0;
 					Player.Ysp	   = 0;
+					
+					// Force animation
+					Player.Animation = ClearAnim;
 				}
-				
-				// Force animation
-				Player.Animation = ClearAnim;
 			}
 			
 			/* Original behaviour */

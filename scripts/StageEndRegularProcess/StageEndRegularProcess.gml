@@ -1,9 +1,9 @@
 function StageEndRegularProcess()
 {
 	// Exit if stage transition should be performed
-	if Game.StageTransitions
+	if !(!Game.StageTransitions or ActID == FinalActID)
 	{
-		exit;
+		return;
 	}
 	
 	// Wait until we fade out
@@ -37,7 +37,16 @@ function StageEndRegularProcess()
 	}
 
 	// Load into the next stage
-	if NextStage != noone
+	if room == Stage_GHZ3 and !file_exists("credits.bin")
+	{
+		var File = file_bin_open("credits.bin", 1);
+		
+		file_bin_rewrite(File);
+		file_bin_close(File);
+		
+		room_goto(Screen_Credits);
+	}
+	else if NextStage != noone
 	{
 		room_goto(NextStage);
 	}

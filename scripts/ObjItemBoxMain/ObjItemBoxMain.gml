@@ -240,7 +240,7 @@ function ObjItemBoxMain()
 				break;
 				case "Extra Life":
 				{
-					Player.Lives++; audio_bgm_play(ChannelSecondary, ExtraLife);
+					Player.Lives++; audio_bgm_play(ChannelSecondary, ExtraLife_FM);
 				}
 				break;
 				case "Eggman":

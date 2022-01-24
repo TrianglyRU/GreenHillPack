@@ -11,4 +11,9 @@ function ObjStarPostStartup()
 	// Set object properties
 	object_set_triggerbox(-8, 8, -52, 52);
 	object_set_depth(Player, 0);
+	
+	if Game.Character == CharKnuckles
+	{
+		image_index = 1;
+	}
 }

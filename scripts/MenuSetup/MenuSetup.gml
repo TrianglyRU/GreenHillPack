@@ -15,8 +15,9 @@ function MenuSetup()
 	
 	// Screen select
 	menu_add_header(6,    "SELECT A SCREEN");
-	menu_add_option(6, 0, "SEGA SCREEN",  Screen_SEGA);
-	menu_add_option(6, 1, "TITLE SCREEN", Screen_Title);
+	menu_add_option(6, 0, "SEGA",    Screen_SEGA);
+	menu_add_option(6, 1, "TITLE",   Screen_Title);
+	menu_add_option(6, 2, "CREDITS", Screen_Credits);
 	
 	#region Other
 	{

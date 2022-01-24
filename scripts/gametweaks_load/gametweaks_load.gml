@@ -23,4 +23,21 @@ function gametweaks_load()
 		
 		file_bin_close(File);
 	}
+	else
+	{
+		Game.Character			= CharSonic;
+		Game.SpindashEnabled	= true;
+		Game.PeeloutEnabled		= false;
+		Game.DropdashEnabled	= false;
+		Game.DSpinAttackEnabled = false;
+		Game.RolljumpControl	= false;
+		Game.FlightCancel		= false;
+		Game.GroundSpeedcap		= false;
+		Game.AirSpeedcap		= false;
+		Game.StageTransitions	= true;
+		Game.SmoothRotation		= false;
+		Game.CDCamera			= false;
+		Game.CDStageTimer		= false;
+		Game.ElementalBarriers	= false;
+	}
 }

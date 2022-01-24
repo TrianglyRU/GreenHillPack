@@ -62,14 +62,15 @@ function ScreenSegaProcess()
 			}
 			else if fade_check(StateMax)
 			{
-				if file_exists("introfile.bin")
+				if file_exists("versioncheck.bin")
 				{
 					room_goto(Screen_Title);
 				}
 				else
 				{
-					var File = file_bin_open("introfile.bin", 1);
-					file_bin_rewrite(File);
+					var File = file_bin_open("versioncheck.bin", 1);
+					
+					file_bin_write_byte(File, Game.Version); 
 					file_bin_close(File);
 					
 					// Set settings in case they were overwritten (somehow?)

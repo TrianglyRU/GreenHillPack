@@ -44,19 +44,19 @@ function PaletteSurfaceProcess()
 			shader_set_uniform_f(Shader.PalUVs2,		 ColourSet[1][3], ColourSet[1][4], ColourSet[1][5]);
 		}
 		
-		// Render main surface
+		// Render main palette surface
 		draw_surface(SurfaceMain, 0, 0);
 		shader_reset();
 	}
 	
-	// Render overlay surface
+	// Render overlay palette surface
 	if surface_exists(SurfaceOverlay)
 	{
 		draw_surface(SurfaceOverlay, 0, 0);
 	}
 	surface_reset_target();
 	
-	// Draw application surface
+	// Draw application (game) surface
 	application_surface_draw_enable(true);
 	draw_surface(application_surface, 0, 0);
 	application_surface_draw_enable(false);

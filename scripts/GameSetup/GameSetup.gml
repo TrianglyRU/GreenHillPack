@@ -1,10 +1,11 @@
 function GameSetup()
 {
-	// Game settings
+	// Game settings	
 	Game.WindowTitle	 = "Green Hill Revisited";
+	Game.Version		 = 1;
 	Game.StartRoom		 = Screen_SEGA;	
-	Game.DevMode		 = true;
-	Game.ShowSplash		 = false;
+	Game.DevMode		 = false;
+	Game.ShowSplash		 = true;
 	Game.Width			 = 400;		// <- Default value. Can be overwritten by config file
 	Game.Height			 = 224;
 	Game.KeyboardControl = [vk_up, vk_down, vk_left, vk_right, ord("Z"), ord("X"), ord("C"), vk_space, vk_enter];
@@ -44,7 +45,7 @@ function GameSetup()
 	Game.SaveData		   = 0;
 	Game.SaveState         = 0;
 	Game.FullscreenMode    = 0;
-	Game.WindowSize	       = 0;
+	Game.WindowSize	       = 3;
 	Game.MusicVolume	   = 0;
 	Game.SoundVolume	   = 0;
 	Game.Score		       = 0;

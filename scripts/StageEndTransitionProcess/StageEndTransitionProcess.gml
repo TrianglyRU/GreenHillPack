@@ -1,9 +1,9 @@
 function StageEndTransitionProcess()
 {
 	// Exit if stage transition shouldn't be performed
-	if !Game.StageTransitions
+	if !(Game.StageTransitions and ActID != FinalActID)
 	{
-		exit;
+		return;
 	}
 	
 	/* Lock the left boundary at certain point. This isn't needed 
@@ -22,7 +22,7 @@ function StageEndTransitionProcess()
 	// Wait until flag is set
 	if IsFinished != 3
 	{
-		exit;
+		return;
 	}
 	
 	ds_list_destroy(Player.RecordedPosX);
@@ -34,44 +34,18 @@ function StageEndTransitionProcess()
 	Game.StarPostData    = [];
 	Game.SpecialRingList = [];
 	
-	// Save our progress at the end of the zone
-	if ActID == FinalActID
+	var Length = array_length(Background.BGValues);
+	for (var i = 0; i < Length; i++)
 	{
-		if Game.ActiveSave != -1
-		{
-			if ZoneID == FinalZoneID
-			{
-				// Mark savefile as completed if this was the last zone
-				Game.SaveState = 1;
-			}
-			else
-			{
-				Game.Stage++;
-			}
-			gamedata_save(Game.ActiveSave);
-		}
-	}
-	
-	// Buffer data
-	else
-	{
-		var Length = array_length(Background.BGValues);
-		for (var i = 0; i < Length; i++)
-		{
-			Game.TransitionData[3][i] = Background.BGValues[i][12];
-		}	
-		Game.TransitionData[0] = floor(Player.PosX) - (Camera.ViewX + Game.Width / 2);
-		Game.TransitionData[1] = floor(ClearPanel.y + sprite_get_height(ClearPanel.sprite_index) div 2 - Camera.ViewY);	
-		Game.TransitionData[2] = Player.BarrierType;
-	}
+		Game.TransitionData[3][i] = Background.BGValues[i][12];
+	}	
+	Game.TransitionData[0] = floor(Player.PosX) - (Camera.ViewX + Game.Width / 2);
+	Game.TransitionData[1] = floor(ClearPanel.y + sprite_get_height(ClearPanel.sprite_index) div 2 - Camera.ViewY);	
+	Game.TransitionData[2] = Player.BarrierType;
 
 	// Load into the next stage
-	if !array_equals(Game.TransitionData, []) 
-	or  array_equals(Game.TransitionData, []) and fade_check(StateMax)
+	if NextStage != noone
 	{
-		if NextStage != noone
-		{
-			room_goto(NextStage);
-		}
+		room_goto(NextStage);
 	}
 }

@@ -52,7 +52,7 @@ function ScreenTitleDraw()
 			{
 				draw_animated_sprite(tex_title_sonic1, 8, false, SonicX, SonicY);
 			}
-			else if StateTimer < 376
+			else if (!audio_is_playing(Intro_FM) and StateTimer < 376 or audio_is_playing(Intro_FM) and StateTimer < 600)
 			{
 				draw_animated_sprite(tex_title_sonic2, 8, false, SonicX, SonicY);
 			}

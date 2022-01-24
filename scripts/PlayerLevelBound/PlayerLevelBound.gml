@@ -8,7 +8,7 @@ function PlayerLevelBound()
 		PosX    = Stage.LeftBoundary + 16;
 		
 	}
-	if !Stage.IsFinished or Game.StageTransitions
+	if !Stage.IsFinished or (Game.StageTransitions and Stage.ActID != Stage.FinalActID)
 	{
 		if floor(PosX + Xsp) > Stage.RightBoundary - 24 
 		{

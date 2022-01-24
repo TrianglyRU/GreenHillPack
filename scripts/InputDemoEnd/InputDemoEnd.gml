@@ -8,7 +8,7 @@ function InputDemoEnd()
 			// Fade out
 			if Game.IntroSequence
 			{
-				fade_perform(ModeInto, BlendWhite, 1);
+				fade_perform(ModeInto, BlendWhite, 0.75);
 			}
 			else
 			{

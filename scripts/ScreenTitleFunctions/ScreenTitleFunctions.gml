@@ -146,7 +146,10 @@ function ScreenTitleFunctions()
 				}
 				
 				// Update volume
-				audio_sound_gain(TitleTheme_FM, Game.MusicVolume, 0);
+				audio_sound_gain(TitleTheme_FM,  Game.MusicVolume, 0);
+				audio_sound_gain(TitleTheme_DAC, Game.MusicVolume, 0);
+				audio_sound_gain(Intro_FM,		 Game.MusicVolume, 0);
+				audio_sound_gain(Intro_DAC,		 Game.MusicVolume, 0);
 			}
 			break;
 			case "sound":
